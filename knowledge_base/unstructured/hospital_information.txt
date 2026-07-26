@@ -1,0 +1,5399 @@
+========================================================================
+[HOSP-001]
+
+Category:
+Hospital Overview
+
+Title:
+Hospital Overview #1
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 101
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9001
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, hospital overview, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-001
+NAV-001
+FAQ-001
+
+========================================================================
+
+========================================================================
+[HOSP-002]
+
+Category:
+Reception
+
+Title:
+Reception Services #2
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 102
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9002
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, reception, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-002
+NAV-002
+FAQ-002
+
+========================================================================
+
+========================================================================
+[HOSP-003]
+
+Category:
+Registration
+
+Title:
+Patient Registration #3
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 103
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9003
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, registration, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-003
+NAV-003
+FAQ-003
+
+========================================================================
+
+========================================================================
+[HOSP-004]
+
+Category:
+Help Desk
+
+Title:
+Patient Help Desk #4
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 104
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9004
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, help desk, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-004
+NAV-004
+FAQ-004
+
+========================================================================
+
+========================================================================
+[HOSP-005]
+
+Category:
+Outpatient
+
+Title:
+Outpatient Services #5
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 105
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9005
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, outpatient, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-005
+NAV-005
+FAQ-005
+
+========================================================================
+
+========================================================================
+[HOSP-006]
+
+Category:
+Emergency
+
+Title:
+Emergency Services #6
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 106
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9006
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, emergency, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-006
+NAV-006
+FAQ-006
+
+========================================================================
+
+========================================================================
+[HOSP-007]
+
+Category:
+ICU
+
+Title:
+Intensive Care #7
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 107
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9007
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, icu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-007
+NAV-007
+FAQ-007
+
+========================================================================
+
+========================================================================
+[HOSP-008]
+
+Category:
+NICU
+
+Title:
+Neonatal Care #8
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 108
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9008
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, nicu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-008
+NAV-008
+FAQ-008
+
+========================================================================
+
+========================================================================
+[HOSP-009]
+
+Category:
+Pharmacy
+
+Title:
+Hospital Pharmacy #9
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 109
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9009
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, pharmacy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-009
+NAV-009
+FAQ-009
+
+========================================================================
+
+========================================================================
+[HOSP-010]
+
+Category:
+Laboratory
+
+Title:
+Clinical Laboratory #10
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 110
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9010
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, laboratory, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-010
+NAV-010
+FAQ-010
+
+========================================================================
+
+========================================================================
+[HOSP-011]
+
+Category:
+Radiology
+
+Title:
+Radiology Services #11
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 111
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9011
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, radiology, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-011
+NAV-011
+FAQ-011
+
+========================================================================
+
+========================================================================
+[HOSP-012]
+
+Category:
+MRI
+
+Title:
+MRI Services #12
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 112
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9012
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, mri, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-012
+NAV-012
+FAQ-012
+
+========================================================================
+
+========================================================================
+[HOSP-013]
+
+Category:
+CT Scan
+
+Title:
+CT Scan Services #13
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 113
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9013
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ct scan, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-013
+NAV-013
+FAQ-013
+
+========================================================================
+
+========================================================================
+[HOSP-014]
+
+Category:
+Ultrasound
+
+Title:
+Ultrasound Services #14
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 114
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9014
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ultrasound, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-014
+NAV-014
+FAQ-014
+
+========================================================================
+
+========================================================================
+[HOSP-015]
+
+Category:
+Blood Bank
+
+Title:
+Blood Bank #15
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 115
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9015
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, blood bank, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-015
+NAV-015
+FAQ-015
+
+========================================================================
+
+========================================================================
+[HOSP-016]
+
+Category:
+Billing
+
+Title:
+Billing Services #16
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 116
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9016
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, billing, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-016
+NAV-016
+FAQ-016
+
+========================================================================
+
+========================================================================
+[HOSP-017]
+
+Category:
+Insurance
+
+Title:
+Insurance Desk #17
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 117
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9017
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, insurance, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-017
+NAV-017
+FAQ-017
+
+========================================================================
+
+========================================================================
+[HOSP-018]
+
+Category:
+Medical Records
+
+Title:
+Medical Records #18
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 118
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9018
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, medical records, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-018
+NAV-018
+FAQ-018
+
+========================================================================
+
+========================================================================
+[HOSP-019]
+
+Category:
+Telemedicine
+
+Title:
+Telemedicine #19
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 119
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9019
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, telemedicine, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-019
+NAV-019
+FAQ-019
+
+========================================================================
+
+========================================================================
+[HOSP-020]
+
+Category:
+Cafeteria
+
+Title:
+Hospital Cafeteria #20
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 120
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9020
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, cafeteria, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-020
+NAV-020
+FAQ-020
+
+========================================================================
+
+========================================================================
+[HOSP-021]
+
+Category:
+Parking
+
+Title:
+Visitor Parking #21
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 121
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9021
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, parking, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-021
+NAV-021
+FAQ-021
+
+========================================================================
+
+========================================================================
+[HOSP-022]
+
+Category:
+Security
+
+Title:
+Security Services #22
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 122
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9022
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, security, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-022
+NAV-022
+FAQ-022
+
+========================================================================
+
+========================================================================
+[HOSP-023]
+
+Category:
+Accessibility
+
+Title:
+Accessibility #23
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 123
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9023
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, accessibility, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-023
+NAV-023
+FAQ-023
+
+========================================================================
+
+========================================================================
+[HOSP-024]
+
+Category:
+Waiting Area
+
+Title:
+Waiting Lounge #24
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 124
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9024
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, waiting area, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-024
+NAV-024
+FAQ-024
+
+========================================================================
+
+========================================================================
+[HOSP-025]
+
+Category:
+Wheelchair
+
+Title:
+Wheelchair Assistance #25
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 125
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9025
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, wheelchair, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-025
+NAV-025
+FAQ-025
+
+========================================================================
+
+========================================================================
+[HOSP-026]
+
+Category:
+Patient Rights
+
+Title:
+Patient Rights #26
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 126
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9026
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, patient rights, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-026
+NAV-026
+FAQ-026
+
+========================================================================
+
+========================================================================
+[HOSP-027]
+
+Category:
+Visitor Policy
+
+Title:
+Visitor Information #27
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 127
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9027
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, visitor policy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-027
+NAV-027
+FAQ-027
+
+========================================================================
+
+========================================================================
+[HOSP-028]
+
+Category:
+Discharge
+
+Title:
+Discharge Services #28
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 128
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9028
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, discharge, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-028
+NAV-028
+FAQ-028
+
+========================================================================
+
+========================================================================
+[HOSP-029]
+
+Category:
+Feedback
+
+Title:
+Feedback Cell #29
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 129
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9029
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, feedback, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-029
+NAV-029
+FAQ-029
+
+========================================================================
+
+========================================================================
+[HOSP-030]
+
+Category:
+Complaint
+
+Title:
+Grievance Cell #30
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 130
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9030
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, complaint, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-030
+NAV-030
+FAQ-030
+
+========================================================================
+
+========================================================================
+[HOSP-031]
+
+Category:
+Hospital Overview
+
+Title:
+Hospital Overview #31
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 131
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9031
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, hospital overview, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-031
+NAV-031
+FAQ-031
+
+========================================================================
+
+========================================================================
+[HOSP-032]
+
+Category:
+Reception
+
+Title:
+Reception Services #32
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 132
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9032
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, reception, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-032
+NAV-032
+FAQ-032
+
+========================================================================
+
+========================================================================
+[HOSP-033]
+
+Category:
+Registration
+
+Title:
+Patient Registration #33
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 133
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9033
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, registration, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-033
+NAV-033
+FAQ-033
+
+========================================================================
+
+========================================================================
+[HOSP-034]
+
+Category:
+Help Desk
+
+Title:
+Patient Help Desk #34
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 134
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9034
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, help desk, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-034
+NAV-034
+FAQ-034
+
+========================================================================
+
+========================================================================
+[HOSP-035]
+
+Category:
+Outpatient
+
+Title:
+Outpatient Services #35
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 135
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9035
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, outpatient, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-035
+NAV-035
+FAQ-035
+
+========================================================================
+
+========================================================================
+[HOSP-036]
+
+Category:
+Emergency
+
+Title:
+Emergency Services #36
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 136
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9036
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, emergency, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-036
+NAV-036
+FAQ-036
+
+========================================================================
+
+========================================================================
+[HOSP-037]
+
+Category:
+ICU
+
+Title:
+Intensive Care #37
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 137
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9037
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, icu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-037
+NAV-037
+FAQ-037
+
+========================================================================
+
+========================================================================
+[HOSP-038]
+
+Category:
+NICU
+
+Title:
+Neonatal Care #38
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 138
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9038
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, nicu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-038
+NAV-038
+FAQ-038
+
+========================================================================
+
+========================================================================
+[HOSP-039]
+
+Category:
+Pharmacy
+
+Title:
+Hospital Pharmacy #39
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 139
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9039
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, pharmacy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-039
+NAV-039
+FAQ-039
+
+========================================================================
+
+========================================================================
+[HOSP-040]
+
+Category:
+Laboratory
+
+Title:
+Clinical Laboratory #40
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 140
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9040
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, laboratory, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-040
+NAV-040
+FAQ-040
+
+========================================================================
+
+========================================================================
+[HOSP-041]
+
+Category:
+Radiology
+
+Title:
+Radiology Services #41
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 141
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9041
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, radiology, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-041
+NAV-041
+FAQ-041
+
+========================================================================
+
+========================================================================
+[HOSP-042]
+
+Category:
+MRI
+
+Title:
+MRI Services #42
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 142
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9042
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, mri, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-042
+NAV-042
+FAQ-042
+
+========================================================================
+
+========================================================================
+[HOSP-043]
+
+Category:
+CT Scan
+
+Title:
+CT Scan Services #43
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 143
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9043
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ct scan, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-043
+NAV-043
+FAQ-043
+
+========================================================================
+
+========================================================================
+[HOSP-044]
+
+Category:
+Ultrasound
+
+Title:
+Ultrasound Services #44
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 144
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9044
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ultrasound, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-044
+NAV-044
+FAQ-044
+
+========================================================================
+
+========================================================================
+[HOSP-045]
+
+Category:
+Blood Bank
+
+Title:
+Blood Bank #45
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 145
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9045
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, blood bank, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-045
+NAV-045
+FAQ-045
+
+========================================================================
+
+========================================================================
+[HOSP-046]
+
+Category:
+Billing
+
+Title:
+Billing Services #46
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 146
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9046
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, billing, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-046
+NAV-046
+FAQ-046
+
+========================================================================
+
+========================================================================
+[HOSP-047]
+
+Category:
+Insurance
+
+Title:
+Insurance Desk #47
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 147
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9047
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, insurance, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-047
+NAV-047
+FAQ-047
+
+========================================================================
+
+========================================================================
+[HOSP-048]
+
+Category:
+Medical Records
+
+Title:
+Medical Records #48
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 148
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9048
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, medical records, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-048
+NAV-048
+FAQ-048
+
+========================================================================
+
+========================================================================
+[HOSP-049]
+
+Category:
+Telemedicine
+
+Title:
+Telemedicine #49
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 149
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9049
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, telemedicine, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-049
+NAV-049
+FAQ-049
+
+========================================================================
+
+========================================================================
+[HOSP-050]
+
+Category:
+Cafeteria
+
+Title:
+Hospital Cafeteria #50
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 150
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9050
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, cafeteria, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-050
+NAV-050
+FAQ-050
+
+========================================================================
+
+========================================================================
+[HOSP-051]
+
+Category:
+Parking
+
+Title:
+Visitor Parking #51
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 151
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9051
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, parking, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-051
+NAV-051
+FAQ-051
+
+========================================================================
+
+========================================================================
+[HOSP-052]
+
+Category:
+Security
+
+Title:
+Security Services #52
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 152
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9052
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, security, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-052
+NAV-052
+FAQ-052
+
+========================================================================
+
+========================================================================
+[HOSP-053]
+
+Category:
+Accessibility
+
+Title:
+Accessibility #53
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 153
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9053
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, accessibility, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-053
+NAV-053
+FAQ-053
+
+========================================================================
+
+========================================================================
+[HOSP-054]
+
+Category:
+Waiting Area
+
+Title:
+Waiting Lounge #54
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 154
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9054
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, waiting area, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-054
+NAV-054
+FAQ-054
+
+========================================================================
+
+========================================================================
+[HOSP-055]
+
+Category:
+Wheelchair
+
+Title:
+Wheelchair Assistance #55
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 155
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9055
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, wheelchair, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-055
+NAV-055
+FAQ-055
+
+========================================================================
+
+========================================================================
+[HOSP-056]
+
+Category:
+Patient Rights
+
+Title:
+Patient Rights #56
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 156
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9056
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, patient rights, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-056
+NAV-056
+FAQ-056
+
+========================================================================
+
+========================================================================
+[HOSP-057]
+
+Category:
+Visitor Policy
+
+Title:
+Visitor Information #57
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 157
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9057
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, visitor policy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-057
+NAV-057
+FAQ-057
+
+========================================================================
+
+========================================================================
+[HOSP-058]
+
+Category:
+Discharge
+
+Title:
+Discharge Services #58
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 158
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9058
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, discharge, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-058
+NAV-058
+FAQ-058
+
+========================================================================
+
+========================================================================
+[HOSP-059]
+
+Category:
+Feedback
+
+Title:
+Feedback Cell #59
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 159
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9059
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, feedback, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-059
+NAV-059
+FAQ-059
+
+========================================================================
+
+========================================================================
+[HOSP-060]
+
+Category:
+Complaint
+
+Title:
+Grievance Cell #60
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 160
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9060
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, complaint, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-060
+NAV-060
+FAQ-060
+
+========================================================================
+
+========================================================================
+[HOSP-061]
+
+Category:
+Hospital Overview
+
+Title:
+Hospital Overview #61
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 161
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9061
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, hospital overview, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-061
+NAV-061
+FAQ-061
+
+========================================================================
+
+========================================================================
+[HOSP-062]
+
+Category:
+Reception
+
+Title:
+Reception Services #62
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 162
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9062
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, reception, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-062
+NAV-062
+FAQ-062
+
+========================================================================
+
+========================================================================
+[HOSP-063]
+
+Category:
+Registration
+
+Title:
+Patient Registration #63
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 163
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9063
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, registration, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-063
+NAV-063
+FAQ-063
+
+========================================================================
+
+========================================================================
+[HOSP-064]
+
+Category:
+Help Desk
+
+Title:
+Patient Help Desk #64
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 164
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9064
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, help desk, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-064
+NAV-064
+FAQ-064
+
+========================================================================
+
+========================================================================
+[HOSP-065]
+
+Category:
+Outpatient
+
+Title:
+Outpatient Services #65
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 165
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9065
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, outpatient, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-065
+NAV-065
+FAQ-065
+
+========================================================================
+
+========================================================================
+[HOSP-066]
+
+Category:
+Emergency
+
+Title:
+Emergency Services #66
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 166
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9066
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, emergency, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-066
+NAV-066
+FAQ-066
+
+========================================================================
+
+========================================================================
+[HOSP-067]
+
+Category:
+ICU
+
+Title:
+Intensive Care #67
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 167
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9067
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, icu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-067
+NAV-067
+FAQ-067
+
+========================================================================
+
+========================================================================
+[HOSP-068]
+
+Category:
+NICU
+
+Title:
+Neonatal Care #68
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 168
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9068
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, nicu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-068
+NAV-068
+FAQ-068
+
+========================================================================
+
+========================================================================
+[HOSP-069]
+
+Category:
+Pharmacy
+
+Title:
+Hospital Pharmacy #69
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 169
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9069
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, pharmacy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-069
+NAV-069
+FAQ-069
+
+========================================================================
+
+========================================================================
+[HOSP-070]
+
+Category:
+Laboratory
+
+Title:
+Clinical Laboratory #70
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 170
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9070
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, laboratory, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-070
+NAV-070
+FAQ-070
+
+========================================================================
+
+========================================================================
+[HOSP-071]
+
+Category:
+Radiology
+
+Title:
+Radiology Services #71
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 171
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9071
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, radiology, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-071
+NAV-071
+FAQ-071
+
+========================================================================
+
+========================================================================
+[HOSP-072]
+
+Category:
+MRI
+
+Title:
+MRI Services #72
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 172
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9072
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, mri, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-072
+NAV-072
+FAQ-072
+
+========================================================================
+
+========================================================================
+[HOSP-073]
+
+Category:
+CT Scan
+
+Title:
+CT Scan Services #73
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 173
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9073
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ct scan, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-073
+NAV-073
+FAQ-073
+
+========================================================================
+
+========================================================================
+[HOSP-074]
+
+Category:
+Ultrasound
+
+Title:
+Ultrasound Services #74
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 174
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9074
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ultrasound, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-074
+NAV-074
+FAQ-074
+
+========================================================================
+
+========================================================================
+[HOSP-075]
+
+Category:
+Blood Bank
+
+Title:
+Blood Bank #75
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 175
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9075
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, blood bank, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-075
+NAV-075
+FAQ-075
+
+========================================================================
+
+========================================================================
+[HOSP-076]
+
+Category:
+Billing
+
+Title:
+Billing Services #76
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 176
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9076
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, billing, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-076
+NAV-076
+FAQ-076
+
+========================================================================
+
+========================================================================
+[HOSP-077]
+
+Category:
+Insurance
+
+Title:
+Insurance Desk #77
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 177
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9077
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, insurance, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-077
+NAV-077
+FAQ-077
+
+========================================================================
+
+========================================================================
+[HOSP-078]
+
+Category:
+Medical Records
+
+Title:
+Medical Records #78
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 178
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9078
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, medical records, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-078
+NAV-078
+FAQ-078
+
+========================================================================
+
+========================================================================
+[HOSP-079]
+
+Category:
+Telemedicine
+
+Title:
+Telemedicine #79
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 179
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9079
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, telemedicine, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-079
+NAV-079
+FAQ-079
+
+========================================================================
+
+========================================================================
+[HOSP-080]
+
+Category:
+Cafeteria
+
+Title:
+Hospital Cafeteria #80
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 180
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9080
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, cafeteria, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-080
+NAV-080
+FAQ-080
+
+========================================================================
+
+========================================================================
+[HOSP-081]
+
+Category:
+Parking
+
+Title:
+Visitor Parking #81
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 181
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9081
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, parking, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-081
+NAV-081
+FAQ-081
+
+========================================================================
+
+========================================================================
+[HOSP-082]
+
+Category:
+Security
+
+Title:
+Security Services #82
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 182
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9082
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, security, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-082
+NAV-082
+FAQ-082
+
+========================================================================
+
+========================================================================
+[HOSP-083]
+
+Category:
+Accessibility
+
+Title:
+Accessibility #83
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 183
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9083
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, accessibility, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-083
+NAV-083
+FAQ-083
+
+========================================================================
+
+========================================================================
+[HOSP-084]
+
+Category:
+Waiting Area
+
+Title:
+Waiting Lounge #84
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 184
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9084
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, waiting area, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-084
+NAV-084
+FAQ-084
+
+========================================================================
+
+========================================================================
+[HOSP-085]
+
+Category:
+Wheelchair
+
+Title:
+Wheelchair Assistance #85
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 185
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9085
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, wheelchair, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-085
+NAV-085
+FAQ-085
+
+========================================================================
+
+========================================================================
+[HOSP-086]
+
+Category:
+Patient Rights
+
+Title:
+Patient Rights #86
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 186
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9086
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, patient rights, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-086
+NAV-086
+FAQ-086
+
+========================================================================
+
+========================================================================
+[HOSP-087]
+
+Category:
+Visitor Policy
+
+Title:
+Visitor Information #87
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 187
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9087
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, visitor policy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-087
+NAV-087
+FAQ-087
+
+========================================================================
+
+========================================================================
+[HOSP-088]
+
+Category:
+Discharge
+
+Title:
+Discharge Services #88
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 188
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9088
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, discharge, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-088
+NAV-088
+FAQ-088
+
+========================================================================
+
+========================================================================
+[HOSP-089]
+
+Category:
+Feedback
+
+Title:
+Feedback Cell #89
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 189
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9089
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, feedback, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-089
+NAV-089
+FAQ-089
+
+========================================================================
+
+========================================================================
+[HOSP-090]
+
+Category:
+Complaint
+
+Title:
+Grievance Cell #90
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 190
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9090
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, complaint, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-090
+NAV-090
+FAQ-090
+
+========================================================================
+
+========================================================================
+[HOSP-091]
+
+Category:
+Hospital Overview
+
+Title:
+Hospital Overview #91
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 191
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9091
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, hospital overview, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-091
+NAV-091
+FAQ-091
+
+========================================================================
+
+========================================================================
+[HOSP-092]
+
+Category:
+Reception
+
+Title:
+Reception Services #92
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 192
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9092
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, reception, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-092
+NAV-092
+FAQ-092
+
+========================================================================
+
+========================================================================
+[HOSP-093]
+
+Category:
+Registration
+
+Title:
+Patient Registration #93
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 193
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9093
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, registration, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-093
+NAV-093
+FAQ-093
+
+========================================================================
+
+========================================================================
+[HOSP-094]
+
+Category:
+Help Desk
+
+Title:
+Patient Help Desk #94
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 194
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9094
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, help desk, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-094
+NAV-094
+FAQ-094
+
+========================================================================
+
+========================================================================
+[HOSP-095]
+
+Category:
+Outpatient
+
+Title:
+Outpatient Services #95
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 195
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9095
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, outpatient, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-095
+NAV-095
+FAQ-095
+
+========================================================================
+
+========================================================================
+[HOSP-096]
+
+Category:
+Emergency
+
+Title:
+Emergency Services #96
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 196
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9096
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, emergency, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-096
+NAV-096
+FAQ-096
+
+========================================================================
+
+========================================================================
+[HOSP-097]
+
+Category:
+ICU
+
+Title:
+Intensive Care #97
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 197
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9097
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, icu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-097
+NAV-097
+FAQ-097
+
+========================================================================
+
+========================================================================
+[HOSP-098]
+
+Category:
+NICU
+
+Title:
+Neonatal Care #98
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 198
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9098
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, nicu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-098
+NAV-098
+FAQ-098
+
+========================================================================
+
+========================================================================
+[HOSP-099]
+
+Category:
+Pharmacy
+
+Title:
+Hospital Pharmacy #99
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 199
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9099
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, pharmacy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-099
+NAV-099
+FAQ-099
+
+========================================================================
+
+========================================================================
+[HOSP-100]
+
+Category:
+Laboratory
+
+Title:
+Clinical Laboratory #100
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 200
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9100
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, laboratory, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-100
+NAV-100
+FAQ-100
+
+========================================================================
+
+========================================================================
+[HOSP-101]
+
+Category:
+Radiology
+
+Title:
+Radiology Services #101
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 201
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9101
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, radiology, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-101
+NAV-001
+FAQ-101
+
+========================================================================
+
+========================================================================
+[HOSP-102]
+
+Category:
+MRI
+
+Title:
+MRI Services #102
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 202
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9102
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, mri, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-102
+NAV-002
+FAQ-102
+
+========================================================================
+
+========================================================================
+[HOSP-103]
+
+Category:
+CT Scan
+
+Title:
+CT Scan Services #103
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 203
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9103
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ct scan, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-103
+NAV-003
+FAQ-103
+
+========================================================================
+
+========================================================================
+[HOSP-104]
+
+Category:
+Ultrasound
+
+Title:
+Ultrasound Services #104
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 204
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9104
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ultrasound, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-104
+NAV-004
+FAQ-104
+
+========================================================================
+
+========================================================================
+[HOSP-105]
+
+Category:
+Blood Bank
+
+Title:
+Blood Bank #105
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 205
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9105
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, blood bank, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-105
+NAV-005
+FAQ-105
+
+========================================================================
+
+========================================================================
+[HOSP-106]
+
+Category:
+Billing
+
+Title:
+Billing Services #106
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 206
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9106
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, billing, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-106
+NAV-006
+FAQ-106
+
+========================================================================
+
+========================================================================
+[HOSP-107]
+
+Category:
+Insurance
+
+Title:
+Insurance Desk #107
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 207
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9107
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, insurance, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-107
+NAV-007
+FAQ-107
+
+========================================================================
+
+========================================================================
+[HOSP-108]
+
+Category:
+Medical Records
+
+Title:
+Medical Records #108
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 208
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9108
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, medical records, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-108
+NAV-008
+FAQ-108
+
+========================================================================
+
+========================================================================
+[HOSP-109]
+
+Category:
+Telemedicine
+
+Title:
+Telemedicine #109
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 209
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9109
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, telemedicine, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-109
+NAV-009
+FAQ-109
+
+========================================================================
+
+========================================================================
+[HOSP-110]
+
+Category:
+Cafeteria
+
+Title:
+Hospital Cafeteria #110
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 210
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9110
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, cafeteria, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-110
+NAV-010
+FAQ-110
+
+========================================================================
+
+========================================================================
+[HOSP-111]
+
+Category:
+Parking
+
+Title:
+Visitor Parking #111
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 211
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9111
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, parking, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-111
+NAV-011
+FAQ-111
+
+========================================================================
+
+========================================================================
+[HOSP-112]
+
+Category:
+Security
+
+Title:
+Security Services #112
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 212
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9112
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, security, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-112
+NAV-012
+FAQ-112
+
+========================================================================
+
+========================================================================
+[HOSP-113]
+
+Category:
+Accessibility
+
+Title:
+Accessibility #113
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 213
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9113
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, accessibility, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-113
+NAV-013
+FAQ-113
+
+========================================================================
+
+========================================================================
+[HOSP-114]
+
+Category:
+Waiting Area
+
+Title:
+Waiting Lounge #114
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 214
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9114
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, waiting area, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-114
+NAV-014
+FAQ-114
+
+========================================================================
+
+========================================================================
+[HOSP-115]
+
+Category:
+Wheelchair
+
+Title:
+Wheelchair Assistance #115
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 215
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9115
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, wheelchair, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-115
+NAV-015
+FAQ-115
+
+========================================================================
+
+========================================================================
+[HOSP-116]
+
+Category:
+Patient Rights
+
+Title:
+Patient Rights #116
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 216
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9116
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, patient rights, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-116
+NAV-016
+FAQ-116
+
+========================================================================
+
+========================================================================
+[HOSP-117]
+
+Category:
+Visitor Policy
+
+Title:
+Visitor Information #117
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 217
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9117
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, visitor policy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-117
+NAV-017
+FAQ-117
+
+========================================================================
+
+========================================================================
+[HOSP-118]
+
+Category:
+Discharge
+
+Title:
+Discharge Services #118
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 218
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9118
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, discharge, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-118
+NAV-018
+FAQ-118
+
+========================================================================
+
+========================================================================
+[HOSP-119]
+
+Category:
+Feedback
+
+Title:
+Feedback Cell #119
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 219
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9119
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, feedback, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-119
+NAV-019
+FAQ-119
+
+========================================================================
+
+========================================================================
+[HOSP-120]
+
+Category:
+Complaint
+
+Title:
+Grievance Cell #120
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 220
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9120
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, complaint, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-120
+NAV-020
+FAQ-120
+
+========================================================================
+
+========================================================================
+[HOSP-121]
+
+Category:
+Hospital Overview
+
+Title:
+Hospital Overview #121
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 221
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9121
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, hospital overview, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-121
+NAV-021
+FAQ-121
+
+========================================================================
+
+========================================================================
+[HOSP-122]
+
+Category:
+Reception
+
+Title:
+Reception Services #122
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 222
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9122
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, reception, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-122
+NAV-022
+FAQ-122
+
+========================================================================
+
+========================================================================
+[HOSP-123]
+
+Category:
+Registration
+
+Title:
+Patient Registration #123
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 223
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9123
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, registration, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-123
+NAV-023
+FAQ-123
+
+========================================================================
+
+========================================================================
+[HOSP-124]
+
+Category:
+Help Desk
+
+Title:
+Patient Help Desk #124
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 224
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9124
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, help desk, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-124
+NAV-024
+FAQ-124
+
+========================================================================
+
+========================================================================
+[HOSP-125]
+
+Category:
+Outpatient
+
+Title:
+Outpatient Services #125
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 225
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9125
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, outpatient, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-125
+NAV-025
+FAQ-125
+
+========================================================================
+
+========================================================================
+[HOSP-126]
+
+Category:
+Emergency
+
+Title:
+Emergency Services #126
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 226
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9126
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, emergency, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-126
+NAV-026
+FAQ-126
+
+========================================================================
+
+========================================================================
+[HOSP-127]
+
+Category:
+ICU
+
+Title:
+Intensive Care #127
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 227
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9127
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, icu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-127
+NAV-027
+FAQ-127
+
+========================================================================
+
+========================================================================
+[HOSP-128]
+
+Category:
+NICU
+
+Title:
+Neonatal Care #128
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 228
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9128
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, nicu, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-128
+NAV-028
+FAQ-128
+
+========================================================================
+
+========================================================================
+[HOSP-129]
+
+Category:
+Pharmacy
+
+Title:
+Hospital Pharmacy #129
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 229
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9129
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, pharmacy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-129
+NAV-029
+FAQ-129
+
+========================================================================
+
+========================================================================
+[HOSP-130]
+
+Category:
+Laboratory
+
+Title:
+Clinical Laboratory #130
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 230
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9130
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, laboratory, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-130
+NAV-030
+FAQ-130
+
+========================================================================
+
+========================================================================
+[HOSP-131]
+
+Category:
+Radiology
+
+Title:
+Radiology Services #131
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 0, Room 231
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9131
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, radiology, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-131
+NAV-031
+FAQ-131
+
+========================================================================
+
+========================================================================
+[HOSP-132]
+
+Category:
+MRI
+
+Title:
+MRI Services #132
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 1, Room 232
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9132
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, mri, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-132
+NAV-032
+FAQ-132
+
+========================================================================
+
+========================================================================
+[HOSP-133]
+
+Category:
+CT Scan
+
+Title:
+CT Scan Services #133
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 2, Room 233
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9133
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ct scan, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-133
+NAV-033
+FAQ-133
+
+========================================================================
+
+========================================================================
+[HOSP-134]
+
+Category:
+Ultrasound
+
+Title:
+Ultrasound Services #134
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 3, Room 234
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9134
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, ultrasound, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-134
+NAV-034
+FAQ-134
+
+========================================================================
+
+========================================================================
+[HOSP-135]
+
+Category:
+Blood Bank
+
+Title:
+Blood Bank #135
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 4, Room 235
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9135
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, blood bank, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-135
+NAV-035
+FAQ-135
+
+========================================================================
+
+========================================================================
+[HOSP-136]
+
+Category:
+Billing
+
+Title:
+Billing Services #136
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 0, Room 236
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9136
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, billing, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-136
+NAV-036
+FAQ-136
+
+========================================================================
+
+========================================================================
+[HOSP-137]
+
+Category:
+Insurance
+
+Title:
+Insurance Desk #137
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 1, Room 237
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9137
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, insurance, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-137
+NAV-037
+FAQ-137
+
+========================================================================
+
+========================================================================
+[HOSP-138]
+
+Category:
+Medical Records
+
+Title:
+Medical Records #138
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 2, Room 238
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9138
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, medical records, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-138
+NAV-038
+FAQ-138
+
+========================================================================
+
+========================================================================
+[HOSP-139]
+
+Category:
+Telemedicine
+
+Title:
+Telemedicine #139
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 3, Room 239
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9139
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, telemedicine, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-139
+NAV-039
+FAQ-139
+
+========================================================================
+
+========================================================================
+[HOSP-140]
+
+Category:
+Cafeteria
+
+Title:
+Hospital Cafeteria #140
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 4, Room 240
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9140
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, cafeteria, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-140
+NAV-040
+FAQ-140
+
+========================================================================
+
+========================================================================
+[HOSP-141]
+
+Category:
+Parking
+
+Title:
+Visitor Parking #141
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 0, Room 241
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9141
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, parking, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-141
+NAV-041
+FAQ-141
+
+========================================================================
+
+========================================================================
+[HOSP-142]
+
+Category:
+Security
+
+Title:
+Security Services #142
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 1, Room 242
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9142
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, security, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-142
+NAV-042
+FAQ-142
+
+========================================================================
+
+========================================================================
+[HOSP-143]
+
+Category:
+Accessibility
+
+Title:
+Accessibility #143
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 2, Room 243
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9143
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, accessibility, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-143
+NAV-043
+FAQ-143
+
+========================================================================
+
+========================================================================
+[HOSP-144]
+
+Category:
+Waiting Area
+
+Title:
+Waiting Lounge #144
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 3, Room 244
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9144
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, waiting area, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-144
+NAV-044
+FAQ-144
+
+========================================================================
+
+========================================================================
+[HOSP-145]
+
+Category:
+Wheelchair
+
+Title:
+Wheelchair Assistance #145
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 4, Room 245
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9145
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, wheelchair, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-145
+NAV-045
+FAQ-145
+
+========================================================================
+
+========================================================================
+[HOSP-146]
+
+Category:
+Patient Rights
+
+Title:
+Patient Rights #146
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 0, Room 246
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9146
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, patient rights, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-146
+NAV-046
+FAQ-146
+
+========================================================================
+
+========================================================================
+[HOSP-147]
+
+Category:
+Visitor Policy
+
+Title:
+Visitor Information #147
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block C, Floor 1, Room 247
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9147
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, visitor policy, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-147
+NAV-047
+FAQ-147
+
+========================================================================
+
+========================================================================
+[HOSP-148]
+
+Category:
+Discharge
+
+Title:
+Discharge Services #148
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block D, Floor 2, Room 248
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9148
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, discharge, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-148
+NAV-048
+FAQ-148
+
+========================================================================
+
+========================================================================
+[HOSP-149]
+
+Category:
+Feedback
+
+Title:
+Feedback Cell #149
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block A, Floor 3, Room 249
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9149
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, feedback, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-149
+NAV-049
+FAQ-149
+
+========================================================================
+
+========================================================================
+[HOSP-150]
+
+Category:
+Complaint
+
+Title:
+Grievance Cell #150
+
+Description:
+This service is part of the Metropolitan General Hospital integrated healthcare system. It provides patient-focused support, standardized clinical workflows, and operational assistance. Information is maintained in the hospital knowledge base for Retrieval-Augmented Generation (RAG) based patient assistance.
+
+Location:
+Block B, Floor 4, Room 250
+
+Operating Hours:
+24 x 7 (Emergency services) / Department-specific timings where applicable.
+
+Contact:
++1-800-555-9150
+
+Related Departments:
+General Medicine
+Emergency Medicine
+Patient Services
+
+Keywords:
+hospital, complaint, patient services, healthcare, metropolitan hospital
+
+Related Records:
+DOC-150
+NAV-050
+FAQ-150
+
+========================================================================

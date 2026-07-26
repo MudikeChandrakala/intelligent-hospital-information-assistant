@@ -1,0 +1,4798 @@
+{
+  "medicines": [
+{
+      "medicine_id": "MED-001",
+      "generic_name": "Paracetamol",
+      "brand_names": ["Dolo 650", "Crocin", "Calpol"],
+      "drug_class": "Analgesic & Antipyretic",
+      "dosage_form": "Tablet",
+      "strength": ["500 mg", "650 mg"],
+      "used_for": [
+        "Fever",
+        "Headache",
+        "Body Pain",
+        "Muscle Pain"
+      ],
+      "adult_dose": "500–1000 mg every 6 hours as needed",
+      "child_dose": "10–15 mg/kg every 6 hours",
+      "frequency": "Every 6 hours",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Morning", "Afternoon", "Night"],
+      "maximum_daily_dose": "4000 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Skin Rash",
+        "Liver Toxicity (Overdose)"
+      ],
+      "contraindications": [
+        "Severe Liver Disease",
+        "Paracetamol Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-001", "DIS-110"],
+      "keywords": [
+        "paracetamol",
+        "dolo",
+        "crocin",
+        "fever",
+        "pain"
+      ]
+    },
+{
+      "medicine_id": "MED-002",
+      "generic_name": "Ibuprofen",
+      "brand_names": ["Brufen", "Advil"],
+      "drug_class": "NSAID",
+      "dosage_form": "Tablet",
+      "strength": ["200 mg", "400 mg"],
+      "used_for": [
+        "Pain",
+        "Inflammation",
+        "Fever",
+        "Arthritis"
+      ],
+      "adult_dose": "200–400 mg every 6–8 hours",
+      "child_dose": "5–10 mg/kg every 6–8 hours",
+      "frequency": "Every 8 hours",
+      "food_instruction": "After Food",
+      "best_time": ["Morning", "Night"],
+      "maximum_daily_dose": "1200 mg/day (OTC)",
+      "side_effects": [
+        "Acidity",
+        "Stomach Pain",
+        "Nausea",
+        "Heartburn"
+      ],
+      "contraindications": [
+        "Peptic Ulcer",
+        "NSAID Allergy",
+        "Severe Kidney Disease"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-006", "DIS-052"],
+      "keywords": [
+        "ibuprofen",
+        "brufen",
+        "pain",
+        "arthritis",
+        "inflammation"
+      ]
+    },
+{
+      "medicine_id": "MED-003",
+      "generic_name": "Amoxicillin",
+      "brand_names": ["Novamox", "Amoxil", "Mox"],
+      "drug_class": "Penicillin Antibiotic",
+      "dosage_form": "Capsule",
+      "strength": ["250 mg", "500 mg"],
+      "used_for": [
+        "Bacterial Infection",
+        "Ear Infection",
+        "Respiratory Infection",
+        "Urinary Tract Infection"
+      ],
+      "adult_dose": "500 mg every 8 hours",
+      "child_dose": "20–40 mg/kg/day",
+      "frequency": "Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Morning", "Afternoon", "Night"],
+      "maximum_daily_dose": "3000 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Rash",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Penicillin Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-007", "DIS-103", "DIS-109"],
+      "keywords": [
+        "amoxicillin",
+        "novamox",
+        "antibiotic",
+        "infection"
+      ]
+    },
+{
+      "medicine_id": "MED-004",
+      "generic_name": "Azithromycin",
+      "brand_names": ["Azee", "Azithral", "Zithromax"],
+      "drug_class": "Macrolide Antibiotic",
+      "dosage_form": "Tablet",
+      "strength": ["250 mg", "500 mg"],
+      "used_for": [
+        "Respiratory Infection",
+        "Throat Infection",
+        "Sinusitis",
+        "Typhoid"
+      ],
+      "adult_dose": "500 mg once daily",
+      "child_dose": "10 mg/kg once daily",
+      "frequency": "Once Daily",
+      "food_instruction": "1 Hour Before Food",
+      "best_time": ["Morning"],
+      "maximum_daily_dose": "500 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Diarrhea",
+        "Abdominal Pain"
+      ],
+      "contraindications": [
+        "Macrolide Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-104", "DIS-203"],
+      "keywords": [
+        "azee",
+        "azithromycin",
+        "antibiotic",
+        "infection"
+      ]
+    },
+{
+      "medicine_id": "MED-005",
+      "generic_name": "Metformin",
+      "brand_names": ["Glycomet", "Glucophage"],
+      "drug_class": "Biguanide",
+      "dosage_form": "Tablet",
+      "strength": ["500 mg", "850 mg", "1000 mg"],
+      "used_for": [
+        "Type 2 Diabetes",
+        "Prediabetes",
+        "PCOS"
+      ],
+      "adult_dose": "500 mg twice daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": ["Breakfast", "Dinner"],
+      "maximum_daily_dose": "2550 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Gas",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Severe Kidney Disease"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-002"],
+      "keywords": [
+        "metformin",
+        "glycomet",
+        "diabetes"
+      ]
+    },
+{
+      "medicine_id": "MED-006",
+      "generic_name": "Amlodipine",
+      "brand_names": ["Amlong", "Norvasc"],
+      "drug_class": "Calcium Channel Blocker",
+      "dosage_form": "Tablet",
+      "strength": ["2.5 mg", "5 mg", "10 mg"],
+      "used_for": [
+        "Hypertension",
+        "Angina"
+      ],
+      "adult_dose": "5 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Morning"],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Ankle Swelling",
+        "Headache",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Severe Hypotension"
+      ],
+      "storage": "Store below 30°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-001"],
+      "keywords": [
+        "amlodipine",
+        "blood pressure",
+        "hypertension"
+      ]
+    },
+{
+      "medicine_id": "MED-007",
+      "generic_name": "Atorvastatin",
+      "brand_names": ["Atorlip", "Lipitor"],
+      "drug_class": "Statin",
+      "dosage_form": "Tablet",
+      "strength": ["10 mg", "20 mg", "40 mg"],
+      "used_for": [
+        "High Cholesterol",
+        "Cardiovascular Disease Prevention"
+      ],
+      "adult_dose": "10–20 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Night"],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Muscle Pain",
+        "Headache",
+        "Elevated Liver Enzymes"
+      ],
+      "contraindications": [
+        "Active Liver Disease"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-001", "DIS-120"],
+      "keywords": [
+        "atorvastatin",
+        "cholesterol",
+        "lipitor"
+      ]
+    },
+{
+      "medicine_id": "MED-008",
+      "generic_name": "Pantoprazole",
+      "brand_names": ["Pantocid", "Pantodac", "Protonix"],
+      "drug_class": "Proton Pump Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": ["20 mg", "40 mg"],
+      "used_for": [
+        "Acidity",
+        "GERD",
+        "Peptic Ulcer"
+      ],
+      "adult_dose": "40 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "30 Minutes Before Breakfast",
+      "best_time": ["Morning"],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Headache",
+        "Diarrhea",
+        "Vitamin B12 Deficiency (Long-term)"
+      ],
+      "contraindications": [
+        "Pantoprazole Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-105", "DIS-109"],
+      "keywords": [
+        "pantoprazole",
+        "pantocid",
+        "acidity",
+        "gerd"
+      ]
+    },
+{
+      "medicine_id": "MED-009",
+      "generic_name": "Omeprazole",
+      "brand_names": ["Omez", "Prilosec"],
+      "drug_class": "Proton Pump Inhibitor",
+      "dosage_form": "Capsule",
+      "strength": ["20 mg", "40 mg"],
+      "used_for": [
+        "GERD",
+        "Acidity",
+        "Peptic Ulcer"
+      ],
+      "adult_dose": "20 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "30 Minutes Before Breakfast",
+      "best_time": ["Morning"],
+      "maximum_daily_dose": "40 mg/day",
+      "side_effects": [
+        "Headache",
+        "Nausea",
+        "Constipation"
+      ],
+      "contraindications": [
+        "Omeprazole Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-105"],
+      "keywords": [
+        "omeprazole",
+        "omez",
+        "gerd"
+      ]
+    },
+{
+      "medicine_id": "MED-010",
+      "generic_name": "Cetirizine",
+      "brand_names": ["Cetzine", "Zyrtec"],
+      "drug_class": "Second-Generation Antihistamine",
+      "dosage_form": "Tablet",
+      "strength": ["10 mg"],
+      "used_for": [
+        "Allergic Rhinitis",
+        "Skin Allergy",
+        "Urticaria"
+      ],
+      "adult_dose": "10 mg once daily",
+      "child_dose": "5 mg once daily",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Night"],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Drowsiness",
+        "Dry Mouth",
+        "Fatigue"
+      ],
+      "contraindications": [
+        "Cetirizine Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-106"],
+      "keywords": [
+        "cetirizine",
+        "zyrtec",
+        "allergy",
+        "antihistamine"
+      ]
+    },
+    {
+      "medicine_id": "MED-011",
+      "generic_name": "Diclofenac Sodium",
+      "brand_names": [
+        "Voveran",
+        "Voltaren",
+        "Dicloran"
+      ],
+      "drug_class": "Non-Steroidal Anti-Inflammatory Drug (NSAID)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "75 mg"
+      ],
+      "used_for": [
+        "Pain",
+        "Osteoarthritis",
+        "Rheumatoid Arthritis",
+        "Ankylosing Spondylitis"
+      ],
+      "adult_dose": "50 mg two to three times daily after meals",
+      "child_dose": "Not routinely recommended for children unless prescribed",
+      "frequency": "Two to Three Times Daily",
+      "food_instruction": "Take after food with a full glass of water",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "150 mg/day",
+      "side_effects": [
+        "Stomach Pain",
+        "Nausea",
+        "Heartburn",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Active Peptic Ulcer",
+        "NSAID Hypersensitivity",
+        "Severe Heart Failure"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-020",
+        "DIS-021"
+      ],
+      "keywords": [
+        "diclofenac",
+        "voveran",
+        "voltaren",
+        "pain",
+        "arthritis"
+      ]
+    },
+    {
+      "medicine_id": "MED-012",
+      "generic_name": "Amoxicillin",
+      "brand_names": [
+        "Mox",
+        "Amoxil",
+        "Novamox"
+      ],
+      "drug_class": "Penicillin Antibiotic",
+      "dosage_form": "Capsule",
+      "strength": [
+        "250 mg",
+        "500 mg"
+      ],
+      "used_for": [
+        "Respiratory Tract Infection",
+        "Ear Infection",
+        "Urinary Tract Infection",
+        "Skin Infection"
+      ],
+      "adult_dose": "500 mg every 8 hours or as prescribed",
+      "child_dose": "20–40 mg/kg/day in divided doses",
+      "frequency": "Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "3000 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Nausea",
+        "Skin Rash",
+        "Vomiting"
+      ],
+      "contraindications": [
+        "Penicillin Allergy",
+        "Hypersensitivity to Beta-Lactam Antibiotics"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-007",
+        "DIS-103"
+      ],
+      "keywords": [
+        "amoxicillin",
+        "novamox",
+        "amoxil",
+        "antibiotic",
+        "infection"
+      ]
+    },
+    {
+      "medicine_id": "MED-013",
+      "generic_name": "Cetirizine",
+      "brand_names": [
+        "Cetzine",
+        "Zyrtec",
+        "Okacet"
+      ],
+      "drug_class": "Second-Generation Antihistamine",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg"
+      ],
+      "used_for": [
+        "Allergic Rhinitis",
+        "Urticaria",
+        "Allergic Skin Disorders"
+      ],
+      "adult_dose": "10 mg once daily",
+      "child_dose": "5 mg once daily for children aged 6 years and above",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Drowsiness",
+        "Dry Mouth",
+        "Fatigue",
+        "Headache"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Cetirizine or Hydroxyzine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-106"
+      ],
+      "keywords": [
+        "cetirizine",
+        "zyrtec",
+        "cetzine",
+        "allergy",
+        "urticaria"
+      ]
+    },
+    {
+      "medicine_id": "MED-014",
+      "generic_name": "Metronidazole",
+      "brand_names": [
+        "Metrogyl",
+        "Flagyl",
+        "Metro"
+      ],
+      "drug_class": "Nitroimidazole Antibiotic",
+      "dosage_form": "Tablet",
+      "strength": [
+        "200 mg",
+        "400 mg"
+      ],
+      "used_for": [
+        "Amoebiasis",
+        "Anaerobic Bacterial Infection",
+        "Giardiasis",
+        "Dental Infection"
+      ],
+      "adult_dose": "400 mg three times daily depending on infection",
+      "child_dose": "20–30 mg/kg/day in divided doses",
+      "frequency": "Three Times Daily",
+      "food_instruction": "Take after food. Avoid alcohol during treatment and for 48 hours after completion.",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "2400 mg/day",
+      "side_effects": [
+        "Metallic Taste",
+        "Nausea",
+        "Headache",
+        "Loss of Appetite"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Metronidazole",
+        "Alcohol Consumption During Therapy"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-112",
+        "DIS-113"
+      ],
+      "keywords": [
+        "metronidazole",
+        "metrogyl",
+        "flagyl",
+        "amoebiasis",
+        "anaerobic infection"
+      ]
+    },
+    {
+      "medicine_id": "MED-015",
+      "generic_name": "Ondansetron",
+      "brand_names": [
+        "Emeset",
+        "Ondem",
+        "Zofran"
+      ],
+      "drug_class": "5-HT3 Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "4 mg",
+        "8 mg"
+      ],
+      "used_for": [
+        "Nausea",
+        "Vomiting",
+        "Chemotherapy-Induced Nausea",
+        "Postoperative Nausea"
+      ],
+      "adult_dose": "4–8 mg every 8 to 12 hours as needed",
+      "child_dose": "0.15 mg/kg per dose as prescribed",
+      "frequency": "Two to Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "As Needed"
+      ],
+      "maximum_daily_dose": "24 mg/day",
+      "side_effects": [
+        "Headache",
+        "Constipation",
+        "Dizziness",
+        "QT Prolongation"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Ondansetron",
+        "Concurrent Use with Apomorphine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-140"
+      ],
+      "keywords": [
+        "ondansetron",
+        "emeset",
+        "zofran",
+        "vomiting",
+        "nausea"
+      ]
+    },
+    {
+      "medicine_id": "MED-016",
+      "generic_name": "Domperidone",
+      "brand_names": [
+        "Domstal",
+        "Motilium",
+        "Vomistop"
+      ],
+      "drug_class": "Dopamine D2 Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg"
+      ],
+      "used_for": [
+        "Nausea",
+        "Vomiting",
+        "Gastroesophageal Reflux Disease",
+        "Gastroparesis"
+      ],
+      "adult_dose": "10 mg three times daily before meals",
+      "child_dose": "0.2–0.4 mg/kg per dose three times daily as prescribed",
+      "frequency": "Three Times Daily",
+      "food_instruction": "Take 15–30 minutes before meals",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "30 mg/day",
+      "side_effects": [
+        "Dry Mouth",
+        "Headache",
+        "Abdominal Cramps",
+        "QT Prolongation"
+      ],
+      "contraindications": [
+        "Moderate to Severe Hepatic Impairment",
+        "Prolactinoma",
+        "Known QT Interval Prolongation"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-140",
+        "DIS-105"
+      ],
+      "keywords": [
+        "domperidone",
+        "domstal",
+        "motilium",
+        "vomiting",
+        "gastroparesis"
+      ]
+    },
+    {
+      "medicine_id": "MED-017",
+      "generic_name": "Fluconazole",
+      "brand_names": [
+        "Forcan",
+        "Diflucan",
+        "Zocon"
+      ],
+      "drug_class": "Triazole Antifungal",
+      "dosage_form": "Tablet",
+      "strength": [
+        "50 mg",
+        "100 mg",
+        "150 mg",
+        "200 mg"
+      ],
+      "used_for": [
+        "Candidiasis",
+        "Oral Thrush",
+        "Cryptococcal Meningitis",
+        "Fungal Infections"
+      ],
+      "adult_dose": "150 mg single dose or as prescribed depending on infection",
+      "child_dose": "3–12 mg/kg/day depending on infection",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Headache",
+        "Abdominal Pain",
+        "Skin Rash"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Azole Antifungals",
+        "Concomitant Use with QT-Prolonging Drugs"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-208",
+        "DIS-209"
+      ],
+      "keywords": [
+        "fluconazole",
+        "forcan",
+        "diflucan",
+        "fungal infection",
+        "candida"
+      ]
+    },
+    {
+      "medicine_id": "MED-018",
+      "generic_name": "Nitrofurantoin",
+      "brand_names": [
+        "Niftas",
+        "Macrobid",
+        "Furadantin"
+      ],
+      "drug_class": "Nitrofuran Antibiotic",
+      "dosage_form": "Capsule",
+      "strength": [
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Urinary Tract Infection",
+        "Recurrent UTI Prophylaxis"
+      ],
+      "adult_dose": "100 mg twice daily for 5–7 days",
+      "child_dose": "5–7 mg/kg/day in four divided doses",
+      "frequency": "Twice Daily",
+      "food_instruction": "Take with food or milk",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Loss of Appetite",
+        "Headache",
+        "Urine Discoloration"
+      ],
+      "contraindications": [
+        "Severe Renal Impairment",
+        "Late Pregnancy",
+        "Infants Below One Month"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-007"
+      ],
+      "keywords": [
+        "nitrofurantoin",
+        "niftas",
+        "macrobid",
+        "uti",
+        "urinary infection"
+      ]
+    },
+    {
+      "medicine_id": "MED-019",
+      "generic_name": "Loperamide",
+      "brand_names": [
+        "Imodium",
+        "Lopamide",
+        "Lomofen"
+      ],
+      "drug_class": "Antidiarrheal Agent",
+      "dosage_form": "Capsule",
+      "strength": [
+        "2 mg"
+      ],
+      "used_for": [
+        "Acute Diarrhea",
+        "Chronic Diarrhea",
+        "Traveler's Diarrhea"
+      ],
+      "adult_dose": "4 mg initially, followed by 2 mg after each loose stool",
+      "child_dose": "Not recommended for children below 2 years",
+      "frequency": "As Needed",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "As Needed"
+      ],
+      "maximum_daily_dose": "16 mg/day",
+      "side_effects": [
+        "Constipation",
+        "Dizziness",
+        "Abdominal Pain",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Bloody Diarrhea",
+        "Acute Ulcerative Colitis",
+        "Bacterial Enterocolitis"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-115"
+      ],
+      "keywords": [
+        "loperamide",
+        "imodium",
+        "diarrhea",
+        "antidiarrheal",
+        "loose motions"
+      ]
+    },
+    {
+      "medicine_id": "MED-020",
+      "generic_name": "Acyclovir",
+      "brand_names": [
+        "Acyclo",
+        "Zovirax",
+        "Acivir"
+      ],
+      "drug_class": "Antiviral Agent",
+      "dosage_form": "Tablet",
+      "strength": [
+        "200 mg",
+        "400 mg",
+        "800 mg"
+      ],
+      "used_for": [
+        "Herpes Simplex Infection",
+        "Herpes Zoster",
+        "Chickenpox"
+      ],
+      "adult_dose": "200–800 mg five times daily depending on infection",
+      "child_dose": "20 mg/kg per dose four times daily for chickenpox",
+      "frequency": "Four to Five Times Daily",
+      "food_instruction": "With or Without Food. Drink plenty of fluids.",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        "Night"
+      ],
+      "maximum_daily_dose": "4000 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Headache",
+        "Diarrhea",
+        "Fatigue"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Acyclovir or Valacyclovir"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-180",
+        "DIS-181"
+      ],
+      "keywords": [
+        "acyclovir",
+        "zovirax",
+        "acivir",
+        "herpes",
+        "antiviral"
+      ]
+    },
+{
+      "medicine_id": "MED-021",
+      "generic_name": "Cefuroxime",
+      "brand_names": ["Ceftum", "Zocef"],
+      "drug_class": "Second-Generation Cephalosporin",
+      "dosage_form": "Tablet",
+      "strength": ["250 mg", "500 mg"],
+      "used_for": [
+        "Respiratory Infection",
+        "Sinusitis",
+        "Skin Infection",
+        "Urinary Tract Infection"
+      ],
+      "adult_dose": "250–500 mg twice daily",
+      "child_dose": "15 mg/kg twice daily",
+      "frequency": "Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": ["Morning", "Night"],
+      "maximum_daily_dose": "1000 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Nausea",
+        "Rash"
+      ],
+      "contraindications": [
+        "Cephalosporin Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-007", "DIS-104"],
+      "keywords": [
+        "cefuroxime",
+        "ceftum",
+        "antibiotic"
+      ]
+    },
+{
+      "medicine_id": "MED-022",
+      "generic_name": "Clindamycin",
+      "brand_names": ["Dalacin C", "Clincin"],
+      "drug_class": "Lincosamide Antibiotic",
+      "dosage_form": "Capsule",
+      "strength": ["150 mg", "300 mg"],
+      "used_for": [
+        "Skin Infection",
+        "Dental Infection",
+        "Bone Infection"
+      ],
+      "adult_dose": "300 mg every 6–8 hours",
+      "child_dose": "As Prescribed",
+      "frequency": "Three Times Daily",
+      "food_instruction": "With Water",
+      "best_time": ["Morning", "Afternoon", "Night"],
+      "maximum_daily_dose": "1800 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Abdominal Pain",
+        "Nausea"
+      ],
+      "contraindications": [
+        "History of Colitis"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-103", "DIS-202"],
+      "keywords": [
+        "clindamycin",
+        "dalacin",
+        "infection"
+      ]
+    },
+{
+      "medicine_id": "MED-023",
+      "generic_name": "Fluconazole",
+      "brand_names": ["Forcan", "Zocon"],
+      "drug_class": "Antifungal",
+      "dosage_form": "Tablet",
+      "strength": ["150 mg", "200 mg"],
+      "used_for": [
+        "Fungal Infection",
+        "Oral Thrush",
+        "Vaginal Candidiasis"
+      ],
+      "adult_dose": "150 mg once weekly or as prescribed",
+      "child_dose": "As Prescribed",
+      "frequency": "As Directed",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Morning"],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Headache",
+        "Nausea",
+        "Abdominal Pain"
+      ],
+      "contraindications": [
+        "Liver Disease"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-208"],
+      "keywords": [
+        "fluconazole",
+        "forcan",
+        "fungal"
+      ]
+    },
+{
+      "medicine_id": "MED-024",
+      "generic_name": "Albendazole",
+      "brand_names": ["Zentel", "Bandy"],
+      "drug_class": "Anthelmintic",
+      "dosage_form": "Tablet",
+      "strength": ["400 mg"],
+      "used_for": [
+        "Worm Infestation",
+        "Roundworm",
+        "Tapeworm"
+      ],
+      "adult_dose": "400 mg single dose",
+      "child_dose": "200–400 mg",
+      "frequency": "Single Dose",
+      "food_instruction": "After Food",
+      "best_time": ["Night"],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Abdominal Pain",
+        "Nausea",
+        "Headache"
+      ],
+      "contraindications": [
+        "Pregnancy (First Trimester)"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-214"],
+      "keywords": [
+        "albendazole",
+        "zentel",
+        "worms"
+      ]
+    },
+{
+      "medicine_id": "MED-025",
+      "generic_name": "Ornidazole",
+      "brand_names": ["Ornida", "Dazolic"],
+      "drug_class": "Nitroimidazole Antibiotic",
+      "dosage_form": "Tablet",
+      "strength": ["500 mg"],
+      "used_for": [
+        "Protozoal Infection",
+        "Anaerobic Infection",
+        "Diarrhea"
+      ],
+      "adult_dose": "500 mg twice daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": ["Morning", "Night"],
+      "maximum_daily_dose": "1500 mg/day",
+      "side_effects": [
+        "Metallic Taste",
+        "Nausea",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Alcohol Consumption During Therapy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": ["DIS-205"],
+      "keywords": [
+        "ornidazole",
+        "ornida",
+        "infection"
+      ]
+    },
+{
+      "medicine_id": "MED-026",
+      "generic_name": "Domperidone",
+      "brand_names": ["Domstal", "Motilium"],
+      "drug_class": "Antiemetic",
+      "dosage_form": "Tablet",
+      "strength": ["10 mg"],
+      "used_for": [
+        "Nausea",
+        "Vomiting",
+        "Indigestion"
+      ],
+      "adult_dose": "10 mg three times daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Three Times Daily",
+      "food_instruction": "30 Minutes Before Food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "30 mg/day",
+      "side_effects": [
+        "Dry Mouth",
+        "Headache",
+        "Abdominal Cramps"
+      ],
+      "contraindications": [
+        "Cardiac Arrhythmia"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-105"],
+      "keywords": [
+        "domperidone",
+        "domstal",
+        "vomiting"
+      ]
+    },
+{
+      "medicine_id": "MED-027",
+      "generic_name": "Ondansetron",
+      "brand_names": ["Ondem", "Emeset"],
+      "drug_class": "5-HT3 Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": ["4 mg", "8 mg"],
+      "used_for": [
+        "Nausea",
+        "Vomiting",
+        "Chemotherapy-Induced Vomiting"
+      ],
+      "adult_dose": "4–8 mg as needed",
+      "child_dose": "As Prescribed",
+      "frequency": "Every 8 Hours",
+      "food_instruction": "With or Without Food",
+      "best_time": ["As Needed"],
+      "maximum_daily_dose": "24 mg/day",
+      "side_effects": [
+        "Headache",
+        "Constipation",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "QT Prolongation"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-105"],
+      "keywords": [
+        "ondansetron",
+        "ondem",
+        "vomiting"
+      ]
+    },
+{
+      "medicine_id": "MED-028",
+      "generic_name": "Oral Rehydration Salts",
+      "brand_names": ["Electral", "ORS-L"],
+      "drug_class": "Oral Electrolyte Solution",
+      "dosage_form": "Powder Sachet",
+      "strength": ["WHO Formula"],
+      "used_for": [
+        "Dehydration",
+        "Diarrhea",
+        "Heat Exhaustion"
+      ],
+      "adult_dose": "As Required",
+      "child_dose": "As Required",
+      "frequency": "After Every Loose Stool",
+      "food_instruction": "Not Applicable",
+      "best_time": ["As Needed"],
+      "maximum_daily_dose": "As Required",
+      "side_effects": [
+        "Rare Nausea"
+      ],
+      "contraindications": [
+        "Severe Kidney Failure"
+      ],
+      "storage": "Use Prepared Solution Within 24 Hours",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-205"],
+      "keywords": [
+        "ors",
+        "electral",
+        "dehydration"
+      ]
+    },
+{
+      "medicine_id": "MED-029",
+      "generic_name": "Loperamide",
+      "brand_names": ["Imodium", "Lopamide"],
+      "drug_class": "Antidiarrheal",
+      "dosage_form": "Capsule",
+      "strength": ["2 mg"],
+      "used_for": [
+        "Acute Diarrhea",
+        "Traveler's Diarrhea"
+      ],
+      "adult_dose": "4 mg initially then 2 mg after each loose stool",
+      "child_dose": "Not Recommended Under 2 Years",
+      "frequency": "As Needed",
+      "food_instruction": "With Water",
+      "best_time": ["As Needed"],
+      "maximum_daily_dose": "16 mg/day",
+      "side_effects": [
+        "Constipation",
+        "Abdominal Pain",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Bloody Diarrhea",
+        "Severe Colitis"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-205"],
+      "keywords": [
+        "loperamide",
+        "imodium",
+        "diarrhea"
+      ]
+    },
+{
+      "medicine_id": "MED-030",
+      "generic_name": "Lactulose",
+      "brand_names": ["Duphalac", "Looz"],
+      "drug_class": "Osmotic Laxative",
+      "dosage_form": "Oral Syrup",
+      "strength": ["10 g/15 mL"],
+      "used_for": [
+        "Constipation",
+        "Hepatic Encephalopathy"
+      ],
+      "adult_dose": "15–30 mL daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": ["Night"],
+      "maximum_daily_dose": "As Prescribed",
+      "side_effects": [
+        "Gas",
+        "Bloating",
+        "Abdominal Cramps"
+      ],
+      "contraindications": [
+        "Galactosemia"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": ["DIS-105"],
+      "keywords": [
+        "lactulose",
+        "duphalac",
+        "constipation"
+      ]
+    },
+{
+      "medicine_id": "MED-031",
+      "generic_name": "Diclofenac",
+      "brand_names": ["Voveran", "Dicloran"],
+      "drug_class": "NSAID",
+      "dosage_form": "Tablet",
+      "strength": ["50 mg", "75 mg"],
+      "used_for": [
+        "Joint Pain",
+        "Muscle Pain",
+        "Arthritis",
+        "Post-operative Pain"
+      ],
+      "adult_dose": "50 mg two to three times daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Two to Three Times Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "150 mg/day",
+      "side_effects": [
+        "Acidity",
+        "Stomach Pain",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Peptic Ulcer",
+        "NSAID Allergy",
+        "Severe Kidney Disease"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-006",
+        "DIS-052"
+      ],
+      "keywords": [
+        "diclofenac",
+        "voveran",
+        "pain",
+        "arthritis"
+      ]
+    },
+{
+      "medicine_id": "MED-032",
+      "generic_name": "Aceclofenac",
+      "brand_names": ["Zerodol", "Hifenac"],
+      "drug_class": "NSAID",
+      "dosage_form": "Tablet",
+      "strength": ["100 mg"],
+      "used_for": [
+        "Arthritis",
+        "Back Pain",
+        "Joint Pain"
+      ],
+      "adult_dose": "100 mg twice daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "200 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Indigestion",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "NSAID Allergy",
+        "Peptic Ulcer"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-052"
+      ],
+      "keywords": [
+        "aceclofenac",
+        "zerodol",
+        "pain"
+      ]
+    },
+{
+      "medicine_id": "MED-033",
+      "generic_name": "Tramadol",
+      "brand_names": ["Ultram", "Contramal"],
+      "drug_class": "Opioid Analgesic",
+      "dosage_form": "Tablet",
+      "strength": ["50 mg", "100 mg"],
+      "used_for": [
+        "Moderate Pain",
+        "Severe Pain",
+        "Post-operative Pain"
+      ],
+      "adult_dose": "50–100 mg every 6 hours",
+      "child_dose": "As Prescribed",
+      "frequency": "Every 6 Hours",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "As Needed"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Drowsiness",
+        "Constipation",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Alcohol Intoxication",
+        "Seizure Disorder"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-052"
+      ],
+      "keywords": [
+        "tramadol",
+        "pain",
+        "opioid"
+      ]
+    },
+{
+      "medicine_id": "MED-034",
+      "generic_name": "Aspirin",
+      "brand_names": ["Ecosprin", "Disprin"],
+      "drug_class": "Antiplatelet / NSAID",
+      "dosage_form": "Tablet",
+      "strength": ["75 mg", "150 mg", "325 mg"],
+      "used_for": [
+        "Heart Attack Prevention",
+        "Stroke Prevention",
+        "Pain",
+        "Fever"
+      ],
+      "adult_dose": "75–150 mg once daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "4000 mg/day (Pain)",
+      "side_effects": [
+        "Bleeding",
+        "Acidity",
+        "Stomach Ulcer"
+      ],
+      "contraindications": [
+        "Bleeding Disorders",
+        "Peptic Ulcer"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-120",
+        "DIS-121"
+      ],
+      "keywords": [
+        "aspirin",
+        "ecosprin",
+        "blood thinner"
+      ]
+    },
+{
+      "medicine_id": "MED-035",
+      "generic_name": "Clopidogrel",
+      "brand_names": ["Clopilet", "Plavix"],
+      "drug_class": "Antiplatelet",
+      "dosage_form": "Tablet",
+      "strength": ["75 mg"],
+      "used_for": [
+        "Heart Attack Prevention",
+        "Stroke Prevention"
+      ],
+      "adult_dose": "75 mg once daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "75 mg/day",
+      "side_effects": [
+        "Bleeding",
+        "Bruising",
+        "Diarrhea"
+      ],
+      "contraindications": [
+        "Active Bleeding"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-120",
+        "DIS-121"
+      ],
+      "keywords": [
+        "clopidogrel",
+        "plavix",
+        "clopilet"
+      ]
+    },
+{
+      "medicine_id": "MED-036",
+      "generic_name": "Bisoprolol",
+      "brand_names": ["Concor", "Biselect"],
+      "drug_class": "Beta Blocker",
+      "dosage_form": "Tablet",
+      "strength": ["2.5 mg", "5 mg", "10 mg"],
+      "used_for": [
+        "Hypertension",
+        "Heart Failure",
+        "Angina"
+      ],
+      "adult_dose": "5 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "20 mg/day",
+      "side_effects": [
+        "Slow Heart Rate",
+        "Fatigue",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Severe Bradycardia",
+        "Cardiogenic Shock"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-046"
+      ],
+      "keywords": [
+        "bisoprolol",
+        "concor",
+        "blood pressure"
+      ]
+    },
+{
+      "medicine_id": "MED-037",
+      "generic_name": "Metoprolol",
+      "brand_names": ["Metolar", "Betaloc"],
+      "drug_class": "Beta Blocker",
+      "dosage_form": "Tablet",
+      "strength": ["25 mg", "50 mg", "100 mg"],
+      "used_for": [
+        "Hypertension",
+        "Angina",
+        "Heart Failure"
+      ],
+      "adult_dose": "25–50 mg once or twice daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Fatigue",
+        "Dizziness",
+        "Slow Heart Rate"
+      ],
+      "contraindications": [
+        "Heart Block",
+        "Severe Asthma"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-046"
+      ],
+      "keywords": [
+        "metoprolol",
+        "betaloc",
+        "hypertension"
+      ]
+    },
+{
+      "medicine_id": "MED-038",
+      "generic_name": "Furosemide",
+      "brand_names": ["Lasix", "Frusemide"],
+      "drug_class": "Loop Diuretic",
+      "dosage_form": "Tablet",
+      "strength": ["40 mg"],
+      "used_for": [
+        "Edema",
+        "Heart Failure",
+        "Hypertension"
+      ],
+      "adult_dose": "20–40 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "Morning After Breakfast",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "600 mg/day",
+      "side_effects": [
+        "Frequent Urination",
+        "Low Potassium",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Severe Dehydration"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-046",
+        "DIS-120"
+      ],
+      "keywords": [
+        "furosemide",
+        "lasix",
+        "diuretic"
+      ]
+    },
+{
+      "medicine_id": "MED-039",
+      "generic_name": "Spironolactone",
+      "brand_names": ["Aldactone", "Spiromide"],
+      "drug_class": "Potassium-Sparing Diuretic",
+      "dosage_form": "Tablet",
+      "strength": ["25 mg", "50 mg", "100 mg"],
+      "used_for": [
+        "Heart Failure",
+        "Hypertension",
+        "Liver Cirrhosis"
+      ],
+      "adult_dose": "25–50 mg once daily",
+      "child_dose": "As Prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "High Potassium",
+        "Breast Tenderness",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Hyperkalemia",
+        "Kidney Failure"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-046",
+        "DIS-120"
+      ],
+      "keywords": [
+        "spironolactone",
+        "aldactone",
+        "diuretic"
+      ]
+    },
+{
+      "medicine_id": "MED-040",
+      "generic_name": "Nitroglycerin",
+      "brand_names": ["Nitrocontin", "Nitrostat"],
+      "drug_class": "Nitrate Vasodilator",
+      "dosage_form": "Sublingual Tablet",
+      "strength": ["0.5 mg"],
+      "used_for": [
+        "Angina",
+        "Chest Pain"
+      ],
+      "adult_dose": "1 tablet under the tongue during chest pain",
+      "child_dose": "Not Recommended",
+      "frequency": "As Needed",
+      "food_instruction": "Not Applicable",
+      "best_time": [
+        "During Chest Pain"
+      ],
+      "maximum_daily_dose": "3 tablets within 15 minutes",
+      "side_effects": [
+        "Headache",
+        "Low Blood Pressure",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Use with Sildenafil",
+        "Severe Hypotension"
+      ],
+      "storage": "Store in Original Airtight Container",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-120"
+      ],
+      "keywords": [
+        "nitroglycerin",
+        "nitrocontin",
+        "angina",
+        "chest pain"
+      ]
+    },
+{
+      "medicine_id": "MED-041",
+      "generic_name": "Insulin Regular",
+      "brand_names": ["Actrapid", "Humulin R", "Insugen R"],
+      "drug_class": "Short-Acting Insulin",
+      "dosage_form": "Injection",
+      "strength": ["100 IU/mL"],
+      "used_for": [
+        "Type 1 Diabetes",
+        "Type 2 Diabetes",
+        "Diabetic Ketoacidosis"
+      ],
+      "adult_dose": "As prescribed based on blood glucose",
+      "child_dose": "As prescribed",
+      "frequency": "Before Meals",
+      "food_instruction": "Take 30 minutes before food",
+      "best_time": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "maximum_daily_dose": "Individualized",
+      "side_effects": [
+        "Hypoglycemia",
+        "Weight Gain",
+        "Injection Site Reactions"
+      ],
+      "contraindications": [
+        "Hypoglycemia",
+        "Insulin Allergy"
+      ],
+      "storage": "Refrigerate at 2–8°C. Do not freeze.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-002",
+        "DIS-047"
+      ],
+      "keywords": [
+        "insulin",
+        "actrapid",
+        "diabetes",
+        "blood sugar"
+      ]
+    },
+{
+      "medicine_id": "MED-042",
+      "generic_name": "Insulin Glargine",
+      "brand_names": ["Lantus", "Basalog", "Toujeo"],
+      "drug_class": "Long-Acting Insulin",
+      "dosage_form": "Injection",
+      "strength": ["100 IU/mL"],
+      "used_for": [
+        "Type 1 Diabetes",
+        "Type 2 Diabetes"
+      ],
+      "adult_dose": "Once daily as prescribed",
+      "child_dose": "As prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "Independent of meals",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "Individualized",
+      "side_effects": [
+        "Hypoglycemia",
+        "Injection Site Pain"
+      ],
+      "contraindications": [
+        "Hypoglycemia"
+      ],
+      "storage": "Refrigerate at 2–8°C",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-002"
+      ],
+      "keywords": [
+        "glargine",
+        "lantus",
+        "basalog",
+        "insulin"
+      ]
+    },
+{
+      "medicine_id": "MED-043",
+      "generic_name": "Glimepiride",
+      "brand_names": ["Amaryl", "Glimy"],
+      "drug_class": "Sulfonylurea",
+      "dosage_form": "Tablet",
+      "strength": ["1 mg", "2 mg", "4 mg"],
+      "used_for": [
+        "Type 2 Diabetes"
+      ],
+      "adult_dose": "1–4 mg once daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Once Daily",
+      "food_instruction": "Before Breakfast",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "8 mg/day",
+      "side_effects": [
+        "Hypoglycemia",
+        "Weight Gain",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Type 1 Diabetes",
+        "Diabetic Ketoacidosis"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-002"
+      ],
+      "keywords": [
+        "glimepiride",
+        "amaryl",
+        "diabetes"
+      ]
+    },
+{
+      "medicine_id": "MED-044",
+      "generic_name": "Sitagliptin",
+      "brand_names": ["Januvia", "Istavel"],
+      "drug_class": "DPP-4 Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": ["25 mg", "50 mg", "100 mg"],
+      "used_for": [
+        "Type 2 Diabetes"
+      ],
+      "adult_dose": "100 mg once daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "100 mg/day",
+      "side_effects": [
+        "Headache",
+        "Nasopharyngitis",
+        "Joint Pain"
+      ],
+      "contraindications": [
+        "Drug Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-002"
+      ],
+      "keywords": [
+        "sitagliptin",
+        "januvia",
+        "diabetes"
+      ]
+    },
+{
+      "medicine_id": "MED-045",
+      "generic_name": "Empagliflozin",
+      "brand_names": ["Jardiance", "EmpaOne"],
+      "drug_class": "SGLT2 Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": ["10 mg", "25 mg"],
+      "used_for": [
+        "Type 2 Diabetes",
+        "Heart Failure",
+        "Chronic Kidney Disease"
+      ],
+      "adult_dose": "10 mg once daily",
+      "child_dose": "Not Recommended",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "25 mg/day",
+      "side_effects": [
+        "Urinary Tract Infection",
+        "Frequent Urination",
+        "Dehydration"
+      ],
+      "contraindications": [
+        "Severe Kidney Disease"
+      ],
+      "storage": "Store below 30°C",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-002",
+        "DIS-046"
+      ],
+      "keywords": [
+        "empagliflozin",
+        "jardiance",
+        "diabetes"
+      ]
+    },
+{
+      "medicine_id": "MED-046",
+      "generic_name": "Calcium Carbonate + Vitamin D3",
+      "brand_names": ["Shelcal 500", "Calcimax"],
+      "drug_class": "Calcium Supplement",
+      "dosage_form": "Tablet",
+      "strength": [
+        "Calcium 500 mg + Vitamin D3 250 IU"
+      ],
+      "used_for": [
+        "Calcium Deficiency",
+        "Osteoporosis",
+        "Bone Health"
+      ],
+      "adult_dose": "1 tablet once or twice daily",
+      "child_dose": "As prescribed",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Breakfast",
+        "Dinner"
+      ],
+      "maximum_daily_dose": "As Prescribed",
+      "side_effects": [
+        "Constipation",
+        "Bloating"
+      ],
+      "contraindications": [
+        "Hypercalcemia"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-180"
+      ],
+      "keywords": [
+        "calcium",
+        "vitamin d3",
+        "shelcal",
+        "bone"
+      ]
+    },
+{
+      "medicine_id": "MED-047",
+      "generic_name": "Ferrous Ascorbate + Folic Acid",
+      "brand_names": ["Orofer XT", "Fefol"],
+      "drug_class": "Iron Supplement",
+      "dosage_form": "Tablet",
+      "strength": [
+        "Ferrous Ascorbate 100 mg + Folic Acid 1.5 mg"
+      ],
+      "used_for": [
+        "Iron Deficiency Anemia",
+        "Pregnancy Supplementation"
+      ],
+      "adult_dose": "1 tablet daily",
+      "child_dose": "As prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "As Prescribed",
+      "side_effects": [
+        "Constipation",
+        "Black Stool",
+        "Nausea"
+      ],
+      "contraindications": [
+        "Iron Overload Disorders"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-181"
+      ],
+      "keywords": [
+        "iron",
+        "orofer",
+        "anemia",
+        "folic acid"
+      ]
+    },
+{
+      "medicine_id": "MED-048",
+      "generic_name": "Vitamin B Complex",
+      "brand_names": ["Becosules", "Neurobion Forte"],
+      "drug_class": "Vitamin Supplement",
+      "dosage_form": "Capsule",
+      "strength": [
+        "Vitamin B Complex"
+      ],
+      "used_for": [
+        "Vitamin B Deficiency",
+        "Neuropathy",
+        "General Weakness"
+      ],
+      "adult_dose": "1 capsule daily",
+      "child_dose": "As prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "As Prescribed",
+      "side_effects": [
+        "Mild Nausea",
+        "Yellow Urine"
+      ],
+      "contraindications": [
+        "Drug Allergy"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-182"
+      ],
+      "keywords": [
+        "becosules",
+        "vitamin b",
+        "neurobion"
+      ]
+    },
+{
+      "medicine_id": "MED-049",
+      "generic_name": "Vitamin C",
+      "brand_names": ["Limcee", "Celin"],
+      "drug_class": "Vitamin Supplement",
+      "dosage_form": "Chewable Tablet",
+      "strength": [
+        "500 mg"
+      ],
+      "used_for": [
+        "Vitamin C Deficiency",
+        "Immunity Support",
+        "Wound Healing"
+      ],
+      "adult_dose": "500 mg once daily",
+      "child_dose": "As prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "2000 mg/day",
+      "side_effects": [
+        "Stomach Upset",
+        "Diarrhea"
+      ],
+      "contraindications": [
+        "Kidney Stone History (High Doses)"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-183"
+      ],
+      "keywords": [
+        "vitamin c",
+        "limcee",
+        "celin",
+        "immunity"
+      ]
+    },
+   {
+      "medicine_id": "MED-050",
+      "generic_name": "Multivitamin + Multimineral",
+      "brand_names": ["Supradyn", "A to Z NS"],
+      "drug_class": "Nutritional Supplement",
+      "dosage_form": "Tablet",
+      "strength": [
+        "Multivitamin Formula"
+      ],
+      "used_for": [
+        "Nutritional Deficiency",
+        "General Weakness",
+        "Fatigue",
+        "Recovery Support"
+      ],
+      "adult_dose": "1 tablet once daily",
+      "child_dose": "As prescribed",
+      "frequency": "Once Daily",
+      "food_instruction": "After Food",
+      "best_time": [
+        "Breakfast"
+      ],
+      "maximum_daily_dose": "1 tablet/day unless prescribed",
+      "side_effects": [
+        "Mild Nausea",
+        "Constipation"
+      ],
+      "contraindications": [
+        "Hypervitaminosis"
+      ],
+      "storage": "Store below 25°C",
+      "prescription_required": false,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-184"
+      ],
+      "keywords": [
+        "multivitamin",
+        "supradyn",
+        "nutrition",
+        "fatigue"
+      ]
+    },
+    {
+      "medicine_id": "MED-051",
+      "generic_name": "Levocetirizine",
+      "brand_names": [
+        "Xyzal",
+        "Teczine",
+        "Levorid"
+      ],
+      "drug_class": "Second-Generation Antihistamine",
+      "dosage_form": "Tablet",
+      "strength": [
+        "5 mg"
+      ],
+      "used_for": [
+        "Allergic Rhinitis",
+        "Chronic Idiopathic Urticaria",
+        "Allergic Conjunctivitis"
+      ],
+      "adult_dose": "5 mg once daily in the evening",
+      "child_dose": "2.5 mg once daily in the evening for children aged 6 to 11 years",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "5 mg/day",
+      "side_effects": [
+        "Somnolence",
+        "Nasopharyngitis",
+        "Fatigue",
+        "Dry Mouth"
+      ],
+      "contraindications": [
+        "End-Stage Renal Disease (CrCl < 10 mL/min)",
+        "Hypersensitivity to Levocetirizine or Cetirizine",
+        "Hemodialysis Patients"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-106"
+      ],
+      "keywords": [
+        "levocetirizine",
+        "xyzal",
+        "antihistamine",
+        "allergy",
+        "urticaria"
+      ]
+    },
+    {
+      "medicine_id": "MED-052",
+      "generic_name": "Losartan Potassium",
+      "brand_names": [
+        "Cozaar",
+        "Losacar",
+        "Repace"
+      ],
+      "drug_class": "Angiotensin II Receptor Blocker (ARB)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Diabetic Nephropathy"
+      ],
+      "adult_dose": "50 mg once daily, titrated up to 100 mg once daily if needed",
+      "child_dose": "0.7 mg/kg once daily up to 50 mg daily for pediatric patients 6 years and older",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "100 mg/day",
+      "side_effects": [
+        "Dizziness",
+        "Hyperkalemia",
+        "Back Pain",
+        "Hypotension"
+      ],
+      "contraindications": [
+        "Concomitant use with Aliskiren in patients with diabetes",
+        "Hypersensitivity to Losartan",
+        "Pregnancy (Second and Third Trimesters)"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-002"
+      ],
+      "keywords": [
+        "losartan",
+        "cozaar",
+        "hypertension",
+        "arb",
+        "blood pressure"
+      ]
+    },
+    {
+      "medicine_id": "MED-053",
+      "generic_name": "Ciprofloxacin",
+      "brand_names": [
+        "Cipro",
+        "Cifran",
+        "Ciplox"
+      ],
+      "drug_class": "Fluoroquinolone Antibiotic",
+      "dosage_form": "Tablet",
+      "strength": [
+        "250 mg",
+        "500 mg",
+        "750 mg"
+      ],
+      "used_for": [
+        "Urinary Tract Infection",
+        "Chronic Bacterial Prostatitis",
+        "Acute Sinusitis",
+        "Lower Respiratory Tract Infection"
+      ],
+      "adult_dose": "250 mg to 750 mg every 12 hours depending on infection severity",
+      "child_dose": "10 mg/kg to 20 mg/kg every 12 hours for complicated urinary tract infections",
+      "frequency": "Twice Daily",
+      "food_instruction": "Take with a full glass of water; avoid administration with dairy products or antacids",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "1500 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Diarrhea",
+        "Tendinitis and Tendon Rupture",
+        "QT Prolongation"
+      ],
+      "contraindications": [
+        "History of hypersensitivity to fluoroquinolones",
+        "Concomitant administration with tizanidine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-007",
+        "DIS-103",
+        "DIS-104"
+      ],
+      "keywords": [
+        "ciprofloxacin",
+        "cipro",
+        "antibiotic",
+        "uti",
+        "fluoroquinolone"
+      ]
+    },
+    {
+      "medicine_id": "MED-054",
+      "generic_name": "Famotidine",
+      "brand_names": [
+        "Pepcid",
+        "Famocid",
+        "Facid"
+      ],
+      "drug_class": "Histamine H2 Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Gastroesophageal Reflux Disease",
+        "Duodenal Ulcer",
+        "Gastric Ulcer",
+        "Pathological Hypersecretory Conditions"
+      ],
+      "adult_dose": "20 mg twice daily, or 40 mg once daily at bedtime",
+      "child_dose": "0.5 mg/kg to 1 mg/kg/day divided twice daily",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Headache",
+        "Dizziness",
+        "Constipation",
+        "Diarrhea"
+      ],
+      "contraindications": [
+        "History of hypersensitivity to Famotidine or other H2 antagonists"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-105",
+        "DIS-109"
+      ],
+      "keywords": [
+        "famotidine",
+        "pepcid",
+        "acidity",
+        "gerd",
+        "ulcer"
+      ]
+    },
+    {
+      "medicine_id": "MED-055",
+      "generic_name": "Gabapentin",
+      "brand_names": [
+        "Neurontin",
+        "Gabapin",
+        "Gaba"
+      ],
+      "drug_class": "GABA Analog",
+      "dosage_form": "Capsule",
+      "strength": [
+        "100 mg",
+        "300 mg",
+        "400 mg"
+      ],
+      "used_for": [
+        "Postherpetic Neuralgia",
+        "Partial Onset Seizures Adjunctive Therapy"
+      ],
+      "adult_dose": "300 mg on day 1, titrated up to 300 mg three times daily (900 mg/day total) as target dose",
+      "child_dose": "10 mg/kg/day to 15 mg/kg/day divided into three doses for epilepsy in children 3-11 years old",
+      "frequency": "Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "3600 mg/day",
+      "side_effects": [
+        "Dizziness",
+        "Somnolence",
+        "Peripheral Edema",
+        "Fatigue"
+      ],
+      "contraindications": [
+        "Hypersensitivity to gabapentin"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-006"
+      ],
+      "keywords": [
+        "gabapentin",
+        "neurontin",
+        "nerve pain",
+        "neuropathy",
+        "gabapin"
+      ]
+    },
+    {
+      "medicine_id": "MED-056",
+      "generic_name": "Amlodipine",
+      "brand_names": [
+        "Norvasc",
+        "Amlokind",
+        "Amlovas"
+      ],
+      "drug_class": "Calcium Channel Blocker",
+      "dosage_form": "Tablet",
+      "strength": [
+        "2.5 mg",
+        "5 mg",
+        "10 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Chronic Stable Angina",
+        "Vasospastic Angina"
+      ],
+      "adult_dose": "5 mg to 10 mg once daily",
+      "child_dose": "2.5 mg to 5 mg once daily for pediatric hypertension (6-17 years)",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Peripheral Edema",
+        "Dizziness",
+        "Flushing",
+        "Palpitations"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Amlodipine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-003"
+      ],
+      "keywords": [
+        "amlodipine",
+        "norvasc",
+        "hypertension",
+        "blood pressure",
+        "angina"
+      ]
+    },
+    {
+      "medicine_id": "MED-057",
+      "generic_name": "Metformin",
+      "brand_names": [
+        "Glucophage",
+        "Glycomet",
+        "Metis"
+      ],
+      "drug_class": "Biguanide",
+      "dosage_form": "Tablet",
+      "strength": [
+        "500 mg",
+        "850 mg",
+        "1000 mg"
+      ],
+      "used_for": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "adult_dose": "500 mg twice daily or 850 mg once daily, titrated up to 2000 mg/day",
+      "child_dose": "500 mg twice daily for children 10 years and older",
+      "frequency": "Twice Daily",
+      "food_instruction": "Take with meals to reduce gastrointestinal side effects",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "2000 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Diarrhea",
+        "Abdominal Pain",
+        "Metallic Taste"
+      ],
+      "contraindications": [
+        "Severe Renal Impairment",
+        "Metabolic Acidosis",
+        "Diabetic Ketoacidosis"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-002"
+      ],
+      "keywords": [
+        "metformin",
+        "diabetes",
+        "blood sugar",
+        "glucophage",
+        "glycomet"
+      ]
+    },
+    {
+      "medicine_id": "MED-058",
+      "generic_name": "Atorvastatin",
+      "brand_names": [
+        "Lipitor",
+        "Atorva",
+        "Storvas"
+      ],
+      "drug_class": "HMG-CoA Reductase Inhibitor (Statin)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg",
+        "20 mg",
+        "40 mg",
+        "80 mg"
+      ],
+      "used_for": [
+        "Hyperlipidemia",
+        "Primary and Secondary Prevention of Cardiovascular Disease"
+      ],
+      "adult_dose": "10 mg to 80 mg once daily",
+      "child_dose": "10 mg to 20 mg once daily for pediatric patients 10-17 years old",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Myalgia",
+        "Arthralgia",
+        "Diarrhea",
+        "Increased Liver Enzymes"
+      ],
+      "contraindications": [
+        "Active Liver Disease",
+        "Pregnancy",
+        "Lactation"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-004"
+      ],
+      "keywords": [
+        "atorvastatin",
+        "lipitor",
+        "cholesterol",
+        "statin",
+        "heart health"
+      ]
+    },
+    {
+      "medicine_id": "MED-059",
+      "generic_name": "Pantoprazole",
+      "brand_names": [
+        "Protonix",
+        "Pantocid",
+        "Pan"
+      ],
+      "drug_class": "Proton Pump Inhibitor (PPI)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Gastroesophageal Reflux Disease",
+        "Erosive Esophagitis",
+        "Zollinger-Ellison Syndrome"
+      ],
+      "adult_dose": "20 mg to 40 mg once daily before a meal",
+      "child_dose": "20 mg once daily for children 5 years and older",
+      "frequency": "Once Daily",
+      "food_instruction": "Take 30 to 60 minutes before the first meal of the day",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "40 mg/day (higher for specialized syndromes)",
+      "side_effects": [
+        "Headache",
+        "Diarrhea",
+        "Flatulence",
+        "Abdominal Pain"
+      ],
+      "contraindications": [
+        "Hypersensitivity to substituted benzimidazoles"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-105",
+        "DIS-109"
+      ],
+      "keywords": [
+        "pantoprazole",
+        "acid reflux",
+        "gerd",
+        "ppi",
+        "acidity"
+      ]
+    },
+    {
+      "medicine_id": "MED-060",
+      "generic_name": "Sertraline",
+      "brand_names": [
+        "Zoloft",
+        "Sertima",
+        "Daxid"
+      ],
+      "drug_class": "Selective Serotonin Reuptake Inhibitor (SSRI)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Major Depressive Disorder",
+        "Obsessive-Compulsive Disorder",
+        "Panic Disorder",
+        "Social Anxiety Disorder"
+      ],
+      "adult_dose": "50 mg once daily, adjusted up to 200 mg/day",
+      "child_dose": "25 mg once daily for children 6-12 years (OCD only)",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "200 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Insomnia",
+        "Diarrhea",
+        "Sexual Dysfunction",
+        "Dry Mouth"
+      ],
+      "contraindications": [
+        "Concomitant use with MAOIs",
+        "Hypersensitivity to Sertraline"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-201",
+        "DIS-202"
+      ],
+      "keywords": [
+        "sertraline",
+        "zoloft",
+        "depression",
+        "anxiety",
+        "ssri"
+      ]
+    },
+    {
+      "medicine_id": "MED-061",
+      "generic_name": "Amlodipine Besylate",
+      "brand_names": [
+        "Norvasc",
+        "Amlokind",
+        "Amlodac"
+      ],
+      "drug_class": "Calcium Channel Blocker (Dihydropyridine)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "2.5 mg",
+        "5 mg",
+        "10 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Chronic Stable Angina",
+        "Vasospastic Angina"
+      ],
+      "adult_dose": "5 mg once daily, titrated to a maximum of 10 mg once daily based on clinical response",
+      "child_dose": "2.5 mg to 5 mg once daily in pediatric patients aged 6 to 17 years",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Peripheral Edema",
+        "Flushing",
+        "Palpitations",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Amlodipine",
+        "Severe Hypotension",
+        "Cardiogenic Shock"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-022"
+      ],
+      "keywords": [
+        "amlodipine",
+        "norvasc",
+        "calcium channel blocker",
+        "hypertension",
+        "angina"
+      ]
+    },
+    {
+      "medicine_id": "MED-062",
+      "generic_name": "Metformin Hydrochloride",
+      "brand_names": [
+        "Glucophage",
+        "Glycomet",
+        "Glyciphage"
+      ],
+      "drug_class": "Biguanide",
+      "dosage_form": "Tablet",
+      "strength": [
+        "500 mg",
+        "850 mg",
+        "1000 mg"
+      ],
+      "used_for": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "adult_dose": "500 mg twice daily or 850 mg once daily, titrated weekly up to a maximum dose based on clinical efficacy",
+      "child_dose": "500 mg twice daily for pediatric patients aged 10 years and older",
+      "frequency": "Twice Daily",
+      "food_instruction": "Take with meals to reduce gastrointestinal side effects",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "2550 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Diarrhea",
+        "Abdominal Distress",
+        "Lactic Acidosis"
+      ],
+      "contraindications": [
+        "Severe Renal Impairment (eGFR < 30 mL/min/1.73m2)",
+        "Acute or Chronic Metabolic Acidosis",
+        "Diabetic Ketoacidosis"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-003"
+      ],
+      "keywords": [
+        "metformin",
+        "glucophage",
+        "diabetes",
+        "biguanide",
+        "blood sugar"
+      ]
+    },
+    {
+      "medicine_id": "MED-063",
+      "generic_name": "Atorvastatin Calcium",
+      "brand_names": [
+        "Lipitor",
+        "Atorva",
+        "Storvas"
+      ],
+      "drug_class": "HMG-CoA Reductase Inhibitor (Statin)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg",
+        "20 mg",
+        "40 mg",
+        "80 mg"
+      ],
+      "used_for": [
+        "Hypercholesterolemia",
+        "Prevention of Cardiovascular Disease"
+      ],
+      "adult_dose": "10 mg to 20 mg once daily, titrated up to 80 mg once daily based on lipid goals",
+      "child_dose": "10 mg once daily titrated up to 20 mg once daily for pediatric patients aged 10 to 17 years with heterozygous familial hypercholesterolemia",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Myalgia",
+        "Nasopharyngitis",
+        "Arthralgia",
+        "Elevated Liver Transaminases"
+      ],
+      "contraindications": [
+        "Active Liver Disease",
+        "Hypersensitivity to Atorvastatin",
+        "Pregnancy and Lactation"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-011",
+        "DIS-012"
+      ],
+      "keywords": [
+        "atorvastatin",
+        "lipitor",
+        "statin",
+        "cholesterol",
+        "cardiovascular"
+      ]
+    },
+    {
+      "medicine_id": "MED-064",
+      "generic_name": "Amoxicillin Trihydrate",
+      "brand_names": [
+        "Amoxil",
+        "Mox",
+        "Novamox"
+      ],
+      "drug_class": "Penicillin Class Antibacterial",
+      "dosage_form": "Capsule",
+      "strength": [
+        "250 mg",
+        "500 mg"
+      ],
+      "used_for": [
+        "Lower Respiratory Tract Infection",
+        "Acute Otitis Media",
+        "Pharyngitis",
+        "Tonsillitis",
+        "Skin and Skin Structure Infection"
+      ],
+      "adult_dose": "250 mg to 500 mg every 8 hours, or 500 mg to 875 mg every 12 hours depending on infection severity",
+      "child_dose": "20 mg/kg/day to 45 mg/kg/day in divided doses depending on infection type and severity",
+      "frequency": "Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "3000 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea",
+        "Cutaneous Maculopapular Rash"
+      ],
+      "contraindications": [
+        "History of serious hypersensitivity reactions to Amoxicillin or other Beta-lactams"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-103",
+        "DIS-112"
+      ],
+      "keywords": [
+        "amoxicillin",
+        "amoxil",
+        "penicillin",
+        "antibiotic",
+        "bacterial infection"
+      ]
+    },
+    {
+      "medicine_id": "MED-065",
+      "generic_name": "Omeprazole",
+      "brand_names": [
+        "Prilosec",
+        "Omez",
+        "Omecip"
+      ],
+      "drug_class": "Proton Pump Inhibitor (PPI)",
+      "dosage_form": "Capsule",
+      "strength": [
+        "10 mg",
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Duodenal Ulcer",
+        "Gastric Ulcer",
+        "Gastroesophageal Reflux Disease",
+        "Erosive Esophagitis",
+        "Zollinger-Ellison Syndrome"
+      ],
+      "adult_dose": "20 mg to 40 mg once daily depending on indication, up to 120 mg three times daily for hypersecretory conditions",
+      "child_dose": "10 mg to 20 mg once daily based on weight for pediatric patients aged 1 year and older",
+      "frequency": "Once Daily",
+      "food_instruction": "Take on an empty stomach, at least 30 to 60 minutes before a meal",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "360 mg/day",
+      "side_effects": [
+        "Headache",
+        "Abdominal Pain",
+        "Nausea",
+        "Diarrhea",
+        "Flatulence"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Omeprazole or other Proton Pump Inhibitors",
+        "Concomitant administration with Rilpivirine-containing products"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-105",
+        "DIS-109"
+      ],
+      "keywords": [
+        "omeprazole",
+        "prilosec",
+        "ppi",
+        "gerd",
+        "acid reflux",
+        "ulcer"
+      ]
+    },
+    {
+      "medicine_id": "MED-066",
+      "generic_name": "Metoprolol Succinate",
+      "brand_names": [
+        "Toprol-XL",
+        "Metolar-XR",
+        "Starpress-XL"
+      ],
+      "drug_class": "Beta-1 Selective Adrenergic Blocker",
+      "dosage_form": "Extended-Release Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg",
+        "200 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Angina Pectoris",
+        "Heart Failure"
+      ],
+      "adult_dose": "25 mg to 100 mg once daily, titrated up to a maximum of 200 mg once daily based on clinical response",
+      "child_dose": "1 mg/kg once daily up to a maximum of 50 mg once daily for pediatric patients aged 6 years and older",
+      "frequency": "Once Daily",
+      "food_instruction": "Take with or immediately following a meal",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "200 mg/day",
+      "side_effects": [
+        "Bradycardia",
+        "Dizziness",
+        "Fatigue",
+        "Diarrhea"
+      ],
+      "contraindications": [
+        "Severe Bradycardia",
+        "Heart Block Greater than First Degree",
+        "Cardiogenic Shock",
+        "Decompensated Heart Failure"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-022"
+      ],
+      "keywords": [
+        "metoprolol",
+        "toprol",
+        "beta blocker",
+        "hypertension",
+        "heart failure"
+      ]
+    },
+    {
+      "medicine_id": "MED-067",
+      "generic_name": "Sertraline Hydrochloride",
+      "brand_names": [
+        "Zoloft",
+        "Sertima",
+        "Serenata"
+      ],
+      "drug_class": "Selective Serotonin Reuptake Inhibitor (SSRI)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Major Depressive Disorder",
+        "Obsessive-Compulsive Disorder",
+        "Panic Disorder",
+        "Post-Traumatic Stress Disorder",
+        "Social Anxiety Disorder"
+      ],
+      "adult_dose": "50 mg once daily, titrated weekly up to a maximum dose of 200 mg once daily based on clinical efficacy",
+      "child_dose": "25 mg once daily for pediatric patients aged 6 to 12 years with Obsessive-Compulsive Disorder",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "200 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Insomnia",
+        "Diarrhea",
+        "Ejaculation Disorder",
+        "Dry Mouth"
+      ],
+      "contraindications": [
+        "Concomitant use of Monoamine Oxidase Inhibitors (MAOIs)",
+        "Concomitant use of Pimozide",
+        "Hypersensitivity to Sertraline"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-201",
+        "DIS-204"
+      ],
+      "keywords": [
+        "sertraline",
+        "zoloft",
+        "ssri",
+        "depression",
+        "anxiety",
+        "ocd"
+      ]
+    },
+    {
+      "medicine_id": "MED-068",
+      "generic_name": "Azithromycin Dihydrate",
+      "brand_names": [
+        "Zithromax",
+        "Azithral",
+        "Azee"
+      ],
+      "drug_class": "Macrolide Antibacterial",
+      "dosage_form": "Tablet",
+      "strength": [
+        "250 mg",
+        "500 mg"
+      ],
+      "used_for": [
+        "Acute Bacterial Exacerbations of Chronic Bronchitis",
+        "Acute Bacterial Sinusitis",
+        "Community-Acquired Pneumonia",
+        "Pharyngitis",
+        "Tonsillitis",
+        "Uncomplicated Skin and Skin Structure Infections"
+      ],
+      "adult_dose": "500 mg as a single dose on day 1, followed by 250 mg once daily on days 2 through 5",
+      "child_dose": "10 mg/kg as a single dose on day 1, followed by 5 mg/kg once daily on days 2 through 5 for pediatric patients aged 6 months and older",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "500 mg/day",
+      "side_effects": [
+        "Diarrhea",
+        "Nausea",
+        "Abdominal Pain",
+        "Vomiting"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Azithromycin, Erythromycin, or any Macrolide antibacterial",
+        "History of Cholestatic Jaundice or Hepatic Dysfunction associated with prior Azithromycin use"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-103",
+        "DIS-112"
+      ],
+      "keywords": [
+        "azithromycin",
+        "zithromax",
+        "macrolide",
+        "antibiotic",
+        "pneumonia"
+      ]
+    },
+    {
+      "medicine_id": "MED-069",
+      "generic_name": "Albuterol Sulfate",
+      "brand_names": [
+        "ProAir HFA",
+        "Ventolin HFA",
+        "Asthalin"
+      ],
+      "drug_class": "Beta-2 Adrenergic Agonist",
+      "dosage_form": "Metered-Dose Inhaler",
+      "strength": [
+        "90 mcg"
+      ],
+      "used_for": [
+        "Bronchospasm",
+        "Exercise-Induced Bronchospasm"
+      ],
+      "adult_dose": "2 inhalations every 4 to 6 hours as needed for bronchospasm Relief",
+      "child_dose": "2 inhalations every 4 to 6 hours as needed for pediatric patients aged 4 years and older",
+      "frequency": "As Needed",
+      "food_instruction": "Not Applicable",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "12 inhalations/day",
+      "side_effects": [
+        "Tremor",
+        "Nervousness",
+        "Headache",
+        "Tachycardia"
+      ],
+      "contraindications": [
+        "History of hypersensitivity to Albuterol"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-115"
+      ],
+      "keywords": [
+        "albuterol",
+        "ventolin",
+        "inhaler",
+        "asthma",
+        "bronchospasm"
+      ]
+    },
+    {
+      "medicine_id": "MED-070",
+      "generic_name": "Pantoprazole Sodium",
+      "brand_names": [
+        "Protonix",
+        "Pan",
+        "Pantocid"
+      ],
+      "drug_class": "Proton Pump Inhibitor (PPI)",
+      "dosage_form": "Delayed-Release Tablet",
+      "strength": [
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Erosive Esophagitis Associated with GERD",
+        "Maintenance of Healing of Erosive Esophagitis",
+        "Pathological Hypersecretory Conditions Including Zollinger-Ellison Syndrome"
+      ],
+      "adult_dose": "40 mg once daily for up to 8 weeks, titrated up to 240 mg daily for pathological hypersecretory conditions",
+      "child_dose": "20 mg to 40 mg once daily based on weight for pediatric patients aged 5 years and older for erosive esophagitis",
+      "frequency": "Once Daily",
+      "food_instruction": "Take 30 to 60 minutes before a meal, swallow whole; do not split, crush, or chew",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "240 mg/day",
+      "side_effects": [
+        "Headache",
+        "Diarrhea",
+        "Nausea",
+        "Abdominal Pain",
+        "Flatulence"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Pantoprazole or other Proton Pump Inhibitors",
+        "Concomitant administration with Rilpivirine-containing products"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-105",
+        "DIS-109"
+      ],
+      "keywords": [
+        "pantoprazole",
+        "protonix",
+        "ppi",
+        "gerd",
+        "acid reflux",
+        "ulcer"
+      ]
+    },
+    {
+      "medicine_id": "MED-071",
+      "generic_name": "Lisinopril",
+      "brand_names": [
+        "Zestril",
+        "Prinivil",
+        "Lipril"
+      ],
+      "drug_class": "Angiotensin-Converting Enzyme (ACE) Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": [
+        "5 mg",
+        "10 mg",
+        "20 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Heart Failure Adjunctive Therapy",
+        "Acute Myocardial Infarction Management"
+      ],
+      "adult_dose": "10 mg once daily, titrated up to 40 mg once daily based on blood pressure response",
+      "child_dose": "0.07 mg/kg once daily up to 5 mg daily for pediatric patients aged 6 years and older",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Dizziness",
+        "Cough",
+        "Hypotension",
+        "Hyperkalemia"
+      ],
+      "contraindications": [
+        "History of Angioedema related to previous ACE inhibitor treatment",
+        "Concomitant use with Aliskiren in patients with diabetes",
+        "Pregnancy (Second and Third Trimesters)"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "lisinopril",
+        "zestril",
+        "ace inhibitor",
+        "hypertension",
+        "heart failure"
+      ]
+    },
+    {
+      "medicine_id": "MED-072",
+      "generic_name": "Simvastatin",
+      "brand_names": [
+        "Zocor",
+        "Simvotin",
+        "Zovast"
+      ],
+      "drug_class": "HMG-CoA Reductase Inhibitor (Statin)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg",
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Hypercholesterolemia",
+        "Reduction of Cardiovascular Risk"
+      ],
+      "adult_dose": "10 mg to 20 mg once daily in the evening, titrated at intervals of 4 weeks or more to a maximum of 40 mg once daily",
+      "child_dose": "10 mg once daily titrated up to 40 mg once daily for pediatric patients aged 10 to 17 years with heterozygous familial hypercholesterolemia",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "40 mg/day",
+      "side_effects": [
+        "Myalgia",
+        "Headache",
+        "Upper Respiratory Tract Infection",
+        "Abdominal Pain"
+      ],
+      "contraindications": [
+        "Active Liver Disease",
+        "Concomitant administration of strong CYP3A4 inhibitors",
+        "Pregnancy and Lactation"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-011",
+        "DIS-012"
+      ],
+      "keywords": [
+        "simvastatin",
+        "zocor",
+        "statin",
+        "cholesterol",
+        "lipid lowering"
+      ]
+    },
+    {
+      "medicine_id": "MED-073",
+      "generic_name": "Clopidogrel Bisulfate",
+      "brand_names": [
+        "Plavix",
+        "Clopilet",
+        "Deplatt"
+      ],
+      "drug_class": "Platelet Aggregation Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": [
+        "75 mg"
+      ],
+      "used_for": [
+        "Acute Coronary Syndrome",
+        "Recent Myocardial Infarction",
+        "Recent Stroke",
+        "Established Peripheral Arterial Disease"
+      ],
+      "adult_dose": "75 mg once daily, with a 300 mg to 600 mg loading dose administered for acute coronary syndrome",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been established",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "75 mg/day (excluding loading dose)",
+      "side_effects": [
+        "Bleeding",
+        "Epistaxis",
+        "Bruising",
+        "Hematoma"
+      ],
+      "contraindications": [
+        "Active Pathological Bleeding (such as peptic ulcer or intracranial hemorrhage)",
+        "Hypersensitivity to Clopidogrel"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-022"
+      ],
+      "keywords": [
+        "clopidogrel",
+        "plavix",
+        "antiplatelet",
+        "blood thinner",
+        "stroke prevention"
+      ]
+    },
+    {
+      "medicine_id": "MED-074",
+      "generic_name": "Prednisone",
+      "brand_names": [
+        "Deltasone",
+        "Wysolone",
+        "Predone"
+      ],
+      "drug_class": "Glucocorticoid / Corticosteroid",
+      "dosage_form": "Tablet",
+      "strength": [
+        "5 mg",
+        "10 mg",
+        "20 mg"
+      ],
+      "used_for": [
+        "Allergic States",
+        "Dermatologic Diseases",
+        "Endocrine Disorders",
+        "Rheumatic Disorders",
+        "Respiratory Diseases"
+      ],
+      "adult_dose": "5 mg to 60 mg per day adjusted based on the specific disease entity and patient response",
+      "child_dose": "0.14 mg/kg/day to 2 mg/kg/day divided into three or four doses depending on severity and condition",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take with food or milk to prevent gastrointestinal irritation",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Fluid Retention",
+        "Hyperglycemia",
+        "Increased Appetite",
+        "Insomnia",
+        "Osteoporosis"
+      ],
+      "contraindications": [
+        "Systemic Fungal Infections",
+        "Hypersensitivity to Prednisone",
+        "Administration of Live or Live-Attenuated Vaccines while on immunosuppressive doses"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-106"
+      ],
+      "keywords": [
+        "prednisone",
+        "deltasone",
+        "steroid",
+        "corticosteroid",
+        "inflammation"
+      ]
+    },
+    {
+      "medicine_id": "MED-075",
+      "generic_name": "Montelukast Sodium",
+      "brand_names": [
+        "Singulair",
+        "Montair",
+        "Montek"
+      ],
+      "drug_class": "Leukotriene Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "10 mg"
+      ],
+      "used_for": [
+        "Asthma Prophylaxis and Chronic Treatment",
+        "Exercise-Induced Bronchoconstriction Prevention",
+        "Allergic Rhinitis"
+      ],
+      "adult_dose": "10 mg once daily taken in the evening",
+      "child_dose": "4 mg to 5 mg once daily in the evening for pediatric patients aged 2 to 14 years using chewable tablets",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "10 mg/day",
+      "side_effects": [
+        "Headache",
+        "Abdominal Pain",
+        "Neuropsychiatric Events",
+        "Pharyngitis"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Montelukast"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-115",
+        "DIS-106"
+      ],
+      "keywords": [
+        "montelukast",
+        "singulair",
+        "asthma",
+        "leukotriene inhibitor",
+        "allergy"
+      ]
+    },
+    {
+      "medicine_id": "MED-076",
+      "generic_name": "Fluoxetine Hydrochloride",
+      "brand_names": [
+        "Prozac",
+        "Fludac",
+        "Prodep"
+      ],
+      "drug_class": "Selective Serotonin Reuptake Inhibitor (SSRI)",
+      "dosage_form": "Capsule",
+      "strength": [
+        "10 mg",
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Major Depressive Disorder",
+        "Obsessive-Compulsive Disorder",
+        "Bulimia Nervosa",
+        "Panic Disorder"
+      ],
+      "adult_dose": "20 mg once daily in the morning, titrated up to a maximum of 80 mg daily if clinically required",
+      "child_dose": "10 mg to 20 mg once daily for pediatric patients aged 8 years and older with Major Depressive Disorder",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "80 mg/day",
+      "side_effects": [
+        "Insomnia",
+        "Nausea",
+        "Fatigue",
+        "Anorexia",
+        "Anxiety"
+      ],
+      "contraindications": [
+        "Concomitant use of Monoamine Oxidase Inhibitors (MAOIs)",
+        "Concomitant use of Thioridazine",
+        "Hypersensitivity to Fluoxetine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-201",
+        "DIS-204"
+      ],
+      "keywords": [
+        "fluoxetine",
+        "prozac",
+        "ssri",
+        "depression",
+        "anxiety"
+      ]
+    },
+    {
+      "medicine_id": "MED-077",
+      "generic_name": "Meloxicam",
+      "brand_names": [
+        "Mobic",
+        "Muvera",
+        "Melflam"
+      ],
+      "drug_class": "Nonsteroidal Anti-inflammatory Drug (NSAID)",
+      "dosage_form": "Tablet",
+      "strength": [
+        "7.5 mg",
+        "15 mg"
+      ],
+      "used_for": [
+        "Osteoarthritis",
+        "Rheumatoid Arthritis",
+        "Juvenile Rheumatoid Arthritis"
+      ],
+      "adult_dose": "7.5 mg once daily, titrated up to a maximum of 15 mg once daily if necessary",
+      "child_dose": "0.125 mg/kg once daily up to a maximum of 7.5 mg daily for pediatric patients weighing 60 kg or more",
+      "frequency": "Once Daily",
+      "food_instruction": "Take with food or milk to reduce gastrointestinal irritation",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "15 mg/day",
+      "side_effects": [
+        "Abdominal Pain",
+        "Diarrhea",
+        "Dyspepsia",
+        "Nausea",
+        "Dizziness"
+      ],
+      "contraindications": [
+        "History of asthma, urticaria, or allergic-type reactions after taking aspirin or other NSAIDs",
+        "Peri-operative pain management in the setting of Coronary Artery Bypass Graft (CABG) surgery",
+        "Active Peptic Ulcer Disease"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-044"
+      ],
+      "keywords": [
+        "meloxicam",
+        "mobic",
+        "nsaid",
+        "arthritis",
+        "pain relief"
+      ]
+    },
+    {
+      "medicine_id": "MED-078",
+      "generic_name": "Carvedilol",
+      "brand_names": [
+        "Coreg",
+        "Carca",
+        "Cardivas"
+      ],
+      "drug_class": "Alpha-1 and Non-Selective Beta Blocker",
+      "dosage_form": "Tablet",
+      "strength": [
+        "3.125 mg",
+        "6.25 mg",
+        "12.5 mg",
+        "25 mg"
+      ],
+      "used_for": [
+        "Heart Failure",
+        "Left Ventricular Dysfunction Following Myocardial Infarction",
+        "Hypertension"
+      ],
+      "adult_dose": "3.125 mg twice daily for heart failure, titrated every 1 to 2 weeks to a maximum tolerated dose",
+      "child_dose": "Safety and effectiveness in pediatric patients under 18 years of age have not been established",
+      "frequency": "Twice Daily",
+      "food_instruction": "Take with food to slow the rate of absorption and minimize orthostatic hypotension risk",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "50 mg/day (for weight < 85 kg) or 100 mg/day (for weight > 85 kg) in divided doses",
+      "side_effects": [
+        "Dizziness",
+        "Fatigue",
+        "Hypotension",
+        "Bradycardia",
+        "Weight Gain"
+      ],
+      "contraindications": [
+        "Bronchial Asthma or Related Bronchospastic Conditions",
+        "Second- or Third-Degree AV Block",
+        "Sick Sinus Syndrome",
+        "Severe Bradycardia",
+        "Cardiogenic Shock"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "carvedilol",
+        "coreg",
+        "beta blocker",
+        "heart failure",
+        "hypertension"
+      ]
+    },
+    {
+      "medicine_id": "MED-079",
+      "generic_name": "Clonazepam",
+      "brand_names": [
+        "Klonopin",
+        "Clonez",
+        "Petril"
+      ],
+      "drug_class": "Benzodiazepine",
+      "dosage_form": "Tablet",
+      "strength": [
+        "0.5 mg",
+        "1 mg",
+        "2 mg"
+      ],
+      "used_for": [
+        "Panic Disorder",
+        "Seizure Disorders (Lennox-Gastaut Syndrome, Myoclonic and Akinetic Seizures)"
+      ],
+      "adult_dose": "0.25 mg twice daily for panic disorder, titrated up to 1 mg per day based on response",
+      "child_dose": "0.01 mg/kg/day to 0.03 mg/kg/day divided into two or three doses for seizure disorders",
+      "frequency": "Twice or Three Times Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "4 mg/day for panic disorder; 20 mg/day for seizure disorders",
+      "side_effects": [
+        "Somnolence",
+        "Dizziness",
+        "Ataxia",
+        "Fatigue",
+        "Cognitive Impairment"
+      ],
+      "contraindications": [
+        "Significant Liver Disease",
+        "Acute Narrow-Angle Glaucoma",
+        "Hypersensitivity to Benzodiazepines"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-204"
+      ],
+      "keywords": [
+        "clonazepam",
+        "klonopin",
+        "benzodiazepine",
+        "panic attack",
+        "seizure"
+      ]
+    },
+    {
+      "medicine_id": "MED-080",
+      "generic_name": "Glipizide",
+      "brand_names": [
+        "Glucotrol",
+        "Glynase",
+        "Glizid"
+      ],
+      "drug_class": "Sulfonylurea",
+      "dosage_form": "Tablet",
+      "strength": [
+        "5 mg",
+        "10 mg"
+      ],
+      "used_for": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "adult_dose": "5 mg once daily administered 30 minutes before breakfast, titrated up based on blood glucose levels",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been established",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take 30 minutes before a meal (typically breakfast) to optimize postprandial blood glucose control",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "40 mg/day",
+      "side_effects": [
+        "Hypoglycemia",
+        "Nausea",
+        "Dizziness",
+        "Headache"
+      ],
+      "contraindications": [
+        "Known hypersensitivity to Glipizide or sulfonylureas",
+        "Type 1 Diabetes Mellitus",
+        "Diabetic Ketoacidosis"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-003"
+      ],
+      "keywords": [
+        "glipizide",
+        "glucotrol",
+        "sulfonylurea",
+        "diabetes",
+        "blood sugar"
+      ]
+    },
+    {
+      "medicine_id": "MED-081",
+      "generic_name": "Spironolactone",
+      "brand_names": [
+        "Aldactone",
+        "Aldace",
+        "Spiron"
+      ],
+      "drug_class": "Aldosterone Antagonist / Potassium-Sparing Diuretic",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Heart Failure",
+        "Hypertension",
+        "Edema associated with Liver Cirrhosis",
+        "Primary Hyperaldosteronism"
+      ],
+      "adult_dose": "25 mg to 100 mg once daily, adjusted based on response and serum potassium levels",
+      "child_dose": "1 mg/kg to 3 mg/kg per day in single or divided doses for pediatric patients",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take consistently either with or without food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Hyperkalemia",
+        "Gynecomastia",
+        "Nausea",
+        "Dizziness",
+        "Acute Kidney Injury"
+      ],
+      "contraindications": [
+        "Hyperkalemia",
+        "Addison's Disease",
+        "Severe Renal Impairment (eGFR < 30 mL/min/1.73m2)",
+        "Concomitant use with Eplerenone"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "spironolactone",
+        "aldactone",
+        "diuretic",
+        "potassium sparing",
+        "heart failure",
+        "hypertension"
+      ]
+    },
+    {
+      "medicine_id": "MED-082",
+      "generic_name": "Celecoxib",
+      "brand_names": [
+        "Celebrex",
+        "Cobix",
+        "Zycel"
+      ],
+      "drug_class": "COX-2 Selective Nonsteroidal Anti-inflammatory Drug (NSAID)",
+      "dosage_form": "Capsule",
+      "strength": [
+        "100 mg",
+        "200 mg"
+      ],
+      "used_for": [
+        "Osteoarthritis",
+        "Rheumatoid Arthritis",
+        "Ankylosing Spondylitis",
+        "Acute Pain"
+      ],
+      "adult_dose": "100 mg twice daily or 200 mg once daily for osteoarthritis; 100 mg to 200 mg twice daily for rheumatoid arthritis",
+      "child_dose": "50 mg twice daily for juvenile rheumatoid arthritis in children 10-25 kg; 100 mg twice daily for children over 25 kg",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Can be taken with or without food, but taking with food may reduce stomach upset",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "400 mg/day",
+      "side_effects": [
+        "Abdominal Pain",
+        "Diarrhea",
+        "Dyspepsia",
+        "Peripheral Edema",
+        "Headache"
+      ],
+      "contraindications": [
+        "History of asthma, urticaria, or allergic reactions to aspirin or other NSAIDs",
+        "Hypersensitivity to Sulfonamides",
+        "Peri-operative pain management in Coronary Artery Bypass Graft (CABG) surgery"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-044"
+      ],
+      "keywords": [
+        "celecoxib",
+        "celebrex",
+        "nsaid",
+        "cox2 inhibitor",
+        "arthritis",
+        "pain"
+      ]
+    },
+    {
+      "medicine_id": "MED-083",
+      "generic_name": "Tamsulosin Hydrochloride",
+      "brand_names": [
+        "Flomax",
+        "Veltam",
+        "Urimax"
+      ],
+      "drug_class": "Alpha-1 Adrenergic Antagonist",
+      "dosage_form": "Capsule",
+      "strength": [
+        "0.4 mg"
+      ],
+      "used_for": [
+        "Benign Prostatic Hyperplasia (BPH)"
+      ],
+      "adult_dose": "0.4 mg once daily administered approximately 30 minutes after the same meal each day",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been established",
+      "frequency": "Once Daily",
+      "food_instruction": "Take 30 minutes after a meal to optimize absorption and safety profile",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "0.8 mg/day",
+      "side_effects": [
+        "Orthostatic Hypotension",
+        "Dizziness",
+        "Headache",
+        "Abnormal Ejaculation",
+        "Rhinitis"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Tamsulosin",
+        "Concomitant use of strong CYP3A4 inhibitors"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [],
+      "keywords": [
+        "tamsulosin",
+        "flomax",
+        "bph",
+        "prostate",
+        "alpha blocker"
+      ]
+    },
+    {
+      "medicine_id": "MED-084",
+      "generic_name": "Duloxetine Hydrochloride",
+      "brand_names": [
+        "Cymbalta",
+        "Duvanta",
+        "Symbal"
+      ],
+      "drug_class": "Serotonin-Norepinephrine Reuptake Inhibitor (SNRI)",
+      "dosage_form": "Delayed-Release Capsule",
+      "strength": [
+        "20 mg",
+        "30 mg",
+        "60 mg"
+      ],
+      "used_for": [
+        "Major Depressive Disorder",
+        "Generalized Anxiety Disorder",
+        "Diabetic Peripheral Neuropathic Pain",
+        "Fibromyalgia",
+        "Chronic Musculoskeletal Pain"
+      ],
+      "adult_dose": "30 mg to 60 mg once daily, titrated up based on therapeutic target and tolerance",
+      "child_dose": "30 mg once daily titrated up to 60 mg once daily for Generalized Anxiety Disorder in pediatric patients aged 7 years and older",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "120 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Dry Mouth",
+        "Somnolence",
+        "Fatigue",
+        "Decreased Appetite",
+        "Hyperhidrosis"
+      ],
+      "contraindications": [
+        "Concomitant use of Monoamine Oxidase Inhibitors (MAOIs)",
+        "Uncontrolled Narrow-Angle Glaucoma",
+        "Severe Hepatic Impairment"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-201",
+        "DIS-006"
+      ],
+      "keywords": [
+        "duloxetine",
+        "cymbalta",
+        "snri",
+        "depression",
+        "anxiety",
+        "nerve pain"
+      ]
+    },
+    {
+      "medicine_id": "MED-085",
+      "generic_name": "Fluconazole",
+      "brand_names": [
+        "Diflucan",
+        "Forcan",
+        "Fluka"
+      ],
+      "drug_class": "Triazole Antifungal",
+      "dosage_form": "Tablet",
+      "strength": [
+        "50 mg",
+        "150 mg",
+        "200 mg"
+      ],
+      "used_for": [
+        "Vaginal Candidiasis",
+        "Oropharyngeal and Esophageal Candidiasis",
+        "Systemic Candidiasis Infections",
+        "Cryptococcal Meningitis"
+      ],
+      "adult_dose": "150 mg as a single oral dose for vaginal candidiasis; 200 mg loading dose followed by 100 mg once daily for systemic mucosal infections",
+      "child_dose": "6 mg/kg loading dose followed by 3 mg/kg to 12 mg/kg once daily depending on the type and severity of fungal infection",
+      "frequency": "Once Daily or Single Dose",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "800 mg/day (for cryptococcal meningitis)",
+      "side_effects": [
+        "Headache",
+        "Nausea",
+        "Abdominal Pain",
+        "Diarrhea",
+        "Rash",
+        "Elevated Liver Enzymes"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Fluconazole or other azole antifungals",
+        "Concomitant administration of drugs metabolized via CYP3A4 that prolong the QT interval (e.g., Pimozide, Erythromycin)"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [],
+      "keywords": [
+        "fluconazole",
+        "diflucan",
+        "antifungal",
+        "thrush",
+        "candidiasis"
+      ]
+    },
+    {
+      "medicine_id": "MED-086",
+      "generic_name": "Allopurinol",
+      "brand_names": [
+        "Zyloprim",
+        "Zyloric",
+        "Cipuryl"
+      ],
+      "drug_class": "Xanthine Oxidase Inhibitor",
+      "dosage_form": "Tablet",
+      "strength": [
+        "100 mg",
+        "300 mg"
+      ],
+      "used_for": [
+        "Gout Prophylaxis",
+        "Hyperuricemia Secondary to Chemotherapy",
+        "Recurrent Calcium Oxalate Calculi"
+      ],
+      "adult_dose": "100 mg to 300 mg once daily for mild gout, titrated up to a maximum based on serum uric acid levels and renal clearance",
+      "child_dose": "10 mg/kg/day divided into 2 or 3 doses for management of hyperuricemia secondary to neoplastic disease",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take after meals to minimize gastric irritation",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "800 mg/day",
+      "side_effects": [
+        "Skin Rash",
+        "Nausea",
+        "Diarrhea",
+        "Acute Gout Flare",
+        "Hepatotoxicity"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Allopurinol",
+        "Prior history of severe cutaneous adverse reactions (SCARs) to Allopurinol"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [],
+      "keywords": [
+        "allopurinol",
+        "zyloprim",
+        "gout",
+        "uric acid",
+        "hyperuricemia"
+      ]
+    },
+    {
+      "medicine_id": "MED-087",
+      "generic_name": "Venlafaxine Hydrochloride",
+      "brand_names": [
+        "Effexor XR",
+        "Ventab XL",
+        "Venlor"
+      ],
+      "drug_class": "Serotonin-Norepinephrine Reuptake Inhibitor (SNRI)",
+      "dosage_form": "Extended-Release Capsule",
+      "strength": [
+        "37.5 mg",
+        "75 mg",
+        "150 mg"
+      ],
+      "used_for": [
+        "Major Depressive Disorder",
+        "Generalized Anxiety Disorder",
+        "Social Anxiety Disorder",
+        "Panic Disorder"
+      ],
+      "adult_dose": "75 mg once daily, titrated by 75 mg/day increments every 4 days to an optimal target therapeutic response",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been established",
+      "frequency": "Once Daily",
+      "food_instruction": "Take with food to reduce the incidence of initial treatment-induced nausea",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "225 mg/day",
+      "side_effects": [
+        "Nausea",
+        "Somnolence",
+        "Dry Mouth",
+        "Sweating",
+        "Sexual Dysfunction",
+        "Anorexia"
+      ],
+      "contraindications": [
+        "Concomitant use of Monoamine Oxidase Inhibitors (MAOIs)",
+        "Concomitant use of Linezolid or Intravenous Methylene Blue",
+        "Hypersensitivity to Venlafaxine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-201",
+        "DIS-204"
+      ],
+      "keywords": [
+        "venlafaxine",
+        "effexor",
+        "snri",
+        "depression",
+        "anxiety",
+        "panic"
+      ]
+    },
+    {
+      "medicine_id": "MED-088",
+      "generic_name": "Ranitidine Hydrochloride",
+      "brand_names": [
+        "Zantac",
+        "Rantac",
+        "Aciloc"
+      ],
+      "drug_class": "Histamine H2 Receptor Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "150 mg",
+        "300 mg"
+      ],
+      "used_for": [
+        "Duodenal Ulcer Treatment and Maintenance",
+        "Gastric Ulcer Treatment",
+        "Gastroesophageal Reflux Disease",
+        "Erosive Esophagitis"
+      ],
+      "adult_dose": "150 mg twice daily, or 300 mg once daily at bedtime for active duodenal ulcer management",
+      "child_dose": "2 mg/kg to 4 mg/kg twice daily up to a maximum dose based on pediatric weight guidelines",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "300 mg/day (for standard indications)",
+      "side_effects": [
+        "Headache",
+        "Constipation",
+        "Diarrhea",
+        "Nausea",
+        "Abdominal Discomfort"
+      ],
+      "contraindications": [
+        "History of hypersensitivity to Ranitidine or other H2 receptor antagonists"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-105",
+        "DIS-109"
+      ],
+      "keywords": [
+        "ranitidine",
+        "zantac",
+        "h2 blocker",
+        "gerd",
+        "acid reflux",
+        "ulcer"
+      ]
+    },
+    {
+      "medicine_id": "MED-089",
+      "generic_name": "Atenolol",
+      "brand_names": [
+        "Tenormin",
+        "Aten",
+        "Betacard"
+      ],
+      "drug_class": "Beta-1 Selective Adrenergic Blocker",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mg",
+        "50 mg",
+        "100 mg"
+      ],
+      "used_for": [
+        "Hypertension",
+        "Angina Pectoris Management",
+        "Acute Myocardial Infarction Survival"
+      ],
+      "adult_dose": "50 mg once daily, titrated to 100 mg once daily after 1 to 2 weeks if optimal control is not achieved",
+      "child_dose": "0.8 mg/kg to 1 mg/kg per day in single or divided doses for pediatric patients",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "100 mg/day",
+      "side_effects": [
+        "Bradycardia",
+        "Cold Extremities",
+        "Postural Hypotension",
+        "Fatigue",
+        "Lethargy"
+      ],
+      "contraindications": [
+        "Severe Bradycardia",
+        "Cardiogenic Shock",
+        "Second- or Third-Degree Heart Block",
+        "Overt Cardiac Failure",
+        "Pulmonary Hypertension"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-022"
+      ],
+      "keywords": [
+        "atenolol",
+        "tenormin",
+        "beta blocker",
+        "hypertension",
+        "angina"
+      ]
+    },
+    {
+      "medicine_id": "MED-090",
+      "generic_name": "Furosemide",
+      "brand_names": [
+        "Lasix",
+        "Frusenex",
+        "Spiromide"
+      ],
+      "drug_class": "Loop Diuretic",
+      "dosage_form": "Tablet",
+      "strength": [
+        "20 mg",
+        "40 mg"
+      ],
+      "used_for": [
+        "Edema associated with Congestive Heart Failure",
+        "Edema associated with Hepatic Cirrhosis",
+        "Edema associated with Renal Disease",
+        "Hypertension Therapy adjunct"
+      ],
+      "adult_dose": "20 mg to 80 mg as a single dose, titrated by 20 mg to 40 mg increments every 6 to 8 hours to target response",
+      "child_dose": "1 mg/kg to 2 mg/kg as a initial single dose, titrated carefully to weight-appropriate target output",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take on an empty stomach to optimize absorption rate",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "600 mg/day (in severe clinical situations)",
+      "side_effects": [
+        "Hypokalemia",
+        "Hyponatremia",
+        "Orthostatic Hypotension",
+        "Dehydration",
+        "Hyperuricemia",
+        "Ototoxicity"
+      ],
+      "contraindications": [
+        "Anuria",
+        "History of hypersensitivity to Furosemide or Sulfonamides",
+        "Hepatic Coma or Pre-coma states associated with severe electrolyte depletion"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "furosemide",
+        "lasix",
+        "diuretic",
+        "water pill",
+        "edema",
+        "heart failure"
+      ]
+    },
+    {
+      "medicine_id": "MED-091",
+      "generic_name": "Carbamazepine",
+      "brand_names": [
+        "Tegretol",
+        "Mazetol",
+        "Zen"
+      ],
+      "drug_class": "Anticonvulsant / Carboxamide",
+      "dosage_form": "Tablet",
+      "strength": [
+        "100 mg",
+        "200 mg",
+        "400 mg"
+      ],
+      "used_for": [
+        "Partial Seizures with Complex Symptomatology",
+        "Generalized Tonic-Clonic Seizures",
+        "Trigeminal Neuralgia"
+      ],
+      "adult_dose": "200 mg twice daily initially, titrated weekly by adding up to 200 mg/day until optimal response is achieved",
+      "child_dose": "10 mg/kg to 20 mg/kg/day in divided doses for pediatric patients aged 6 to 12 years",
+      "frequency": "Twice or Three Times Daily",
+      "food_instruction": "Take with food to minimize gastrointestinal distress",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "1200 mg/day",
+      "side_effects": [
+        "Dizziness",
+        "Drowsiness",
+        "Ataxia",
+        "Nausea",
+        "Vomiting",
+        "Leukopenia"
+      ],
+      "contraindications": [
+        "History of Bone Marrow Depression",
+        "Concomitant use of Monoamine Oxidase Inhibitors (MAOIs)",
+        "Hypersensitivity to Carbamazepine or Tricyclic Antidepressants"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-006"
+      ],
+      "keywords": [
+        "carbamazepine",
+        "tegretol",
+        "anticonvulsant",
+        "seizure",
+        "trigeminal neuralgia"
+      ]
+    },
+    {
+      "medicine_id": "MED-092",
+      "generic_name": "Warfarin Sodium",
+      "brand_names": [
+        "Coumadin",
+        "Uniwarfin"
+      ],
+      "drug_class": "Vitamin K Antagonist Anticoagulant",
+      "dosage_form": "Tablet",
+      "strength": [
+        "1 mg",
+        "2 mg",
+        "5 mg"
+      ],
+      "used_for": [
+        "Prophylaxis and Treatment of Venous Thrombosis",
+        "Prophylaxis and Treatment of Pulmonary Embolism",
+        "Prophylaxis of Thromboembolic Complications from Atrial Fibrillation or Cardiac Valve Replacement"
+      ],
+      "adult_dose": "2 mg to 5 mg once daily initially, adjusted dynamically based on International Normalized Ratio (INR) results",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been firmly established; requires extreme caution and specialist supervision",
+      "frequency": "Once Daily",
+      "food_instruction": "Maintain a highly consistent intake of Vitamin K-containing foods; can be taken with or without food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "15 mg/day (highly individualized based on INR)",
+      "side_effects": [
+        "Fatal or Nonfatal Hemorrhage",
+        "Tissue Necrosis",
+        "Alopecia",
+        "Dermatitis"
+      ],
+      "contraindications": [
+        "Pregnancy (except in women with mechanical heart valves at high risk of thromboembolism)",
+        "Hemorrhagic tendencies or blood dyscrasias",
+        "Recent or contemplative surgery of the central nervous system or eye",
+        "Active ulceration or overt bleeding"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-022"
+      ],
+      "keywords": [
+        "warfarin",
+        "coumadin",
+        "anticoagulant",
+        "blood thinner",
+        "clot prevention"
+      ]
+    },
+    {
+      "medicine_id": "MED-093",
+      "generic_name": "Hydrochlorothiazide",
+      "brand_names": [
+        "Microzide",
+        "Aquazide",
+        "Hydrazide"
+      ],
+      "drug_class": "Thiazide Diuretic",
+      "dosage_form": "Tablet",
+      "strength": [
+        "12.5 mg",
+        "25 mg",
+        "50 mg"
+      ],
+      "used_for": [
+        "Hypertension Monotherapy or Adjunct",
+        "Edema associated with Congestive Heart Failure, Hepatic Cirrhosis, or Renal Dysfunction"
+      ],
+      "adult_dose": "12.5 mg to 25 mg once daily for hypertension, titrated up to a maximum of 50 mg daily if required",
+      "child_dose": "1 mg/kg to 2 mg/kg per day in single or divided doses for pediatric patients",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "100 mg/day (for severe edema indications)",
+      "side_effects": [
+        "Hypokalemia",
+        "Hyperuricemia",
+        "Orthostatic Hypotension",
+        "Hyperglycemia",
+        "Hyponatremia"
+      ],
+      "contraindications": [
+        "Anuria",
+        "History of hypersensitivity to Hydrochlorothiazide or other sulfonamide-derived drugs"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "hydrochlorothiazide",
+        "hctz",
+        "diuretic",
+        "thiazide",
+        "hypertension",
+        "water pill"
+      ]
+    },
+    {
+      "medicine_id": "MED-094",
+      "generic_name": "Azathioprine",
+      "brand_names": [
+        "Imuran",
+        "Azoran",
+        "Aza"
+      ],
+      "drug_class": "Immunosuppressant / Antimetabolite",
+      "dosage_form": "Tablet",
+      "strength": [
+        "50 mg"
+      ],
+      "used_for": [
+        "Prophylaxis of Renal Transplant Rejection",
+        "Severe, Active Rheumatoid Arthritis Refractory to Conventional Management"
+      ],
+      "adult_dose": "1 mg/kg to 2 mg/kg per day as a single or divided dose for rheumatoid arthritis, titrated based on clinical response and hematological tolerance",
+      "child_dose": "3 mg/kg to 5 mg/kg per day starting dose for renal homotransplantation",
+      "frequency": "Once or Twice Daily",
+      "food_instruction": "Take with food or after meals to mitigate initial gastrointestinal intolerance",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "5 mg/kg/day",
+      "side_effects": [
+        "Leukopenia",
+        "Thrombocytopenia",
+        "Nausea",
+        "Vomiting",
+        "Infection Susceptibility",
+        "Hepatotoxicity"
+      ],
+      "contraindications": [
+        "Pregnancy in rheumatoid arthritis patients",
+        "Prior history of hypersensitivity to Azathioprine"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-044"
+      ],
+      "keywords": [
+        "azathioprine",
+        "imuran",
+        "immunosuppressant",
+        "rheumatoid arthritis",
+        "transplant"
+      ]
+    },
+    {
+      "medicine_id": "MED-095",
+      "generic_name": "Methotrexate",
+      "brand_names": [
+        "Trexall",
+        "Mexate",
+        "Folitrax"
+      ],
+      "drug_class": "Antimetabolite / Antifolate",
+      "dosage_form": "Tablet",
+      "strength": [
+        "2.5 mg",
+        "5 mg",
+        "7.5 mg",
+        "10 mg"
+      ],
+      "used_for": [
+        "Severe Rheumatoid Arthritis",
+        "Severe, Recalcitrant, Disabling Psoriasis",
+        "Various Neoplastic Diseases"
+      ],
+      "adult_dose": "7.5 mg to 15 mg administered as a single weekly oral dose, or divided into three doses taken at 12-hour intervals once weekly",
+      "child_dose": "10 mg/m2 to 15 mg/m2 once weekly for polyarticular juvenile idiopathic arthritis",
+      "frequency": "Once Weekly",
+      "food_instruction": "Take on an empty stomach for rapid absorption, though taking with food can minimize stomach upset",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "25 mg/week (for non-oncological indications)",
+      "side_effects": [
+        "Ulcerative Stomatitis",
+        "Leukopenia",
+        "Nausea",
+        "Abdominal Distress",
+        "Elevated Liver Transaminases",
+        "Pulmonary Fibrosis"
+      ],
+      "contraindications": [
+        "Pregnancy and Lactation",
+        "Alcoholism, Alcoholic Liver Disease, or Chronic Liver Disease",
+        "Overt Immunodeficiency Syndromes",
+        "Pre-existing Blood Dyscrasias"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-044"
+      ],
+      "keywords": [
+        "methotrexate",
+        "trexall",
+        "folitrax",
+        "antimetabolite",
+        "rheumatoid arthritis",
+        "psoriasis"
+      ]
+    },
+    {
+      "medicine_id": "MED-096",
+      "generic_name": "Levothyroxine Sodium",
+      "brand_names": [
+        "Synthroid",
+        "Eltroxin",
+        "Thyronorm"
+      ],
+      "drug_class": "Thyroid Hormone",
+      "dosage_form": "Tablet",
+      "strength": [
+        "25 mcg",
+        "50 mcg",
+        "75 mcg",
+        "100 mcg",
+        "125 mcg"
+      ],
+      "used_for": [
+        "Hypothyroidism",
+        "Pituitary Thyrotropin Suppression"
+      ],
+      "adult_dose": "1.6 mcg/kg/day initially for healthy adults, adjusted by 12.5 mcg to 25 mcg increments every 4 to 6 weeks based on TSH clinical assays",
+      "child_dose": "Based on weight and age; typically 10 mcg/kg/day to 15 mcg/kg/day for neonates, titrated to maintain target euthyroid states",
+      "frequency": "Once Daily",
+      "food_instruction": "Take on an empty stomach with a full glass of water, at least 30 to 60 minutes before breakfast",
+      "best_time": [
+        "Morning"
+      ],
+      "maximum_daily_dose": "300 mcg/day",
+      "side_effects": [
+        "Tachycardia",
+        "Palpitations",
+        "Insomnia",
+        "Weight Loss",
+        "Nervousness",
+        "Heat Intolerance"
+      ],
+      "contraindications": [
+        "Uncorrected Adrenal Insufficiency",
+        "Acute Myocardial Infarction",
+        "Thyrotoxicosis"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [],
+      "keywords": [
+        "levothyroxine",
+        "synthroid",
+        "thyronorm",
+        "thyroid",
+        "hypothyroidism"
+      ]
+    },
+    {
+      "medicine_id": "MED-097",
+      "generic_name": "Clindamycin Hydrochloride",
+      "brand_names": [
+        "Cleocin",
+        "Dalacin C",
+        "Clinka"
+      ],
+      "drug_class": "Lincosamide Antibacterial",
+      "dosage_form": "Capsule",
+      "strength": [
+        "150 mg",
+        "300 mg"
+      ],
+      "used_for": [
+        "Serious Respiratory Tract Infections",
+        "Skin and Soft Tissue Infections",
+        "Septicemia",
+        "Intra-abdominal Infections"
+      ],
+      "adult_dose": "150 mg to 300 mg every 6 hours for serious infections; 300 mg to 450 mg every 6 hours for more severe infections",
+      "child_dose": "8 mg/kg/day to 25 mg/kg/day divided into 3 or 4 equal doses based on infection severity",
+      "frequency": "Three or Four Times Daily",
+      "food_instruction": "Take with a full glass of water to avoid esophageal irritation; can be taken with or without food",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "1800 mg/day",
+      "side_effects": [
+        "Pseudomembranous Colitis (C. difficile-associated diarrhea)",
+        "Abdominal Pain",
+        "Nausea",
+        "Vomiting",
+        "Maculopapular Rash"
+      ],
+      "contraindications": [
+        "History of hypersensitivity to Clindamycin or Lincomycin"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [
+        "DIS-103",
+        "DIS-104"
+      ],
+      "keywords": [
+        "clindamycin",
+        "cleocin",
+        "lincosamide",
+        "antibiotic",
+        "bacterial infection"
+      ]
+    },
+    {
+      "medicine_id": "MED-098",
+      "generic_name": "Clonidine Hydrochloride",
+      "brand_names": [
+        "Catapres",
+        "Arkamin",
+        "Cloneon"
+      ],
+      "drug_class": "Centrally Acting Alpha-2 Adrenergic Agonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "0.1 mg",
+        "0.2 mg"
+      ],
+      "used_for": [
+        "Hypertension"
+      ],
+      "adult_dose": "0.1 mg twice daily initially, titrated by 0.1 mg/day increments weekly until target blood pressure is reached",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been firmly established for standard hypertension management",
+      "frequency": "Twice Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Morning",
+        "Night"
+      ],
+      "maximum_daily_dose": "2.4 mg/day",
+      "side_effects": [
+        "Dry Mouth",
+        "Drowsiness",
+        "Dizziness",
+        "Constipation",
+        "Sedation",
+        "Rebound Hypertension upon abrupt withdrawal"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Clonidine Hydrochloride"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "clonidine",
+        "catapres",
+        "alpha agonist",
+        "hypertension",
+        "blood pressure"
+      ]
+    },
+    {
+      "medicine_id": "MED-099",
+      "generic_name": "Propylthiouracil",
+      "brand_names": [
+        "PTU"
+      ],
+      "drug_class": "Antithyroid Agent / Thionamide",
+      "dosage_form": "Tablet",
+      "strength": [
+        "50 mg"
+      ],
+      "used_for": [
+        "Hyperthyroidism Graves' Disease",
+        "Amelioration of Hyperthyroidism in preparation for thyroidectomy or radioactive iodine therapy"
+      ],
+      "adult_dose": "300 mg/day divided into 3 equal doses every 8 hours, titrated dynamically according to serum thyroid assays",
+      "child_dose": "5 mg/kg/day to 7 mg/kg/day divided into 3 equal doses for pediatric patients aged 6 to 10 years",
+      "frequency": "Three Times Daily",
+      "food_instruction": "Take consistently either always with food or always without food to keep absorption steady",
+      "best_time": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ],
+      "maximum_daily_dose": "1200 mg/day",
+      "side_effects": [
+        "Severe Liver Injury and Acute Liver Failure",
+        "Agranulocytosis",
+        "Skin Rash",
+        "Arthralgia",
+        "Nausea"
+      ],
+      "contraindications": [
+        "History of severe hypersensitivity or severe adverse reactions (such as hepatic failure or agranulocytosis) to Propylthiouracil"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": true,
+      "related_disease_ids": [],
+      "keywords": [
+        "propylthiouracil",
+        "ptu",
+        "antithyroid",
+        "hyperthyroidism",
+        "graves disease"
+      ]
+    },
+    {
+      "medicine_id": "MED-100",
+      "generic_name": "Doxazosin Mesylate",
+      "brand_names": [
+        "Cardura",
+        "Doxacard",
+        "Duracin"
+      ],
+      "drug_class": "Alpha-1 Adrenergic Antagonist",
+      "dosage_form": "Tablet",
+      "strength": [
+        "1 mg",
+        "2 mg",
+        "4 mg"
+      ],
+      "used_for": [
+        "Benign Prostatic Hyperplasia (BPH)",
+        "Hypertension"
+      ],
+      "adult_dose": "1 mg once daily initially, doubled at 1 to 2 week intervals up to a maximum therapeutic response profile",
+      "child_dose": "Safety and effectiveness in pediatric patients have not been established",
+      "frequency": "Once Daily",
+      "food_instruction": "With or Without Food",
+      "best_time": [
+        "Night"
+      ],
+      "maximum_daily_dose": "8 mg/day for BPH; 16 mg/day for hypertension",
+      "side_effects": [
+        "Dizziness",
+        "Fatigue",
+        "Orthostatic Hypotension",
+        "Syncope",
+        "Edema",
+        "Headache"
+      ],
+      "contraindications": [
+        "Hypersensitivity to Doxazosin or other quinazolines (e.g., Prazosin, Terazosin)"
+      ],
+      "storage": "Store below 25°C in a cool, dry place. Protect from moisture and direct sunlight.",
+      "prescription_required": true,
+      "pregnancy_safe": false,
+      "related_disease_ids": [
+        "DIS-001"
+      ],
+      "keywords": [
+        "doxazosin",
+        "cardura",
+        "alpha blocker",
+        "bph",
+        "hypertension"
+      ]
+    }
+  ]
+}

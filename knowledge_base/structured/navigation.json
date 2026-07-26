@@ -1,0 +1,2582 @@
+{
+  "navigation": [
+    {
+      "navigation_id": "NAV-001",
+      "department_id": "DEPT-001",
+      "department_name": "Emergency Medicine",
+      "building": "Main Hospital Block",
+      "block": "A",
+      "floor": "Ground Floor",
+      "room_number": "A-101",
+      "nearest_landmark": "Main Emergency Entrance",
+      "distance_from_main_entrance": "20 meters",
+      "estimated_walking_time": "1 minute",
+      "elevator_available": false,
+      "stair_access": true,
+      "wheelchair_accessible": true,
+      "nearest_help_desk": "Emergency Reception",
+      "operating_hours": "24/7",
+      "nearby_departments": [
+        "Radiology",
+        "ICU",
+        "General Medicine"
+      ],
+      "navigation_keywords": [
+        "emergency",
+        "er",
+        "casualty",
+        "accident",
+        "trauma"
+      ]
+    },
+    {
+      "navigation_id": "NAV-002",
+      "department_id": "DEPT-002",
+      "department_name": "General Medicine",
+      "building": "Main Hospital Block",
+      "block": "A",
+      "floor": "Ground Floor",
+      "room_number": "A-120",
+      "nearest_landmark": "Main Reception",
+      "distance_from_main_entrance": "40 meters",
+      "estimated_walking_time": "2 minutes",
+      "elevator_available": true,
+      "stair_access": true,
+      "wheelchair_accessible": true,
+      "nearest_help_desk": "OPD Help Desk",
+      "operating_hours": "08:00 AM - 08:00 PM",
+      "nearby_departments": [
+        "Cardiology",
+        "Emergency Medicine",
+        "Pharmacy"
+      ],
+      "navigation_keywords": [
+        "general physician",
+        "medicine",
+        "fever",
+        "consultation",
+        "opd"
+      ]
+    },
+    {
+      "navigation_id": "NAV-003",
+      "department_id": "DEPT-003",
+      "department_name": "Cardiology",
+      "building": "Main Hospital Block",
+      "block": "A",
+      "floor": "First Floor",
+      "room_number": "A-201",
+      "nearest_landmark": "Lift A",
+      "distance_from_main_entrance": "65 meters",
+      "estimated_walking_time": "3 minutes",
+      "elevator_available": true,
+      "stair_access": true,
+      "wheelchair_accessible": true,
+      "nearest_help_desk": "Cardiac Reception",
+      "operating_hours": "08:00 AM - 06:00 PM",
+      "nearby_departments": [
+        "General Medicine",
+        "ICU",
+        "Radiology"
+      ],
+      "navigation_keywords": [
+        "heart",
+        "cardiology",
+        "ecg",
+        "echo",
+        "cardiac"
+      ]
+    },
+    {
+      "navigation_id": "NAV-004",
+      "department_id": "DEPT-004",
+      "department_name": "Neurology",
+      "building": "Main Hospital Block",
+      "block": "A",
+      "floor": "First Floor",
+      "room_number": "A-215",
+      "nearest_landmark": "Lift A",
+      "distance_from_main_entrance": "70 meters",
+      "estimated_walking_time": "4 minutes",
+      "elevator_available": true,
+      "stair_access": true,
+      "wheelchair_accessible": true,
+      "nearest_help_desk": "Neuro Help Desk",
+      "operating_hours": "09:00 AM - 05:00 PM",
+      "nearby_departments": [
+        "Orthopedics",
+        "Cardiology",
+        "Radiology"
+      ],
+      "navigation_keywords": [
+        "brain",
+        "stroke",
+        "neurology",
+        "nerve",
+        "seizure"
+      ]
+    },
+    {
+      "navigation_id": "NAV-005",
+      "department_id": "DEPT-005",
+      "department_name": "Orthopedics",
+      "building": "Main Hospital Block",
+      "block": "A",
+      "floor": "Second Floor",
+      "room_number": "A-301",
+      "nearest_landmark": "Lift A",
+      "distance_from_main_entrance": "85 meters",
+      "estimated_walking_time": "5 minutes",
+      "elevator_available": true,
+      "stair_access": true,
+      "wheelchair_accessible": true,
+      "nearest_help_desk": "Orthopedic Desk",
+      "operating_hours": "09:00 AM - 06:00 PM",
+      "nearby_departments": [
+        "Physiotherapy",
+        "Radiology",
+        "Neurology"
+      ],
+      "navigation_keywords": [
+        "bone",
+        "fracture",
+        "joint",
+        "orthopedic",
+        "arthritis"
+      ]
+    }, 
+  {
+    "navigation_id": "NAV-006",
+    "department_id": "DEPT-006",
+    "department_name": "Dermatology",
+    "building": "Main Hospital Block",
+    "block": "B",
+    "floor": "Ground Floor",
+    "room_number": "B-101",
+    "nearest_landmark": "OPD Entrance",
+    "distance_from_main_entrance": "55 meters",
+    "estimated_walking_time": "3 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Dermatology Reception",
+    "operating_hours": "09:00 AM - 05:00 PM",
+    "nearby_departments": [
+      "ENT",
+      "Ophthalmology",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "skin",
+      "rash",
+      "eczema",
+      "acne",
+      "dermatology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-007",
+    "department_id": "DEPT-007",
+    "department_name": "ENT",
+    "building": "Main Hospital Block",
+    "block": "B",
+    "floor": "Ground Floor",
+    "room_number": "B-115",
+    "nearest_landmark": "OPD Corridor",
+    "distance_from_main_entrance": "60 meters",
+    "estimated_walking_time": "3 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "ENT Reception",
+    "operating_hours": "09:00 AM - 05:00 PM",
+    "nearby_departments": [
+      "Dermatology",
+      "Ophthalmology",
+      "Pediatrics"
+    ],
+    "navigation_keywords": [
+      "ear",
+      "nose",
+      "throat",
+      "hearing",
+      "ent"
+    ]
+  },
+  {
+    "navigation_id": "NAV-008",
+    "department_id": "DEPT-008",
+    "department_name": "Ophthalmology",
+    "building": "Main Hospital Block",
+    "block": "B",
+    "floor": "First Floor",
+    "room_number": "B-201",
+    "nearest_landmark": "Lift B",
+    "distance_from_main_entrance": "70 meters",
+    "estimated_walking_time": "4 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Eye Care Reception",
+    "operating_hours": "09:00 AM - 05:00 PM",
+    "nearby_departments": [
+      "ENT",
+      "Dermatology",
+      "Optical Store"
+    ],
+    "navigation_keywords": [
+      "eye",
+      "vision",
+      "cataract",
+      "glaucoma",
+      "ophthalmology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-009",
+    "department_id": "DEPT-009",
+    "department_name": "Obstetrics & Gynecology",
+    "building": "Main Hospital Block",
+    "block": "B",
+    "floor": "Second Floor",
+    "room_number": "B-301",
+    "nearest_landmark": "Women's Health Wing",
+    "distance_from_main_entrance": "85 meters",
+    "estimated_walking_time": "5 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Women's Health Reception",
+    "operating_hours": "08:30 AM - 06:00 PM",
+    "nearby_departments": [
+      "Pediatrics",
+      "Laboratory",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "pregnancy",
+      "women",
+      "gynecology",
+      "obstetrics",
+      "antenatal"
+    ]
+  },
+  {
+    "navigation_id": "NAV-010",
+    "department_id": "DEPT-010",
+    "department_name": "Pediatrics",
+    "building": "Children's Care Block",
+    "block": "B",
+    "floor": "Second Floor",
+    "room_number": "B-320",
+    "nearest_landmark": "Children's Play Area",
+    "distance_from_main_entrance": "90 meters",
+    "estimated_walking_time": "5 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Pediatric Reception",
+    "operating_hours": "08:00 AM - 08:00 PM",
+    "nearby_departments": [
+      "Gynecology",
+      "Vaccination Center",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "child",
+      "children",
+      "pediatric",
+      "vaccination",
+      "baby"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-011",
+    "department_id": "DEPT-011",
+    "department_name": "Pulmonology",
+    "building": "Main Hospital Block",
+    "block": "C",
+    "floor": "Ground Floor",
+    "room_number": "C-101",
+    "nearest_landmark": "Respiratory Care Entrance",
+    "distance_from_main_entrance": "95 meters",
+    "estimated_walking_time": "5 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Pulmonology Reception",
+    "operating_hours": "09:00 AM - 06:00 PM",
+    "nearby_departments": [
+      "Radiology",
+      "General Medicine",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "lungs",
+      "breathing",
+      "asthma",
+      "copd",
+      "pulmonology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-012",
+    "department_id": "DEPT-012",
+    "department_name": "Nephrology",
+    "building": "Main Hospital Block",
+    "block": "C",
+    "floor": "First Floor",
+    "room_number": "C-205",
+    "nearest_landmark": "Lift C",
+    "distance_from_main_entrance": "110 meters",
+    "estimated_walking_time": "6 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Kidney Care Reception",
+    "operating_hours": "09:00 AM - 05:30 PM",
+    "nearby_departments": [
+      "Urology",
+      "Dialysis Unit",
+      "Laboratory"
+    ],
+    "navigation_keywords": [
+      "kidney",
+      "renal",
+      "dialysis",
+      "nephrology",
+      "creatinine"
+    ]
+  },
+  {
+    "navigation_id": "NAV-013",
+    "department_id": "DEPT-013",
+    "department_name": "Gastroenterology",
+    "building": "Main Hospital Block",
+    "block": "C",
+    "floor": "First Floor",
+    "room_number": "C-220",
+    "nearest_landmark": "Lift C",
+    "distance_from_main_entrance": "115 meters",
+    "estimated_walking_time": "6 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "GI Reception",
+    "operating_hours": "09:00 AM - 06:00 PM",
+    "nearby_departments": [
+      "Endoscopy Unit",
+      "Laboratory",
+      "General Medicine"
+    ],
+    "navigation_keywords": [
+      "stomach",
+      "liver",
+      "digestive",
+      "gastro",
+      "endoscopy"
+    ]
+  },
+  {
+    "navigation_id": "NAV-014",
+    "department_id": "DEPT-014",
+    "department_name": "Endocrinology",
+    "building": "Main Hospital Block",
+    "block": "C",
+    "floor": "Second Floor",
+    "room_number": "C-302",
+    "nearest_landmark": "Lift C",
+    "distance_from_main_entrance": "125 meters",
+    "estimated_walking_time": "7 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Endocrinology Reception",
+    "operating_hours": "09:00 AM - 05:30 PM",
+    "nearby_departments": [
+      "Laboratory",
+      "General Medicine",
+      "Nutrition Clinic"
+    ],
+    "navigation_keywords": [
+      "diabetes",
+      "thyroid",
+      "hormones",
+      "endocrinology",
+      "insulin"
+    ]
+  },
+  {
+    "navigation_id": "NAV-015",
+    "department_id": "DEPT-015",
+    "department_name": "Psychiatry",
+    "building": "Main Hospital Block",
+    "block": "C",
+    "floor": "Second Floor",
+    "room_number": "C-320",
+    "nearest_landmark": "Mental Health Wing",
+    "distance_from_main_entrance": "135 meters",
+    "estimated_walking_time": "7 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Psychiatry Reception",
+    "operating_hours": "09:00 AM - 05:00 PM",
+    "nearby_departments": [
+      "Clinical Psychology",
+      "Neurology",
+      "Counseling Center"
+    ],
+    "navigation_keywords": [
+      "mental health",
+      "depression",
+      "anxiety",
+      "psychiatry",
+      "counseling"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-016",
+    "department_id": "DEPT-016",
+    "department_name": "Oncology",
+    "building": "Cancer Care Center",
+    "block": "D",
+    "floor": "Ground Floor",
+    "room_number": "D-101",
+    "nearest_landmark": "Cancer Care Entrance",
+    "distance_from_main_entrance": "140 meters",
+    "estimated_walking_time": "7 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Oncology Reception",
+    "operating_hours": "08:30 AM - 06:00 PM",
+    "nearby_departments": [
+      "Radiology",
+      "Pathology",
+      "Chemotherapy Unit"
+    ],
+    "navigation_keywords": [
+      "cancer",
+      "oncology",
+      "chemotherapy",
+      "tumor",
+      "radiation"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-017",
+    "department_id": "DEPT-017",
+    "department_name": "Urology",
+    "building": "Main Hospital Block",
+    "block": "D",
+    "floor": "Ground Floor",
+    "room_number": "D-120",
+    "nearest_landmark": "Kidney Care Corridor",
+    "distance_from_main_entrance": "145 meters",
+    "estimated_walking_time": "8 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Urology Reception",
+    "operating_hours": "09:00 AM - 05:30 PM",
+    "nearby_departments": [
+      "Nephrology",
+      "Radiology",
+      "Laboratory"
+    ],
+    "navigation_keywords": [
+      "urology",
+      "urinary",
+      "kidney stones",
+      "bladder",
+      "prostate"
+    ]
+  },
+  {
+    "navigation_id": "NAV-018",
+    "department_id": "DEPT-018",
+    "department_name": "Radiology",
+    "building": "Diagnostic Center",
+    "block": "D",
+    "floor": "Ground Floor",
+    "room_number": "D-150",
+    "nearest_landmark": "Imaging Services Entrance",
+    "distance_from_main_entrance": "150 meters",
+    "estimated_walking_time": "8 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Radiology Reception",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Emergency Medicine",
+      "Oncology",
+      "Orthopedics"
+    ],
+    "navigation_keywords": [
+      "xray",
+      "ct scan",
+      "mri",
+      "ultrasound",
+      "radiology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-019",
+    "department_id": "DEPT-019",
+    "department_name": "Pathology",
+    "building": "Diagnostic Center",
+    "block": "D",
+    "floor": "First Floor",
+    "room_number": "D-210",
+    "nearest_landmark": "Laboratory Wing",
+    "distance_from_main_entrance": "160 meters",
+    "estimated_walking_time": "9 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Pathology Sample Collection",
+    "operating_hours": "07:00 AM - 08:00 PM",
+    "nearby_departments": [
+      "Laboratory",
+      "Radiology",
+      "Blood Bank"
+    ],
+    "navigation_keywords": [
+      "pathology",
+      "lab test",
+      "biopsy",
+      "blood test",
+      "sample collection"
+    ]
+  },
+  {
+    "navigation_id": "NAV-020",
+    "department_id": "DEPT-020",
+    "department_name": "Intensive Care Unit (ICU)",
+    "building": "Critical Care Block",
+    "block": "D",
+    "floor": "First Floor",
+    "room_number": "D-250",
+    "nearest_landmark": "Critical Care Entrance",
+    "distance_from_main_entrance": "165 meters",
+    "estimated_walking_time": "9 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Critical Care Reception",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Emergency Medicine",
+      "Cardiology",
+      "Radiology"
+    ],
+    "navigation_keywords": [
+      "icu",
+      "critical care",
+      "intensive care",
+      "life support",
+      "emergency"
+    ]
+  },  
+  {
+    "navigation_id": "NAV-021",
+    "department_id": "DEPT-021",
+    "department_name": "General Surgery",
+    "building": "Surgical Services Block",
+    "block": "E",
+    "floor": "Ground Floor",
+    "room_number": "E-101",
+    "nearest_landmark": "Operation Theatre Entrance",
+    "distance_from_main_entrance": "175 meters",
+    "estimated_walking_time": "9 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Surgery Reception",
+    "operating_hours": "08:00 AM - 06:00 PM",
+    "nearby_departments": [
+      "Anesthesiology",
+      "ICU",
+      "Operation Theatre Complex"
+    ],
+    "navigation_keywords": [
+      "surgery",
+      "surgeon",
+      "operation",
+      "surgical",
+      "operation theatre"
+    ]
+  },
+  {
+    "navigation_id": "NAV-022",
+    "department_id": "DEPT-022",
+    "department_name": "Anesthesiology",
+    "building": "Surgical Services Block",
+    "block": "E",
+    "floor": "Ground Floor",
+    "room_number": "E-120",
+    "nearest_landmark": "Pre-Operative Area",
+    "distance_from_main_entrance": "180 meters",
+    "estimated_walking_time": "10 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Surgical Reception",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "General Surgery",
+      "ICU",
+      "Operation Theatre Complex"
+    ],
+    "navigation_keywords": [
+      "anesthesia",
+      "operation",
+      "sedation",
+      "pain management",
+      "anesthesiology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-023",
+    "department_id": "DEPT-023",
+    "department_name": "Dentistry",
+    "building": "Outpatient Care Block",
+    "block": "E",
+    "floor": "First Floor",
+    "room_number": "E-205",
+    "nearest_landmark": "Dental Clinic Entrance",
+    "distance_from_main_entrance": "185 meters",
+    "estimated_walking_time": "10 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Dental Reception",
+    "operating_hours": "09:00 AM - 05:30 PM",
+    "nearby_departments": [
+      "Pharmacy",
+      "Billing",
+      "General Medicine"
+    ],
+    "navigation_keywords": [
+      "dentist",
+      "teeth",
+      "tooth",
+      "oral care",
+      "dentistry"
+    ]
+  },
+  {
+    "navigation_id": "NAV-024",
+    "department_id": "DEPT-024",
+    "department_name": "Physiotherapy",
+    "building": "Rehabilitation Center",
+    "block": "E",
+    "floor": "First Floor",
+    "room_number": "E-225",
+    "nearest_landmark": "Rehabilitation Gym",
+    "distance_from_main_entrance": "190 meters",
+    "estimated_walking_time": "10 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Physiotherapy Reception",
+    "operating_hours": "08:00 AM - 06:00 PM",
+    "nearby_departments": [
+      "Orthopedics",
+      "Neurology",
+      "Sports Rehabilitation"
+    ],
+    "navigation_keywords": [
+      "physiotherapy",
+      "rehabilitation",
+      "exercise",
+      "therapy",
+      "physio"
+    ]
+  },
+  {
+    "navigation_id": "NAV-025",
+    "department_id": "DEPT-025",
+    "department_name": "Pharmacy",
+    "building": "Patient Services Block",
+    "block": "E",
+    "floor": "Ground Floor",
+    "room_number": "E-150",
+    "nearest_landmark": "Main Exit Lobby",
+    "distance_from_main_entrance": "90 meters",
+    "estimated_walking_time": "4 minutes",
+    "elevator_available": false,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Pharmacy Counter",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Billing",
+      "General Medicine",
+      "Emergency Medicine"
+    ],
+    "navigation_keywords": [
+      "pharmacy",
+      "medicine",
+      "medical store",
+      "prescription",
+      "drugs"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-026",
+    "department_id": "DEPT-026",
+    "department_name": "Blood Bank",
+    "building": "Diagnostic Services Block",
+    "block": "F",
+    "floor": "Ground Floor",
+    "room_number": "F-101",
+    "nearest_landmark": "Laboratory Entrance",
+    "distance_from_main_entrance": "160 meters",
+    "estimated_walking_time": "8 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Blood Bank Reception",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Laboratory",
+      "Emergency Medicine",
+      "ICU"
+    ],
+    "navigation_keywords": [
+      "blood bank",
+      "blood donation",
+      "blood transfusion",
+      "donor",
+      "blood"
+    ]
+  },
+  {
+    "navigation_id": "NAV-027",
+    "department_id": "DEPT-027",
+    "department_name": "Central Laboratory",
+    "building": "Diagnostic Services Block",
+    "block": "F",
+    "floor": "Ground Floor",
+    "room_number": "F-120",
+    "nearest_landmark": "Sample Collection Center",
+    "distance_from_main_entrance": "165 meters",
+    "estimated_walking_time": "8 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Laboratory Reception",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Pathology",
+      "Blood Bank",
+      "Radiology"
+    ],
+    "navigation_keywords": [
+      "laboratory",
+      "lab",
+      "blood test",
+      "sample collection",
+      "diagnostics"
+    ]
+  },
+  {
+    "navigation_id": "NAV-028",
+    "department_id": "DEPT-028",
+    "department_name": "Hospital Administration",
+    "building": "Administration Block",
+    "block": "F",
+    "floor": "First Floor",
+    "room_number": "F-201",
+    "nearest_landmark": "Administrative Office Entrance",
+    "distance_from_main_entrance": "75 meters",
+    "estimated_walking_time": "4 minutes",
+    "elevator_available": true,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Administration Office",
+    "operating_hours": "09:00 AM - 05:00 PM",
+    "nearby_departments": [
+      "Reception",
+      "Billing",
+      "Medical Records"
+    ],
+    "navigation_keywords": [
+      "administration",
+      "hospital office",
+      "management",
+      "records",
+      "admin"
+    ]
+  },
+  {
+    "navigation_id": "NAV-029",
+    "department_id": "DEPT-029",
+    "department_name": "Billing & Insurance",
+    "building": "Patient Services Block",
+    "block": "F",
+    "floor": "Ground Floor",
+    "room_number": "F-140",
+    "nearest_landmark": "Main Reception Lobby",
+    "distance_from_main_entrance": "35 meters",
+    "estimated_walking_time": "2 minutes",
+    "elevator_available": false,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Billing Counter",
+    "operating_hours": "08:00 AM - 08:00 PM",
+    "nearby_departments": [
+      "Reception",
+      "Pharmacy",
+      "General Medicine"
+    ],
+    "navigation_keywords": [
+      "billing",
+      "insurance",
+      "payment",
+      "cash counter",
+      "medical claim"
+    ]
+  },
+  {
+    "navigation_id": "NAV-030",
+    "department_id": "DEPT-030",
+    "department_name": "Reception & Information Desk",
+    "building": "Main Hospital Block",
+    "block": "F",
+    "floor": "Ground Floor",
+    "room_number": "F-001",
+    "nearest_landmark": "Main Hospital Entrance",
+    "distance_from_main_entrance": "0 meters",
+    "estimated_walking_time": "0 minutes",
+    "elevator_available": false,
+    "stair_access": true,
+    "wheelchair_accessible": true,
+    "nearest_help_desk": "Reception Counter",
+    "operating_hours": "24/7",
+    "nearby_departments": [
+      "Billing",
+      "Pharmacy",
+      "Emergency Medicine"
+    ],
+    "navigation_keywords": [
+      "reception",
+      "help desk",
+      "information",
+      "enquiry",
+      "front desk"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-031",
+    "route_name": "Main Entrance to Emergency Medicine",
+    "starting_point": "Main Hospital Entrance",
+    "destination_department_id": "DEPT-001",
+    "destination_department_name": "Emergency Medicine",
+    "route_description": "Enter through the Main Hospital Entrance and proceed straight for approximately 20 meters. The Emergency Department is immediately on the left beside the ambulance bay.",
+    "distance": "20 meters",
+    "estimated_walking_time": "1 minute",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Direct Route",
+    "landmarks": [
+      "Main Entrance",
+      "Security Desk",
+      "Ambulance Bay"
+    ],
+    "navigation_keywords": [
+      "emergency",
+      "ER",
+      "casualty",
+      "main entrance",
+      "ambulance"
+    ]
+  },
+  {
+    "navigation_id": "NAV-032",
+    "route_name": "Main Entrance to General Medicine",
+    "starting_point": "Main Hospital Entrance",
+    "destination_department_id": "DEPT-002",
+    "destination_department_name": "General Medicine",
+    "route_description": "Walk straight past Reception and continue along the OPD corridor. General Medicine is located on the right.",
+    "distance": "45 meters",
+    "estimated_walking_time": "2 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Direct Route",
+    "landmarks": [
+      "Reception",
+      "OPD Waiting Area",
+      "General Medicine Signboard"
+    ],
+    "navigation_keywords": [
+      "general medicine",
+      "physician",
+      "opd",
+      "consultation",
+      "fever clinic"
+    ]
+  },
+  {
+    "navigation_id": "NAV-033",
+    "route_name": "Main Entrance to Cardiology",
+    "starting_point": "Main Hospital Entrance",
+    "destination_department_id": "DEPT-003",
+    "destination_department_name": "Cardiology",
+    "route_description": "Proceed to Lift A, go to the first floor, turn left, and continue until reaching the Cardiology reception.",
+    "distance": "70 meters",
+    "estimated_walking_time": "4 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Elevator Route",
+    "landmarks": [
+      "Reception",
+      "Lift A",
+      "Cardiology Reception"
+    ],
+    "navigation_keywords": [
+      "heart",
+      "cardiology",
+      "lift",
+      "ecg",
+      "echo"
+    ]
+  },
+  {
+    "navigation_id": "NAV-034",
+    "route_name": "Parking Area to Reception",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-030",
+    "destination_department_name": "Reception & Information Desk",
+    "route_description": "Exit the visitor parking area using the covered walkway. Enter through the main doors where the Reception Desk is directly ahead.",
+    "distance": "60 meters",
+    "estimated_walking_time": "3 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Entrance Route",
+    "landmarks": [
+      "Visitor Parking",
+      "Covered Walkway",
+      "Main Entrance",
+      "Reception"
+    ],
+    "navigation_keywords": [
+      "parking",
+      "reception",
+      "entrance",
+      "help desk",
+      "information"
+    ]
+  },
+  {
+    "navigation_id": "NAV-035",
+    "route_name": "Reception to Pharmacy",
+    "starting_point": "Reception",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "From Reception, walk toward the Patient Services Block. The Pharmacy is located opposite the Billing Counter.",
+    "distance": "35 meters",
+    "estimated_walking_time": "2 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Internal Route",
+    "landmarks": [
+      "Reception",
+      "Billing Counter",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "medicine",
+      "pharmacy",
+      "prescription",
+      "billing",
+      "drugs"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-036",
+    "route_name": "Reception to Central Laboratory",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-027",
+    "destination_department_name": "Central Laboratory",
+    "route_description": "From Reception, proceed straight through the main corridor toward the Diagnostic Services Block. Continue past the Billing Counter and follow the Laboratory signs. The Central Laboratory is located on the ground floor.",
+    "distance": "120 meters",
+    "estimated_walking_time": "4 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Internal Route",
+    "landmarks": [
+      "Reception",
+      "Billing Counter",
+      "Diagnostic Services Block",
+      "Laboratory Entrance"
+    ],
+    "navigation_keywords": [
+      "laboratory",
+      "blood test",
+      "sample collection",
+      "lab",
+      "diagnostics"
+    ]
+  },
+  {
+    "navigation_id": "NAV-037",
+    "route_name": "Reception to Radiology",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-018",
+    "destination_department_name": "Radiology",
+    "route_description": "Walk straight toward the Diagnostic Center following the Radiology signs. The department is located opposite the Emergency corridor.",
+    "distance": "135 meters",
+    "estimated_walking_time": "5 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Internal Route",
+    "landmarks": [
+      "Reception",
+      "Emergency Corridor",
+      "Diagnostic Center",
+      "Radiology Reception"
+    ],
+    "navigation_keywords": [
+      "radiology",
+      "x-ray",
+      "mri",
+      "ct scan",
+      "ultrasound"
+    ]
+  },
+  {
+    "navigation_id": "NAV-038",
+    "route_name": "Reception to Blood Bank",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-026",
+    "destination_department_name": "Blood Bank",
+    "route_description": "Proceed toward the Diagnostic Services Block and continue to the Blood Bank located beside the Central Laboratory entrance.",
+    "distance": "145 meters",
+    "estimated_walking_time": "5 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Internal Route",
+    "landmarks": [
+      "Reception",
+      "Diagnostic Services Block",
+      "Central Laboratory",
+      "Blood Bank"
+    ],
+    "navigation_keywords": [
+      "blood bank",
+      "blood donation",
+      "transfusion",
+      "donor",
+      "blood"
+    ]
+  },
+  {
+    "navigation_id": "NAV-039",
+    "route_name": "Reception to Intensive Care Unit",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-020",
+    "destination_department_name": "Intensive Care Unit (ICU)",
+    "route_description": "Walk toward Lift D, go to the first floor, and follow the Critical Care signs. The ICU entrance is secured and located beside the Cardiac ICU.",
+    "distance": "155 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Critical Care Route",
+    "landmarks": [
+      "Reception",
+      "Lift D",
+      "Critical Care Block",
+      "ICU Entrance"
+    ],
+    "navigation_keywords": [
+      "icu",
+      "critical care",
+      "intensive care",
+      "life support",
+      "critical patient"
+    ]
+  },
+  {
+    "navigation_id": "NAV-040",
+    "route_name": "Reception to General Surgery",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-021",
+    "destination_department_name": "General Surgery",
+    "route_description": "Walk through the Surgical Services corridor. The General Surgery department is located adjacent to the Operation Theatre complex.",
+    "distance": "165 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Surgical Route",
+    "landmarks": [
+      "Reception",
+      "Surgical Services Block",
+      "Operation Theatre",
+      "General Surgery"
+    ],
+    "navigation_keywords": [
+      "surgery",
+      "operation",
+      "surgeon",
+      "operation theatre",
+      "surgical"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-041",
+    "route_name": "Parking Area to Emergency Medicine",
+    "starting_point": "Main Parking Area",
+    "destination_department_id": "DEPT-001",
+    "destination_department_name": "Emergency Medicine",
+    "route_description": "From the main parking area, use the Emergency Entrance located on the east side of the hospital. Follow the red Emergency signs directly to the Emergency Department reception.",
+    "distance": "90 meters",
+    "estimated_walking_time": "3 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Emergency Route",
+    "landmarks": [
+      "Main Parking",
+      "Emergency Entrance",
+      "Ambulance Bay",
+      "Emergency Reception"
+    ],
+    "navigation_keywords": [
+      "parking to emergency",
+      "emergency entrance",
+      "ambulance",
+      "casualty",
+      "emergency department"
+    ]
+  },
+  {
+    "navigation_id": "NAV-042",
+    "route_name": "Parking Area to Intensive Care Unit",
+    "starting_point": "Main Parking Area",
+    "destination_department_id": "DEPT-020",
+    "destination_department_name": "Intensive Care Unit (ICU)",
+    "route_description": "Enter through the Main Entrance from the parking area, proceed to Lift D, go to the first floor, and follow the Critical Care signs to the ICU.",
+    "distance": "210 meters",
+    "estimated_walking_time": "8 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Critical Care Route",
+    "landmarks": [
+      "Parking Area",
+      "Main Entrance",
+      "Lift D",
+      "Critical Care Block",
+      "ICU"
+    ],
+    "navigation_keywords": [
+      "parking to icu",
+      "critical care",
+      "icu",
+      "patient visit",
+      "intensive care"
+    ]
+  },
+  {
+    "navigation_id": "NAV-043",
+    "route_name": "Parking Area to Pharmacy",
+    "starting_point": "Main Parking Area",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "Enter through the Main Entrance and continue straight past Reception. The Pharmacy is located on the right side beside the Billing Counter.",
+    "distance": "125 meters",
+    "estimated_walking_time": "4 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": false,
+    "stairs_required": false,
+    "route_type": "Support Services Route",
+    "landmarks": [
+      "Parking Area",
+      "Main Entrance",
+      "Reception",
+      "Billing Counter",
+      "Pharmacy"
+    ],
+    "navigation_keywords": [
+      "parking to pharmacy",
+      "medicine",
+      "medical store",
+      "prescription",
+      "drug counter"
+    ]
+  },
+  {
+    "navigation_id": "NAV-044",
+    "route_name": "Main Entrance to Pediatrics",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-010",
+    "destination_department_name": "Pediatrics",
+    "route_description": "From the Main Entrance, proceed through Reception and take Lift B to the second floor. Follow the Child Care signs to Pediatrics.",
+    "distance": "170 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift B",
+      "Children's Wing",
+      "Pediatrics"
+    ],
+    "navigation_keywords": [
+      "children",
+      "pediatrics",
+      "child doctor",
+      "kids clinic",
+      "child care"
+    ]
+  },
+  {
+    "navigation_id": "NAV-045",
+    "route_name": "Main Entrance to Obstetrics & Gynecology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-009",
+    "destination_department_name": "Obstetrics & Gynecology",
+    "route_description": "Walk through Reception and take Lift C to the second floor. Follow the Women's Health signs to the Obstetrics & Gynecology department.",
+    "distance": "180 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift C",
+      "Women's Health Wing",
+      "Obstetrics & Gynecology"
+    ],
+    "navigation_keywords": [
+      "gynecology",
+      "obstetrics",
+      "pregnancy",
+      "women health",
+      "maternity"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-046",
+    "route_name": "Main Entrance to Orthopedics",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-005",
+    "destination_department_name": "Orthopedics",
+    "route_description": "Enter through the Main Entrance and walk past Reception. Continue to Lift B, go to the second floor, then follow the blue Orthopedics signs to the department.",
+    "distance": "185 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift B",
+      "Orthopedic Clinic",
+      "Orthopedics Department"
+    ],
+    "navigation_keywords": [
+      "orthopedics",
+      "bone doctor",
+      "fracture clinic",
+      "joint pain",
+      "bone specialist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-047",
+    "route_name": "Main Entrance to Neurology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-004",
+    "destination_department_name": "Neurology",
+    "route_description": "Walk straight from the Main Entrance to Reception. Take Lift A to the third floor and follow the Neurology directional signs.",
+    "distance": "205 meters",
+    "estimated_walking_time": "7 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift A",
+      "Neuroscience Wing",
+      "Neurology Department"
+    ],
+    "navigation_keywords": [
+      "neurology",
+      "brain doctor",
+      "stroke clinic",
+      "seizures",
+      "neurologist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-048",
+    "route_name": "Main Entrance to Cardiology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-003",
+    "destination_department_name": "Cardiology",
+    "route_description": "From the Main Entrance proceed through Reception. Continue to Lift A, travel to the second floor, and follow the Heart Care signs to Cardiology.",
+    "distance": "190 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift A",
+      "Heart Care Center",
+      "Cardiology Department"
+    ],
+    "navigation_keywords": [
+      "cardiology",
+      "heart doctor",
+      "heart clinic",
+      "cardiologist",
+      "ecg"
+    ]
+  },
+  {
+    "navigation_id": "NAV-049",
+    "route_name": "Main Entrance to Oncology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-016",
+    "destination_department_name": "Oncology",
+    "route_description": "After entering the Main Entrance, walk past Reception toward Lift D. Take the lift to the fourth floor and follow the Cancer Care signs.",
+    "distance": "245 meters",
+    "estimated_walking_time": "8 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift D",
+      "Cancer Care Center",
+      "Oncology Department"
+    ],
+    "navigation_keywords": [
+      "oncology",
+      "cancer",
+      "chemotherapy",
+      "tumor clinic",
+      "cancer specialist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-050",
+    "route_name": "Main Entrance to Nephrology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-012",
+    "destination_department_name": "Nephrology",
+    "route_description": "Enter through the Main Entrance, continue to Reception, then take Lift C to the third floor. Follow the Kidney Care signs to the Nephrology Department.",
+    "distance": "215 meters",
+    "estimated_walking_time": "7 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift C",
+      "Kidney Care Unit",
+      "Nephrology Department"
+    ],
+    "navigation_keywords": [
+      "nephrology",
+      "kidney doctor",
+      "dialysis",
+      "kidney care",
+      "renal clinic"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-051",
+    "route_name": "Main Entrance to Pulmonology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-011",
+    "destination_department_name": "Pulmonology",
+    "route_description": "Walk straight from the Main Entrance to the Reception Desk. Continue to Lift C, travel to the third floor, and follow the Respiratory Care signs to the Pulmonology Department.",
+    "distance": "220 meters",
+    "estimated_walking_time": "7 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift C",
+      "Respiratory Care Wing",
+      "Pulmonology Department"
+    ],
+    "navigation_keywords": [
+      "pulmonology",
+      "lung doctor",
+      "respiratory clinic",
+      "breathing problems",
+      "pulmonary medicine"
+    ]
+  },
+  {
+    "navigation_id": "NAV-052",
+    "route_name": "Main Entrance to Dermatology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-006",
+    "destination_department_name": "Dermatology",
+    "route_description": "From the Main Entrance proceed past Reception, take Lift B to the first floor, and follow the Skin Care signs to Dermatology.",
+    "distance": "165 meters",
+    "estimated_walking_time": "5 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift B",
+      "Skin Care Clinic",
+      "Dermatology Department"
+    ],
+    "navigation_keywords": [
+      "dermatology",
+      "skin doctor",
+      "skin clinic",
+      "rash treatment",
+      "dermatologist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-053",
+    "route_name": "Main Entrance to ENT",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-007",
+    "destination_department_name": "ENT",
+    "route_description": "Walk through Reception and continue toward Lift A. Take the lift to the first floor and follow the Ear, Nose & Throat signs.",
+    "distance": "170 meters",
+    "estimated_walking_time": "5 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift A",
+      "ENT Clinic",
+      "ENT Department"
+    ],
+    "navigation_keywords": [
+      "ent",
+      "ear doctor",
+      "nose specialist",
+      "throat clinic",
+      "otolaryngology"
+    ]
+  },
+  {
+    "navigation_id": "NAV-054",
+    "route_name": "Main Entrance to Ophthalmology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-008",
+    "destination_department_name": "Ophthalmology",
+    "route_description": "Proceed from the Main Entrance to Reception. Take Lift B to the second floor and follow the Eye Care signs to Ophthalmology.",
+    "distance": "180 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift B",
+      "Eye Care Center",
+      "Ophthalmology Department"
+    ],
+    "navigation_keywords": [
+      "ophthalmology",
+      "eye doctor",
+      "vision clinic",
+      "eye specialist",
+      "eye care"
+    ]
+  },
+  {
+    "navigation_id": "NAV-055",
+    "route_name": "Main Entrance to Endocrinology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-014",
+    "destination_department_name": "Endocrinology",
+    "route_description": "Enter through the Main Entrance, continue to Reception, take Lift D to the second floor, and follow the Hormone & Diabetes Care signs to Endocrinology.",
+    "distance": "195 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift D",
+      "Diabetes Center",
+      "Endocrinology Department"
+    ],
+    "navigation_keywords": [
+      "endocrinology",
+      "diabetes clinic",
+      "hormone specialist",
+      "thyroid clinic",
+      "endocrine department"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-056",
+    "route_name": "Main Entrance to Psychiatry",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-015",
+    "destination_department_name": "Psychiatry",
+    "route_description": "Enter through the Main Entrance and walk straight to Reception. Take Lift C to the third floor and follow the Mental Health Services signs to the Psychiatry Department.",
+    "distance": "205 meters",
+    "estimated_walking_time": "7 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift C",
+      "Mental Health Wing",
+      "Psychiatry Department"
+    ],
+    "navigation_keywords": [
+      "psychiatry",
+      "mental health",
+      "psychiatrist",
+      "depression clinic",
+      "counselling"
+    ]
+  },
+  {
+    "navigation_id": "NAV-057",
+    "route_name": "Main Entrance to Urology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-017",
+    "destination_department_name": "Urology",
+    "route_description": "Walk through the Main Entrance and continue to Reception. Take Lift D to the third floor and follow the Urology directional signs.",
+    "distance": "225 meters",
+    "estimated_walking_time": "8 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift D",
+      "Urology Clinic",
+      "Urology Department"
+    ],
+    "navigation_keywords": [
+      "urology",
+      "kidney stones",
+      "urinary problems",
+      "urologist",
+      "bladder clinic"
+    ]
+  },
+  {
+    "navigation_id": "NAV-058",
+    "route_name": "Main Entrance to Gastroenterology",
+    "starting_point": "Main Entrance",
+    "destination_department_id": "DEPT-013",
+    "destination_department_name": "Gastroenterology",
+    "route_description": "Proceed from the Main Entrance to Reception, take Lift B to the second floor, and follow the Digestive Health signs to Gastroenterology.",
+    "distance": "195 meters",
+    "estimated_walking_time": "6 minutes",
+    "wheelchair_accessible": true,
+    "elevator_required": true,
+    "stairs_required": false,
+    "route_type": "Clinical Route",
+    "landmarks": [
+      "Main Entrance",
+      "Reception",
+      "Lift B",
+      "Digestive Health Center",
+      "Gastroenterology Department"
+    ],
+    "navigation_keywords": [
+      "gastroenterology",
+      "stomach doctor",
+      "digestive system",
+      "liver clinic",
+      "gastric problems"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-059",
+    "starting_point": "Main Reception",
+    "destination_department_id": "DEPT-027",
+    "destination_department_name": "Central Laboratory",
+    "route_description": "From the Main Reception, walk straight through the central corridor for approximately 35 meters. Turn left at the Diagnostic Services signboard. The Central Laboratory is the second department on the right.",
+    "estimated_distance_meters": 60,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Waiting Area",
+      "Diagnostic Corridor",
+      "Sample Collection Counter"
+    ],
+    "keywords": [
+      "laboratory",
+      "blood test",
+      "sample collection",
+      "diagnostic lab"
+    ]
+  },
+  {
+    "navigation_id": "NAV-060",
+    "starting_point": "Main Reception",
+    "destination_department_id": "DEPT-018",
+    "destination_department_name": "Radiology",
+    "route_description": "Walk straight from the reception and follow the blue directional signs toward Diagnostic Imaging. Radiology is located opposite the CT Scan waiting area.",
+    "estimated_distance_meters": 75,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Diagnostic Imaging Sign",
+      "CT Scan Waiting Area",
+      "MRI Entrance"
+    ],
+    "keywords": [
+      "radiology",
+      "xray",
+      "ct scan",
+      "mri"
+    ]
+  },
+  {
+    "navigation_id": "NAV-061",
+    "starting_point": "Main Reception",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "Proceed along the main lobby toward the outpatient exit. The Pharmacy is located beside the Billing & Insurance counter.",
+    "estimated_distance_meters": 55,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Main Lobby",
+      "Billing Counter",
+      "Medicine Pickup Area"
+    ],
+    "keywords": [
+      "pharmacy",
+      "medicine",
+      "prescription",
+      "drug counter"
+    ]
+  },
+  {
+    "navigation_id": "NAV-062",
+    "starting_point": "Main Reception",
+    "destination_department_id": "DEPT-029",
+    "destination_department_name": "Billing & Insurance",
+    "route_description": "Walk straight ahead from the reception. The Billing & Insurance department is situated next to the Pharmacy.",
+    "estimated_distance_meters": 45,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Hall",
+      "Cash Counter",
+      "Pharmacy"
+    ],
+    "keywords": [
+      "billing",
+      "insurance",
+      "payment",
+      "cash counter"
+    ]
+  },
+  {
+    "navigation_id": "NAV-063",
+    "starting_point": "Emergency Department",
+    "destination_department_id": "DEPT-020",
+    "destination_department_name": "Intensive Care Unit",
+    "route_description": "Exit the Emergency Department through the critical care corridor. Continue straight until the secured ICU entrance.",
+    "estimated_distance_meters": 40,
+    "estimated_walking_time_minutes": 1,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Emergency Nurses Station",
+      "Critical Care Corridor",
+      "ICU Security Door"
+    ],
+    "keywords": [
+      "icu",
+      "critical care",
+      "emergency transfer",
+      "intensive care"
+    ]
+  },
+  {
+    "navigation_id": "NAV-064",
+    "starting_point": "Emergency Department",
+    "destination_department_id": "DEPT-026",
+    "destination_department_name": "Blood Bank",
+    "route_description": "Follow the emergency services corridor and turn right after Radiology. The Blood Bank is located adjacent to the Laboratory wing.",
+    "estimated_distance_meters": 70,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Emergency Exit",
+      "Radiology",
+      "Blood Storage Unit"
+    ],
+    "keywords": [
+      "blood bank",
+      "blood donation",
+      "transfusion",
+      "emergency blood"
+    ]
+  },
+  {
+    "navigation_id": "NAV-065",
+    "starting_point": "Emergency Department",
+    "destination_department_id": "DEPT-018",
+    "destination_department_name": "Radiology",
+    "route_description": "Take the imaging corridor directly from Emergency. Radiology is immediately accessible for emergency diagnostic procedures.",
+    "estimated_distance_meters": 30,
+    "estimated_walking_time_minutes": 1,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Emergency Corridor",
+      "X-Ray Suite",
+      "CT Scan Room"
+    ],
+    "keywords": [
+      "radiology",
+      "emergency imaging",
+      "xray",
+      "ct scan"
+    ]
+  },
+  {
+    "navigation_id": "NAV-066",
+    "starting_point": "Emergency Department",
+    "destination_department_id": "DEPT-027",
+    "destination_department_name": "Central Laboratory",
+    "route_description": "Walk through the diagnostic services hallway. The Central Laboratory is located beside the Blood Collection Center.",
+    "estimated_distance_meters": 65,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Diagnostic Hall",
+      "Blood Collection Counter",
+      "Sample Reception"
+    ],
+    "keywords": [
+      "lab",
+      "blood test",
+      "sample",
+      "laboratory"
+    ]
+  },
+  {
+    "navigation_id": "NAV-067",
+    "starting_point": "General Ward",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "Exit the ward through the central corridor and continue toward the outpatient lobby. The Pharmacy is beside the Billing section.",
+    "estimated_distance_meters": 95,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Ward Exit",
+      "Main Lobby",
+      "Billing Counter"
+    ],
+    "keywords": [
+      "medicine",
+      "pharmacy",
+      "prescription",
+      "drug counter"
+    ]
+  },
+  {
+    "navigation_id": "NAV-068",
+    "starting_point": "General Ward",
+    "destination_department_id": "DEPT-029",
+    "destination_department_name": "Billing & Insurance",
+    "route_description": "Proceed through the visitor corridor toward the main lobby. Billing & Insurance is located opposite the Pharmacy.",
+    "estimated_distance_meters": 90,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Visitor Corridor",
+      "Main Lobby",
+      "Pharmacy"
+    ],
+    "keywords": [
+      "billing",
+      "insurance",
+      "payment",
+      "cash"
+    ]
+  },
+  {
+    "navigation_id": "NAV-069",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-030",
+    "destination_department_name": "Reception & Information Desk",
+    "route_description": "Enter through the main entrance and continue straight into the hospital lobby. The Reception & Information Desk is centrally located immediately inside the entrance.",
+    "estimated_distance_meters": 80,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Main Entrance",
+      "Hospital Lobby",
+      "Reception Desk"
+    ],
+    "keywords": [
+      "reception",
+      "information",
+      "help desk",
+      "visitor assistance"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-070",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-001",
+    "destination_department_name": "Emergency Medicine",
+    "route_description": "From the Visitor Parking area, enter through the Emergency Entrance located on the east side of the hospital. Emergency Medicine is immediately inside the entrance.",
+    "estimated_distance_meters": 70,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Emergency Entrance",
+      "Ambulance Bay",
+      "Emergency Reception"
+    ],
+    "keywords": [
+      "emergency",
+      "casualty",
+      "ambulance",
+      "emergency room"
+    ]
+  },
+  {
+    "navigation_id": "NAV-071",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-026",
+    "destination_department_name": "Blood Bank",
+    "route_description": "Enter through the main entrance, continue toward the Diagnostic Services corridor, and follow the Blood Bank signs.",
+    "estimated_distance_meters": 130,
+    "estimated_walking_time_minutes": 5,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Main Lobby",
+      "Diagnostic Corridor",
+      "Blood Storage Unit"
+    ],
+    "keywords": [
+      "blood bank",
+      "blood donation",
+      "transfusion",
+      "blood services"
+    ]
+  },
+  {
+    "navigation_id": "NAV-072",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "Walk through the main entrance and continue toward the outpatient services area. The Pharmacy is located beside the Billing & Insurance department.",
+    "estimated_distance_meters": 110,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Lobby",
+      "Billing Counter",
+      "Medicine Pickup Counter"
+    ],
+    "keywords": [
+      "pharmacy",
+      "medicine",
+      "prescription",
+      "drug store"
+    ]
+  },
+  {
+    "navigation_id": "NAV-073",
+    "starting_point": "Visitor Parking",
+    "destination_department_id": "DEPT-029",
+    "destination_department_name": "Billing & Insurance",
+    "route_description": "Proceed through the Main Entrance and continue straight into the outpatient lobby. Billing & Insurance is located opposite the Pharmacy.",
+    "estimated_distance_meters": 105,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Hall",
+      "Pharmacy",
+      "Cash Counter"
+    ],
+    "keywords": [
+      "billing",
+      "insurance",
+      "payment",
+      "cash counter"
+    ]
+  },
+  {
+    "navigation_id": "NAV-074",
+    "starting_point": "Intensive Care Unit",
+    "destination_department_id": "DEPT-018",
+    "destination_department_name": "Radiology",
+    "route_description": "Exit the ICU through the Critical Care corridor and follow the signs toward Diagnostic Imaging. Radiology is located directly opposite the CT Scan suite.",
+    "estimated_distance_meters": 60,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Critical Care Corridor",
+      "CT Scan Unit",
+      "MRI Suite"
+    ],
+    "keywords": [
+      "radiology",
+      "ct scan",
+      "mri",
+      "diagnostic imaging"
+    ]
+  },
+  {
+    "navigation_id": "NAV-075",
+    "starting_point": "Intensive Care Unit",
+    "destination_department_id": "DEPT-026",
+    "destination_department_name": "Blood Bank",
+    "route_description": "Leave the ICU and proceed through the emergency services corridor. The Blood Bank is located beside the Central Laboratory.",
+    "estimated_distance_meters": 75,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "ICU Exit",
+      "Diagnostic Corridor",
+      "Central Laboratory"
+    ],
+    "keywords": [
+      "blood bank",
+      "blood transfusion",
+      "blood services",
+      "emergency blood"
+    ]
+  },
+  {
+    "navigation_id": "NAV-076",
+    "starting_point": "Intensive Care Unit",
+    "destination_department_id": "DEPT-027",
+    "destination_department_name": "Central Laboratory",
+    "route_description": "Follow the corridor connecting ICU to Diagnostic Services. The Central Laboratory is clearly marked beside the Blood Collection Center.",
+    "estimated_distance_meters": 65,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "ICU Corridor",
+      "Blood Collection Center",
+      "Laboratory Reception"
+    ],
+    "keywords": [
+      "laboratory",
+      "blood test",
+      "sample collection",
+      "diagnostic services"
+    ]
+  },
+  {
+    "navigation_id": "NAV-077",
+    "starting_point": "Main Lobby",
+    "destination_department_id": "DEPT-030",
+    "destination_department_name": "Reception & Information Desk",
+    "route_description": "The Reception & Information Desk is centrally located within the Main Lobby near the hospital entrance.",
+    "estimated_distance_meters": 20,
+    "estimated_walking_time_minutes": 1,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Hospital Entrance",
+      "Reception Counter",
+      "Visitor Waiting Area"
+    ],
+    "keywords": [
+      "reception",
+      "information",
+      "help desk",
+      "visitor services"
+    ]
+  },
+  {
+    "navigation_id": "NAV-078",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-028",
+    "destination_department_name": "Administration",
+    "route_description": "Walk down the administrative corridor behind the Reception Desk. Administration is the first office suite on the left.",
+    "estimated_distance_meters": 40,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Counter",
+      "Administrative Corridor",
+      "Administration Office"
+    ],
+    "keywords": [
+      "administration",
+      "hospital office",
+      "management",
+      "administrative services"
+    ]
+  },
+  {
+    "navigation_id": "NAV-079",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-029",
+    "destination_department_name": "Billing & Insurance",
+    "route_description": "Walk straight from Reception toward the outpatient services area. Billing & Insurance is located beside the Pharmacy.",
+    "estimated_distance_meters": 45,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Hall",
+      "Pharmacy",
+      "Cash Counter"
+    ],
+    "keywords": [
+      "billing",
+      "insurance",
+      "cash counter",
+      "payment"
+    ]
+  },
+  {
+    "navigation_id": "NAV-080",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-025",
+    "destination_department_name": "Pharmacy",
+    "route_description": "Proceed straight from the Reception Desk into the outpatient services area. The Pharmacy is located immediately next to the Billing & Insurance department.",
+    "estimated_distance_meters": 50,
+    "estimated_walking_time_minutes": 2,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Hall",
+      "Billing Counter",
+      "Medicine Pickup Area"
+    ],
+    "keywords": [
+      "pharmacy",
+      "medicine",
+      "prescription",
+      "drug counter"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-081",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-027",
+    "destination_department_name": "Central Laboratory",
+    "route_description": "From the Reception Desk, proceed along the Diagnostic Services corridor. The Central Laboratory is located after the Sample Collection Center on the right.",
+    "estimated_distance_meters": 65,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Reception Hall",
+      "Diagnostic Corridor",
+      "Sample Collection Center"
+    ],
+    "keywords": [
+      "laboratory",
+      "blood test",
+      "sample collection",
+      "diagnostic lab"
+    ]
+  },
+  {
+    "navigation_id": "NAV-082",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-018",
+    "destination_department_name": "Radiology",
+    "route_description": "Walk straight through the Diagnostic Services corridor following the blue Radiology signs. The department is opposite the CT Scan waiting area.",
+    "estimated_distance_meters": 75,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Diagnostic Corridor",
+      "CT Scan Waiting Area",
+      "MRI Suite"
+    ],
+    "keywords": [
+      "radiology",
+      "xray",
+      "ct scan",
+      "mri"
+    ]
+  },
+  {
+    "navigation_id": "NAV-083",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-016",
+    "destination_department_name": "Oncology",
+    "route_description": "Take the east corridor from Reception and continue until the Cancer Care Wing. Oncology is the second department on the left.",
+    "estimated_distance_meters": 140,
+    "estimated_walking_time_minutes": 6,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "East Wing Elevator",
+      "Cancer Care Wing",
+      "Chemotherapy Unit"
+    ],
+    "keywords": [
+      "oncology",
+      "cancer",
+      "chemotherapy",
+      "tumor clinic"
+    ]
+  },
+  {
+    "navigation_id": "NAV-084",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-023",
+    "destination_department_name": "Dentistry",
+    "route_description": "Walk toward the Specialty Clinics corridor. Dentistry is located adjacent to the Oral Surgery consultation rooms.",
+    "estimated_distance_meters": 90,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Specialty Clinic Corridor",
+      "Dental Waiting Area",
+      "Oral Surgery Room"
+    ],
+    "keywords": [
+      "dentist",
+      "dental",
+      "tooth",
+      "oral health"
+    ]
+  },
+  {
+    "navigation_id": "NAV-085",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-015",
+    "destination_department_name": "Psychiatry",
+    "route_description": "Proceed through the Mental Health Services corridor. Psychiatry is located opposite the Counseling Center.",
+    "estimated_distance_meters": 120,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Mental Health Wing",
+      "Counseling Center",
+      "Patient Waiting Area"
+    ],
+    "keywords": [
+      "psychiatry",
+      "mental health",
+      "depression",
+      "counseling"
+    ]
+  },
+  {
+    "navigation_id": "NAV-086",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-014",
+    "destination_department_name": "Endocrinology",
+    "route_description": "Take the specialty clinic corridor toward the Internal Medicine block. Endocrinology is beside the Diabetes Clinic.",
+    "estimated_distance_meters": 110,
+    "estimated_walking_time_minutes": 4,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Specialty Clinics",
+      "Diabetes Clinic",
+      "Consultation Rooms"
+    ],
+    "keywords": [
+      "endocrinology",
+      "diabetes",
+      "thyroid",
+      "hormone clinic"
+    ]
+  },
+  {
+    "navigation_id": "NAV-087",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-013",
+    "destination_department_name": "Gastroenterology",
+    "route_description": "Walk through the Internal Medicine corridor and continue until the Digestive Health section. Gastroenterology is clearly signposted.",
+    "estimated_distance_meters": 115,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Internal Medicine Wing",
+      "Digestive Health Center",
+      "Endoscopy Unit"
+    ],
+    "keywords": [
+      "gastroenterology",
+      "stomach",
+      "digestive",
+      "endoscopy"
+    ]
+  },
+  {
+    "navigation_id": "NAV-088",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-017",
+    "destination_department_name": "Urology",
+    "route_description": "Follow the Specialty Clinics signs toward the Surgical Block. Urology is located opposite the Renal Clinic.",
+    "estimated_distance_meters": 130,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Surgical Block",
+      "Renal Clinic",
+      "Urology Waiting Area"
+    ],
+    "keywords": [
+      "urology",
+      "kidney",
+      "urinary",
+      "bladder"
+    ]
+  },
+  {
+    "navigation_id": "NAV-089",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-012",
+    "destination_department_name": "Nephrology",
+    "route_description": "Proceed toward the Renal Care section on the first floor. Nephrology is adjacent to the Dialysis Unit.",
+    "estimated_distance_meters": 135,
+    "estimated_walking_time_minutes": 6,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Renal Care Wing",
+      "Dialysis Unit",
+      "Patient Lounge"
+    ],
+    "keywords": [
+      "nephrology",
+      "kidney",
+      "dialysis",
+      "renal care"
+    ]
+  },
+  {
+    "navigation_id": "NAV-090",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-011",
+    "destination_department_name": "Pulmonology",
+    "route_description": "Walk toward the Respiratory Medicine section via the Specialty Clinics corridor. Pulmonology is located beside the Pulmonary Function Testing Lab.",
+    "estimated_distance_meters": 125,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Respiratory Medicine Wing",
+      "Pulmonary Function Lab",
+      "Respiratory Waiting Area"
+    ],
+    "keywords": [
+      "pulmonology",
+      "lung",
+      "respiratory",
+      "breathing"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-091",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-010",
+    "destination_department_name": "Pediatrics",
+    "route_description": "From the Reception Desk, walk along the Pediatric Services corridor. Pediatrics is located opposite the Children's Play Area.",
+    "estimated_distance_meters": 115,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Children's Play Area",
+      "Pediatric Waiting Hall",
+      "Vaccination Clinic"
+    ],
+    "keywords": [
+      "pediatrics",
+      "children",
+      "child specialist",
+      "vaccination"
+    ]
+  },
+  
+  {
+    "navigation_id": "NAV-092",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-009",
+    "destination_department_name": "Obstetrics & Gynecology",
+    "route_description": "Proceed through the Women's Health corridor from Reception. The Obstetrics & Gynecology department is located beside the Antenatal Clinic.",
+    "estimated_distance_meters": 120,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Women's Health Wing",
+      "Antenatal Clinic",
+      "Maternity Waiting Area"
+    ],
+    "keywords": [
+      "gynecology",
+      "obstetrics",
+      "pregnancy",
+      "women's health"
+    ]
+  },
+  {
+    "navigation_id": "NAV-093",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-008",
+    "destination_department_name": "Ophthalmology",
+    "route_description": "Walk along the Specialty Clinics corridor and follow the Eye Care signs. Ophthalmology is opposite the Vision Testing Room.",
+    "estimated_distance_meters": 95,
+    "estimated_walking_time_minutes": 4,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Eye Care Signage",
+      "Vision Testing Room",
+      "Optical Services"
+    ],
+    "keywords": [
+      "ophthalmology",
+      "eye",
+      "vision",
+      "eye specialist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-094",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-007",
+    "destination_department_name": "ENT",
+    "route_description": "Take the Specialty Clinics corridor and continue until the ENT section located beside the Audiology Room.",
+    "estimated_distance_meters": 90,
+    "estimated_walking_time_minutes": 4,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Audiology Room",
+      "ENT Waiting Area",
+      "Specialty Clinic Hall"
+    ],
+    "keywords": [
+      "ent",
+      "ear",
+      "nose",
+      "throat"
+    ]
+  },
+  {
+    "navigation_id": "NAV-095",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-006",
+    "destination_department_name": "Dermatology",
+    "route_description": "Proceed through the outpatient specialty corridor. Dermatology is located next to the Skin Procedure Room.",
+    "estimated_distance_meters": 100,
+    "estimated_walking_time_minutes": 4,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Skin Procedure Room",
+      "Dermatology Reception",
+      "Specialty Corridor"
+    ],
+    "keywords": [
+      "dermatology",
+      "skin",
+      "rash",
+      "skin specialist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-096",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-005",
+    "destination_department_name": "Orthopedics",
+    "route_description": "Walk toward the Surgical Specialty Wing. Orthopedics is located beside the Fracture Clinic.",
+    "estimated_distance_meters": 130,
+    "estimated_walking_time_minutes": 5,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Fracture Clinic",
+      "Orthopedic Waiting Area",
+      "Orthopedic OPD"
+    ],
+    "keywords": [
+      "orthopedics",
+      "bone",
+      "fracture",
+      "joint"
+    ]
+  },
+  {
+    "navigation_id": "NAV-097",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-004",
+    "destination_department_name": "Neurology",
+    "route_description": "Proceed to the Neurosciences Wing via the first-floor corridor. Neurology is located beside the EEG Laboratory.",
+    "estimated_distance_meters": 135,
+    "estimated_walking_time_minutes": 6,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "EEG Laboratory",
+      "Neurosciences Wing",
+      "Neurology Waiting Hall"
+    ],
+    "keywords": [
+      "neurology",
+      "brain",
+      "stroke",
+      "nerve specialist"
+    ]
+  },
+  {
+    "navigation_id": "NAV-098",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-003",
+    "destination_department_name": "Cardiology",
+    "route_description": "Follow the Heart Care signs toward the Cardiac Wing. Cardiology is located adjacent to the ECG and Echocardiography Unit.",
+    "estimated_distance_meters": 140,
+    "estimated_walking_time_minutes": 6,
+    "floor": "First Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Heart Care Wing",
+      "ECG Room",
+      "Echocardiography Unit"
+    ],
+    "keywords": [
+      "cardiology",
+      "heart",
+      "ecg",
+      "cardiac"
+    ]
+  },
+  {
+    "navigation_id": "NAV-099",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-002",
+    "destination_department_name": "General Medicine",
+    "route_description": "Walk straight from Reception toward the General Outpatient Block. General Medicine is the first consultation area on the left.",
+    "estimated_distance_meters": 70,
+    "estimated_walking_time_minutes": 3,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "General OPD",
+      "Registration Counter",
+      "Patient Waiting Area"
+    ],
+    "keywords": [
+      "general medicine",
+      "physician",
+      "outpatient",
+      "general doctor"
+    ]
+  },
+  {
+    "navigation_id": "NAV-100",
+    "starting_point": "Reception & Information Desk",
+    "destination_department_id": "DEPT-024",
+    "destination_department_name": "Physiotherapy",
+    "route_description": "Proceed along the Rehabilitation Services corridor. Physiotherapy is located beside the Exercise Therapy Hall.",
+    "estimated_distance_meters": 110,
+    "estimated_walking_time_minutes": 4,
+    "floor": "Ground Floor",
+    "wheelchair_accessible": true,
+    "landmarks": [
+      "Rehabilitation Wing",
+      "Exercise Therapy Hall",
+      "Physiotherapy Reception"
+    ],
+    "keywords": [
+      "physiotherapy",
+      "rehabilitation",
+      "physical therapy",
+      "exercise therapy"
+    ]
+  }
+]
+}

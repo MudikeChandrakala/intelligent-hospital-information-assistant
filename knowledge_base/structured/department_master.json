@@ -1,0 +1,1387 @@
+{
+  "hospital": "Metropolitan General Hospital",
+  
+  "departments": [
+    {
+      "department_id": "DEPT-001",
+      "department_name": "Emergency Medicine",
+      "category": "Clinical Department",
+      "description": "Emergency Medicine provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "A",
+        "floor": "Ground",
+        "room": "201"
+      },
+      "navigation_id": "NAV-001",
+      "head_doctor_id": "DOC-001",
+      "doctor_ids": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "24 x 7",
+      "appointment_required": false,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-001",
+        "SYM-002",
+        "SYM-003",
+        "SYM-004",
+        "SYM-005"
+      ],
+      "related_disease_ids": [
+        "DIS-001",
+        "DIS-002",
+        "DIS-003"
+      ],
+      "keywords": [
+        "emergency medicine",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-002",
+      "department_name": "General Medicine",
+      "category": "Clinical Department",
+      "description": "General Medicine provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "A",
+        "floor": "1",
+        "room": "202"
+      },
+      "navigation_id": "NAV-002",
+      "head_doctor_id": "DOC-006",
+      "doctor_ids": [
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-011",
+        "SYM-012",
+        "SYM-013",
+        "SYM-014",
+        "SYM-015"
+      ],
+      "related_disease_ids": [
+        "DIS-006",
+        "DIS-007",
+        "DIS-008"
+      ],
+      "keywords": [
+        "general medicine",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-003",
+      "department_name": "Cardiology",
+      "category": "Clinical Department",
+      "description": "Cardiology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "A",
+        "floor": "1",
+        "room": "203"
+      },
+      "navigation_id": "NAV-003",
+      "head_doctor_id": "DOC-011",
+      "doctor_ids": [
+        "DOC-011",
+        "DOC-012",
+        "DOC-013",
+        "DOC-014",
+        "DOC-015"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-021",
+        "SYM-022",
+        "SYM-023",
+        "SYM-024",
+        "SYM-025"
+      ],
+      "related_disease_ids": [
+        "DIS-011",
+        "DIS-012",
+        "DIS-013"
+      ],
+      "keywords": [
+        "cardiology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-004",
+      "department_name": "Neurology",
+      "category": "Clinical Department",
+      "description": "Neurology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "C",
+        "floor": "2",
+        "room": "204"
+      },
+      "navigation_id": "NAV-004",
+      "head_doctor_id": "DOC-016",
+      "doctor_ids": [
+        "DOC-016",
+        "DOC-017",
+        "DOC-018",
+        "DOC-019",
+        "DOC-020"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-031",
+        "SYM-032",
+        "SYM-033",
+        "SYM-034",
+        "SYM-035"
+      ],
+      "related_disease_ids": [
+        "DIS-016",
+        "DIS-017",
+        "DIS-018"
+      ],
+      "keywords": [
+        "neurology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-005",
+      "department_name": "Orthopedics",
+      "category": "Clinical Department",
+      "description": "Orthopedics provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "A",
+        "floor": "Ground",
+        "room": "205"
+      },
+      "navigation_id": "NAV-005",
+      "head_doctor_id": "DOC-021",
+      "doctor_ids": [
+        "DOC-021",
+        "DOC-022",
+        "DOC-023",
+        "DOC-024",
+        "DOC-025"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-041",
+        "SYM-042",
+        "SYM-043",
+        "SYM-044",
+        "SYM-045"
+      ],
+      "related_disease_ids": [
+        "DIS-021",
+        "DIS-022",
+        "DIS-023"
+      ],
+      "keywords": [
+        "orthopedics",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-006",
+      "department_name": "Pediatrics",
+      "category": "Clinical Department",
+      "description": "Pediatrics provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "B",
+        "floor": "1",
+        "room": "206"
+      },
+      "navigation_id": "NAV-006",
+      "head_doctor_id": "DOC-026",
+      "doctor_ids": [
+        "DOC-026",
+        "DOC-027",
+        "DOC-028",
+        "DOC-029",
+        "DOC-030"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-051",
+        "SYM-052",
+        "SYM-053",
+        "SYM-054",
+        "SYM-055"
+      ],
+      "related_disease_ids": [
+        "DIS-026",
+        "DIS-027",
+        "DIS-028"
+      ],
+      "keywords": [
+        "pediatrics",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-007",
+      "department_name": "Gynecology",
+      "category": "Clinical Department",
+      "description": "Gynecology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "B",
+        "floor": "2",
+        "room": "207"
+      },
+      "navigation_id": "NAV-007",
+      "head_doctor_id": "DOC-031",
+      "doctor_ids": [
+        "DOC-031",
+        "DOC-032",
+        "DOC-033",
+        "DOC-034",
+        "DOC-035"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-061",
+        "SYM-062",
+        "SYM-063",
+        "SYM-064",
+        "SYM-065"
+      ],
+      "related_disease_ids": [
+        "DIS-031",
+        "DIS-032",
+        "DIS-033"
+      ],
+      "keywords": [
+        "gynecology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-008",
+      "department_name": "Dermatology",
+      "category": "Clinical Department",
+      "description": "Dermatology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "C",
+        "floor": "1",
+        "room": "208"
+      },
+      "navigation_id": "NAV-008",
+      "head_doctor_id": "DOC-036",
+      "doctor_ids": [
+        "DOC-036",
+        "DOC-037",
+        "DOC-038",
+        "DOC-039",
+        "DOC-040"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-071",
+        "SYM-072",
+        "SYM-073",
+        "SYM-074",
+        "SYM-075"
+      ],
+      "related_disease_ids": [
+        "DIS-036",
+        "DIS-037",
+        "DIS-038"
+      ],
+      "keywords": [
+        "dermatology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-009",
+      "department_name": "ENT",
+      "category": "Clinical Department",
+      "description": "ENT provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "C",
+        "floor": "Ground",
+        "room": "209"
+      },
+      "navigation_id": "NAV-009",
+      "head_doctor_id": "DOC-041",
+      "doctor_ids": [
+        "DOC-041",
+        "DOC-042",
+        "DOC-043",
+        "DOC-044",
+        "DOC-045"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-081",
+        "SYM-082",
+        "SYM-083",
+        "SYM-084",
+        "SYM-085"
+      ],
+      "related_disease_ids": [
+        "DIS-041",
+        "DIS-042",
+        "DIS-043"
+      ],
+      "keywords": [
+        "ent",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-010",
+      "department_name": "Ophthalmology",
+      "category": "Clinical Department",
+      "description": "Ophthalmology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "C",
+        "floor": "1",
+        "room": "210"
+      },
+      "navigation_id": "NAV-010",
+      "head_doctor_id": "DOC-046",
+      "doctor_ids": [
+        "DOC-046",
+        "DOC-047",
+        "DOC-048",
+        "DOC-049",
+        "DOC-050"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-091",
+        "SYM-092",
+        "SYM-093",
+        "SYM-094",
+        "SYM-095"
+      ],
+      "related_disease_ids": [
+        "DIS-046",
+        "DIS-047",
+        "DIS-048"
+      ],
+      "keywords": [
+        "ophthalmology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-011",
+      "department_name": "Pulmonology",
+      "category": "Clinical Department",
+      "description": "Pulmonology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "D",
+        "floor": "1",
+        "room": "211"
+      },
+      "navigation_id": "NAV-011",
+      "head_doctor_id": "DOC-051",
+      "doctor_ids": [
+        "DOC-051",
+        "DOC-052",
+        "DOC-053",
+        "DOC-054",
+        "DOC-055"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-101",
+        "SYM-102",
+        "SYM-103",
+        "SYM-104",
+        "SYM-105"
+      ],
+      "related_disease_ids": [
+        "DIS-051",
+        "DIS-052",
+        "DIS-053"
+      ],
+      "keywords": [
+        "pulmonology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-012",
+      "department_name": "Nephrology",
+      "category": "Clinical Department",
+      "description": "Nephrology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "D",
+        "floor": "2",
+        "room": "212"
+      },
+      "navigation_id": "NAV-012",
+      "head_doctor_id": "DOC-056",
+      "doctor_ids": [
+        "DOC-056",
+        "DOC-057",
+        "DOC-058",
+        "DOC-059",
+        "DOC-060"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-111",
+        "SYM-112",
+        "SYM-113",
+        "SYM-114",
+        "SYM-115"
+      ],
+      "related_disease_ids": [
+        "DIS-056",
+        "DIS-057",
+        "DIS-058"
+      ],
+      "keywords": [
+        "nephrology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-013",
+      "department_name": "Gastroenterology",
+      "category": "Clinical Department",
+      "description": "Gastroenterology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "D",
+        "floor": "Ground",
+        "room": "213"
+      },
+      "navigation_id": "NAV-013",
+      "head_doctor_id": "DOC-061",
+      "doctor_ids": [
+        "DOC-061",
+        "DOC-062",
+        "DOC-063",
+        "DOC-064",
+        "DOC-065"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-121",
+        "SYM-122",
+        "SYM-123",
+        "SYM-124",
+        "SYM-125"
+      ],
+      "related_disease_ids": [
+        "DIS-061",
+        "DIS-062",
+        "DIS-063"
+      ],
+      "keywords": [
+        "gastroenterology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-014",
+      "department_name": "Endocrinology",
+      "category": "Clinical Department",
+      "description": "Endocrinology provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "A",
+        "floor": "2",
+        "room": "214"
+      },
+      "navigation_id": "NAV-014",
+      "head_doctor_id": "DOC-066",
+      "doctor_ids": [
+        "DOC-066",
+        "DOC-067",
+        "DOC-068",
+        "DOC-069",
+        "DOC-070"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-131",
+        "SYM-132",
+        "SYM-133",
+        "SYM-134",
+        "SYM-135"
+      ],
+      "related_disease_ids": [
+        "DIS-066",
+        "DIS-067",
+        "DIS-068"
+      ],
+      "keywords": [
+        "endocrinology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-015",
+      "department_name": "Psychiatry",
+      "category": "Clinical Department",
+      "description": "Psychiatry provides specialized diagnosis, treatment and follow-up care.",
+      "location": {
+        "block": "D",
+        "floor": "3",
+        "room": "215"
+      },
+      "navigation_id": "NAV-015",
+      "head_doctor_id": "DOC-071",
+      "doctor_ids": [
+        "DOC-071",
+        "DOC-072",
+        "DOC-073",
+        "DOC-074",
+        "DOC-075"
+      ],
+      "services": [
+        "OPD",
+        "IPD",
+        "Diagnostics",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-141",
+        "SYM-142",
+        "SYM-143",
+        "SYM-144",
+        "SYM-145"
+      ],
+      "related_disease_ids": [
+        "DIS-071",
+        "DIS-072",
+        "DIS-073"
+      ],
+      "keywords": [
+        "psychiatry",
+        "hospital",
+        "department"
+      ]
+    },
+  
+    {
+      "department_id": "DEPT-016",
+      "department_name": "Oncology",
+      "category": "Support/Clinical Department",
+      "description": "Oncology delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "D",
+        "floor": "3",
+        "room": "216"
+      },
+      "navigation_id": "NAV-016",
+      "head_doctor_id": "DOC-076",
+      "doctor_ids": [
+        "DOC-076",
+        "DOC-077",
+        "DOC-078",
+        "DOC-079",
+        "DOC-080"
+      ],
+      "services": [
+        "Chemotherapy",
+        "Cancer Screening",
+        "Radiotherapy Coordination",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-151",
+        "SYM-152",
+        "SYM-153",
+        "SYM-154",
+        "SYM-155"
+      ],
+      "related_disease_ids": [
+        "DIS-076",
+        "DIS-077",
+        "DIS-078"
+      ],
+      "keywords": [
+        "oncology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-017",
+      "department_name": "Urology",
+      "category": "Support/Clinical Department",
+      "description": "Urology delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "D",
+        "floor": "2",
+        "room": "217"
+      },
+      "navigation_id": "NAV-017",
+      "head_doctor_id": "DOC-081",
+      "doctor_ids": [
+        "DOC-081",
+        "DOC-082",
+        "DOC-083",
+        "DOC-084",
+        "DOC-085"
+      ],
+      "services": [
+        "Kidney Stone Clinic",
+        "Prostate Care",
+        "Urinary Disorders",
+        "Follow-up"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-161",
+        "SYM-162",
+        "SYM-163",
+        "SYM-164",
+        "SYM-165"
+      ],
+      "related_disease_ids": [
+        "DIS-081",
+        "DIS-082",
+        "DIS-083"
+      ],
+      "keywords": [
+        "urology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-018",
+      "department_name": "Dental",
+      "category": "Support/Clinical Department",
+      "description": "Dental delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "B",
+        "floor": "Ground",
+        "room": "218"
+      },
+      "navigation_id": "NAV-018",
+      "head_doctor_id": "DOC-086",
+      "doctor_ids": [
+        "DOC-086",
+        "DOC-087",
+        "DOC-088",
+        "DOC-089",
+        "DOC-090"
+      ],
+      "services": [
+        "Dental Cleaning",
+        "Root Canal",
+        "Tooth Extraction",
+        "Dental X-ray"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-171",
+        "SYM-172",
+        "SYM-173",
+        "SYM-174",
+        "SYM-175"
+      ],
+      "related_disease_ids": [
+        "DIS-086",
+        "DIS-087",
+        "DIS-088"
+      ],
+      "keywords": [
+        "dental",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-019",
+      "department_name": "Physiotherapy",
+      "category": "Support/Clinical Department",
+      "description": "Physiotherapy delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "D",
+        "floor": "Ground",
+        "room": "219"
+      },
+      "navigation_id": "NAV-019",
+      "head_doctor_id": "DOC-091",
+      "doctor_ids": [
+        "DOC-091",
+        "DOC-092",
+        "DOC-093",
+        "DOC-094",
+        "DOC-095"
+      ],
+      "services": [
+        "Rehabilitation",
+        "Exercise Therapy",
+        "Pain Management",
+        "Sports Rehab"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-181",
+        "SYM-182",
+        "SYM-183",
+        "SYM-184",
+        "SYM-185"
+      ],
+      "related_disease_ids": [
+        "DIS-091",
+        "DIS-092",
+        "DIS-093"
+      ],
+      "keywords": [
+        "physiotherapy",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-020",
+      "department_name": "Radiology",
+      "category": "Support/Clinical Department",
+      "description": "Radiology delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "C",
+        "floor": "Ground",
+        "room": "220"
+      },
+      "navigation_id": "NAV-020",
+      "head_doctor_id": "DOC-096",
+      "doctor_ids": [
+        "DOC-096",
+        "DOC-097",
+        "DOC-098",
+        "DOC-099",
+        "DOC-100"
+      ],
+      "services": [
+        "MRI",
+        "CT Scan",
+        "X-Ray",
+        "Ultrasound"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-191",
+        "SYM-192",
+        "SYM-193",
+        "SYM-194",
+        "SYM-195"
+      ],
+      "related_disease_ids": [
+        "DIS-096",
+        "DIS-097",
+        "DIS-098"
+      ],
+      "keywords": [
+        "radiology",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-021",
+      "department_name": "Laboratory",
+      "category": "Support/Clinical Department",
+      "description": "Laboratory delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "A",
+        "floor": "Ground",
+        "room": "221"
+      },
+      "navigation_id": "NAV-021",
+      "head_doctor_id": "DOC-101",
+      "doctor_ids": [
+        "DOC-101",
+        "DOC-102",
+        "DOC-103",
+        "DOC-104",
+        "DOC-105"
+      ],
+      "services": [
+        "Blood Tests",
+        "Biochemistry",
+        "Microbiology",
+        "Pathology"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-201",
+        "SYM-202",
+        "SYM-203",
+        "SYM-204",
+        "SYM-205"
+      ],
+      "related_disease_ids": [
+        "DIS-101",
+        "DIS-102",
+        "DIS-103"
+      ],
+      "keywords": [
+        "laboratory",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-022",
+      "department_name": "Blood Bank",
+      "category": "Support/Clinical Department",
+      "description": "Blood Bank delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "A",
+        "floor": "Ground",
+        "room": "222"
+      },
+      "navigation_id": "NAV-022",
+      "head_doctor_id": "DOC-106",
+      "doctor_ids": [
+        "DOC-106",
+        "DOC-107",
+        "DOC-108",
+        "DOC-109",
+        "DOC-110"
+      ],
+      "services": [
+        "Blood Storage",
+        "Blood Donation",
+        "Cross Matching",
+        "Emergency Blood Supply"
+      ],
+      "working_hours": "24 x 7",
+      "appointment_required": false,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-211",
+        "SYM-212",
+        "SYM-213",
+        "SYM-214",
+        "SYM-215"
+      ],
+      "related_disease_ids": [
+        "DIS-106",
+        "DIS-107",
+        "DIS-108"
+      ],
+      "keywords": [
+        "blood bank",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-023",
+      "department_name": "Pharmacy",
+      "category": "Support/Clinical Department",
+      "description": "Pharmacy delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "A",
+        "floor": "Ground",
+        "room": "223"
+      },
+      "navigation_id": "NAV-023",
+      "head_doctor_id": "DOC-111",
+      "doctor_ids": [
+        "DOC-111",
+        "DOC-112",
+        "DOC-113",
+        "DOC-114",
+        "DOC-115"
+      ],
+      "services": [
+        "Prescription Medicines",
+        "OTC Medicines",
+        "Medication Counseling",
+        "24x7 Emergency Medicines"
+      ],
+      "working_hours": "24 x 7",
+      "appointment_required": false,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-221",
+        "SYM-222",
+        "SYM-223",
+        "SYM-224",
+        "SYM-225"
+      ],
+      "related_disease_ids": [
+        "DIS-111",
+        "DIS-112",
+        "DIS-113"
+      ],
+      "keywords": [
+        "pharmacy",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-024",
+      "department_name": "ICU",
+      "category": "Support/Clinical Department",
+      "description": "ICU delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "C",
+        "floor": "2",
+        "room": "224"
+      },
+      "navigation_id": "NAV-024",
+      "head_doctor_id": "DOC-116",
+      "doctor_ids": [
+        "DOC-116",
+        "DOC-117",
+        "DOC-118",
+        "DOC-119",
+        "DOC-120"
+      ],
+      "services": [
+        "Critical Care",
+        "Ventilator Support",
+        "Continuous Monitoring",
+        "Emergency Care"
+      ],
+      "working_hours": "24 x 7",
+      "appointment_required": false,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-231",
+        "SYM-232",
+        "SYM-233",
+        "SYM-234",
+        "SYM-235"
+      ],
+      "related_disease_ids": [
+        "DIS-116",
+        "DIS-117",
+        "DIS-118"
+      ],
+      "keywords": [
+        "icu",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-025",
+      "department_name": "NICU",
+      "category": "Support/Clinical Department",
+      "description": "NICU delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "B",
+        "floor": "2",
+        "room": "225"
+      },
+      "navigation_id": "NAV-025",
+      "head_doctor_id": "DOC-121",
+      "doctor_ids": [
+        "DOC-121",
+        "DOC-122",
+        "DOC-123",
+        "DOC-124",
+        "DOC-125"
+      ],
+      "services": [
+        "Neonatal Intensive Care",
+        "Incubator Support",
+        "Premature Baby Care",
+        "Monitoring"
+      ],
+      "working_hours": "24 x 7",
+      "appointment_required": false,
+      "emergency_support": true,
+      "related_symptom_ids": [
+        "SYM-241",
+        "SYM-242",
+        "SYM-243",
+        "SYM-244",
+        "SYM-245"
+      ],
+      "related_disease_ids": [
+        "DIS-121",
+        "DIS-122",
+        "DIS-123"
+      ],
+      "keywords": [
+        "nicu",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-026",
+      "department_name": "Dialysis",
+      "category": "Support/Clinical Department",
+      "description": "Dialysis delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "D",
+        "floor": "2",
+        "room": "226"
+      },
+      "navigation_id": "NAV-026",
+      "head_doctor_id": "DOC-126",
+      "doctor_ids": [
+        "DOC-126",
+        "DOC-127",
+        "DOC-128",
+        "DOC-129",
+        "DOC-130"
+      ],
+      "services": [
+        "Hemodialysis",
+        "Peritoneal Dialysis",
+        "Kidney Support",
+        "Consultation"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-251",
+        "SYM-252",
+        "SYM-253",
+        "SYM-254",
+        "SYM-255"
+      ],
+      "related_disease_ids": [
+        "DIS-126",
+        "DIS-127",
+        "DIS-128"
+      ],
+      "keywords": [
+        "dialysis",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-027",
+      "department_name": "Rehabilitation",
+      "category": "Support/Clinical Department",
+      "description": "Rehabilitation delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "D",
+        "floor": "Ground",
+        "room": "227"
+      },
+      "navigation_id": "NAV-027",
+      "head_doctor_id": "DOC-131",
+      "doctor_ids": [
+        "DOC-131",
+        "DOC-132",
+        "DOC-133",
+        "DOC-134",
+        "DOC-135"
+      ],
+      "services": [
+        "Stroke Rehab",
+        "Orthopedic Rehab",
+        "Neurological Rehab",
+        "Occupational Therapy"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-261",
+        "SYM-262",
+        "SYM-263",
+        "SYM-264",
+        "SYM-265"
+      ],
+      "related_disease_ids": [
+        "DIS-131",
+        "DIS-132",
+        "DIS-133"
+      ],
+      "keywords": [
+        "rehabilitation",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-028",
+      "department_name": "Vaccination Center",
+      "category": "Support/Clinical Department",
+      "description": "Vaccination Center delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "B",
+        "floor": "1",
+        "room": "228"
+      },
+      "navigation_id": "NAV-028",
+      "head_doctor_id": "DOC-136",
+      "doctor_ids": [
+        "DOC-136",
+        "DOC-137",
+        "DOC-138",
+        "DOC-139",
+        "DOC-140"
+      ],
+      "services": [
+        "Child Vaccination",
+        "Adult Vaccination",
+        "Travel Vaccines",
+        "Immunization"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-271",
+        "SYM-272",
+        "SYM-273",
+        "SYM-274",
+        "SYM-275"
+      ],
+      "related_disease_ids": [
+        "DIS-136",
+        "DIS-137",
+        "DIS-138"
+      ],
+      "keywords": [
+        "vaccination center",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-029",
+      "department_name": "Health Check-up",
+      "category": "Support/Clinical Department",
+      "description": "Health Check-up delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "A",
+        "floor": "1",
+        "room": "229"
+      },
+      "navigation_id": "NAV-029",
+      "head_doctor_id": "DOC-141",
+      "doctor_ids": [
+        "DOC-141",
+        "DOC-142",
+        "DOC-143",
+        "DOC-144",
+        "DOC-145"
+      ],
+      "services": [
+        "Executive Check-up",
+        "Diabetes Screening",
+        "Cardiac Screening",
+        "Preventive Care"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": true,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-281",
+        "SYM-282",
+        "SYM-283",
+        "SYM-284",
+        "SYM-285"
+      ],
+      "related_disease_ids": [
+        "DIS-141",
+        "DIS-142",
+        "DIS-143"
+      ],
+      "keywords": [
+        "health check-up",
+        "hospital",
+        "department"
+      ]
+    },
+    {
+      "department_id": "DEPT-030",
+      "department_name": "Administration",
+      "category": "Support/Clinical Department",
+      "description": "Administration delivers specialized hospital services for patient care and operations.",
+      "location": {
+        "block": "Main",
+        "floor": "1",
+        "room": "230"
+      },
+      "navigation_id": "NAV-030",
+      "head_doctor_id": "DOC-146",
+      "doctor_ids": [
+        "DOC-146",
+        "DOC-147",
+        "DOC-148",
+        "DOC-149",
+        "DOC-150"
+      ],
+      "services": [
+        "Patient Support",
+        "Medical Records",
+        "Billing Coordination",
+        "Hospital Management"
+      ],
+      "working_hours": "09:00 AM - 05:00 PM",
+      "appointment_required": false,
+      "emergency_support": false,
+      "related_symptom_ids": [
+        "SYM-291",
+        "SYM-292",
+        "SYM-293",
+        "SYM-294",
+        "SYM-295"
+      ],
+      "related_disease_ids": [
+        "DIS-146",
+        "DIS-147",
+        "DIS-148"
+      ],
+      "keywords": [
+        "administration",
+        "hospital",
+        "department"
+      ]
+    }
+  ]
+}
