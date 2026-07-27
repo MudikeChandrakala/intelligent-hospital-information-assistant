@@ -18,13 +18,15 @@ Chroma Vector Store
 This test validates that all completed modules work together correctly.
 """
 
+import sys
 from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from modules.document_loader import DocumentLoader
 from modules.text_chunker import TextChunker
 from modules.embedding_generator import EmbeddingGenerator
 from modules.chroma_vector_store import ChromaVectorStore
-
 
 def main() -> None:
     """Run the complete Chroma Vector Store integration test."""
@@ -40,11 +42,7 @@ def main() -> None:
 
     print("\n[1/6] Loading knowledge base documents...")
 
-    from pathlib import Path
-
-    project_root = Path(__file__).resolve().parent
-
-    loader = DocumentLoader(project_root=project_root)
+    loader = DocumentLoader(project_root=PROJECT_ROOT)
     documents = loader.load_all_documents()
 
     print(f"✓ Documents Loaded : {len(documents)}")
