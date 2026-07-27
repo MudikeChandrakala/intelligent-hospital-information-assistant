@@ -20,13 +20,16 @@ Retriever
 This test validates that the complete retrieval pipeline works correctly.
 """
 
+import sys
 from pathlib import Path
-
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 from modules.document_loader import DocumentLoader
 from modules.text_chunker import TextChunker
 from modules.embedding_generator import EmbeddingGenerator
 from modules.chroma_vector_store import ChromaVectorStore
 from modules.retriever import Retriever
+
 
 
 def print_result(title: str, documents) -> None:
@@ -60,10 +63,10 @@ def main() -> None:
     # ---------------------------------------------------------
 
     project_root = Path(__file__).resolve().parent
+    loader = DocumentLoader(project_root=PROJECT_ROOT)
 
     print("\n[1/6] Loading knowledge base...")
 
-    loader = DocumentLoader(project_root=project_root)
     documents = loader.load_all_documents()
 
     print(f"✓ Documents Loaded : {len(documents)}")
