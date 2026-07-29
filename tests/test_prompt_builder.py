@@ -23,7 +23,10 @@ This test validates that the complete prompt generation pipeline works
 correctly.
 """
 
+import sys
 from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from modules.document_loader import DocumentLoader
 from modules.text_chunker import TextChunker
@@ -88,11 +91,9 @@ def main() -> None:
     # Step 1 : Load Documents
     # ---------------------------------------------------------
 
-    project_root = Path(__file__).resolve().parent
-
     print("\n[1/7] Loading knowledge base...")
 
-    loader = DocumentLoader(project_root=project_root)
+    loader = DocumentLoader(project_root=PROJECT_ROOT)
     documents = loader.load_all_documents()
 
     print(f"✓ Documents Loaded : {len(documents)}")

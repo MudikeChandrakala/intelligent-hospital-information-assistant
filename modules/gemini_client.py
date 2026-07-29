@@ -20,6 +20,8 @@ from __future__ import annotations
 
 import logging
 import os
+import time
+import httpx
 from pathlib import Path
 from typing import Any
 
@@ -212,6 +214,12 @@ class GeminiClient:
         """
         Generate a response from Gemini for the given prompt.
 
+        Automatically retries on transient network failures where the
+        connection to Gemini drops before a response is received
+        (``httpx.RemoteProtocolError``). Up to ``max_attempts`` calls
+        are made, waiting ``retry_delay_seconds`` between attempts. Any
+        other exception is raised immediately, unchanged from before.
+
         Args:
             prompt: The fully constructed prompt to send to Gemini.
 
@@ -220,7 +228,9 @@ class GeminiClient:
 
         Raises:
             ValueError: If ``prompt`` fails validation.
-            RuntimeError: If response generation fails.
+            RuntimeError: If response generation fails, including when
+                every retry attempt for a transient network failure is
+                exhausted.
         """
 
         self._validate_prompt(prompt)
@@ -228,14 +238,43 @@ class GeminiClient:
 
         logger.info("Sending prompt to Gemini model '%s'.", MODEL_NAME)
 
-        try:
-            response = self._client.models.generate_content(
-                model=self._model,
-                contents=cleaned_prompt,
-            )
-        except Exception as exc:
-            logger.exception("Failed to generate response from Gemini.")
-            raise RuntimeError(f"Failed to generate response: {exc}") from exc
+        max_attempts = 3
+        retry_delay_seconds = 2
+        last_error: Exception | None = None
+
+        for attempt in range(1, max_attempts + 1):
+            try:
+                response = self._client.models.generate_content(
+                    model=self._model,
+                    contents=cleaned_prompt,
+                )
+                break
+            except httpx.RemoteProtocolError as exc:
+                last_error = exc
+                if attempt < max_attempts:
+                    logger.warning(
+                        "Transient network error on attempt %d/%d while calling "
+                        "Gemini (server disconnected without sending a response). "
+                        "Retrying in %d second(s)...",
+                        attempt,
+                        max_attempts,
+                        retry_delay_seconds,
+                    )
+                    time.sleep(retry_delay_seconds)
+                else:
+                    logger.error(
+                        "All %d attempt(s) to call Gemini failed due to a transient "
+                        "network error.",
+                        max_attempts,
+                    )
+            except Exception as exc:
+                logger.exception("Failed to generate response from Gemini.")
+                raise RuntimeError(f"Failed to generate response: {exc}") from exc
+        else:
+            raise RuntimeError(
+                f"Failed to generate response after {max_attempts} attempts due to "
+                f"a transient network error: {last_error}"
+            ) from last_error
 
         response_text = self._extract_response_text(response)
 
