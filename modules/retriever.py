@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------
 
 DEFAULT_SEARCH_TYPE = "similarity"
-DEFAULT_K = 5
+DEFAULT_K = 20
 
 
 class Retriever:
@@ -80,7 +80,7 @@ class Retriever:
                 `vector_store.as_retriever()`. Defaults to
                 ``"similarity"``.
             k: The number of documents to return per query. Defaults to
-                ``5``.
+                ``20``.
 
         Raises:
             ValueError: If ``vector_store`` is ``None``, ``search_type``
@@ -223,6 +223,19 @@ class Retriever:
 
         try:
             results = self._retriever.invoke(cleaned_query)
+            print("\n" + "=" * 80)
+            print("QUERY:", cleaned_query)
+            print("=" * 80)
+
+            for i, doc in enumerate(results, 1):
+              print(f"\nResult {i}")
+              print("-" * 60)
+              print(doc.page_content[:1000])   # First 1000 characters
+              print("\nMetadata:")
+              print(doc.metadata)
+
+              print("=" * 80)
+
         except Exception as exc:
             logger.exception("Failed to retrieve documents for query.")
             raise RuntimeError(f"Failed to retrieve documents: {exc}") from exc

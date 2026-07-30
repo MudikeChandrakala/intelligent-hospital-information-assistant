@@ -245,6 +245,11 @@ class RAGPipeline:
 
         try:
             prompt: str = self._prompt_builder.build_prompt(cleaned_question, documents)
+            print("\n" + "=" * 100)
+            print("FINAL PROMPT SENT TO GEMINI")
+            print("=" * 100)
+            print(prompt)
+            print("=" * 100)
         except Exception as exc:
             logger.exception("Failed to build prompt.")
             raise RuntimeError(f"Failed to build prompt: {exc}") from exc

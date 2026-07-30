@@ -124,11 +124,40 @@ def main() -> None:
         raise RuntimeError("Failed to reload vector store.")
 
     print("✓ Vector Store     : Reloaded")
-
     # ---------------------------------------------------------
-    # Final Validation
+    # Step 7 : Verify Doctor Retrieval
     # ---------------------------------------------------------
 
+    print("\n[7/7] Testing doctor retrieval...")
+
+    retriever = vector_store.as_retriever(
+        search_kwargs={"k": 10}
+    )
+
+    queries = [
+        "Dr. Arvind Kumar",
+        "Cardiology doctor",
+        "Cardiology doctors"
+    ]
+
+    for query in queries:
+        print("\n" + "=" * 80)
+        print("QUERY:", query)
+        print("=" * 80)
+
+        results = retriever.invoke(query)
+
+        if not results:
+            print("No results found.")
+            continue
+
+        for i, doc in enumerate(results, 1):
+            print(f"\nResult {i}")
+            print("-" * 60)
+            print("Metadata:")
+            print(doc.metadata)
+            print("\nContent:")
+            print(doc.page_content[:500])
     persist_dir = Path("vector_store")
 
     if not persist_dir.exists():

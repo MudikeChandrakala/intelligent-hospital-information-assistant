@@ -136,28 +136,32 @@ This phase does NOT:
     - Implement streaming or any conversation/generation logic
     - Modify `ui/chat.py` or `ui/sidebar.py`
 
-PHASE 7B — Backend Communication Layer
+PHASE 7B + PHASE 8 — Backend Communication Layer
 -----------------------------------------------------------------------------
 This phase connects the chat UI to the existing `BackendServices` bundle
 (`st.session_state.backend_services`, constructed once in Phase 2) so a
 submitted prompt is routed through the backend rather than answered with
-a value fabricated inline in `ui/chat.py`. The backend currently returns
-a temporary placeholder reply — Phase 8 will replace only that reply
-with a real `RAGPipeline.ask()` call; the communication pipeline built
-here does not otherwise change.
+a value fabricated inline in `ui/chat.py`. The backend now returns the
+real answer produced by `backend.rag_pipeline.ask(prompt)` — the
+already-initialized `RAGPipeline` instance's public API — which
+internally performs retrieval, prompt assembly, and the Gemini call.
+No hardcoded or placeholder assistant reply remains anywhere in this
+module.
 
 The flow is: submitting a prompt (Phase 7A) marks `is_generating=True`
 and triggers a rerun so the typing indicator renders; the following
-rerun then calls the backend communication layer, appends the resulting
-`ChatMessage` (assistant, placeholder content) to `messages`, clears
+rerun then calls the backend communication layer, which calls
+`backend.rag_pipeline.ask(prompt)` and appends the resulting
+`ChatMessage` (assistant, real generated content) to `messages`, clears
 `is_generating`, and reruns once more so the typing indicator is
 replaced by the assistant bubble. If the backend is unavailable or the
 call raises, the exception is logged and a friendly assistant message is
 shown instead — the app never crashes.
 
 This phase does NOT:
-    - Call Gemini, ChromaDB, the Retriever, or generate embeddings
-    - Implement retrieval, ranking, or knowledge-base search
+    - Implement retrieval, prompt assembly, or Gemini calls itself —
+      those already exist inside `RAGPipeline.ask()` and are only
+      invoked, not reimplemented, here
     - Compute confidence, response time, or any other metric
     - Implement streaming responses
     - Modify `ui/chat.py` or `ui/sidebar.py`
@@ -666,23 +670,17 @@ def _handle_user_prompt(prompt: str) -> None:
 
 
 # =============================================================================
-# BACKEND COMMUNICATION LAYER (Phase 7B)
+# BACKEND COMMUNICATION LAYER (Phase 7B + Phase 8)
 # =============================================================================
 # Routes a captured prompt (Phase 7A) through the existing
 # `BackendServices` bundle and records the resulting assistant message.
-# This section does not implement RAG, retrieval, embeddings, or call
-# Gemini — `_generate_assistant_response()` only validates that the
-# backend is reachable and returns a temporary placeholder reply. Phase 8
-# will replace that one return value with a real `RAGPipeline.ask()`
-# call; nothing else in this pipeline is expected to change.
-
-#: Temporary assistant reply returned by the Phase 7B communication
-#: layer. Phase 8 replaces this constant's use with a real
-#: `RAGPipeline.ask()` response.
-_PLACEHOLDER_ASSISTANT_REPLY: str = (
-    "I received your question successfully. "
-    "The RAG pipeline will be connected in Phase 8."
-)
+# `_generate_assistant_response()` now calls the real, already-initialized
+# `RAGPipeline.ask()` — owned by `st.session_state.backend_services` and
+# constructed exactly once in `initialize_backend()` — so every prompt is
+# answered by the actual Retriever -> PromptBuilder -> Gemini flow. No
+# second `RAGPipeline` (or any of its internal collaborators) is created
+# here, and no hardcoded/placeholder reply remains anywhere in this
+# module.
 
 #: Friendly, non-crashing message shown when the backend communication
 #: layer is unavailable or raises an exception.
@@ -700,11 +698,12 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
     Uses the single `BackendServices` instance already constructed by
     `initialize_backend()` and stored in
     `st.session_state.backend_services` — no second backend or
-    `RAGPipeline` is created here. This function does not call
-    `RAGPipeline.ask()`, retrieve documents, compute embeddings, or call
-    Gemini; it only confirms the backend is available and returns a
-    temporary placeholder reply. Phase 8 will replace only that return
-    value with a real `RAGPipeline.ask()` call.
+    `RAGPipeline` is created here. Delegates the actual answer generation
+    entirely to the existing, already-initialized
+    `backend.rag_pipeline.ask(prompt)`, which internally performs
+    retrieval, prompt building, and the Gemini call; this function does
+    not implement any of that logic itself, it only orchestrates the
+    call and validates that the backend is available first.
 
     Args:
         prompt: The user's submitted question, already recorded by
@@ -714,17 +713,22 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
             initialization has not completed successfully.
 
     Returns:
-        The assistant's reply text.
+        The assistant's reply text, as returned by `RAGPipeline.ask()`.
 
     Raises:
         RuntimeError: If `backend` (or its `rag_pipeline`) is not
             available.
+        Exception: Any exception raised by `RAGPipeline.ask()` itself
+            propagates unchanged — the caller
+            (`_process_pending_generation()`) is responsible for
+            catching it, logging it, and falling back to
+            `_BACKEND_UNAVAILABLE_MESSAGE` so the app never crashes.
     """
     if backend is None or backend.rag_pipeline is None:
         raise RuntimeError("Backend service is not available.")
 
     logger.debug("Routing prompt through backend communication layer: %r", prompt)
-    return _PLACEHOLDER_ASSISTANT_REPLY
+    return backend.rag_pipeline.ask(prompt)
 
 
 def _handle_assistant_response(response_text: str) -> None:
@@ -864,14 +868,15 @@ def main() -> None:
     Application entry point (Phase 1 + Phase 2 + Phase 3 + Phase 4 + Phase 5 + Phase 6).
 
     Resolves startup configuration, configures logging, initializes the
-    backend RAG services, stores them in `st.session_state`, seeds the
-    remaining session-state defaults, renders the page shell (page
-    config, global styles, header, three-column skeleton, footer) via
-    the locked `ui.layout.render_layout()`, renders the real sidebar
-    via the existing `ui.sidebar.render_sidebar()`, renders the real
-    chat interface via the existing `ui.chat.render_chat()`, and
-    populates the insights container with its Phase 4 placeholder
-    content.
+    backend RAG services exactly once per session — reusing the existing
+    `st.session_state.backend_services` on every subsequent rerun instead
+    of calling `initialize_backend()` again — seeds the remaining
+    session-state defaults, renders the page shell (page config, global
+    styles, header, three-column skeleton, footer) via the locked
+    `ui.layout.render_layout()`, renders the real sidebar via the
+    existing `ui.sidebar.render_sidebar()`, renders the real chat
+    interface via the existing `ui.chat.render_chat()`, and populates
+    the insights container with its Phase 4 placeholder content.
 
     Later phases will replace the remaining placeholder by rendering
     `ui.metrics.render_metrics()` into `columns.insights`, and will add
@@ -892,12 +897,18 @@ def main() -> None:
         config.log_level,
     )
 
-    backend: BackendServices = initialize_backend()
-    logger.info("Backend initialization complete.")
+    if (
+        "backend_services" not in st.session_state
+        or st.session_state.backend_services is None
+    ):
+        st.session_state.backend_services = initialize_backend()
+        st.session_state.backend_initialized = True
+        st.session_state.system_status = BACKEND_ONLINE_SYSTEM_STATUS
+        logger.info("Backend initialization complete.")
+    else:
+        logger.debug("Reusing existing backend services from session state; skipping initialize_backend().")
 
-    st.session_state.backend_services = backend
-    st.session_state.backend_initialized = True
-    st.session_state.system_status = BACKEND_ONLINE_SYSTEM_STATUS
+    backend: BackendServices = st.session_state.backend_services
 
     initialize_session_state()
     logger.info("Session state initialization complete.")
