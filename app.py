@@ -67,7 +67,7 @@ PHASE 4 — Layout Integration
 This phase populates the three containers already returned by the
 locked `ui.layout.render_layout()` — `columns.sidebar`, `columns.chat`,
 and `columns.insights` — with minimal placeholder content only. It
-establishes the structure that later phases (5, 6, and 9) will replace
+establishes the structure that later phases (5, 6, and 9A) replace
 with `ui.sidebar.render_sidebar()`, `ui.chat.render_chat()`, and
 `ui.metrics.render_metrics()`.
 
@@ -167,6 +167,26 @@ This phase does NOT:
     - Modify `ui/chat.py` or `ui/sidebar.py`
     - Construct a second `BackendServices` / `RAGPipeline` instance
 
+PHASE 9A — Metrics/Insights Integration
+-----------------------------------------------------------------------------
+This phase replaces only the insights placeholder introduced in Phase 4.
+`columns.insights` now renders the existing, unmodified
+`ui.metrics.render_metrics()`, called with the handful of values that
+already exist in `st.session_state` (`response_time`, `retrieval_time`,
+`confidence_score`) plus a `pipeline_status` derived from
+`backend_initialized` the same way `_render_layout()` already derives
+`ai_status` for `render_chat()`. Every other `render_metrics()` argument
+is left at its own default — this phase does not fabricate knowledge-base
+counts, coverage percentages, or source summaries that nothing in the
+app currently computes.
+
+This phase does NOT:
+    - Modify `ui/metrics.py` or recreate any of its functionality
+    - Call Gemini, ChromaDB, or the Retriever directly
+    - Compute new metrics, confidence scores, or coverage percentages
+    - Modify session state or introduce new session-state keys
+    - Process user input, prompts, or forms
+
 -----------------------------------------------------------------------------
 Public API
 -----------------------------------------------------------------------------
@@ -190,6 +210,7 @@ import streamlit as st
 from ui.layout import LayoutColumns, PAGE_TITLE, PROJECT_VERSION, render_layout
 from ui.chat import ChatMessage, ChatRenderResult, render_chat
 from ui.sidebar import render_sidebar
+from ui.metrics import render_metrics
 
 # --- Phase 2: backend service classes (constructed, not invoked, here) ----
 # These live in the `modules` package alongside `ui`. `RAGPipeline` already
@@ -200,7 +221,7 @@ from ui.sidebar import render_sidebar
 # expensive initializations (loading the embedding model, opening the
 # vector store, configuring the Gemini SDK) for no benefit.
 from modules.document_loader import DocumentLoader
-from modules.rag_pipeline import RAGPipeline
+from modules.rag_pipeline import RAGPipeline, RAGResponse
 from modules.text_chunker import TextChunker
 
 # =============================================================================
@@ -603,19 +624,19 @@ def initialize_session_state() -> None:
 
 
 # =============================================================================
-# LAYOUT INTEGRATION (Phase 4 + Phase 5 + Phase 6)
+# LAYOUT INTEGRATION (Phase 4 + Phase 5 + Phase 6 + Phase 9A)
 # =============================================================================
 # Populates the three containers returned by the locked `ui.layout
-# .render_layout()`. As of Phase 6, `columns.sidebar` renders the real,
-# unmodified `ui.sidebar.render_sidebar()`, and `columns.chat` renders
-# the real, unmodified `ui.chat.render_chat()`; `columns.insights`
-# still shows its Phase 4 placeholder content. This section renders no
-# business logic (no prompt processing, no retrieval, no Gemini calls,
-# no `RAGPipeline.ask()`) beyond what `render_sidebar()` and
-# `render_chat()` themselves already provide.
+# .render_layout()`. `columns.sidebar` renders the real, unmodified
+# `ui.sidebar.render_sidebar()`; `columns.chat` renders the real,
+# unmodified `ui.chat.render_chat()`; `columns.insights` renders the
+# real, unmodified `ui.metrics.render_metrics()`. This section renders
+# no business logic (no prompt processing, no retrieval, no Gemini
+# calls, no `RAGPipeline.ask()`) beyond what `render_sidebar()`,
+# `render_chat()`, and `render_metrics()` themselves already provide.
 
-#: Placeholder copy shown in the insights container until Phase 9 wires
-#: up `ui.metrics.render_metrics()`.
+#: Retained for reference; no longer rendered now that Phase 9A wires up
+#: `ui.metrics.render_metrics()` in its place.
 _INSIGHTS_PLACEHOLDER_TEXT: str = "Metrics panel ready. Waiting for Phase 9."
 
 
@@ -670,17 +691,26 @@ def _handle_user_prompt(prompt: str) -> None:
 
 
 # =============================================================================
-# BACKEND COMMUNICATION LAYER (Phase 7B + Phase 8)
+# BACKEND COMMUNICATION LAYER (Phase 7B + Phase 8 + Phase 9B)
 # =============================================================================
 # Routes a captured prompt (Phase 7A) through the existing
 # `BackendServices` bundle and records the resulting assistant message.
-# `_generate_assistant_response()` now calls the real, already-initialized
+# `_generate_assistant_response()` calls the real, already-initialized
 # `RAGPipeline.ask()` — owned by `st.session_state.backend_services` and
 # constructed exactly once in `initialize_backend()` — so every prompt is
 # answered by the actual Retriever -> PromptBuilder -> Gemini flow. No
 # second `RAGPipeline` (or any of its internal collaborators) is created
 # here, and no hardcoded/placeholder reply remains anywhere in this
 # module.
+#
+# As of Phase 9B, `RAGPipeline.ask()` returns a structured `RAGResponse`
+# rather than a bare string. `_generate_assistant_response()` unpacks
+# that structure into the existing Phase 3 metrics session-state keys
+# (`response_time`, `retrieval_time`, `retrieved_documents`,
+# `source_documents`, `confidence_score`) and returns only the answer
+# text, so every other caller in this module continues to work with a
+# plain string exactly as before — `_handle_assistant_response()` and
+# `_process_pending_generation()` are unmodified.
 
 #: Friendly, non-crashing message shown when the backend communication
 #: layer is unavailable or raises an exception.
@@ -690,20 +720,73 @@ _BACKEND_UNAVAILABLE_MESSAGE: str = (
 )
 
 
+def _record_response_metrics(response: RAGResponse) -> None:
+    """
+    Populate the existing Phase 3 metrics session-state keys from a
+    `RAGResponse`.
+
+    Reads only fields already present on `response` — computed inside
+    `RAGPipeline.ask()` itself — and writes them into the corresponding
+    `st.session_state` keys seeded by `initialize_session_state()`. No
+    metric is computed, estimated, or fabricated here.
+
+    `confidence_score` is deliberately only overwritten when
+    `response.confidence_score` is not `None`: the current `Retriever`
+    does not expose a genuine similarity/confidence score, so
+    `RAGResponse.confidence_score` is `None` for now, and
+    `st.session_state.confidence_score` is left at its existing
+    (Phase 3 default `0.0`, or whatever it already held) value rather
+    than being overwritten with a fabricated number.
+
+    Args:
+        response: The structured result returned by
+            `RAGPipeline.ask()` for the prompt just answered.
+
+    Returns:
+        None.
+    """
+    st.session_state.response_time = response.response_time_ms
+    st.session_state.retrieval_time = response.retrieval_time_ms
+    st.session_state.retrieved_documents = response.retrieved_documents
+    st.session_state.source_documents = response.source_documents
+
+    if response.confidence_score is not None:
+        st.session_state.confidence_score = response.confidence_score
+
+    logger.debug(
+        "Recorded response metrics (response_time_ms=%.2f, retrieval_time_ms=%.2f, "
+        "retrieved_documents=%d, source_documents=%d, confidence_score=%r).",
+        response.response_time_ms,
+        response.retrieval_time_ms,
+        len(response.retrieved_documents),
+        len(response.source_documents),
+        response.confidence_score,
+    )
+
+
 def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]) -> str:
     """
     Route a prompt through the existing `BackendServices` communication
-    layer and return the assistant's reply text.
+    layer, record the resulting runtime metrics, and return the
+    assistant's reply text.
 
     Uses the single `BackendServices` instance already constructed by
     `initialize_backend()` and stored in
     `st.session_state.backend_services` — no second backend or
-    `RAGPipeline` is created here. Delegates the actual answer generation
-    entirely to the existing, already-initialized
+    `RAGPipeline` is created here. Delegates the actual answer
+    generation entirely to the existing, already-initialized
     `backend.rag_pipeline.ask(prompt)`, which internally performs
     retrieval, prompt building, and the Gemini call; this function does
     not implement any of that logic itself, it only orchestrates the
-    call and validates that the backend is available first.
+    call, records the metrics `ask()` already computed, and validates
+    that the backend is available first.
+
+    As of Phase 9B, `ask()` returns a structured `RAGResponse` rather
+    than a bare string. This function unpacks that structure via
+    `_record_response_metrics()` into the existing Phase 3
+    session-state keys and returns only `response.answer`, so callers
+    of this function (`_process_pending_generation()`) continue to
+    receive a plain string exactly as before.
 
     Args:
         prompt: The user's submitted question, already recorded by
@@ -713,7 +796,7 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
             initialization has not completed successfully.
 
     Returns:
-        The assistant's reply text, as returned by `RAGPipeline.ask()`.
+        The assistant's reply text, from `RAGResponse.answer`.
 
     Raises:
         RuntimeError: If `backend` (or its `rag_pipeline`) is not
@@ -728,7 +811,9 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
         raise RuntimeError("Backend service is not available.")
 
     logger.debug("Routing prompt through backend communication layer: %r", prompt)
-    return backend.rag_pipeline.ask(prompt)
+    response: RAGResponse = backend.rag_pipeline.ask(prompt)
+    _record_response_metrics(response)
+    return response.answer
 
 
 def _handle_assistant_response(response_text: str) -> None:
@@ -794,16 +879,161 @@ def _process_pending_generation() -> None:
     st.rerun()
 
 
+# =============================================================================
+# METRICS DISPLAY VALUES (Phase 9C — dashboard integration)
+# =============================================================================
+# `ui/metrics.py` now accepts several additional, optional display values
+# (`retrieved_sources`, `chunks_retrieved`, `primary_source`, `sources_used`,
+# `document_types`). This section derives them from the existing
+# `st.session_state.source_documents` / `st.session_state.retrieved_documents`
+# — already populated by `_record_response_metrics()` from the real
+# `RAGResponse` — and nothing else. It does not call the RAG pipeline,
+# ChromaDB, or Gemini, does not compute similarity/confidence/tokens, and
+# never fabricates a value: whatever cannot be genuinely derived is left
+# as `None` so `render_metrics()` can render its own "not available" state.
+#
+# Each retrieved item's `source` / `record_type` is read from LangChain
+# `Document.metadata` — the same metadata keys `DocumentLoader` already
+# attaches to every document (e.g. `metadata["source"] == "doctor_directory"`,
+# `metadata["record_type"] == "doctor"`). The extraction helpers below also
+# tolerate a plain dict or string in place of a `Document`, in case
+# `RAGResponse.source_documents` exposes a lighter-weight shape than the
+# raw retriever output — without guessing at values neither shape provides.
+
+
+def _extract_document_source_name(document: object) -> Optional[str]:
+    """
+    Read a single retrieved document's source identifier, if present.
+
+    Looks for LangChain `Document`-style `metadata["source"]` first (the
+    convention already used throughout `modules/document_loader.py`),
+    then tolerates a plain dict shaped the same way, then a bare string
+    (used as-is). Returns `None` — never a fabricated placeholder — if no
+    source identifier can be found.
+
+    Args:
+        document: A single entry from `st.session_state.source_documents`.
+
+    Returns:
+        The source identifier string, or `None` if it cannot be
+        determined from the document as given.
+    """
+    if isinstance(document, str):
+        return document.strip() or None
+
+    metadata = getattr(document, "metadata", None)
+    if metadata is None and isinstance(document, dict):
+        metadata = document.get("metadata", document)
+
+    if isinstance(metadata, dict):
+        source = metadata.get("source")
+        if isinstance(source, str) and source.strip():
+            return source.strip()
+
+    return None
+
+
+def _extract_document_record_type(document: object) -> Optional[str]:
+    """
+    Read a single retrieved document's record type, if present.
+
+    Looks for LangChain `Document`-style `metadata["record_type"]` first
+    (the convention already used throughout
+    `modules/document_loader.py`, e.g. `"doctor"`, `"medicine"`,
+    `"faq"`), then tolerates a plain dict shaped the same way. Returns
+    `None` — never a fabricated placeholder — if no record type can be
+    found.
+
+    Args:
+        document: A single entry from `st.session_state.source_documents`.
+
+    Returns:
+        The record-type string, or `None` if it cannot be determined
+        from the document as given.
+    """
+    metadata = getattr(document, "metadata", None)
+    if metadata is None and isinstance(document, dict):
+        metadata = document.get("metadata", document)
+
+    if isinstance(metadata, dict):
+        record_type = metadata.get("record_type")
+        if isinstance(record_type, str) and record_type.strip():
+            return record_type.strip()
+
+    return None
+
+
+def _build_metrics_display_values() -> dict[str, object]:
+    """
+    Derive the optional `render_metrics()` display values from the
+    existing `st.session_state.source_documents` /
+    `st.session_state.retrieved_documents` — the real retrieval results
+    already recorded by `_record_response_metrics()` from the most
+    recent `RAGResponse`. Computes nothing beyond counting and reading
+    existing metadata; never calls the pipeline, never estimates a
+    similarity/confidence/token value, and never invents a document
+    type that isn't present in the retrieved metadata.
+
+    Any value whose source list is empty (nothing retrieved yet, or the
+    most recent query genuinely returned nothing) is left as `None`
+    rather than reported as `0`, so the dashboard can distinguish "no
+    data available" from a real zero-result answer.
+
+    Returns:
+        A dict with keys `retrieved_sources`, `chunks_retrieved`,
+        `primary_source`, `sources_used`, and `document_types`, each
+        either a genuine derived value or `None`.
+    """
+    source_documents = st.session_state.source_documents
+    retrieved_documents = st.session_state.retrieved_documents
+
+    retrieved_sources: Optional[int] = len(source_documents) if source_documents else None
+    chunks_retrieved: Optional[int] = len(retrieved_documents) if retrieved_documents else None
+    sources_used: Optional[int] = len(source_documents) if source_documents else None
+
+    primary_source: Optional[str] = None
+    if source_documents:
+        primary_source = _extract_document_source_name(source_documents[0])
+
+    document_types: Optional[list[str]] = None
+    if source_documents:
+        distinct_types: list[str] = []
+        for document in source_documents:
+            record_type = _extract_document_record_type(document)
+            if record_type and record_type not in distinct_types:
+                distinct_types.append(record_type)
+        document_types = distinct_types or None
+
+    return {
+        "retrieved_sources": retrieved_sources,
+        "chunks_retrieved": chunks_retrieved,
+        "primary_source": primary_source,
+        "sources_used": sources_used,
+        "document_types": document_types,
+    }
+
+
 def _render_layout(columns: LayoutColumns) -> None:
     """
     Populate each locked-layout container for the current phase.
 
     Renders the real sidebar into `columns.sidebar` via the existing,
-    unmodified `ui.sidebar.render_sidebar()`, and the real chat
-    interface into `columns.chat` via the existing, unmodified
-    `ui.chat.render_chat()`. `columns.insights` continues to show its
-    Phase 4 placeholder content until Phase 9 wires up
-    `ui.metrics.render_metrics()`.
+    unmodified `ui.sidebar.render_sidebar()`, the real chat interface
+    into `columns.chat` via the existing, unmodified
+    `ui.chat.render_chat()`, and the real metrics/insights panel into
+    `columns.insights` via the existing, unmodified
+    `ui.metrics.render_metrics()`. `render_metrics()` is called with
+    the values already present in `st.session_state`
+    (`response_time`, `retrieval_time`, `confidence_score`) plus a
+    `pipeline_status` derived from `backend_initialized` the same way
+    `ai_status` is derived below for `render_chat()`, and — as of
+    Phase 9C — the optional dashboard values
+    (`retrieved_sources`, `chunks_retrieved`, `primary_source`,
+    `sources_used`, `document_types`) derived by
+    `_build_metrics_display_values()` from the existing
+    `source_documents` / `retrieved_documents` session state. Any value
+    that cannot be genuinely derived is passed through as `None` rather
+    than fabricated.
 
     As of Phase 7A, `render_chat()` is called with the current
     conversation (`st.session_state.messages`) and generation state
@@ -825,10 +1055,10 @@ def _render_layout(columns: LayoutColumns) -> None:
     records the assistant's reply once that rerun happens.
 
     This function still renders no widget, form, or callback beyond
-    what `render_sidebar()` and `render_chat()` themselves already
-    provide, and it does not retrieve documents, call
-    `RAGPipeline.ask()`, or call Gemini — that generation logic
-    belongs to a later phase.
+    what `render_sidebar()`, `render_chat()`, and `render_metrics()`
+    themselves already provide, and it does not retrieve documents,
+    call `RAGPipeline.ask()`, or call Gemini — that generation logic
+    belongs to the backend communication layer above, not here.
 
     Args:
         columns: The `LayoutColumns` returned by `render_layout()`.
@@ -847,7 +1077,18 @@ def _render_layout(columns: LayoutColumns) -> None:
     )
 
     with columns.insights:
-        st.info(_INSIGHTS_PLACEHOLDER_TEXT)
+        metrics_display_values = _build_metrics_display_values()
+        render_metrics(
+            response_time_ms=st.session_state.response_time,
+            retrieval_time_ms=st.session_state.retrieval_time,
+            confidence_score=st.session_state.confidence_score,
+            pipeline_status="online" if st.session_state.backend_initialized else "offline",
+            retrieved_sources=metrics_display_values["retrieved_sources"],
+            chunks_retrieved=metrics_display_values["chunks_retrieved"],
+            primary_source=metrics_display_values["primary_source"],
+            sources_used=metrics_display_values["sources_used"],
+            document_types=metrics_display_values["document_types"],
+        )
 
     prompt_text: str = chat_result.input.text.strip()
 
@@ -865,7 +1106,7 @@ def _render_layout(columns: LayoutColumns) -> None:
 
 def main() -> None:
     """
-    Application entry point (Phase 1 + Phase 2 + Phase 3 + Phase 4 + Phase 5 + Phase 6).
+    Application entry point (Phase 1 + Phase 2 + Phase 3 + Phase 4 + Phase 5 + Phase 6 + Phase 9A).
 
     Resolves startup configuration, configures logging, initializes the
     backend RAG services exactly once per session — reusing the existing
@@ -875,13 +1116,9 @@ def main() -> None:
     styles, header, three-column skeleton, footer) via the locked
     `ui.layout.render_layout()`, renders the real sidebar via the
     existing `ui.sidebar.render_sidebar()`, renders the real chat
-    interface via the existing `ui.chat.render_chat()`, and populates
-    the insights container with its Phase 4 placeholder content.
-
-    Later phases will replace the remaining placeholder by rendering
-    `ui.metrics.render_metrics()` into `columns.insights`, and will add
-    the conversation logic (prompt processing, retrieval, and Gemini
-    calls) behind the chat interface rendered here.
+    interface via the existing `ui.chat.render_chat()`, and renders the
+    real metrics/insights panel via the existing
+    `ui.metrics.render_metrics()`.
 
     Returns:
         None.
