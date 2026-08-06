@@ -223,6 +223,7 @@ from ui.metrics import render_metrics
 from modules.document_loader import DocumentLoader
 from modules.rag_pipeline import RAGPipeline, RAGResponse
 from modules.text_chunker import TextChunker
+from modules.voice_assistant import VoiceAssistant, VoiceRecognitionResult
 
 # =============================================================================
 # PROJECT CONSTANTS
@@ -880,6 +881,88 @@ def _process_pending_generation() -> None:
 
 
 # =============================================================================
+# VOICE INPUT (Phase 10A)
+# =============================================================================
+# Renders a small microphone control in the chat column, directly beneath
+# the existing, unmodified `ui.chat.render_chat()`. Recording and
+# speech-to-text conversion are delegated entirely to
+# `modules.voice_assistant.VoiceAssistant`, which knows nothing about
+# Gemini, the RAG pipeline, LangChain, ChromaDB, or chat history. When
+# recognition succeeds, the recognized text is routed through the exact
+# same `_handle_user_prompt()` (Phase 7A) a typed submission already
+# uses, followed by the exact same `st.rerun()` — voice is a second
+# *source* of a prompt, not a second submission pathway. On failure, a
+# friendly status message is shown inline within the same script run;
+# nothing is submitted and no new `st.session_state` key is introduced.
+
+#: Constructed once at import time. `VoiceAssistant` only holds
+#: lightweight configuration and an `sr.Recognizer()` — there is no
+#: model to load, so unlike `BackendServices` this does not need to be
+#: cached in `st.session_state` to avoid expensive reconstruction.
+_voice_assistant = VoiceAssistant()
+
+#: Widget key for the microphone button, so it never collides with any
+#: key `ui/chat.py` or `ui/sidebar.py` use for their own widgets.
+_VOICE_BUTTON_KEY: str = "voice_input_microphone_button"
+
+
+def _render_voice_input_control() -> None:
+    """
+    Render the microphone control and handle a click, if one occurred.
+
+    Shows a two-stage status ("Listening...", then "Processing
+    speech...") for the duration of the blocking record/transcribe
+    calls. On success, submits the recognized text through the existing
+    `_handle_user_prompt()` Phase 7A flow and reruns, exactly as a typed
+    "Ask" click already does. On failure, shows a friendly inline
+    message and leaves the conversation untouched.
+
+    This function does not call `RAGPipeline.ask()`, retrieve
+    documents, or call Gemini itself — submitting the recognized text
+    only marks it pending, exactly like Phase 7A; the existing
+    `_process_pending_generation()` call at the end of `_render_layout()`
+    is what actually answers it.
+
+    Returns:
+        None.
+    """
+    if not _voice_assistant.is_available():
+        st.caption("\U0001F3A4 Voice input unavailable: the 'SpeechRecognition' package is not installed.")
+        return
+
+    clicked = st.button(
+        "\U0001F3A4 Ask by voice",
+        key=_VOICE_BUTTON_KEY,
+        disabled=st.session_state.is_generating,
+        use_container_width=False,
+    )
+    if not clicked:
+        return
+
+    with st.status("\U0001F3A4 Listening...", expanded=False) as status_box:
+        capture_result = _voice_assistant.record_audio()
+
+        if not capture_result.success:
+            status_box.update(label=capture_result.status_message, state="error")
+            logger.info("Voice capture failed: %s", capture_result.status_message)
+            return
+
+        status_box.update(label="Processing speech...")
+        recognition_result: VoiceRecognitionResult = _voice_assistant.transcribe_audio(capture_result.audio)
+
+        if not recognition_result.success or not recognition_result.text:
+            status_box.update(label=recognition_result.status_message, state="error")
+            logger.info("Voice recognition failed: %s", recognition_result.status_message)
+            return
+
+        status_box.update(label=recognition_result.status_message, state="complete")
+
+    logger.info("Voice input captured a prompt (conversation_count will be incremented).")
+    _handle_user_prompt(recognition_result.text)
+    st.rerun()
+
+
+# =============================================================================
 # METRICS DISPLAY VALUES (Phase 9C — dashboard integration)
 # =============================================================================
 # `ui/metrics.py` now accepts several additional, optional display values
@@ -1054,9 +1137,17 @@ def _render_layout(columns: LayoutColumns) -> None:
     what actually invokes the Phase 7B backend communication layer and
     records the assistant's reply once that rerun happens.
 
+    As of Phase 10A, `_render_voice_input_control()` renders a
+    microphone button directly beneath `render_chat()` inside
+    `columns.chat`. A successful voice recognition calls
+    `_handle_user_prompt()` and reruns exactly like a typed "Ask" click
+    does — it is a second source of a prompt, not a second submission
+    pathway — so `_process_pending_generation()` answers it identically
+    either way.
+
     This function still renders no widget, form, or callback beyond
-    what `render_sidebar()`, `render_chat()`, and `render_metrics()`
-    themselves already provide, and it does not retrieve documents,
+    what `render_sidebar()`, `render_chat()`, `render_metrics()`, and
+    `_render_voice_input_control()` themselves already provide, and it does not retrieve documents,
     call `RAGPipeline.ask()`, or call Gemini — that generation logic
     belongs to the backend communication layer above, not here.
 
@@ -1075,6 +1166,7 @@ def _render_layout(columns: LayoutColumns) -> None:
         ai_status="online" if st.session_state.backend_initialized else "offline",
         is_generating=st.session_state.is_generating,
     )
+        _render_voice_input_control()
 
     with columns.insights:
         metrics_display_values = _build_metrics_display_values()
