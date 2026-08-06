@@ -222,6 +222,7 @@ from ui.chat import (
     render_user_message,
     render_welcome,
 )
+from ui.components import render_info_panel, render_metric_card, render_section_header
 from ui.sidebar import render_sidebar
 from ui.metrics import render_metrics
 
@@ -604,7 +605,11 @@ SESSION_STATE_DEFAULTS: dict[str, object] = {
     # --- Application flags -------------------------------------------------
     "sidebar_expanded": True,
     "metrics_expanded": True,
+    "voice_input_enabled": True,
     "speak_assistant_responses": True,
+    "voice_speech_status": "Idle",
+    "last_voice_command": "",
+    "last_spoken_response": "",
     # --- Assistant audio cache --------------------------------------------
     "assistant_response_audio_cache": {},
 }
@@ -896,6 +901,85 @@ def _process_pending_generation() -> None:
     st.rerun()
 
 
+def _truncate_preview(text: str, max_length: int = 80) -> str:
+    """Return a short preview string with an ellipsis when needed."""
+    cleaned_text = (text or "").strip()
+    if not cleaned_text:
+        return ""
+    if len(cleaned_text) <= max_length:
+        return cleaned_text
+    return cleaned_text[:max_length].rstrip() + "..."
+
+
+def _voice_connection_status() -> str:
+    """Return the current microphone availability label."""
+    return "Connected" if _voice_assistant.is_available() else "Unavailable"
+
+
+def _render_voice_assistant_panel() -> None:
+    """Render the compact voice assistant dashboard and controls."""
+    render_section_header(
+        title="Voice Assistant",
+        subtitle="Live voice input, spoken responses, and recent activity",
+        icon="🎤",
+    )
+
+    status_cards = (
+        (
+            "Voice Input",
+            "Enabled" if st.session_state.voice_input_enabled else "Disabled",
+            "🎤",
+            "success" if st.session_state.voice_input_enabled else "warning",
+        ),
+        (
+            "Voice Output",
+            "Enabled" if st.session_state.speak_assistant_responses else "Disabled",
+            "🔊",
+            "success" if st.session_state.speak_assistant_responses else "warning",
+        ),
+        (
+            "Microphone Status",
+            _voice_connection_status(),
+            "🎙️",
+            "success" if _voice_assistant.is_available() else "error",
+        ),
+        (
+            "Speech Status",
+            st.session_state.voice_speech_status,
+            "🎧",
+            "warning" if st.session_state.voice_speech_status == "Listening" else ("success" if st.session_state.voice_speech_status == "Speaking" else None),
+        ),
+    )
+
+    first_row, second_row = st.columns(2, gap="small")
+    for index, (title, value, icon, status) in enumerate(status_cards):
+        target_column = first_row if index < 2 else second_row
+        with target_column:
+            render_metric_card(title=title, value=value, icon=icon, status=status)
+
+    preview_col_1, preview_col_2 = st.columns(2, gap="small")
+    with preview_col_1:
+        render_info_panel(
+            title="Last Voice Command",
+            message=_truncate_preview(st.session_state.last_voice_command, 80) or "Not Available",
+            variant="info",
+        )
+    with preview_col_2:
+        render_info_panel(
+            title="Last Spoken Response",
+            message=_truncate_preview(st.session_state.last_spoken_response, 80) or "Not Available",
+            variant="info",
+        )
+
+    with st.container(border=True):
+        st.markdown('<p style="font-weight:600; margin:0 0 0.5rem 0;">Voice Controls</p>', unsafe_allow_html=True)
+        control_col_1, control_col_2 = st.columns(2, gap="small")
+        with control_col_1:
+            st.checkbox("Enable Voice Input", key="voice_input_enabled")
+        with control_col_2:
+            st.checkbox("Speak Assistant Responses", key="speak_assistant_responses")
+
+
 def _assistant_audio_cache_key(message: ChatMessage, message_index: int) -> str:
     """Build a stable cache key for one assistant message's generated audio."""
     timestamp_value = str(message.timestamp)
@@ -935,6 +1019,9 @@ def _render_assistant_speech_control(message: ChatMessage, message_index: int) -
 
             audio_cache[cache_key] = audio_bytes
             logger.info("Cached MP3 bytes for assistant message %s (byte_length=%d).", cache_key, len(audio_bytes))
+
+        st.session_state.last_spoken_response = message.content
+        st.session_state.voice_speech_status = "Speaking"
 
     if audio_bytes is None:
         logger.info("No cached audio available yet for assistant message %s; render button only.", cache_key)
@@ -1030,18 +1117,20 @@ def _render_voice_input_control() -> None:
     clicked = st.button(
         "\U0001F3A4 Ask by voice",
         key=_VOICE_BUTTON_KEY,
-        disabled=st.session_state.is_generating,
+        disabled=st.session_state.is_generating or not st.session_state.voice_input_enabled,
         use_container_width=False,
     )
     if not clicked:
         return
 
+    st.session_state.voice_speech_status = "Listening"
     with st.status("\U0001F3A4 Listening...", expanded=False) as status_box:
         capture_result = _voice_assistant.record_audio()
 
         if not capture_result.success:
             status_box.update(label=capture_result.status_message, state="error")
             logger.info("Voice capture failed: %s", capture_result.status_message)
+            st.session_state.voice_speech_status = "Idle"
             return
 
         status_box.update(label="Processing speech...")
@@ -1050,11 +1139,14 @@ def _render_voice_input_control() -> None:
         if not recognition_result.success or not recognition_result.text:
             status_box.update(label=recognition_result.status_message, state="error")
             logger.info("Voice recognition failed: %s", recognition_result.status_message)
+            st.session_state.voice_speech_status = "Idle"
             return
 
         status_box.update(label=recognition_result.status_message, state="complete")
 
     logger.info("Voice input captured a prompt (conversation_count will be incremented).")
+    st.session_state.last_voice_command = recognition_result.text
+    st.session_state.voice_speech_status = "Idle"
     _handle_user_prompt(recognition_result.text)
     st.rerun()
 
@@ -1166,6 +1258,18 @@ def _build_metrics_display_values() -> dict[str, object]:
     """
     source_documents = st.session_state.source_documents
     retrieved_documents = st.session_state.retrieved_documents
+    response_length: Optional[int] = None
+    ranking_method: Optional[str] = None
+
+    if st.session_state.current_response.strip():
+        response_length = len(st.session_state.current_response.strip())
+    elif st.session_state.messages:
+        last_message = st.session_state.messages[-1]
+        if getattr(last_message, "role", None) == "assistant":
+            response_length = len((getattr(last_message, "content", "") or "").strip())
+
+    if source_documents:
+        ranking_method = "RAG Retrieval"
 
     retrieved_sources: Optional[int] = len(source_documents) if source_documents else None
     chunks_retrieved: Optional[int] = len(retrieved_documents) if retrieved_documents else None
@@ -1187,6 +1291,8 @@ def _build_metrics_display_values() -> dict[str, object]:
     return {
         "retrieved_sources": retrieved_sources,
         "chunks_retrieved": chunks_retrieved,
+        "response_length": response_length,
+        "ranking_method": ranking_method,
         "primary_source": primary_source,
         "sources_used": sources_used,
         "document_types": document_types,
@@ -1256,24 +1362,28 @@ def _render_layout(columns: LayoutColumns) -> None:
     """
     with columns.sidebar:
         render_sidebar()
-        st.checkbox("Speak Assistant Responses", key="speak_assistant_responses")
 
     with columns.chat:
         chat_result: ChatRenderResult = _render_chat_panel()
         _render_voice_input_control()
 
     with columns.insights:
+        _render_voice_assistant_panel()
+        render_divider()
         metrics_display_values = _build_metrics_display_values()
         render_metrics(
             response_time_ms=st.session_state.response_time,
             retrieval_time_ms=st.session_state.retrieval_time,
             confidence_score=st.session_state.confidence_score,
             pipeline_status="online" if st.session_state.backend_initialized else "offline",
+            voice_input_enabled=st.session_state.voice_input_enabled,
+            voice_output_enabled=st.session_state.speak_assistant_responses,
             retrieved_sources=metrics_display_values["retrieved_sources"],
             chunks_retrieved=metrics_display_values["chunks_retrieved"],
+            response_length=metrics_display_values["response_length"],
             primary_source=metrics_display_values["primary_source"],
-            sources_used=metrics_display_values["sources_used"],
             document_types=metrics_display_values["document_types"],
+            ranking_method=metrics_display_values["ranking_method"],
         )
 
     prompt_text: str = chat_result.input.text.strip()

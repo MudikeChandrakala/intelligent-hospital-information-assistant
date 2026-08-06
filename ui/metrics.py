@@ -109,11 +109,7 @@ from typing import Literal, Optional, Sequence, Union
 
 import streamlit as st
 
-from ui.components import (
-    render_divider,
-    render_metric_card,
-    render_section_header,
-)
+from ui.components import render_divider, render_info_panel, render_metric_card, render_section_header
 
 # =============================================================================
 # TYPE ALIASES
@@ -163,31 +159,13 @@ class MetricCardSpec:
     status: Optional[Literal["success", "warning", "error"]] = None
 
 
-#: The five moving parts summarized in "Assistant Status", in display
-#: order. Voice Assistant and Prescription Analysis are upcoming
-#: features (see module docstring) and always show "Coming Soon"
-#: regardless of any status passed in, since there is no backend signal
-#: for a feature that doesn't exist yet.
-_ASSISTANT_STATUS_ROWS: tuple[tuple[str, str], ...] = (
-    ("Pipeline", "\U0001F9E0"),
-    ("Gemini API", "\u2728"),
-    ("Knowledge Base", "\U0001F4DA"),
-    ("Voice Assistant", "\U0001F3A4"),
-    ("Prescription Analysis", "\U0001F4CB"),
-)
-
-#: The assistant's AI modules shown in "AI Modules", in display order,
-#: paired with an icon and whether the module is available today. This
-#: section is purely informational (per the redesign brief) and is not
-#: driven by any caller-supplied parameter.
-_AI_MODULES: tuple[tuple[str, str, bool], ...] = (
-    ("Hospital Information", "\U0001F3E5", True),
-    ("Doctor Recommendation", "\U0001FA7A", True),
-    ("Medicine Information", "\U0001F48A", True),
-    ("Disease Information", "\U0001FA7B", True),
-    ("Hospital Navigation", "\U0001F9ED", True),
-    ("Voice Assistant", "\U0001F3A4", False),
-    ("Prescription Analysis", "\U0001F4CB", False),
+#: The high-level AI services summarized in the dashboard.
+_AI_SERVICE_ROWS: tuple[tuple[str, str], ...] = (
+    ("Gemini", "\u2728"),
+    ("Retriever", "\U0001F9E0"),
+    ("Vector Store", "\U0001F4DA"),
+    ("Voice Input", "\U0001F3A4"),
+    ("Voice Output", "\U0001F50A"),
 )
 
 
@@ -271,6 +249,26 @@ def _format_text(value: Optional[str]) -> str:
     if value is None or not value.strip():
         return NOT_AVAILABLE
     return value.strip()
+
+
+def _format_status(value: bool) -> str:
+    """Format a boolean feature state as Enabled or Disabled."""
+    return "Enabled" if value else "Disabled"
+
+
+def _format_confidence_score(score: Optional[float]) -> str:
+    """Format a confidence score as a percentage when available."""
+    if score is None:
+        return NOT_AVAILABLE
+    normalized = score * 100 if score <= 1 else score
+    return f"{normalized:.0f}%"
+
+
+def _format_response_length(value: Optional[StatValue]) -> str:
+    """Format the latest assistant response length for display."""
+    if value is None:
+        return NOT_AVAILABLE
+    return f"{value} chars"
 
 
 def _format_document_types(document_types: Optional[Sequence[str]]) -> str:
@@ -382,7 +380,7 @@ def render_metrics_header() -> None:
     """
     render_section_header(
         title="AI Insights",
-        subtitle="Your AI Healthcare Assistant, at a glance",
+        subtitle="Your AI healthcare assistant, at a glance",
         icon="\U0001F3E5",
     )
 
@@ -392,64 +390,38 @@ def render_metrics_header() -> None:
 # =============================================================================
 
 
-def render_assistant_status(
+def render_ai_services(
     pipeline_status: StatusKind = "offline",
+    voice_input_enabled: bool = True,
+    voice_output_enabled: bool = True,
     gemini_status: Optional[StatusKind] = None,
-    knowledge_base_status: Optional[StatusKind] = None,
+    vector_store_status: Optional[StatusKind] = None,
 ) -> None:
-    """
-    Render the "Assistant Status" section as a grid of status cards.
-
-    Summarizes the health of the assistant's core services — the RAG
-    pipeline, the Gemini API, and the knowledge base — plus the two
-    upcoming features (Voice Assistant, Prescription Analysis), which
-    always show "Coming Soon" since they have no backend to report a
-    status for yet. This function only displays the statuses it is
-    given — it performs no health checks or API calls itself.
-
-    Args:
-        pipeline_status: One of "online", "offline", "warning",
-            "processing", "error" — the overall `RAGPipeline` health.
-        gemini_status: Same status vocabulary as `pipeline_status`, for
-            the Gemini API specifically. When `None` (the caller did
-            not report a distinct value), this mirrors
-            `pipeline_status` — in this application's architecture,
-            `RAGPipeline`'s constructor initializes its Gemini client
-            together with every other component, so `pipeline_status`
-            already reflects Gemini's availability too; nothing is
-            fabricated, only reused.
-        knowledge_base_status: Same status vocabulary as
-            `pipeline_status`, for the knowledge base / vector store
-            specifically. Defaults to mirroring `pipeline_status` for
-            the same reason as `gemini_status`.
-
-    Returns:
-        None. Renders directly into the Streamlit app.
-    """
-    _render_section_label("Assistant Status")
+    """Render the compact AI services overview section."""
+    _render_section_label("AI Services")
 
     resolved_gemini_status = gemini_status if gemini_status is not None else pipeline_status
-    resolved_kb_status = knowledge_base_status if knowledge_base_status is not None else pipeline_status
+    resolved_vector_store_status = vector_store_status if vector_store_status is not None else pipeline_status
 
-    status_by_component: dict[str, StatusKind] = {
-        "Pipeline": pipeline_status,
-        "Gemini API": resolved_gemini_status,
-        "Knowledge Base": resolved_kb_status,
+    status_by_component: dict[str, str] = {
+        "Gemini": _status_emoji_label(resolved_gemini_status)[1],
+        "Retriever": _status_emoji_label(pipeline_status)[1],
+        "Vector Store": _status_emoji_label(resolved_vector_store_status)[1],
+        "Voice Input": _format_status(voice_input_enabled),
+        "Voice Output": _format_status(voice_output_enabled),
     }
 
-    cards = []
-    for component_label, icon in _ASSISTANT_STATUS_ROWS:
-        if component_label in status_by_component:
-            emoji, label = _status_emoji_label(status_by_component[component_label])
-            accent = _status_card_accent(status_by_component[component_label])
-            cards.append(
-                MetricCardSpec(title=component_label, value=f"{emoji} {label}", icon=icon, status=accent)
-            )
+    cards: list[MetricCardSpec] = []
+    for component_label, icon in _AI_SERVICE_ROWS:
+        value = status_by_component[component_label]
+        accent: Optional[Literal["success", "warning", "error"]] = None
+        if value == "Online" or value == "Enabled":
+            accent = "success"
+        elif value == "Initializing":
+            accent = "warning"
         else:
-            # Voice Assistant / Prescription Analysis: always "Coming
-            # Soon" — there is no implemented feature to report a real
-            # status for.
-            cards.append(MetricCardSpec(title=component_label, value=COMING_SOON, icon=icon, status=None))
+            accent = "error"
+        cards.append(MetricCardSpec(title=component_label, value=value, icon=icon, status=accent))
 
     _render_metric_grid(cards, num_columns=2)
 
@@ -464,16 +436,18 @@ def render_performance(
     retrieval_time_ms: Optional[Union[int, float]] = None,
     retrieved_sources: Optional[StatValue] = None,
     chunks_retrieved: Optional[StatValue] = None,
+    response_length: Optional[StatValue] = None,
 ) -> None:
     """
     Render the "Performance" section as a grid of metric cards.
 
-    Deliberately limited to the four values a user actually benefits
-    from seeing: response time, retrieval time, retrieved sources, and
-    retrieved chunks. Token counts, similarity scores, and confidence
-    are intentionally not shown here (per the redesign brief). This
-    function only displays values already computed by the backend
-    `RAGPipeline` — it never measures timing or counts anything itself.
+    Deliberately limited to the values a user actually benefits from
+    seeing: response time, retrieval time, retrieved sources, retrieved
+    chunks, and the latest response length. Token counts and other
+    development metrics are intentionally not shown here. This function
+    only displays values already computed by the backend `RAGPipeline`
+    or derived in `app.py` — it never measures timing or counts anything
+    itself.
 
     Args:
         response_time_ms: Time spent generating the response, in
@@ -484,6 +458,8 @@ def render_performance(
             retrieved, or `None` if unavailable.
         chunks_retrieved: Number of text chunks retrieved from the
             vector store, or `None` if unavailable.
+        response_length: Length of the latest assistant response, in
+            characters, or `None` if unavailable.
 
     Returns:
         None. Renders directly into the Streamlit app.
@@ -494,6 +470,7 @@ def render_performance(
         MetricCardSpec(title="Retrieval Time", value=_format_ms(retrieval_time_ms), icon="\u23F1\uFE0F"),
         MetricCardSpec(title="Retrieved Sources", value=_format_count(retrieved_sources), icon="\U0001F4DA"),
         MetricCardSpec(title="Retrieved Chunks", value=_format_count(chunks_retrieved), icon="\U0001F9E9"),
+        MetricCardSpec(title="Response Length", value=_format_response_length(response_length), icon="\u270D\uFE0F"),
     )
     _render_metric_grid(cards, num_columns=2)
 
@@ -503,43 +480,67 @@ def render_performance(
 # =============================================================================
 
 
-def render_response_insights(
+def render_retrieval(
     primary_source: Optional[str] = None,
-    sources_used: Optional[StatValue] = None,
     document_types: Optional[Sequence[str]] = None,
+    ranking_method: Optional[str] = None,
+    confidence_score: Optional[float] = None,
 ) -> None:
     """
-    Render the "Response Insights" section as a grid of metric cards.
+    Render the "Retrieval" section as a grid of metric cards.
 
-    Summarizes what the most recent answer was actually grounded in —
-    the primary source, how many sources were used, and which document
-    types they came from — without exposing raw retrieval internals.
-    This function only displays values already computed by the backend
-    — it never inspects the knowledge base itself.
+    Summarizes what the most recent answer was grounded in — the top
+    source, document type(s), ranking method, and confidence — without
+    exposing raw retrieval internals. This function only displays
+    values already computed by the backend or derived in `app.py`.
 
     Args:
         primary_source: The single most relevant retrieved source for
             the most recent answer (e.g. a document name or title), or
             `None` if unavailable.
-        sources_used: Number of sources used to build the most recent
-            answer, or `None` if unavailable.
         document_types: Distinct document/source types behind the most
             recent answer, or `None` if unavailable.
+        ranking_method: Human-readable ranking/similarity method name,
+            or `None` if unavailable.
+        confidence_score: Confidence score from the latest answer, or
+            `None` if unavailable.
 
     Returns:
         None. Renders directly into the Streamlit app.
     """
-    _render_section_label("Response Insights")
+    _render_section_label("Retrieval")
     cards = (
         MetricCardSpec(title="Primary Source", value=_format_text(primary_source), icon="\U0001F4CC"),
-        MetricCardSpec(title="Sources Used", value=_format_count(sources_used), icon="\U0001F4DA"),
         MetricCardSpec(
-            title="Document Types",
+            title="Document Type",
             value=_format_document_types(document_types),
             icon="\U0001F4C4",
         ),
+        MetricCardSpec(title="Ranking Method", value=_format_text(ranking_method), icon="\U0001F4CB"),
+        MetricCardSpec(title="Confidence", value=_format_confidence_score(confidence_score), icon="\U0001F3AF"),
     )
-    _render_metric_grid(cards, num_columns=1)
+    _render_metric_grid(cards, num_columns=2)
+
+
+def render_technical_details(
+    pipeline_status: StatusKind = "offline",
+    gemini_status: Optional[StatusKind] = None,
+    vector_store_status: Optional[StatusKind] = None,
+    confidence_score: Optional[float] = None,
+) -> None:
+    """Render low-level technical metrics inside an expander."""
+    resolved_gemini_status = gemini_status if gemini_status is not None else pipeline_status
+    resolved_vector_store_status = vector_store_status if vector_store_status is not None else pipeline_status
+
+    with st.expander("Technical Details", expanded=False):
+        _render_section_label("Technical Details")
+        cards = (
+            MetricCardSpec(title="Pipeline Status", value=_status_emoji_label(pipeline_status)[1], icon="\U0001F9E0", status=_status_card_accent(pipeline_status)),
+            MetricCardSpec(title="Gemini Status", value=_status_emoji_label(resolved_gemini_status)[1], icon="\u2728", status=_status_card_accent(resolved_gemini_status)),
+            MetricCardSpec(title="Vector Store Status", value=_status_emoji_label(resolved_vector_store_status)[1], icon="\U0001F4DA", status=_status_card_accent(resolved_vector_store_status)),
+            MetricCardSpec(title="Confidence", value=_format_confidence_score(confidence_score), icon="\U0001F3AF"),
+        )
+        _render_metric_grid(cards, num_columns=2)
 
 
 # =============================================================================
@@ -547,30 +548,14 @@ def render_response_insights(
 # =============================================================================
 
 
-def render_ai_modules() -> None:
-    """
-    Render the "AI Modules" section as a grid of feature cards.
-
-    Purely informational (per the redesign brief): lists the
-    assistant's current and upcoming AI modules and whether each is
-    available today. Not driven by any caller-supplied parameter, since
-    this reflects the product's fixed feature set rather than any
-    runtime/backend state.
-
-    Returns:
-        None. Renders directly into the Streamlit app.
-    """
-    _render_section_label("AI Modules")
-    cards = tuple(
-        MetricCardSpec(
-            title=module_name,
-            value=AVAILABLE if is_available else COMING_SOON,
-            icon=icon,
-            status="success" if is_available else None,
-        )
-        for module_name, icon, is_available in _AI_MODULES
+def render_prescription_analysis() -> None:
+    """Render the display-only prescription analysis section."""
+    _render_section_label("Prescription Analysis")
+    render_info_panel(
+        title=COMING_SOON,
+        message="This section will later display OCR metrics.",
+        variant="warning",
     )
-    _render_metric_grid(cards, num_columns=2)
 
 
 # =============================================================================
@@ -583,20 +568,23 @@ def render_metrics(
     retrieval_time_ms: Optional[Union[int, float]] = None,
     confidence_score: Optional[float] = None,
     pipeline_status: StatusKind = "offline",
+    voice_input_enabled: bool = True,
+    voice_output_enabled: bool = True,
     gemini_status: Optional[StatusKind] = None,
-    knowledge_base_status: Optional[StatusKind] = None,
+    vector_store_status: Optional[StatusKind] = None,
     retrieved_sources: Optional[StatValue] = None,
     chunks_retrieved: Optional[StatValue] = None,
+    response_length: Optional[StatValue] = None,
     primary_source: Optional[str] = None,
-    sources_used: Optional[StatValue] = None,
     document_types: Optional[Sequence[str]] = None,
+    ranking_method: Optional[str] = None,
 ) -> None:
     """
     Assemble the complete "AI Insights" panel in one call.
 
     Convenience entry point for `app.py`: renders the panel header,
-    Assistant Status, Performance, Response Insights, and AI Modules —
-    in order, separated by dividers.
+    AI Services, Performance, Retrieval, and Prescription Analysis — in
+    order, separated by dividers.
 
     Every argument is a plain value forwarded to the corresponding
     section function below; see each section function's docstring for
@@ -621,6 +609,8 @@ def render_metrics(
                 retrieval_time_ms=st.session_state.retrieval_time,
                 confidence_score=st.session_state.confidence_score,
                 pipeline_status="online" if st.session_state.backend_initialized else "offline",
+                voice_input_enabled=True,
+                voice_output_enabled=True,
             )
 
     Returns:
@@ -629,10 +619,12 @@ def render_metrics(
     render_metrics_header()
     render_divider()
 
-    render_assistant_status(
+    render_ai_services(
         pipeline_status=pipeline_status,
+        voice_input_enabled=voice_input_enabled,
+        voice_output_enabled=voice_output_enabled,
         gemini_status=gemini_status,
-        knowledge_base_status=knowledge_base_status,
+        vector_store_status=vector_store_status,
     )
     render_divider()
 
@@ -641,14 +633,22 @@ def render_metrics(
         retrieval_time_ms=retrieval_time_ms,
         retrieved_sources=retrieved_sources,
         chunks_retrieved=chunks_retrieved,
+        response_length=response_length,
     )
     render_divider()
 
-    render_response_insights(
+    render_retrieval(
         primary_source=primary_source,
-        sources_used=sources_used,
         document_types=document_types,
+        ranking_method=ranking_method,
+        confidence_score=confidence_score,
     )
     render_divider()
 
-    render_ai_modules()
+    render_prescription_analysis()
+    render_technical_details(
+        pipeline_status=pipeline_status,
+        gemini_status=gemini_status,
+        vector_store_status=vector_store_status,
+        confidence_score=confidence_score,
+    )

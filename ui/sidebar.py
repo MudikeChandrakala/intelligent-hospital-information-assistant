@@ -562,35 +562,37 @@ def render_sidebar(
     render_navigation(active_page=active_page)
     render_divider()
 
-    render_kb_status(
-        documents_loaded=documents_loaded,
-        vector_store_status=vector_store_status,
-        embedding_model=embedding_model,
-        last_updated=last_updated,
-    )
-    render_divider()
-
-    render_ai_status(
-        gemini_status=gemini_status,
-        retriever_status=retriever_status,
-        rag_pipeline_status=rag_pipeline_status,
-        connection_status=connection_status,
-    )
-    render_divider()
-
-    render_quick_stats(
-        doctors=doctors,
-        departments=departments,
-        diseases=diseases,
-        medicines=medicines,
-        appointments=appointments,
-    )
-    render_divider()
-
     actions = render_quick_actions()
     render_divider()
 
-    render_project_info(college=college, tech_stack=tech_stack)
+    with st.expander("Developer Mode", expanded=False):
+        render_kb_status(
+            documents_loaded=documents_loaded,
+            vector_store_status=vector_store_status,
+            embedding_model=embedding_model,
+            last_updated=last_updated,
+        )
+        render_divider()
+
+        render_ai_status(
+            gemini_status=gemini_status,
+            retriever_status=retriever_status,
+            rag_pipeline_status=rag_pipeline_status,
+            connection_status=connection_status,
+        )
+        render_divider()
+
+        render_quick_stats(
+            doctors=doctors,
+            departments=departments,
+            diseases=diseases,
+            medicines=medicines,
+            appointments=appointments,
+        )
+        render_divider()
+
+        render_project_info(college=college, tech_stack=tech_stack)
+
     render_sidebar_footer()
 
     return actions
