@@ -42,8 +42,14 @@ or `listen_and_transcribe()`, so it can never crash the calling app.
 from __future__ import annotations
 
 import logging
+from io import BytesIO
 from dataclasses import dataclass
 from typing import Optional
+
+try:
+    from gtts import gTTS
+except ImportError:  # pragma: no cover - handled gracefully by `text_to_speech()`
+    gTTS = None  # type: ignore[assignment]
 
 try:
     import speech_recognition as sr
@@ -72,6 +78,11 @@ DEFAULT_AMBIENT_NOISE_DURATION_SECONDS: float = 0.5
 
 #: BCP-47 language tag passed to Google's speech recognition API.
 DEFAULT_LANGUAGE: str = "en-US"
+#: Language used for Text-to-Speech
+DEFAULT_TTS_LANGUAGE = "en"
+
+#: Speech speed
+DEFAULT_TTS_SLOW = False
 
 # --- User-friendly status messages ------------------------------------------
 _MESSAGE_UNAVAILABLE_PACKAGE: str = (
@@ -298,3 +309,53 @@ class VoiceAssistant:
             return VoiceRecognitionResult(success=False, text=None, status_message=capture_result.status_message)
 
         return self.transcribe_audio(capture_result.audio)
+
+    def text_to_speech(self, text: str) -> Optional[bytes]:
+        """
+        Convert text into MP3 audio using gTTS.
+
+        Returns:
+            MP3 bytes if successful, otherwise None.
+        """
+        logger.info("Entering text_to_speech()")
+
+        if gTTS is None:
+            logger.warning("text_to_speech() called but 'gTTS' is not installed.")
+            return None
+
+        cleaned_text = (text or "").strip()
+        if not cleaned_text:
+            logger.debug("text_to_speech() called with empty text.")
+            return None
+
+        try:
+            audio_buffer = BytesIO()
+            logger.info("Initialized in-memory audio buffer.")
+
+            tts = gTTS(
+                text=cleaned_text,
+                lang=DEFAULT_TTS_LANGUAGE,
+                slow=DEFAULT_TTS_SLOW,
+            )
+            logger.info("gTTS initialized successfully.")
+
+            logger.info("Writing MP3 data to buffer.")
+            tts.write_to_fp(audio_buffer)
+            buffer_size = audio_buffer.tell()
+            logger.info("MP3 write complete; buffer position=%d bytes.", buffer_size)
+
+            audio_buffer.seek(0)
+            logger.info("Audio buffer rewound to start.")
+
+            audio_bytes = audio_buffer.read()
+            logger.info("Read MP3 bytes from buffer (byte_length=%d).", len(audio_bytes))
+
+            if not audio_bytes:
+                logger.warning("text_to_speech() produced an empty MP3 payload.")
+                return None
+
+            logger.info("Generated speech successfully (%d characters, %d bytes).", len(cleaned_text), len(audio_bytes))
+            return audio_bytes
+        except Exception as exc:  # noqa: BLE001 - never let TTS failures crash the app
+            logger.error("Text-to-speech failed: %s", exc)
+            return None

@@ -201,6 +201,7 @@ Public API
 from __future__ import annotations
 
 import logging
+import hashlib
 import os
 from dataclasses import dataclass
 from datetime import datetime
@@ -208,7 +209,19 @@ from typing import Optional
 import streamlit as st
 
 from ui.layout import LayoutColumns, PAGE_TITLE, PROJECT_VERSION, render_layout
-from ui.chat import ChatMessage, ChatRenderResult, render_chat
+from ui.chat import (
+    ChatMessage,
+    ChatRenderResult,
+    ConversationMetadata,
+    render_assistant_message,
+    render_chat_footer,
+    render_chat_header,
+    render_divider,
+    render_input_box,
+    render_typing_indicator,
+    render_user_message,
+    render_welcome,
+)
 from ui.sidebar import render_sidebar
 from ui.metrics import render_metrics
 
@@ -591,6 +604,9 @@ SESSION_STATE_DEFAULTS: dict[str, object] = {
     # --- Application flags -------------------------------------------------
     "sidebar_expanded": True,
     "metrics_expanded": True,
+    "speak_assistant_responses": True,
+    # --- Assistant audio cache --------------------------------------------
+    "assistant_response_audio_cache": {},
 }
 
 
@@ -880,6 +896,87 @@ def _process_pending_generation() -> None:
     st.rerun()
 
 
+def _assistant_audio_cache_key(message: ChatMessage, message_index: int) -> str:
+    """Build a stable cache key for one assistant message's generated audio."""
+    timestamp_value = str(message.timestamp)
+    fingerprint_source = f"{message_index}|{timestamp_value}|{message.content}"
+    fingerprint = hashlib.sha1(fingerprint_source.encode("utf-8")).hexdigest()
+    return f"assistant_audio_{fingerprint}"
+
+
+def _render_assistant_speech_control(message: ChatMessage, message_index: int) -> None:
+    """Render a play button and cached audio player for one assistant response."""
+    logger.info(
+        "Entering assistant playback control (message_index=%d, cached=%s, enabled=%s).",
+        message_index,
+        _assistant_audio_cache_key(message, message_index) in st.session_state.assistant_response_audio_cache,
+        st.session_state.speak_assistant_responses,
+    )
+
+    if not st.session_state.speak_assistant_responses:
+        logger.info("Assistant speech is disabled; hiding play control.")
+        return
+
+    cache_key = _assistant_audio_cache_key(message, message_index)
+    audio_cache: dict[str, bytes] = st.session_state.assistant_response_audio_cache
+    audio_bytes = audio_cache.get(cache_key)
+
+    button_key = f"play_response_{cache_key}"
+    clicked = st.button("🔊 Play Response", key=button_key, use_container_width=False)
+    if clicked:
+        logger.info("Play Response clicked for assistant message %s.", cache_key)
+        if audio_bytes is None:
+            logger.info("No cached MP3 found; generating speech for assistant message %s.", cache_key)
+            audio_bytes = _voice_assistant.text_to_speech(message.content)
+            if audio_bytes is None:
+                st.warning("⚠ Unable to generate speech.")
+                logger.warning("Unable to generate speech for assistant message %s.", cache_key)
+                return
+
+            audio_cache[cache_key] = audio_bytes
+            logger.info("Cached MP3 bytes for assistant message %s (byte_length=%d).", cache_key, len(audio_bytes))
+
+    if audio_bytes is None:
+        logger.info("No cached audio available yet for assistant message %s; render button only.", cache_key)
+        return
+
+    logger.info("Rendering Streamlit audio player for assistant message %s (byte_length=%d).", cache_key, len(audio_bytes))
+    st.audio(audio_bytes, format="audio/mp3")
+
+
+def _render_chat_panel() -> ChatRenderResult:
+    """Render the chat panel with per-assistant-response playback controls."""
+    resolved_messages = list(st.session_state.messages)
+
+    render_chat_header(
+        metadata=ConversationMetadata(
+            message_count=len(resolved_messages),
+            ai_status="online" if st.session_state.backend_initialized else "offline",
+        )
+    )
+    render_divider()
+
+    selected_example: Optional[str] = None
+    if not resolved_messages:
+        selected_example = render_welcome()
+    else:
+        for message_index, message in enumerate(resolved_messages):
+            if message.role == "user":
+                render_user_message(message)
+            else:
+                render_assistant_message(message)
+                _render_assistant_speech_control(message, message_index)
+
+        if st.session_state.is_generating:
+            render_typing_indicator()
+
+    render_divider()
+    input_result = render_input_box(disabled=st.session_state.is_generating)
+    render_chat_footer()
+
+    return ChatRenderResult(input=input_result, selected_example=selected_example)
+
+
 # =============================================================================
 # VOICE INPUT (Phase 10A)
 # =============================================================================
@@ -1159,13 +1256,10 @@ def _render_layout(columns: LayoutColumns) -> None:
     """
     with columns.sidebar:
         render_sidebar()
+        st.checkbox("Speak Assistant Responses", key="speak_assistant_responses")
 
     with columns.chat:
-        chat_result: ChatRenderResult = render_chat(
-        messages=st.session_state.messages,
-        ai_status="online" if st.session_state.backend_initialized else "offline",
-        is_generating=st.session_state.is_generating,
-    )
+        chat_result: ChatRenderResult = _render_chat_panel()
         _render_voice_input_control()
 
     with columns.insights:
