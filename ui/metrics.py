@@ -13,13 +13,38 @@ It does NOT:
     - Access ChromaDB or any vector store
     - Access the Retriever
     - Calculate metrics, confidence scores, or coverage percentages
-    - Read or write Streamlit session state
+    - Perform OCR, parse prescriptions, look up medicines, or generate
+      reports
     - Perform any other business logic
 
 Every value shown here is supplied by the caller as a plain function
 argument (typically forwarded from `app.py`, which itself gets them from
-the `RAGPipeline`). This keeps the module a pure, testable, reusable
-presentation layer — exactly like `ui/sidebar.py`.
+the `RAGPipeline`) — with one deliberate exception, described next.
+
+-----------------------------------------------------------------------------
+Session state usage (Prescription Analysis exception) — Phase 11F
+-----------------------------------------------------------------------------
+Every section in this module remains a pure function of its arguments,
+EXCEPT `render_prescription_metrics()`. Phase 11E's `ui/prescription.py`
+(unmodified by this phase) already stores its OCR/report results
+directly in `st.session_state` under `prescription_analysis_result`,
+`prescription_report_result`, `prescription_analysis_duration_ms`, and
+`prescription_report_duration_ms` as it runs. Rather than duplicating
+those into a second set of per-metric session-state keys, this module
+reads those same four objects directly and derives every displayed
+value (OCR confidence, lines, characters, medicines detected/matched,
+report source, low-confidence flag) from them at render time — exactly
+as `ui/prescription.py`'s own `_render_performance_section()` /
+`_render_technical_details_section()` already do for its own page.
+`render_metrics()` decides whether to show this section (instead of the
+normal chatbot "Performance"/"Retrieval" sections) by reading
+`st.session_state["sidebar_active_page"]` — the same key `app.py` itself
+sets from the sidebar and compares against `"Prescription Analysis"` —
+unless the caller passes `active_page` explicitly.
+
+The exact session-state key names this reads are centralized in the
+"SESSION STATE KEYS" constants block below, and were taken directly from
+`ui/prescription.py` and `app.py`, not guessed.
 
 -----------------------------------------------------------------------------
 Design note (healthcare AI dashboard redesign)
@@ -98,6 +123,7 @@ Public API
     render_performance()             -> None
     render_response_insights()        -> None
     render_ai_modules()                -> None
+    render_prescription_metrics()       -> None   (Phase 11F; reads session state)
     render_metrics()                    -> None   (orchestrator; call from app.py)
 -----------------------------------------------------------------------------
 """
@@ -109,7 +135,7 @@ from typing import Literal, Optional, Sequence, Union
 
 import streamlit as st
 
-from ui.components import render_divider, render_info_panel, render_metric_card, render_section_header
+from ui.components import render_divider, render_metric_card, render_section_header
 
 # =============================================================================
 # TYPE ALIASES
@@ -125,9 +151,6 @@ StatValue = Union[int, str]
 #: Text shown in place of a genuinely missing value. Never a fabricated
 #: `0` or an em-dash — an explicit, honest "we don't have this yet".
 NOT_AVAILABLE: str = "Not Available"
-
-#: Text shown for a feature that is planned but not yet implemented.
-COMING_SOON: str = "\U0001F6A7 Coming Soon"
 
 #: Text shown for a feature that is implemented and usable today.
 AVAILABLE: str = "\u2705 Available"
@@ -167,6 +190,54 @@ _AI_SERVICE_ROWS: tuple[tuple[str, str], ...] = (
     ("Voice Input", "\U0001F3A4"),
     ("Voice Output", "\U0001F50A"),
 )
+
+
+# =============================================================================
+# SESSION STATE KEYS — PRESCRIPTION ANALYSIS (Phase 11F, corrected)
+# =============================================================================
+# `render_prescription_metrics()` reads the SAME session-state objects
+# `ui/prescription.py` already writes — nothing new is stored. These four
+# constants match `ui/prescription.py`'s own private
+# `_ANALYSIS_RESULT_KEY` / `_REPORT_RESULT_KEY` / `_ANALYSIS_DURATION_MS_KEY`
+# / `_REPORT_DURATION_MS_KEY` literals exactly (verified by inspecting
+# that module directly, not guessed):
+#
+#   prescription_analysis_result   -> dict from `analyzer.analyze()`,
+#       with keys "success", "confidence" (0-100), "lines", "characters",
+#       "medicines" (list), "ocr_text", "error".
+#   prescription_report_result     -> dict from `ai_service.generate_report()`,
+#       with keys "success", "report_text", "used_fallback" (bool),
+#       "low_confidence" (bool), "matched_medicines" (list of dicts each
+#       with a "matched" bool).
+#   prescription_analysis_duration_ms -> float ms, or None before analysis.
+#   prescription_report_duration_ms   -> float ms, or None before a report.
+#
+# Every other display value (OCR confidence, lines, characters, medicines
+# detected, medicines matched, report source, low-confidence flag) is
+# DERIVED from the two result dicts below at render time, exactly the way
+# `ui/prescription.py`'s own `_render_performance_section()` and
+# `_render_technical_details_section()` already derive them — it is not
+# stored under any separate key.
+SESSION_KEY_ANALYSIS_RESULT: str = "prescription_analysis_result"
+SESSION_KEY_REPORT_RESULT: str = "prescription_report_result"
+SESSION_KEY_ANALYSIS_DURATION_MS: str = "prescription_analysis_duration_ms"
+SESSION_KEY_REPORT_DURATION_MS: str = "prescription_report_duration_ms"
+
+#: Session-state key holding the name of the currently active page/tab.
+#: Matches the key `app.py` actually seeds and reads
+#: (`SESSION_STATE_DEFAULTS["sidebar_active_page"]`, read in
+#: `_render_layout()` as `st.session_state.sidebar_active_page`) —
+#: verified by inspecting `app.py` directly, not guessed.
+SESSION_KEY_ACTIVE_PAGE: str = "sidebar_active_page"
+
+#: The `SESSION_KEY_ACTIVE_PAGE` value that means "show the Prescription
+#: Analysis metrics section instead of the chatbot Performance/Retrieval
+#: sections". Compared case- and separator-insensitively (see
+#: `_normalize_page_name()`), so "Prescription Analysis",
+#: "prescription_analysis", and "prescription-analysis" all match; this
+#: also matches the literal `"Prescription Analysis"` string `app.py`
+#: itself compares `sidebar_active_page` against.
+PRESCRIPTION_ANALYSIS_PAGE_NAME: str = "Prescription Analysis"
 
 
 # =============================================================================
@@ -271,6 +342,35 @@ def _format_response_length(value: Optional[StatValue]) -> str:
     return f"{value} chars"
 
 
+def _format_low_confidence_flag(
+    value: Optional[bool],
+) -> tuple[str, Optional[Literal["success", "warning", "error"]]]:
+    """
+    Format the prescription OCR "low confidence" flag as a short label
+    plus the metric-card accent color that matches it.
+
+    Args:
+        value: True if the OCR result was flagged low-confidence, False
+            if it was not, or `None` if unavailable.
+
+    Returns:
+        A `(label, accent)` tuple: a warning-accented "Low Confidence"
+        label when `value` is True, a success-accented "Good Confidence"
+        label when `value` is False, or `(NOT_AVAILABLE, None)` when
+        `value` is `None`.
+    """
+    if value is None:
+        return NOT_AVAILABLE, None
+    if value:
+        return "\u26A0\uFE0F Low Confidence", "warning"
+    return "\u2705 Good Confidence", "success"
+
+
+def _normalize_page_name(value: str) -> str:
+    """Normalize a page name for loose comparison (case/separator-insensitive)."""
+    return value.strip().lower().replace("_", " ").replace("-", " ")
+
+
 def _format_document_types(document_types: Optional[Sequence[str]]) -> str:
     """
     Format a list of retrieved-document types for display.
@@ -341,6 +441,31 @@ def _status_card_accent(status: StatusKind) -> Optional[Literal["success", "warn
     if status in ("warning", "processing"):
         return "warning"
     return "error"
+
+
+def _is_prescription_analysis_active(active_page: Optional[str] = None) -> bool:
+    """
+    Determine whether the Prescription Analysis page is currently active.
+
+    Reads `st.session_state[SESSION_KEY_ACTIVE_PAGE]` when `active_page`
+    isn't given explicitly — the only place in this module that reads
+    session state (see the module docstring's "Session state usage"
+    section). Comparison is case- and separator-insensitive, and a
+    missing/non-string value safely resolves to False so the panel
+    defaults to the normal chatbot metrics rather than guessing.
+
+    Args:
+        active_page: The active page name to check, or `None` to read
+            it from `st.session_state` instead.
+
+    Returns:
+        True if the (given or session-state) active page is Prescription
+        Analysis, False otherwise.
+    """
+    resolved_page = active_page if active_page is not None else st.session_state.get(SESSION_KEY_ACTIVE_PAGE)
+    if not resolved_page or not isinstance(resolved_page, str):
+        return False
+    return _normalize_page_name(resolved_page) == _normalize_page_name(PRESCRIPTION_ANALYSIS_PAGE_NAME)
 
 
 def _render_section_label(label: str) -> None:
@@ -544,18 +669,108 @@ def render_technical_details(
 
 
 # =============================================================================
-# SECTION 5 — AI MODULES
+# SECTION 5 — PRESCRIPTION ANALYSIS (Phase 11F)
 # =============================================================================
 
 
-def render_prescription_analysis() -> None:
-    """Render the display-only prescription analysis section."""
+def render_prescription_metrics() -> None:
+    """
+    Render the "Prescription Analysis" section from the real OCR/report
+    objects `ui/prescription.py` (Phase 11E) already stores in
+    `st.session_state` — `prescription_analysis_result`,
+    `prescription_report_result`, `prescription_analysis_duration_ms`,
+    and `prescription_report_duration_ms` (see the "SESSION STATE KEYS"
+    constants block above). No separate per-metric session-state key is
+    read or written; every displayed value is derived from those four
+    objects at render time, the same way `ui/prescription.py`'s own
+    `_render_performance_section()` / `_render_technical_details_section()`
+    already derive them for its own page.
+
+    This is the one section in this module that reads `st.session_state`
+    directly (see the module docstring's "Session state usage" section).
+    Every value tolerates a missing/None result (e.g. before "Analyze
+    Prescription" has been clicked) and renders as `NOT_AVAILABLE`
+    rather than raising or fabricating a number.
+
+    Returns:
+        None. Renders directly into the Streamlit app.
+    """
     _render_section_label("Prescription Analysis")
-    render_info_panel(
-        title=COMING_SOON,
-        message="This section will later display OCR metrics.",
-        variant="warning",
+
+    analysis_result: Optional[dict[str, object]] = st.session_state.get(SESSION_KEY_ANALYSIS_RESULT)
+    report_result: Optional[dict[str, object]] = st.session_state.get(SESSION_KEY_REPORT_RESULT)
+    analysis_duration_ms = st.session_state.get(SESSION_KEY_ANALYSIS_DURATION_MS)
+    report_duration_ms = st.session_state.get(SESSION_KEY_REPORT_DURATION_MS)
+
+    ocr_confidence = analysis_result.get("confidence") if analysis_result else None
+    ocr_lines = analysis_result.get("lines") if analysis_result else None
+    ocr_characters = analysis_result.get("characters") if analysis_result else None
+    medicines_detected = len(analysis_result.get("medicines", [])) if analysis_result else None
+
+    if report_result:
+        matched_medicines = list(report_result.get("matched_medicines", []))
+        matched_count = sum(1 for item in matched_medicines if item.get("matched"))
+        medicines_matched_display = (
+            f"{matched_count} / {len(matched_medicines)}" if matched_medicines else NOT_AVAILABLE
+        )
+        report_source = "Fallback Template" if report_result.get("used_fallback") else "Gemini AI"
+        low_confidence_value = report_result.get("low_confidence")
+    else:
+        medicines_matched_display = NOT_AVAILABLE
+        report_source = None
+        low_confidence_value = None
+
+    low_confidence_label, low_confidence_accent = _format_low_confidence_flag(low_confidence_value)
+
+    cards = (
+        MetricCardSpec(
+            title="OCR Time",
+            value=_format_ms(analysis_duration_ms),
+            icon="\U0001F4C4",
+        ),
+        MetricCardSpec(
+            title="Report Generation Time",
+            value=_format_ms(report_duration_ms),
+            icon="\U0001F4DD",
+        ),
+        MetricCardSpec(
+            title="OCR Confidence",
+            value=_format_confidence_score(ocr_confidence),
+            icon="\U0001F3AF",
+        ),
+        MetricCardSpec(
+            title="Medicines Detected",
+            value=_format_count(medicines_detected),
+            icon="\U0001F48A",
+        ),
+        MetricCardSpec(
+            title="Medicines Matched",
+            value=medicines_matched_display,
+            icon="\u2705",
+        ),
+        MetricCardSpec(
+            title="OCR Lines",
+            value=_format_count(ocr_lines),
+            icon="\U0001F4CF",
+        ),
+        MetricCardSpec(
+            title="OCR Characters",
+            value=_format_count(ocr_characters),
+            icon="\U0001F521",
+        ),
+        MetricCardSpec(
+            title="Report Source",
+            value=_format_text(report_source),
+            icon="\U0001F4C1",
+        ),
+        MetricCardSpec(
+            title="Confidence Check",
+            value=low_confidence_label,
+            icon="\U0001F50D",
+            status=low_confidence_accent,
+        ),
     )
+    _render_metric_grid(cards, num_columns=3)
 
 
 # =============================================================================
@@ -578,13 +793,16 @@ def render_metrics(
     primary_source: Optional[str] = None,
     document_types: Optional[Sequence[str]] = None,
     ranking_method: Optional[str] = None,
+    active_page: Optional[str] = None,
 ) -> None:
     """
     Assemble the complete "AI Insights" panel in one call.
 
-    Convenience entry point for `app.py`: renders the panel header,
-    AI Services, Performance, Retrieval, and Prescription Analysis — in
-    order, separated by dividers.
+    Convenience entry point for `app.py`: renders the panel header and
+    AI Services, then EITHER the chatbot "Performance"/"Retrieval"
+    sections OR the Phase 11F "Prescription Analysis" metrics section —
+    never both — depending on which page is active, followed by
+    Technical Details.
 
     Every argument is a plain value forwarded to the corresponding
     section function below; see each section function's docstring for
@@ -613,6 +831,15 @@ def render_metrics(
                 voice_output_enabled=True,
             )
 
+    `active_page` selects which metrics section is shown: when it (or,
+    if not given, `st.session_state[SESSION_KEY_ACTIVE_PAGE]`) equals
+    `PRESCRIPTION_ANALYSIS_PAGE_NAME`, `render_prescription_metrics()`
+    replaces the chatbot "Performance" and "Retrieval" sections;
+    otherwise those two chatbot sections render exactly as before. Left
+    unpassed, `app.py`'s existing call above keeps working unmodified —
+    it will simply follow whatever page is currently active in session
+    state.
+
     Returns:
         None. Renders directly into the Streamlit app.
     """
@@ -628,24 +855,26 @@ def render_metrics(
     )
     render_divider()
 
-    render_performance(
-        response_time_ms=response_time_ms,
-        retrieval_time_ms=retrieval_time_ms,
-        retrieved_sources=retrieved_sources,
-        chunks_retrieved=chunks_retrieved,
-        response_length=response_length,
-    )
-    render_divider()
+    if _is_prescription_analysis_active(active_page):
+        render_prescription_metrics()
+    else:
+        render_performance(
+            response_time_ms=response_time_ms,
+            retrieval_time_ms=retrieval_time_ms,
+            retrieved_sources=retrieved_sources,
+            chunks_retrieved=chunks_retrieved,
+            response_length=response_length,
+        )
+        render_divider()
 
-    render_retrieval(
-        primary_source=primary_source,
-        document_types=document_types,
-        ranking_method=ranking_method,
-        confidence_score=confidence_score,
-    )
-    render_divider()
+        render_retrieval(
+            primary_source=primary_source,
+            document_types=document_types,
+            ranking_method=ranking_method,
+            confidence_score=confidence_score,
+        )
+        render_divider()
 
-    render_prescription_analysis()
     render_technical_details(
         pipeline_status=pipeline_status,
         gemini_status=gemini_status,

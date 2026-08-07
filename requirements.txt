@@ -40,3 +40,7 @@ python-dotenv==1.2.2
 # User Interface
 # -----------------------------
 streamlit==1.53.0
+
+# Prescription Report Downloads
+# -----------------------------
+reportlab==4.5.1

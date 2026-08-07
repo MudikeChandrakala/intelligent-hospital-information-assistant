@@ -211,6 +211,7 @@ import streamlit as st
 from ui.layout import LayoutColumns, PAGE_TITLE, PROJECT_VERSION, render_layout
 from ui.chat import (
     ChatMessage,
+    ChatInputResult,
     ChatRenderResult,
     ConversationMetadata,
     render_assistant_message,
@@ -225,6 +226,7 @@ from ui.chat import (
 from ui.components import render_info_panel, render_metric_card, render_section_header
 from ui.sidebar import render_sidebar
 from ui.metrics import render_metrics
+from ui.prescription import render_prescription_page
 
 # --- Phase 2: backend service classes (constructed, not invoked, here) ----
 # These live in the `modules` package alongside `ui`. `RAGPipeline` already
@@ -602,6 +604,7 @@ SESSION_STATE_DEFAULTS: dict[str, object] = {
     "system_status": "Initializing",
     # --- Conversation metadata ---------------------------------------------
     "conversation_count": 0,
+    "sidebar_active_page": "AI Assistant",
     # --- Application flags -------------------------------------------------
     "sidebar_expanded": True,
     "metrics_expanded": True,
@@ -1360,12 +1363,21 @@ def _render_layout(columns: LayoutColumns) -> None:
     Returns:
         None.
     """
+    active_page = st.session_state.sidebar_active_page
+
     with columns.sidebar:
-        render_sidebar()
+        render_sidebar(active_page=active_page)
 
     with columns.chat:
-        chat_result: ChatRenderResult = _render_chat_panel()
-        _render_voice_input_control()
+        if active_page == "Prescription Analysis":
+            render_prescription_page()
+            chat_result = ChatRenderResult(
+                input=ChatInputResult(text="", ask_clicked=False, clear_clicked=False),
+                selected_example=None,
+            )
+        else:
+            chat_result = _render_chat_panel()
+            _render_voice_input_control()
 
     with columns.insights:
         _render_voice_assistant_panel()

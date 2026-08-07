@@ -111,6 +111,7 @@ NAV_ITEMS: tuple[NavItem, ...] = (
     NavItem(label="Dashboard", icon="\U0001F3E0"),           # house
     NavItem(label="AI Assistant", icon="\U0001F4AC"),        # speech balloon
     NavItem(label="Knowledge Base", icon="\U0001F4DA"),      # books
+    NavItem(label="Prescription Analysis", icon="\U0001F9EA"),  # test tube
     NavItem(label="How It Works", icon="\u2699\uFE0F"),      # gear
     NavItem(label="System Architecture", icon="\U0001F3D7\uFE0F"),  # building construction
     NavItem(label="About", icon="\u2139\uFE0F"),             # information
@@ -199,20 +200,17 @@ def render_navigation(
 
     st.markdown('<p class="sidebar-heading">Navigation</p>', unsafe_allow_html=True)
 
-    rows_html: List[str] = []
-    for item in nav_items:
-        is_active = item.label.strip().lower() == normalized_active
-        active_class = " sidebar-item--active" if is_active else ""
-        rows_html.append(
-            f'<div class="sidebar-item{active_class}">'
-            f'<span class="sidebar-item__icon">{item.icon}</span>'
-            f"<span>{item.label}</span>"
-            f"</div>"
-        )
+    option_labels = [item.label for item in nav_items]
+    icon_map = {item.label: item.icon for item in nav_items}
+    selected_index = next((index for index, item in enumerate(nav_items) if item.label.strip().lower() == normalized_active), 0)
 
-    st.markdown(
-        f'<div class="sidebar-nav-group">{"".join(rows_html)}</div>',
-        unsafe_allow_html=True,
+    selected_page = st.radio(
+        label="Navigation",
+        options=option_labels,
+        index=selected_index,
+        key="sidebar_active_page",
+        label_visibility="collapsed",
+        format_func=lambda label: f"{icon_map.get(label, '')} {label}".strip(),
     )
 
 
