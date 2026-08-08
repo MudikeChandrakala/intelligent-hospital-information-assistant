@@ -108,13 +108,9 @@ class NavItem:
 # The six top-level pages this application exposes. Order here is the
 # order they render in the sidebar.
 NAV_ITEMS: tuple[NavItem, ...] = (
-    NavItem(label="Dashboard", icon="\U0001F3E0"),           # house
-    NavItem(label="AI Assistant", icon="\U0001F4AC"),        # speech balloon
-    NavItem(label="Knowledge Base", icon="\U0001F4DA"),      # books
-    NavItem(label="Prescription Analysis", icon="\U0001F9EA"),  # test tube
-    NavItem(label="How It Works", icon="\u2699\uFE0F"),      # gear
-    NavItem(label="System Architecture", icon="\U0001F3D7\uFE0F"),  # building construction
-    NavItem(label="About", icon="\u2139\uFE0F"),             # information
+    NavItem(label="AI Assistant", icon="💬"),
+    NavItem(label="Voice Assistant", icon="🎤"),
+    NavItem(label="Prescription Analysis", icon="🧪"),
 )
 
 # Default technology-stack tags shown in the "Project Information" section.
@@ -173,7 +169,7 @@ def _render_logo(project_name: str, version: str, icon: str) -> None:
 
 
 def render_navigation(
-    active_page: str = "Dashboard",
+    active_page: str = "AI Assistant",
     items: Optional[Sequence[NavItem]] = None,
 ) -> None:
     """
@@ -207,7 +203,6 @@ def render_navigation(
     selected_page = st.radio(
         label="Navigation",
         options=option_labels,
-        index=selected_index,
         key="sidebar_active_page",
         label_visibility="collapsed",
         format_func=lambda label: f"{icon_map.get(label, '')} {label}".strip(),
@@ -379,28 +374,19 @@ def render_quick_actions() -> Dict[str, bool]:
         key="sidebar_action_refresh_kb",
         use_container_width=True,
     )
-    reload_clicked = st.button(
-        "\U0001F5C3\uFE0F Reload Vector Store",
-        key="sidebar_action_reload_vector_store",
-        use_container_width=True,
-    )
+    
+    
     clear_clicked = st.button(
         "\U0001F5D1\uFE0F Clear Chat",
         key="sidebar_action_clear_chat",
         use_container_width=True,
     )
-    export_clicked = st.button(
-        "\U0001F4E4 Export Chat",
-        key="sidebar_action_export_chat",
-        use_container_width=True,
-    )
+   
 
     return {
-        "refresh_knowledge_base": refresh_clicked,
-        "reload_vector_store": reload_clicked,
-        "clear_chat": clear_clicked,
-        "export_chat": export_clicked,
-    }
+      "refresh_knowledge_base": refresh_clicked,
+      "clear_chat": clear_clicked,
+}
 
 
 # =============================================================================
@@ -483,7 +469,7 @@ def render_sidebar_footer(version: Optional[str] = None) -> None:
 
 
 def render_sidebar(
-    active_page: str = "Dashboard",
+    active_page: str = "AI Assistant",
     documents_loaded: StatValue = "\u2014",
     vector_store_status: StatusKind = "offline",
     embedding_model: str = "Not configured",
@@ -561,36 +547,5 @@ def render_sidebar(
     render_divider()
 
     actions = render_quick_actions()
-    render_divider()
-
-    with st.expander("Developer Mode", expanded=False):
-        render_kb_status(
-            documents_loaded=documents_loaded,
-            vector_store_status=vector_store_status,
-            embedding_model=embedding_model,
-            last_updated=last_updated,
-        )
-        render_divider()
-
-        render_ai_status(
-            gemini_status=gemini_status,
-            retriever_status=retriever_status,
-            rag_pipeline_status=rag_pipeline_status,
-            connection_status=connection_status,
-        )
-        render_divider()
-
-        render_quick_stats(
-            doctors=doctors,
-            departments=departments,
-            diseases=diseases,
-            medicines=medicines,
-            appointments=appointments,
-        )
-        render_divider()
-
-        render_project_info(college=college, tech_stack=tech_stack)
-
-    render_sidebar_footer()
-
+   
     return actions

@@ -260,25 +260,10 @@ def _build_report_pdf(report_text: str, matched_medicines: list[dict[str, object
         for line in body.splitlines():
             write_line(line or " ")
         y_position -= 6
+    
 
-    if matched_medicines:
-        write_line("Retrieved Medicine Metadata", bold=True, size=12)
-        for item in matched_medicines:
-            metadata = item.get("metadata") or {}
-            if not isinstance(metadata, dict):
-                metadata = {}
-            name = metadata.get("generic_name") or item.get("detected_name") or "Medicine"
-            write_line(str(name), bold=True, size=11)
-            write_line(f"Match score: {float(item.get('match_score', 0.0)):.1f}%")
-            write_line(f"Class: {metadata.get('medicine_class') or 'Not Available'}")
-            write_line(f"Uses: {', '.join(metadata.get('uses', ['Not Available']))}")
-            write_line(f"Side effects: {', '.join(metadata.get('side_effects', ['Not Available']))}")
-            write_line(f"Precautions: {', '.join(metadata.get('precautions', ['Not Available']))}")
-            write_line(f"Storage: {metadata.get('storage') or 'Not Available'}")
-            y_position -= 6
-
-    pdf.save()
-    return buffer.getvalue()
+        pdf.save()
+        return buffer.getvalue()
 
 
 def _clear_cached_analysis_if_needed(file_hash: str) -> None:
@@ -469,7 +454,7 @@ def _render_detected_medicine(medicine: dict[str, str], index: int) -> None:
                 )
                 render_key_value(
                     {
-                        "Medicine Name": medicine.get("name") or "Not Available",
+                        
                         "Strength": medicine.get("strength") or "Not Available",
                         "Frequency": medicine.get("frequency") or "Not Available",
                     }
@@ -556,11 +541,7 @@ def _render_prescription_report(report_result: dict[str, object]) -> None:
 
     if matched_medicines:
         render_divider()
-        render_section_header(
-            title="Retrieved Medicine Metadata",
-            subtitle="Reference information matched to the extracted medicine names.",
-            icon="💊",
-        )
+        
 
         for index, item in enumerate(matched_medicines, start=1):
             metadata = item.get("metadata") or {}
@@ -670,28 +651,10 @@ def render_prescription_page() -> None:
         f"{image_width} × {image_height}" if image_width is not None and image_height is not None else "Not Available"
     )
 
-    preview_col, details_col = st.columns([1.4, 1], gap="large")
+    st.image(image, caption=upload_file.name, use_container_width=True)
 
-    with preview_col:
-        with st.container(border=True):
-            st.image(image, caption=upload_file.name, use_container_width=True)
-
-    with details_col:
-        with st.container(border=True):
-            st.markdown(
-                '<p style="font-weight:600; font-size:0.85rem; color:#64748b; '
-                'text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.5rem;">'
-                "File Details</p>",
-                unsafe_allow_html=True,
-            )
-            render_key_value(
-                {
-                    "Filename": upload_file.name,
-                    "Image Size": image_size_label,
-                    "Resolution": resolution_label,
-                }
-            )
-            st.markdown('<div style="height:0.5rem"></div>', unsafe_allow_html=True)
+    
+   
 
     analyze_clicked = st.button("Analyze Prescription", use_container_width=True)
     if analyze_clicked:
@@ -758,24 +721,6 @@ def render_prescription_page() -> None:
         medicines[:3],
     )
 
-    render_section_header(
-        title="OCR Results",
-        subtitle="Extracted text and OCR summary metrics.",
-        icon="🧾",
-    )
-
-    st.text_area(
-        "Extracted Text (Display Cleaned)",
-        value=_clean_ocr_display_text(ocr_text),
-        height=240,
-        disabled=True,
-        key=f"prescription_ocr_text_{file_hash}",
-    )
-
-    _render_analysis_metrics(analysis_result)
-    render_divider()
-    _render_performance_section(analysis_result, report_result, analysis_duration_ms, report_duration_ms)
-    render_divider()
 
     render_section_header(
         title="Detected Medicines",
@@ -820,7 +765,10 @@ def render_prescription_page() -> None:
             ),
             variant="info",
         )
-
-    render_divider()
-
-    _render_technical_details_section(analysis_result, report_result, resolution_label, image_size_label)
+    with st.expander("🛠️ Technical Details", expanded=False):
+        _render_technical_details_section(
+            analysis_result,
+            report_result,
+            resolution_label,
+            image_size_label,
+    )

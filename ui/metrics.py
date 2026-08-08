@@ -187,8 +187,6 @@ _AI_SERVICE_ROWS: tuple[tuple[str, str], ...] = (
     ("Gemini", "\u2728"),
     ("Retriever", "\U0001F9E0"),
     ("Vector Store", "\U0001F4DA"),
-    ("Voice Input", "\U0001F3A4"),
-    ("Voice Output", "\U0001F50A"),
 )
 
 
@@ -494,21 +492,12 @@ def _render_section_label(label: str) -> None:
 
 
 def render_metrics_header() -> None:
-    """
-    Render the AI Insights panel header.
-
-    Displays the panel title ("AI Insights") and a subtitle describing
-    the assistant, via the shared `render_section_header` component.
-
-    Returns:
-        None. Renders directly into the Streamlit app.
-    """
+    """Render the right-column system status header."""
     render_section_header(
-        title="AI Insights",
-        subtitle="Your AI healthcare assistant, at a glance",
-        icon="\U0001F3E5",
+        title="System Status",
+        subtitle="Hospital AI services and performance",
+        icon="⚙️",
     )
-
 
 # =============================================================================
 # SECTION 2 — ASSISTANT STATUS
@@ -532,8 +521,7 @@ def render_ai_services(
         "Gemini": _status_emoji_label(resolved_gemini_status)[1],
         "Retriever": _status_emoji_label(pipeline_status)[1],
         "Vector Store": _status_emoji_label(resolved_vector_store_status)[1],
-        "Voice Input": _format_status(voice_input_enabled),
-        "Voice Output": _format_status(voice_output_enabled),
+        
     }
 
     cards: list[MetricCardSpec] = []
@@ -743,34 +731,9 @@ def render_prescription_metrics() -> None:
             value=_format_count(medicines_detected),
             icon="\U0001F48A",
         ),
-        MetricCardSpec(
-            title="Medicines Matched",
-            value=medicines_matched_display,
-            icon="\u2705",
-        ),
-        MetricCardSpec(
-            title="OCR Lines",
-            value=_format_count(ocr_lines),
-            icon="\U0001F4CF",
-        ),
-        MetricCardSpec(
-            title="OCR Characters",
-            value=_format_count(ocr_characters),
-            icon="\U0001F521",
-        ),
-        MetricCardSpec(
-            title="Report Source",
-            value=_format_text(report_source),
-            icon="\U0001F4C1",
-        ),
-        MetricCardSpec(
-            title="Confidence Check",
-            value=low_confidence_label,
-            icon="\U0001F50D",
-            status=low_confidence_accent,
-        ),
+       
     )
-    _render_metric_grid(cards, num_columns=3)
+    _render_metric_grid(cards, num_columns=2)
 
 
 # =============================================================================
@@ -875,9 +838,4 @@ def render_metrics(
         )
         render_divider()
 
-    render_technical_details(
-        pipeline_status=pipeline_status,
-        gemini_status=gemini_status,
-        vector_store_status=vector_store_status,
-        confidence_score=confidence_score,
-    )
+    

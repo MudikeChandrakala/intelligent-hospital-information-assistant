@@ -398,18 +398,8 @@ def render_chat_header(metadata: Optional[ConversationMetadata] = None) -> None:
         icon="\U0001F916",
     )
 
-    status_col, count_col = st.columns([1, 1])
-    with status_col:
-        render_status_badge(
-            label=resolved_metadata.ai_status.title(),
-            status=resolved_metadata.ai_status,
-        )
-    with count_col:
-        render_tag(
-            f"{resolved_metadata.message_count} message"
-            f"{'s' if resolved_metadata.message_count != 1 else ''}",
-            variant="neutral",
-        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
 
 
 # =============================================================================

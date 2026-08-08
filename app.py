@@ -205,7 +205,7 @@ import hashlib
 import os
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
+from typing import Literal, Optional
 import streamlit as st
 
 from ui.layout import LayoutColumns, PAGE_TITLE, PROJECT_VERSION, render_layout
@@ -582,9 +582,13 @@ def initialize_backend() -> BackendServices:
 #: the full set of state the app depends on is visible in one place.
 SESSION_STATE_DEFAULTS: dict[str, object] = {
     # --- Chat state ---------------------------------------------------
-    # `messages` is the application's single source of truth for the
-    # conversation (a list of `{"role": ..., "content": ...}` turns).
-    "messages": [],
+    # AI Assistant and Voice Assistant each keep their own, completely
+    # independent conversation history. Both are lists of `ChatMessage`
+    # turns; which one a given helper reads/writes is decided by its
+    # `target` parameter ("ai" or "voice") rather than by a single
+    # shared list.
+    "ai_messages": [],
+    "voice_messages": [],
     # --- User state ------------------------------------------------------
     "current_question": "",
     "current_response": "",
@@ -593,6 +597,7 @@ SESSION_STATE_DEFAULTS: dict[str, object] = {
     "backend_initialized": False,
     # --- Generation state --------------------------------------------------
     "is_generating": False,
+    "pending_target": "ai",
     # --- Retrieved information ---------------------------------------------
     "retrieved_documents": [],
     "source_documents": [],
@@ -676,17 +681,27 @@ _INSIGHTS_PLACEHOLDER_TEXT: str = "Metrics panel ready. Waiting for Phase 9."
 # state for the generation phase that follows.
 
 
-def _handle_user_prompt(prompt: str) -> None:
+def _handle_user_prompt(prompt: str, target: Literal["ai", "voice"] = "ai") -> None:
     """
     Record a newly submitted user prompt into `st.session_state`.
 
     Uses only the existing session-state keys seeded by
-    `initialize_session_state()` (Phase 3). Appends the prompt to
-    `messages` — the application's single source of truth for the
-    conversation — updates `current_question`, resets
-    `current_response` for the upcoming answer, increments
-    `conversation_count`, and sets `is_generating` to `True` so a
-    later phase knows a response is owed.
+    `initialize_session_state()` (Phase 3), plus the independent
+    `ai_messages` / `voice_messages` conversation lists. Appends the
+    prompt to whichever list `target` selects — the application's
+    single source of truth for that page's conversation — updates
+    `current_question`, resets `current_response` for the upcoming
+    answer, increments `conversation_count`, and sets `is_generating`
+    to `True` so a later phase knows a response is owed.
+
+    `current_question`, `current_response`, `conversation_count`, and
+    `is_generating` remain shared, page-agnostic bookkeeping: only one
+    prompt can ever be "pending" at a time in Streamlit's synchronous
+    execution model, so a single shared pending-generation flag is
+    sufficient — `_process_pending_generation()` determines which
+    conversation that pending prompt belongs to from
+    `st.session_state.sidebar_active_page`, which cannot change between
+    this call and the rerun that resolves it.
 
     This function does not call `RAGPipeline.ask()`, retrieve
     documents, call Gemini, compute response/retrieval time or
@@ -695,6 +710,11 @@ def _handle_user_prompt(prompt: str) -> None:
     Args:
         prompt: The submitted user prompt text, already known to be
             non-empty.
+        target: Which conversation this prompt belongs to — "ai" for
+            `st.session_state.ai_messages` (the AI Assistant page) or
+            "voice" for `st.session_state.voice_messages` (the Voice
+            Assistant page). Defaults to "ai" to preserve prior
+            behavior for any caller that does not pass it explicitly.
 
     Returns:
         None.
@@ -705,13 +725,19 @@ def _handle_user_prompt(prompt: str) -> None:
         timestamp=datetime.now(),
     )
 
-    st.session_state.messages.append(user_turn)
+    target_messages = st.session_state.ai_messages if target == "ai" else st.session_state.voice_messages
+    target_messages.append(user_turn)
+
     st.session_state.current_question = prompt
     st.session_state.current_response = ""
+    st.session_state.pending_target = target
     st.session_state.conversation_count += 1
     st.session_state.is_generating = True
-
-    logger.info("User prompt captured (conversation_count=%d).", st.session_state.conversation_count)
+    logger.info(
+        "User prompt captured for %s conversation (conversation_count=%d).",
+        target,
+        st.session_state.conversation_count,
+    )
     logger.debug("Session state updated for new prompt: %r", prompt)
 
 
@@ -841,17 +867,33 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
     return response.answer
 
 
-def _handle_assistant_response(response_text: str) -> None:
+def _handle_assistant_response(response_text: str, target: Literal["ai", "voice"] = "ai") -> None:
     """
     Record a generated assistant response into `st.session_state`.
 
-    Appends an assistant `ChatMessage` to `messages` — the application's
-    single source of truth for the conversation — updates
-    `current_response`, and clears `is_generating` so the typing
-    indicator is removed on the next render.
+    Appends an assistant `ChatMessage` to whichever conversation list
+    `target` selects (`ai_messages` or `voice_messages`) — the
+    application's single source of truth for that page's conversation —
+    updates `current_response`, and clears `is_generating` so the
+    typing indicator is removed on the next render.
+
+    When `target == "voice"` and `st.session_state
+    .speak_assistant_responses` is enabled, this also automatically
+    generates and caches speech audio for the new message via
+    `_generate_voice_response_audio()` — reusing the existing
+    `_voice_assistant.text_to_speech()` and
+    `assistant_response_audio_cache`/`_assistant_audio_cache_key()`, no
+    new audio cache. This never happens for `target == "ai"`: the AI
+    Assistant remains text-only.
 
     Args:
         response_text: The assistant's reply text to record.
+        target: Which conversation this response belongs to — "ai" for
+            `st.session_state.ai_messages` or "voice" for
+            `st.session_state.voice_messages`. Callers should pass the
+            same target used for the matching `_handle_user_prompt()`
+            call; `_process_pending_generation()` does this by deriving
+            it from `st.session_state.sidebar_active_page`.
 
     Returns:
         None.
@@ -862,12 +904,70 @@ def _handle_assistant_response(response_text: str) -> None:
         timestamp=datetime.now(),
     )
 
-    st.session_state.messages.append(assistant_turn)
+    target_messages = st.session_state.ai_messages if target == "ai" else st.session_state.voice_messages
+    target_messages.append(assistant_turn)
+    message_index = len(target_messages) - 1
+
     st.session_state.current_response = response_text
     st.session_state.is_generating = False
 
-    logger.info("Assistant response recorded (conversation_count=%d).", st.session_state.conversation_count)
+    logger.info(
+        "Assistant response recorded for %s conversation (conversation_count=%d).",
+        target,
+        st.session_state.conversation_count,
+    )
     logger.debug("Session state updated with assistant response: %r", response_text)
+
+    if target == "voice" and st.session_state.speak_assistant_responses:
+        _generate_voice_response_audio(assistant_turn, message_index)
+
+
+def _generate_voice_response_audio(message: ChatMessage, message_index: int) -> None:
+    """
+    Automatically generate and cache speech audio for a Voice Assistant
+    response.
+
+    Reuses the existing `_voice_assistant.text_to_speech()` and the
+    existing `st.session_state.assistant_response_audio_cache` /
+    `_assistant_audio_cache_key()` — the exact same cache
+    `_render_assistant_speech_control()` already reads from, so no
+    second audio cache is introduced. Only ever called for the Voice
+    Assistant (`target == "voice"` in `_handle_assistant_response()`);
+    never called for the AI Assistant.
+
+    Never raises: any failure (including an unexpected exception from
+    the TTS call itself) is logged and reflected in
+    `st.session_state.voice_speech_status`, and the voice conversation
+    continues normally — the caller does not need to guard this call.
+
+    Args:
+        message: The assistant `ChatMessage` just appended to
+            `st.session_state.voice_messages`.
+        message_index: That message's index within `voice_messages`,
+            used to build the same cache key
+            `_render_assistant_speech_control()` would use for it.
+
+    Returns:
+        None.
+    """
+    cache_key = _assistant_audio_cache_key(message, message_index)
+
+    try:
+        audio_bytes = _voice_assistant.text_to_speech(message.content)
+    except Exception as exc:  # noqa: BLE001 - never let TTS crash the app
+        logger.error("Failed to generate speech for voice response %s: %s", cache_key, exc)
+        st.session_state.voice_speech_status = "Speech generation failed"
+        return
+
+    if audio_bytes is None:
+        logger.warning("Text-to-speech returned no audio for voice response %s.", cache_key)
+        st.session_state.voice_speech_status = "Speech generation failed"
+        return
+
+    st.session_state.assistant_response_audio_cache[cache_key] = audio_bytes
+    st.session_state.last_spoken_response = message.content
+    st.session_state.voice_speech_status = "Speaking"
+    logger.info("Cached MP3 bytes for voice response %s (byte_length=%d).", cache_key, len(audio_bytes))
 
 
 def _process_pending_generation() -> None:
@@ -877,13 +977,22 @@ def _process_pending_generation() -> None:
 
     Only acts when `is_generating` is `True` and `current_response` is
     still empty — i.e. this is the rerun immediately following prompt
-    submission, so `render_chat()` has already rendered the typing
+    submission, so the chat panel has already rendered the typing
     indicator for this cycle. Calls the Phase 7B communication layer via
     `_generate_assistant_response()`; if the backend is unavailable or
     the call raises, the exception is logged and a friendly assistant
     message is recorded instead so the app never crashes. Triggers a
     rerun afterward so the typing indicator is replaced by the new
     assistant message.
+
+    The response is routed to the same conversation the prompt came
+    from by reading `st.session_state.sidebar_active_page`: "Voice
+    Assistant" routes to `voice_messages`, anything else (i.e. "AI
+    Assistant") routes to `ai_messages`. This is safe because
+    `sidebar_active_page` cannot change between the `_handle_user_prompt()`
+    call that set `is_generating=True` and the rerun that resolves it —
+    no other user interaction can occur in between in Streamlit's
+    synchronous execution model.
 
     Returns:
         None.
@@ -893,6 +1002,7 @@ def _process_pending_generation() -> None:
 
     prompt = st.session_state.current_question
     backend: Optional[BackendServices] = st.session_state.backend_services
+    target: Literal["ai", "voice"] = st.session_state.pending_target
 
     try:
         response_text = _generate_assistant_response(prompt=prompt, backend=backend)
@@ -900,7 +1010,7 @@ def _process_pending_generation() -> None:
         logger.error("Failed to generate assistant response: %s", exc)
         response_text = _BACKEND_UNAVAILABLE_MESSAGE
 
-    _handle_assistant_response(response_text)
+    _handle_assistant_response(response_text, target=target)
     st.rerun()
 
 
@@ -928,59 +1038,24 @@ def _render_voice_assistant_panel() -> None:
     )
 
     status_cards = (
-        (
-            "Voice Input",
-            "Enabled" if st.session_state.voice_input_enabled else "Disabled",
-            "🎤",
-            "success" if st.session_state.voice_input_enabled else "warning",
-        ),
-        (
-            "Voice Output",
-            "Enabled" if st.session_state.speak_assistant_responses else "Disabled",
-            "🔊",
-            "success" if st.session_state.speak_assistant_responses else "warning",
-        ),
-        (
-            "Microphone Status",
-            _voice_connection_status(),
-            "🎙️",
-            "success" if _voice_assistant.is_available() else "error",
-        ),
-        (
-            "Speech Status",
-            st.session_state.voice_speech_status,
-            "🎧",
-            "warning" if st.session_state.voice_speech_status == "Listening" else ("success" if st.session_state.voice_speech_status == "Speaking" else None),
-        ),
-    )
+    (
+        "Voice Assistant",
+        "Ready" if _voice_assistant.is_available() else "Unavailable",
+        "🎤",
+        "success" if _voice_assistant.is_available() else "error",
+    ),
+)
 
-    first_row, second_row = st.columns(2, gap="small")
-    for index, (title, value, icon, status) in enumerate(status_cards):
-        target_column = first_row if index < 2 else second_row
-        with target_column:
-            render_metric_card(title=title, value=value, icon=icon, status=status)
+    col = st.columns(1)[0]
 
-    preview_col_1, preview_col_2 = st.columns(2, gap="small")
-    with preview_col_1:
-        render_info_panel(
-            title="Last Voice Command",
-            message=_truncate_preview(st.session_state.last_voice_command, 80) or "Not Available",
-            variant="info",
+    for title, value, icon, status in status_cards:
+        with col:
+          render_metric_card(
+            title=title,
+            value=value,
+            icon=icon,
+            status=status,
         )
-    with preview_col_2:
-        render_info_panel(
-            title="Last Spoken Response",
-            message=_truncate_preview(st.session_state.last_spoken_response, 80) or "Not Available",
-            variant="info",
-        )
-
-    with st.container(border=True):
-        st.markdown('<p style="font-weight:600; margin:0 0 0.5rem 0;">Voice Controls</p>', unsafe_allow_html=True)
-        control_col_1, control_col_2 = st.columns(2, gap="small")
-        with control_col_1:
-            st.checkbox("Enable Voice Input", key="voice_input_enabled")
-        with control_col_2:
-            st.checkbox("Speak Assistant Responses", key="speak_assistant_responses")
 
 
 def _assistant_audio_cache_key(message: ChatMessage, message_index: int) -> str:
@@ -1034,9 +1109,27 @@ def _render_assistant_speech_control(message: ChatMessage, message_index: int) -
     st.audio(audio_bytes, format="audio/mp3")
 
 
-def _render_chat_panel() -> ChatRenderResult:
-    """Render the chat panel with per-assistant-response playback controls."""
-    resolved_messages = list(st.session_state.messages)
+def _render_chat_panel(target: Literal["ai", "voice"] = "ai") -> ChatRenderResult:
+    """
+    Render a chat panel with per-assistant-response playback controls.
+
+    Reused for both independent conversations: reads
+    `st.session_state.ai_messages` when `target="ai"` (the AI Assistant
+    page) or `st.session_state.voice_messages` when `target="voice"`
+    (the Voice Assistant page). Both pages share the exact same
+    underlying `ui.chat` components (`render_chat_header`,
+    `render_welcome`, `render_user_message`, `render_assistant_message`,
+    `render_typing_indicator`, `render_input_box`, `render_chat_footer`)
+    — `ui/chat.py` itself is not modified.
+
+    Args:
+        target: Which conversation to render — "ai" or "voice".
+
+    Returns:
+        The `ChatRenderResult` for this render, from whichever
+        conversation's input box was rendered.
+    """
+    resolved_messages = list(st.session_state.ai_messages if target == "ai" else st.session_state.voice_messages)
 
     render_chat_header(
         metadata=ConversationMetadata(
@@ -1048,14 +1141,15 @@ def _render_chat_panel() -> ChatRenderResult:
 
     selected_example: Optional[str] = None
     if not resolved_messages:
-        selected_example = render_welcome()
+        selected_example = render_welcome(example_questions=[])
     else:
         for message_index, message in enumerate(resolved_messages):
             if message.role == "user":
                 render_user_message(message)
             else:
                 render_assistant_message(message)
-                _render_assistant_speech_control(message, message_index)
+                if target == "voice":
+                    _render_assistant_speech_control(message, message_index)
 
         if st.session_state.is_generating:
             render_typing_indicator()
@@ -1093,22 +1187,30 @@ _voice_assistant = VoiceAssistant()
 _VOICE_BUTTON_KEY: str = "voice_input_microphone_button"
 
 
-def _render_voice_input_control() -> None:
+def _render_voice_input_control(target: Literal["ai", "voice"] = "voice") -> None:
     """
     Render the microphone control and handle a click, if one occurred.
 
     Shows a two-stage status ("Listening...", then "Processing
     speech...") for the duration of the blocking record/transcribe
     calls. On success, submits the recognized text through the existing
-    `_handle_user_prompt()` Phase 7A flow and reruns, exactly as a typed
+    `_handle_user_prompt()` Phase 7A flow — routed to whichever
+    conversation `target` selects — and reruns, exactly as a typed
     "Ask" click already does. On failure, shows a friendly inline
-    message and leaves the conversation untouched.
+    message and leaves both conversations untouched.
 
     This function does not call `RAGPipeline.ask()`, retrieve
     documents, or call Gemini itself — submitting the recognized text
     only marks it pending, exactly like Phase 7A; the existing
     `_process_pending_generation()` call at the end of `_render_layout()`
     is what actually answers it.
+
+    Args:
+        target: Which conversation a recognized prompt should be
+            recorded into — "ai" when this control is rendered on the
+            AI Assistant page, or "voice" when rendered on the Voice
+            Assistant page. Defaults to "voice" to preserve the
+            behavior of the original Voice Assistant page mic button.
 
     Returns:
         None.
@@ -1119,7 +1221,7 @@ def _render_voice_input_control() -> None:
 
     clicked = st.button(
         "\U0001F3A4 Ask by voice",
-        key=_VOICE_BUTTON_KEY,
+        key=f"{_VOICE_BUTTON_KEY}_{target}",
         disabled=st.session_state.is_generating or not st.session_state.voice_input_enabled,
         use_container_width=False,
     )
@@ -1147,11 +1249,54 @@ def _render_voice_input_control() -> None:
 
         status_box.update(label=recognition_result.status_message, state="complete")
 
-    logger.info("Voice input captured a prompt (conversation_count will be incremented).")
+    logger.info("Voice input captured a prompt for %s conversation (conversation_count will be incremented).", target)
     st.session_state.last_voice_command = recognition_result.text
     st.session_state.voice_speech_status = "Idle"
-    _handle_user_prompt(recognition_result.text)
+    _handle_user_prompt(recognition_result.text, target=target)
     st.rerun()
+
+
+def _render_voice_response_audio() -> None:
+    """
+    Display the audio player for the most recent Voice Assistant reply.
+
+    Reads only `st.session_state.voice_messages` (to find the latest
+    assistant message) and the existing
+    `st.session_state.assistant_response_audio_cache` via
+    `_assistant_audio_cache_key()` — the same cache
+    `_generate_voice_response_audio()` already writes into and
+    `_render_assistant_speech_control()` already reads from elsewhere;
+    no second audio cache is introduced here. The written response text
+    itself is never rendered by this function — only its audio.
+
+    Renders nothing at all when there is no assistant message yet in
+    `voice_messages`, or when audio for the latest one hasn't been
+    generated (e.g. `speak_assistant_responses` is disabled, or
+    generation failed) — no fabricated or placeholder audio is ever
+    played.
+
+    Returns:
+        None.
+    """
+    voice_messages: list = st.session_state.voice_messages
+
+    latest_assistant_index: Optional[int] = None
+    latest_assistant_message: Optional[ChatMessage] = None
+    for index in range(len(voice_messages) - 1, -1, -1):
+        if voice_messages[index].role == "assistant":
+            latest_assistant_index = index
+            latest_assistant_message = voice_messages[index]
+            break
+
+    if latest_assistant_message is None or latest_assistant_index is None:
+        return
+
+    cache_key = _assistant_audio_cache_key(latest_assistant_message, latest_assistant_index)
+    audio_bytes = st.session_state.assistant_response_audio_cache.get(cache_key)
+    if audio_bytes is None:
+        return
+
+    st.audio(audio_bytes, format="audio/mp3")
 
 
 # =============================================================================
@@ -1266,10 +1411,17 @@ def _build_metrics_display_values() -> dict[str, object]:
 
     if st.session_state.current_response.strip():
         response_length = len(st.session_state.current_response.strip())
-    elif st.session_state.messages:
-        last_message = st.session_state.messages[-1]
-        if getattr(last_message, "role", None) == "assistant":
-            response_length = len((getattr(last_message, "content", "") or "").strip())
+    else:
+        # `current_response` is shared, page-agnostic bookkeeping, but the
+        # conversation it belongs to is one of two independent lists now.
+        # Check whichever list actually has the more recent assistant
+        # turn, so this fallback keeps working for both the AI Assistant
+        # and Voice Assistant conversations.
+        for candidate_messages in (st.session_state.ai_messages, st.session_state.voice_messages):
+            if candidate_messages and getattr(candidate_messages[-1], "role", None) == "assistant":
+                last_message = candidate_messages[-1]
+                response_length = len((getattr(last_message, "content", "") or "").strip())
+                break
 
     if source_documents:
         ranking_method = "RAG Retrieval"
@@ -1344,15 +1496,35 @@ def _render_layout(columns: LayoutColumns) -> None:
     records the assistant's reply once that rerun happens.
 
     As of Phase 10A, `_render_voice_input_control()` renders a
-    microphone button directly beneath `render_chat()` inside
+    microphone button directly beneath the chat panel inside
     `columns.chat`. A successful voice recognition calls
     `_handle_user_prompt()` and reruns exactly like a typed "Ask" click
     does — it is a second source of a prompt, not a second submission
     pathway — so `_process_pending_generation()` answers it identically
     either way.
 
+    As of the AI/Voice conversation-separation refactor, the AI
+    Assistant and Voice Assistant pages each read, submit to, and
+    display only their own independent `st.session_state.ai_messages` /
+    `st.session_state.voice_messages` conversation, while both continue
+    to share the exact same `BackendServices` / `RAGPipeline` instance —
+    no backend, Gemini client, retriever, or vector store is duplicated.
+
+    As of the text/voice output split, the AI Assistant page renders
+    `_render_chat_panel(target="ai")`, which never shows a playback
+    control for its (text-only) responses. The Voice Assistant page no
+    longer renders a text chat panel at all — it renders only
+    `_render_voice_input_control(target="voice")` (the microphone
+    control) and `_render_voice_response_audio()` (an audio player for
+    the latest `voice_messages` assistant reply, shown only once real
+    audio for it exists in `assistant_response_audio_cache` — that
+    audio is generated automatically by `_handle_assistant_response()`
+    via `_generate_voice_response_audio()`, not by a manual "Play
+    Response" click). The Voice Assistant's written response text is
+    never displayed.
+
     This function still renders no widget, form, or callback beyond
-    what `render_sidebar()`, `render_chat()`, `render_metrics()`, and
+    what `render_sidebar()`, the chat panel, `render_metrics()`, and
     `_render_voice_input_control()` themselves already provide, and it does not retrieve documents,
     call `RAGPipeline.ask()`, or call Gemini — that generation logic
     belongs to the backend communication layer above, not here.
@@ -1368,19 +1540,24 @@ def _render_layout(columns: LayoutColumns) -> None:
     with columns.sidebar:
         render_sidebar(active_page=active_page)
 
+    ai_chat_result: Optional[ChatRenderResult] = None
+
     with columns.chat:
-        if active_page == "Prescription Analysis":
+        if active_page == "AI Assistant":
+            ai_chat_result = _render_chat_panel(target="ai")
+            
+
+        elif active_page == "Voice Assistant":
+            st.title("🎤 Voice Assistant")
+            st.caption("Speak naturally to interact with the hospital assistant.")
+            _render_voice_input_control(target="voice")
+            _render_voice_response_audio()
+
+        elif active_page == "Prescription Analysis":
             render_prescription_page()
-            chat_result = ChatRenderResult(
-                input=ChatInputResult(text="", ask_clicked=False, clear_clicked=False),
-                selected_example=None,
-            )
-        else:
-            chat_result = _render_chat_panel()
-            _render_voice_input_control()
 
     with columns.insights:
-        _render_voice_assistant_panel()
+        
         render_divider()
         metrics_display_values = _build_metrics_display_values()
         render_metrics(
@@ -1398,14 +1575,13 @@ def _render_layout(columns: LayoutColumns) -> None:
             ranking_method=metrics_display_values["ranking_method"],
         )
 
-    prompt_text: str = chat_result.input.text.strip()
-
-    if chat_result.input.ask_clicked and prompt_text:
-        _handle_user_prompt(prompt_text)
-        st.rerun()
+    if ai_chat_result is not None:
+        prompt_text = ai_chat_result.input.text.strip()
+        if ai_chat_result.input.ask_clicked and prompt_text:
+            _handle_user_prompt(prompt_text, target="ai")
+            st.rerun()
 
     _process_pending_generation()
-
 
 # =============================================================================
 # APPLICATION ENTRY POINT
