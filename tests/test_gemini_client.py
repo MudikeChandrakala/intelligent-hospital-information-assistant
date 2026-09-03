@@ -47,7 +47,8 @@ def validate_response(response: str) -> None:
     print("✓ Response validation passed.")
 
 
-def test_invalid_prompt(client: GeminiClient) -> None:
+
+def validate_invalid_prompt(client: GeminiClient) -> None:
     """
     Verify invalid prompts raise ValueError.
     """
@@ -126,7 +127,7 @@ Answer:
 
     print("\n[3/3] Running validation tests...")
 
-    test_invalid_prompt(client)
+    validate_invalid_prompt(client)
 
     print("\n" + "=" * 70)
     print(" GEMINI CLIENT VALIDATION SUCCESSFUL")

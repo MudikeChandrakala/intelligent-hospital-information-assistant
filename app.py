@@ -226,7 +226,7 @@ from ui.chat import (
 from ui.components import render_info_panel, render_metric_card, render_section_header
 from ui.sidebar import render_sidebar
 from ui.metrics import render_metrics
-from ui.prescription import render_prescription_page
+from ui.report_analysis import render_report_analysis_page
 
 # --- Phase 2: backend service classes (constructed, not invoked, here) ----
 # These live in the `modules` package alongside `ui`. `RAGPipeline` already
@@ -815,7 +815,268 @@ def _record_response_metrics(response: RAGResponse) -> None:
     )
 
 
-def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]) -> str:
+def _resolve_follow_up_for_retrieval(
+    follow_up_message: str,
+    previous_messages: list,
+) -> str:
+    """
+    Resolve a short follow-up message into a concise semantic query for retrieval.
+
+    When the user provides a short follow-up like "15" (age) or "She is 14",
+    this function resolves it against the conversation history to create a
+    clear, retrieval-friendly query that preserves:
+    - The age/numeric value
+    - The original symptom or condition
+    - The original doctor/department request
+    - Family relationships
+
+    For example:
+        Previous: "My daughter is suffering with fever which doctor should I meet"
+        Follow-up: "15"
+        Result: "My 15-year-old daughter is suffering with fever. Which doctor should she consult?"
+
+    Args:
+        follow_up_message: The user's short follow-up message (e.g., "15").
+        previous_messages: List of ChatMessage objects from recent conversation.
+
+    Returns:
+        A resolved semantic query suitable for retrieval, or the original
+        follow_up_message if resolution is not possible.
+    """
+
+    follow_up = (follow_up_message or "").strip()
+
+    if not follow_up or not previous_messages:
+        return follow_up
+
+    # Find the most recent user message (the original question)
+    original_user_message = None
+    for message in reversed(previous_messages):
+        if message.role == "user":
+            original_user_message = (message.content or "").strip()
+            break
+
+    if not original_user_message:
+        return follow_up
+
+    # Extract age-like values from the follow-up (e.g., "15", "14 years")
+    # This handles inputs like "15", "She is 14", "My son is 5 years old"
+    import re
+
+    age_pattern = r"(?:age[\s:]*)?(\d+)(?:\s+(?:years?|yrs?|y))?"
+    age_match = re.search(age_pattern, follow_up, re.IGNORECASE)
+
+    age_value = None
+    if age_match:
+        age_value = age_match.group(1)
+
+    # Extract gender indicators (for determining pronouns in resolution)
+    gender_indicators = {
+        "boy": "male",
+        "girl": "female",
+        "son": "male",
+        "daughter": "female",
+        "father": "male",
+        "mother": "female",
+        "brother": "male",
+        "sister": "female",
+        "he": "male",
+        "she": "female",
+        "him": "male",
+        "her": "female",
+        "his": "male",
+    }
+
+    detected_gender = None
+    follow_up_lower = follow_up.lower()
+    for term, gender in gender_indicators.items():
+        if term in follow_up_lower:
+            detected_gender = gender
+            break
+
+    # Extract family relationship indicators
+    family_terms = {
+        "son": "son",
+        "daughter": "daughter",
+        "father": "father",
+        "mother": "mother",
+        "brother": "brother",
+        "sister": "sister",
+    }
+
+    detected_relation = None
+    for term in family_terms:
+        if term in follow_up_lower:
+            detected_relation = term
+            break
+
+    # Extract family relationship from the original message if not in follow-up
+    if not detected_relation:
+        original_lower = original_user_message.lower()
+        for term in family_terms:
+            if term in original_lower:
+                detected_relation = term
+                break
+
+    # Construct the resolved query
+    # Start with the original question but inject the age/follow-up info
+    resolved_query = original_user_message
+
+    if age_value is not None:
+        # Inject age information into the original query
+        age_str = f"{age_value}-year-old"
+
+        if detected_relation:
+            # e.g., "My 15-year-old daughter is suffering with fever..."
+            # Preserve the sentence structure by using a capturing group for " is"
+            resolved_query = re.sub(
+                rf"(?:my\s+)?{detected_relation}(\s+is)?",
+                f"My {age_str} {detected_relation}\\1",
+                resolved_query,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+        else:
+            # If no family relationship found, try to inject age with "I am" or "I have"
+            # This handles cases like "I have fever which doctor should I see"
+            # -> "I am 15 years old and have fever which doctor should I see"
+            if re.search(r"^I\s+(?:have|am|suffer|need)", resolved_query, re.IGNORECASE):
+                # Preserve the verb: "I have" -> "I am AGE and have"
+                resolved_query = re.sub(
+                    r"^I\s+((?:have|am|suffer|need))\s+",
+                    f"I am {age_str} and \\1 ",
+                    resolved_query,
+                    count=1,
+                    flags=re.IGNORECASE,
+                )
+            else:
+                # Fallback: just prepend the age information
+                resolved_query = f"I am {age_str} years old. {resolved_query}"
+
+    logger.debug(
+        "Resolved follow-up: original=%r, follow_up=%r, resolved=%r",
+        original_user_message,
+        follow_up_message,
+        resolved_query,
+    )
+
+    return resolved_query
+
+
+def _build_contextual_prompt(
+    current_prompt: str,
+    target: Literal["ai", "voice"],
+) -> str:
+    """
+    Build a conversation-aware prompt for the RAG pipeline.
+
+    For short follow-up questions (e.g., "15", "She is 14"), this function
+    resolves them into concise semantic queries using conversation history.
+    This ensures the retriever receives a clear, meaningful query rather than
+    a verbose meta-instruction wrapper.
+
+    For standalone questions, returns them unchanged.
+
+    The original conversation history stored in session state is not modified.
+
+    Args:
+        current_prompt: The user's current message.
+        target: Which conversation ("ai" or "voice").
+
+    Returns:
+        Either the original prompt (if not a follow-up), or a resolved semantic
+        query (if it's a short follow-up).
+    """
+
+    current_prompt = (current_prompt or "").strip()
+
+    if not current_prompt:
+        return current_prompt
+
+    messages = (
+        st.session_state.ai_messages
+        if target == "ai"
+        else st.session_state.voice_messages
+    )
+
+    # The current user message has already been appended by
+    # _handle_user_prompt(), so messages[:-1] contains the previous
+    # conversation turns.
+    previous_messages = messages[:-1]
+
+    if not previous_messages:
+        return current_prompt
+
+    # Keep a small recent conversation window.
+    recent_messages = previous_messages[-6:]
+
+    # Determine whether the current message is likely a follow-up.
+    words = current_prompt.split()
+    normalized = current_prompt.lower().strip()
+
+    # These phrases are strong indicators that the user is continuing
+    # the previous conversation rather than starting a new standalone question.
+    follow_up_starters = (
+        "what about",
+        "how about",
+        "which one",
+        "what is his",
+        "what is her",
+        "how old",
+        "is he",
+        "is she",
+        "can he",
+        "can she",
+        "does he",
+        "does she",
+        "and",
+        "also",
+        "then",
+        "so",
+        "yes",
+        "no",
+        "okay",
+        "ok",
+        "sure",
+    )
+
+    starts_like_follow_up = normalized.startswith(follow_up_starters)
+
+    # A short numeric answer such as "43" or "14" is especially likely
+    # to be a response to the previous assistant question.
+    is_short_numeric_reply = (
+        len(words) <= 3
+        and any(char.isdigit() for char in current_prompt)
+    )
+
+    if not (
+        starts_like_follow_up
+        or is_short_numeric_reply
+    ):
+        return current_prompt
+
+    # For short follow-ups, resolve them into semantic queries for retrieval
+    # instead of wrapping them in verbose meta-instructions.
+    resolved_prompt = _resolve_follow_up_for_retrieval(
+        current_prompt, recent_messages
+    )
+
+    logger.debug(
+        "Built resolved follow-up for %s conversation: %r -> %r",
+        target,
+        current_prompt,
+        resolved_prompt,
+    )
+
+    return resolved_prompt
+
+
+
+def _generate_assistant_response(
+    prompt: str,
+    backend: Optional[BackendServices],
+    conversation_history: Optional[list] = None,
+) -> str:
     """
     Route a prompt through the existing `BackendServices` communication
     layer, record the resulting runtime metrics, and return the
@@ -845,6 +1106,8 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
         backend: The existing `BackendServices` bundle from
             `st.session_state.backend_services`, or `None` if backend
             initialization has not completed successfully.
+        conversation_history: Optional list of previous conversation messages
+            to provide context to the RAG pipeline.
 
     Returns:
         The assistant's reply text, from `RAGResponse.answer`.
@@ -862,7 +1125,7 @@ def _generate_assistant_response(prompt: str, backend: Optional[BackendServices]
         raise RuntimeError("Backend service is not available.")
 
     logger.debug("Routing prompt through backend communication layer: %r", prompt)
-    response: RAGResponse = backend.rag_pipeline.ask(prompt)
+    response: RAGResponse = backend.rag_pipeline.ask(prompt, conversation_history=conversation_history)
     _record_response_metrics(response)
     return response.answer
 
@@ -1004,8 +1267,23 @@ def _process_pending_generation() -> None:
     backend: Optional[BackendServices] = st.session_state.backend_services
     target: Literal["ai", "voice"] = st.session_state.pending_target
 
+    # Get conversation history for context
+    conversation_history = (
+        st.session_state.ai_messages
+        if target == "ai"
+        else st.session_state.voice_messages
+    )
+
     try:
-        response_text = _generate_assistant_response(prompt=prompt, backend=backend)
+        contextual_prompt = _build_contextual_prompt(
+        current_prompt=prompt,
+        target=target,
+       )
+        response_text = _generate_assistant_response(
+           prompt=contextual_prompt,
+           backend=backend,
+           conversation_history=conversation_history,
+       )
     except Exception as exc:  # noqa: BLE001 - surfaced as a friendly message, never crashes the app
         logger.error("Failed to generate assistant response: %s", exc)
         response_text = _BACKEND_UNAVAILABLE_MESSAGE
@@ -1553,8 +1831,8 @@ def _render_layout(columns: LayoutColumns) -> None:
             _render_voice_input_control(target="voice")
             _render_voice_response_audio()
 
-        elif active_page == "Prescription Analysis":
-            render_prescription_page()
+        elif active_page == "Medical Report Analysis":
+            render_report_analysis_page()
 
     with columns.insights:
         
@@ -1573,6 +1851,7 @@ def _render_layout(columns: LayoutColumns) -> None:
             primary_source=metrics_display_values["primary_source"],
             document_types=metrics_display_values["document_types"],
             ranking_method=metrics_display_values["ranking_method"],
+            active_page=active_page,
         )
 
     if ai_chat_result is not None:

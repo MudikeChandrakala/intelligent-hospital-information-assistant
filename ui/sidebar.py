@@ -110,7 +110,7 @@ class NavItem:
 NAV_ITEMS: tuple[NavItem, ...] = (
     NavItem(label="AI Assistant", icon="💬"),
     NavItem(label="Voice Assistant", icon="🎤"),
-    NavItem(label="Prescription Analysis", icon="🧪"),
+    NavItem(label="Medical Report Analysis", icon="📋"),
 )
 
 # Default technology-stack tags shown in the "Project Information" section.

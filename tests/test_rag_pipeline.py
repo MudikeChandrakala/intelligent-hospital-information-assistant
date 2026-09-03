@@ -46,7 +46,7 @@ def validate_response(response: str) -> None:
     print("✓ Response validation passed.")
 
 
-def test_invalid_questions(pipeline: RAGPipeline) -> None:
+def validate_invalid_questions(pipeline: RAGPipeline) -> None:
     """
     Verify invalid questions raise ValueError.
     """
@@ -116,7 +116,7 @@ def main() -> None:
 
     print("\n[3/4] Testing validation...")
 
-    test_invalid_questions(pipeline)
+    validate_invalid_questions(pipeline)
 
     print("\n[4/4] Integration test completed.")
 

@@ -22,11 +22,13 @@ from typing import Any
 
 from langchain_core.documents import Document
 
+
 # ---------------------------------------------------------------------
 # Logger
 # ---------------------------------------------------------------------
 
 logger = logging.getLogger(__name__)
+
 
 # ---------------------------------------------------------------------
 # Constants
@@ -93,7 +95,10 @@ class Retriever:
             raise ValueError("vector_store cannot be None.")
 
         if not isinstance(search_type, str) or not search_type.strip():
-            logger.error("Invalid search_type provided to Retriever: %r", search_type)
+            logger.error(
+                "Invalid search_type provided to Retriever: %r",
+                search_type,
+            )
             raise ValueError("search_type cannot be empty.")
 
         search_type = search_type.strip()
@@ -160,7 +165,9 @@ class Retriever:
             )
         except Exception as exc:
             logger.exception("Failed to create retriever from vector store.")
-            raise RuntimeError(f"Failed to create retriever: {exc}") from exc
+            raise RuntimeError(
+                f"Failed to create retriever: {exc}"
+            ) from exc
 
         logger.info("Successfully created retriever.")
         return retriever
@@ -182,12 +189,15 @@ class Retriever:
                 "Retriever returned a non-list result of type %s.",
                 type(results).__name__,
             )
-            raise RuntimeError("Retriever must return a list of Document objects.")
+            raise RuntimeError(
+                "Retriever must return a list of Document objects."
+            )
 
         for index, document in enumerate(results):
             if not isinstance(document, Document):
                 logger.error(
-                    "Retriever result at index %d is not a Document instance (got %s).",
+                    "Retriever result at index %d is not a Document instance "
+                    "(got %s).",
                     index,
                     type(document).__name__,
                 )
@@ -223,22 +233,24 @@ class Retriever:
 
         try:
             results = self._retriever.invoke(cleaned_query)
+
             print("\n" + "=" * 80)
             print("QUERY:", cleaned_query)
             print("=" * 80)
 
             for i, doc in enumerate(results, 1):
-              print(f"\nResult {i}")
-              print("-" * 60)
-              print(doc.page_content[:1000])   # First 1000 characters
-              print("\nMetadata:")
-              print(doc.metadata)
-
-              print("=" * 80)
+                print(f"\nResult {i}")
+                print("-" * 60)
+                print(doc.page_content[:1000])
+                print("\nMetadata:")
+                print(doc.metadata)
+                print("=" * 80)
 
         except Exception as exc:
             logger.exception("Failed to retrieve documents for query.")
-            raise RuntimeError(f"Failed to retrieve documents: {exc}") from exc
+            raise RuntimeError(
+                f"Failed to retrieve documents: {exc}"
+            ) from exc
 
         self._validate_results(results)
 
@@ -247,7 +259,86 @@ class Retriever:
             len(results),
             self.search_type,
         )
+
         return results
+
+    def retrieve_by_metadata(
+        self,
+        filters: dict[str, Any],
+        limit: int | None = None,
+    ) -> list[Document]:
+        """
+        Retrieve documents using exact metadata filters.
+
+        This is used for deterministic lookups such as retrieving all
+        doctors belonging to a recommended department.
+        """
+
+        if not isinstance(filters, dict) or not filters:
+            raise ValueError("filters must be a non-empty dictionary.")
+
+        logger.info(
+            "Retrieving documents using metadata filters: %s",
+            filters,
+        )
+
+        try:
+            vector_store = self._vector_store
+
+            if hasattr(vector_store, "get"):
+                kwargs: dict[str, Any] = {"where": filters}
+
+                if limit is not None:
+                    if not isinstance(limit, int) or limit <= 0:
+                        raise ValueError(
+                            "limit must be a positive integer."
+                        )
+
+                    kwargs["limit"] = limit
+
+                result = vector_store.get(**kwargs)
+
+                documents: list[Document] = []
+
+                contents = result.get("documents", [])
+                metadatas = result.get("metadatas", [])
+
+                for index, content in enumerate(contents):
+                    if not content:
+                        continue
+
+                    metadata = (
+                        metadatas[index]
+                        if index < len(metadatas) and metadatas[index]
+                        else {}
+                    )
+
+                    documents.append(
+                        Document(
+                            page_content=content,
+                            metadata=metadata,
+                        )
+                    )
+
+                logger.info(
+                    "Metadata retrieval returned %d document(s).",
+                    len(documents),
+                )
+
+                return documents
+
+            raise RuntimeError(
+                "The configured vector store does not support metadata lookup."
+            )
+
+        except ValueError:
+            raise
+
+        except Exception as exc:
+            logger.exception("Metadata retrieval failed.")
+            raise RuntimeError(
+                f"Failed to retrieve documents by metadata: {exc}"
+            ) from exc
 
     def get_retriever(self) -> Any:
         """

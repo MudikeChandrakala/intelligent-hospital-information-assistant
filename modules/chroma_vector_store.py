@@ -52,7 +52,7 @@ class ChromaVectorStore:
                 raise ValueError(f"documents[{i}] is not a Document.")
             if not doc.page_content or not doc.page_content.strip():
                 raise ValueError(f"documents[{i}] has empty page_content.")
-              
+
 
     def _create_vector_store(self, documents: list[Document]) -> Chroma:
         self.persist_directory.mkdir(parents=True, exist_ok=True)
@@ -105,3 +105,64 @@ class ChromaVectorStore:
                 "Vector store not initialized. Call build_vector_store() or load_vector_store() first."
             )
         return self._vector_store
+
+    def get_documents_by_metadata(
+        self,
+        filters: dict[str, Any],
+        limit: int | None = None,
+    ) -> list[Document]:
+        """Retrieve documents from Chroma using exact metadata filters."""
+
+        if not isinstance(filters, dict) or not filters:
+              raise ValueError("filters must be a non-empty dictionary.")
+
+
+        try:
+            kwargs: dict[str, Any] = {"where": filters}
+
+            if limit is not None:
+                if not isinstance(limit, int) or limit <= 0:
+                    raise ValueError("limit must be a positive integer.")
+                kwargs["limit"] = limit
+
+            result = vector_store.get(**kwargs)
+
+            documents: list[Document] = []
+
+            ids = result.get("ids", [])
+            metadatas = result.get("metadatas", [])
+            contents = result.get("documents", [])
+
+            for index, content in enumerate(contents):
+                if not content:
+                    continue
+
+                metadata = (
+                    metadatas[index]
+                    if index < len(metadatas) and metadatas[index]
+                    else {}
+                )
+
+                documents.append(
+                    Document(
+                        page_content=content,
+                        metadata=metadata,
+                    )
+                )
+
+            logger.info(
+                "Metadata lookup returned %d document(s) for filters=%s.",
+                len(documents),
+                filters,
+            )
+
+            return documents
+
+        except Exception as exc:
+            logger.exception(
+                "Failed metadata lookup for filters=%s.",
+                filters,
+            )
+            raise RuntimeError(
+                f"Failed to retrieve documents by metadata: {exc}"
+            ) from exc

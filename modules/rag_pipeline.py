@@ -23,6 +23,9 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, List, Optional
 
+from langchain_core import documents
+
+from modules import retriever
 from modules.embedding_generator import EmbeddingGenerator
 from modules.chroma_vector_store import ChromaVectorStore
 from modules.retriever import Retriever
@@ -220,7 +223,9 @@ class RAGPipeline:
             retriever = Retriever(self._vector_store)
         except Exception as exc:
             logger.exception("Failed to initialize the retriever.")
-            raise RuntimeError(f"Failed to initialize retriever: {exc}") from exc
+            raise RuntimeError(
+                f"Failed to initialize retriever: {exc}"
+            ) from exc
 
         logger.info("Retriever initialized successfully.")
         return retriever
@@ -240,10 +245,88 @@ class RAGPipeline:
             prompt_builder = PromptBuilder()
         except Exception as exc:
             logger.exception("Failed to initialize the prompt builder.")
-            raise RuntimeError(f"Failed to initialize prompt builder: {exc}") from exc
+            raise RuntimeError(
+                f"Failed to initialize prompt builder: {exc}"
+            ) from exc
 
         logger.info("Prompt builder initialized successfully.")
         return prompt_builder
+
+
+    def _enrich_with_department_doctors(
+        self,
+        documents: List[Any],
+        question: str,
+    ) -> List[Any]:
+        """
+        Add doctor records for departments identified by the retrieved
+        documents.
+
+        Doctor records are retrieved using existing metadata rather than
+        hardcoded doctor names.
+        """
+        enriched_documents = list(documents)
+
+        department_names: set[str] = set()
+
+        for document in documents:
+            metadata = getattr(document, "metadata", {}) or {}
+
+            department_name = metadata.get("department_name")
+            if department_name:
+                department_names.add(str(department_name))
+
+            recommended_department = metadata.get("recommended_department")
+            if recommended_department:
+                department_names.add(str(recommended_department))
+
+        if not department_names:
+            return enriched_documents
+
+        existing_doctor_ids = {
+            str(document.metadata.get("doctor_id"))
+            for document in documents
+            if getattr(document, "metadata", None)
+            and document.metadata.get("doctor_id")
+        }
+
+        for department_name in sorted(department_names):
+            try:
+                                doctor_documents = self._retriever.retrieve_by_metadata(
+                    {
+                        "$and": [
+                            {"record_type": "doctor"},
+                            {"department_name": department_name},
+                        ]
+                    },
+                    limit=5,
+                )
+            except Exception:
+                logger.exception(
+                    "Failed to retrieve doctors for department '%s'.",
+                    department_name,
+                )
+                continue
+
+            for doctor_document in doctor_documents:
+                doctor_id = str(
+                    doctor_document.metadata.get("doctor_id", "")
+                )
+
+                if doctor_id and doctor_id in existing_doctor_ids:
+                    continue
+
+                enriched_documents.append(doctor_document)
+
+                if doctor_id:
+                    existing_doctor_ids.add(doctor_id)
+
+        logger.info(
+            "Department doctor enrichment added %d documents.",
+            len(enriched_documents) - len(documents),
+        )
+
+        return enriched_documents
 
     def _initialize_gemini_client(self) -> Any:
         """
@@ -287,7 +370,7 @@ class RAGPipeline:
     # Public APIs
     # -----------------------------------------------------------------
 
-    def ask(self, question: str) -> RAGResponse:
+    def ask(self, question: str, conversation_history: Optional[List[Any]] = None) -> RAGResponse:
         """
         Answer a user's question using the RAG pipeline.
 
@@ -304,6 +387,9 @@ class RAGPipeline:
 
         Args:
             question: The user's question.
+            conversation_history: Optional list of previous conversation messages
+                to provide context for the current question. When provided,
+                helps Gemini understand follow-up questions and their resolution.
 
         Returns:
             A `RAGResponse` containing the generated answer text plus
@@ -326,7 +412,15 @@ class RAGPipeline:
         try:
             retrieval_start_time: float = time.perf_counter()
             documents: List[Any] = self._retriever.retrieve(cleaned_question)
-            retrieval_time_ms: float = (time.perf_counter() - retrieval_start_time) * 1000
+
+            documents = self._enrich_with_department_doctors(
+                documents,
+                cleaned_question,
+            )
+
+            retrieval_time_ms: float = (
+                time.perf_counter() - retrieval_start_time
+            ) * 1000
         except Exception as exc:
             logger.exception("Failed to retrieve documents.")
             raise RuntimeError(f"Failed to retrieve documents: {exc}") from exc
@@ -334,7 +428,9 @@ class RAGPipeline:
         logger.info("Documents retrieved successfully in %.2f ms.", retrieval_time_ms)
 
         try:
-            prompt: str = self._prompt_builder.build_prompt(cleaned_question, documents)
+            prompt: str = self._prompt_builder.build_prompt(
+                cleaned_question, documents, conversation_history=conversation_history
+            )
             print("\n" + "=" * 100)
             print("FINAL PROMPT SENT TO GEMINI")
             print("=" * 100)

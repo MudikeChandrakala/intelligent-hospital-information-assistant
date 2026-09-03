@@ -258,11 +258,23 @@ class PrescriptionAIService:
                 best_record = record
                 best_alias = alias_match
 
+        # Preserve every prescription-specific field exactly as extracted by
+        # prescription_analyzer.py. These fields are authoritative and must not
+        # be replaced by general medicine-database metadata.
+        detected_frequency = str(detected_medicine.get("frequency") or "").strip()
+        detected_timing = str(detected_medicine.get("timing") or "").strip()
+        detected_duration = str(detected_medicine.get("duration") or "").strip()
+        detected_instructions = str(detected_medicine.get("instructions") or "").strip()
+
         if best_record is None or best_score < MEDICINE_MATCH_THRESHOLD:
             return {
                 "detected_name": raw_detected_name or "Not Available",
                 "normalized_detected_name": detected_name or "Not Available",
                 "detected_strength": detected_strength or "Not Available",
+                "detected_frequency": detected_frequency or "Not specified in the prescription",
+                "detected_timing": detected_timing or "Not specified in the prescription",
+                "detected_duration": detected_duration or "Not specified in the prescription",
+                "detected_instructions": detected_instructions or "Not specified in the prescription",
                 "matched": False,
                 "match_score": round(best_score, 1),
                 "matched_alias": "",
@@ -274,6 +286,10 @@ class PrescriptionAIService:
             "detected_name": raw_detected_name or metadata.get("generic_name") or "Not Available",
             "normalized_detected_name": detected_name or metadata.get("generic_name") or "Not Available",
             "detected_strength": detected_strength or "Not Available",
+            "detected_frequency": detected_frequency or "Not specified in the prescription",
+            "detected_timing": detected_timing or "Not specified in the prescription",
+            "detected_duration": detected_duration or "Not specified in the prescription",
+            "detected_instructions": detected_instructions or "Not specified in the prescription",
             "matched": True,
             "match_score": round(best_score, 1),
             "matched_alias": best_alias or metadata.get("generic_name") or "Not Available",
@@ -310,8 +326,12 @@ class PrescriptionAIService:
                 {
                     "medicine_name": item.get("normalized_detected_name") or item.get("detected_name") or "Not Available",
                     "strength": item.get("detected_strength") or "Not Available",
-                    "frequency": (item.get("metadata") or {}).get("dosage_information", {}).get("frequency") if item.get("matched") else "Not Available",
-                    "timing": ", ".join((item.get("metadata") or {}).get("best_time", ["Not Available"])) if item.get("matched") else "Not Available",
+                    "frequency": item.get("detected_frequency") or "Not specified in the prescription",
+                    "timing": item.get("detected_timing") or "Not specified in the prescription",
+                    "duration": item.get("detected_duration") or "Not specified in the prescription",
+                    "instructions": self._safe_instruction_for_report(
+                        str(item.get("detected_instructions") or "")
+                    ),
                     "match_score": item.get("match_score", 0.0),
                 }
                 for item in matched_medicines
@@ -323,9 +343,14 @@ class PrescriptionAIService:
             "Rules:\n"
             "- Explain only the provided prescription.\n"
             "- Do NOT diagnose diseases, infer conditions, or recommend new medicines.\n"
-            "- Use ONLY the matched database entries and the structured prescription context below.\n"
-            "- Never invent a medicine that is not present in the matched database entries.\n"
-            "- If a field is missing, write 'Not specified in the medicine database.' or 'Not Available'.\n"
+            "- Use the structured prescription context as the authoritative source for the patient's prescribed medicine name, strength, frequency, timing, duration, and instructions.\n"
+            "- Use matched database entries only as supporting medicine information; never use them to overwrite prescription-specific fields.\n"
+            "- Never invent a medicine that is not present in the matched database entries or structured prescription context.\n"
+            "- Never replace, reinterpret, or convert an explicit prescription frequency into another schedule. For example, 1-0-1 must remain exactly 1-0-1; do not convert it to 'Every 6 hours', 'Every 8 hours', 'Twice daily', or any other inferred schedule.\n"
+            "- In the Dosage Schedule section, copy each structured_prescription frequency value exactly as provided. If the JSON contains 1-0-1, the report MUST show 1-0-1; never write 'Not specified' for that medicine.\n"
+            "- Never calculate a patient schedule from database adult_dose or database frequency.\n"
+            "- If a prescription-specific field is missing, write 'Not specified in the prescription' rather than guessing or inferring it.\n"
+            "- If database information is missing, write 'Not specified in the medicine database.' or 'Not Available'.\n"
             "- If OCR confidence is low, clearly warn that manual verification is recommended.\n"
             "- Keep the tone professional, hospital-style, concise, and clear.\n"
             "- Output in Markdown with exactly these section headings:\n"
@@ -350,6 +375,167 @@ class PrescriptionAIService:
             f"{instructions}\n\n"
             f"Prescription Context (JSON):\n{json.dumps(payload, indent=2, ensure_ascii=False)}"
         )
+
+    @staticmethod
+    def _replace_report_section(report_text: str, heading: str, body_lines: Sequence[str]) -> str:
+        """Replace one Markdown section while preserving the report's other sections."""
+        heading_pattern = re.escape(heading)
+        section_re = re.compile(
+            rf"(?ms)^#{{1,3}}\s+{heading_pattern}\s*$.*?(?=^#{{1,3}}\s+|\Z)"
+        )
+        replacement = f"# {heading}\n" + "\n".join(body_lines) + "\n\n"
+        if section_re.search(report_text):
+            return section_re.sub(replacement, report_text, count=1).rstrip()
+
+        separator = "\n\n" if report_text.strip() else ""
+        return (report_text.rstrip() + separator + replacement).rstrip()
+
+    @staticmethod
+    def _food_guidance_from_timing(timing: str) -> str:
+        """Return explicit food guidance from extracted prescription timing only."""
+        match = re.search(r"\b(before|after)\s+food\b", timing, flags=re.IGNORECASE)
+        if not match:
+            return "Not specified in the prescription"
+        return f"{match.group(1).capitalize()} Food"
+
+    @staticmethod
+    def _safe_instruction_for_report(instruction: str) -> str:
+        """Avoid presenting known corrupted OCR prose as a doctor's instruction."""
+        normalized = instruction.strip()
+        if not normalized:
+            return "Not specified in the prescription"
+        if re.search(r"\b(?:sbuess|avoi\s+d)\b", normalized, flags=re.IGNORECASE):
+            return (
+                "Additional handwritten instruction could not be reliably "
+                "interpreted; please verify the original prescription."
+            )
+        return normalized
+
+    def _enforce_prescription_specific_sections(
+        self,
+        report_text: str,
+        matched_medicines: Sequence[dict[str, Any]],
+        confidence: float,
+    ) -> str:
+        """Restore authoritative prescription fields after Gemini generation.
+
+        Gemini is used for explanation, but prescription-specific fields extracted
+        by PrescriptionAnalyzer are deterministic source data. If the model
+        rewrites or drops those fields, these sections are rebuilt from the
+        detected values so database dosage metadata can never overwrite them.
+        """
+        if not matched_medicines:
+            return report_text
+
+        summary_lines = [
+            (
+                "- Prescription-extracted information: "
+                f"{len(matched_medicines)} medicine(s) detected from OCR "
+                f"with {confidence:.1f}% confidence."
+            )
+        ]
+        if confidence < LOW_CONFIDENCE_THRESHOLD:
+            summary_lines.append("- Manual verification is recommended because OCR confidence is low.")
+
+        detected_lines: list[str] = []
+        medicine_detail_lines: list[str] = []
+        dosage_lines: list[str] = []
+        timing_lines: list[str] = []
+        food_lines: list[str] = []
+        duration_lines: list[str] = []
+        precaution_lines: list[str] = []
+        side_effect_lines: list[str] = []
+
+        for item in matched_medicines:
+            name = str(item.get("detected_name") or "Not Available").strip()
+            strength = str(item.get("detected_strength") or "Not Available").strip()
+            frequency = str(item.get("detected_frequency") or "Not specified in the prescription").strip()
+            timing = str(item.get("detected_timing") or "Not specified in the prescription").strip()
+            duration = str(item.get("detected_duration") or "Not specified in the prescription").strip()
+            instruction = self._safe_instruction_for_report(
+                str(item.get("detected_instructions") or "")
+            )
+            food_guidance = self._food_guidance_from_timing(timing)
+            metadata = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
+
+            detected_lines.append(
+                f"- Prescription-extracted information - {name}: "
+                f"Prescribed strength: {strength}; Additional instruction: {instruction}"
+            )
+            dosage_lines.append(f"- {name}: {strength} — Frequency: {frequency}")
+            timing_lines.append(f"- {name}: {timing}")
+            food_lines.append(f"- {name}: {food_guidance}")
+            duration_lines.append(f"- {name}: {duration}")
+
+            if item.get("matched"):
+                medicine_class = metadata.get("medicine_class") or "Not Available"
+                uses = ", ".join(self._as_list(metadata.get("uses"))) or "Not Available"
+                precautions = "; ".join(self._as_list(metadata.get("precautions"))) or "Not Available"
+                side_effects = ", ".join(self._as_list(metadata.get("side_effects"))) or "Not Available"
+                medicine_detail_lines.append(
+                    f"- Medicine database information - {name}: "
+                    f"Class: {medicine_class}; Uses: {uses}"
+                )
+                precaution_lines.append(
+                    f"- Medicine database information - {name}: {precautions}"
+                )
+                side_effect_lines.append(
+                    f"- Medicine database information - {name}: {side_effects}"
+                )
+            else:
+                unavailable = f"- Medicine database information - {name}: No database match available."
+                medicine_detail_lines.append(unavailable)
+                precaution_lines.append(unavailable)
+                side_effect_lines.append(unavailable)
+
+        report_text = self._replace_report_section(report_text, "Prescription Summary", summary_lines)
+        report_text = self._replace_report_section(report_text, "Detected Medicines", detected_lines)
+        report_text = self._replace_report_section(report_text, "Medicine Details", medicine_detail_lines)
+        report_text = self._replace_report_section(
+            report_text,
+            "Dosage Schedule",
+            dosage_lines,
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Timing (Morning / Afternoon / Night)",
+            timing_lines,
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Before/After Food",
+            food_lines,
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Duration",
+            duration_lines,
+        )
+        report_text = self._replace_report_section(report_text, "Precautions", precaution_lines)
+        report_text = self._replace_report_section(
+            report_text,
+            "Possible Side Effects",
+            side_effect_lines,
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Drug Interactions",
+            ["- Medicine database information: Drug interaction information is not available in the current medicine database."],
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Emergency Warnings",
+            ["- General Safety Guidance: Seek urgent medical help for breathing difficulty, severe rash, swelling, or fainting."],
+        )
+        report_text = self._replace_report_section(
+            report_text,
+            "Overall Recommendations",
+            [
+                "- General Safety Guidance: Follow the prescribing clinician's directions exactly.",
+                "- General Safety Guidance: Verify uncertain OCR information against the original prescription.",
+            ],
+        )
+        return report_text
 
     def _build_fallback_report(
         self,
@@ -398,11 +584,10 @@ class PrescriptionAIService:
         lines.append("# Dosage Schedule")
         if matched_medicines:
             for item in matched_medicines:
-                metadata = item.get("metadata") or {}
-                dosage = metadata.get("dosage_information", {})
-                lines.append(
-                    f"- {item.get('detected_name', 'Not Available')}: {dosage.get('adult_dose', 'Not Available')}"
-                )
+                name = item.get("detected_name", "Not Available")
+                strength = item.get("detected_strength") or "Not Available"
+                frequency = item.get("detected_frequency") or "Not specified in the prescription"
+                lines.append(f"- {name}: {strength} — Frequency: {frequency}")
         else:
             lines.append("- Not Available")
 
@@ -410,9 +595,9 @@ class PrescriptionAIService:
         lines.append("# Timing (Morning / Afternoon / Night)")
         if matched_medicines:
             for item in matched_medicines:
-                metadata = item.get("metadata") or {}
-                best_time = ", ".join(metadata.get("best_time", ["Not Available"]))
-                lines.append(f"- {item.get('detected_name', 'Not Available')}: {best_time}")
+                name = item.get("detected_name", "Not Available")
+                timing = item.get("detected_timing") or "Not specified in the prescription"
+                lines.append(f"- {name}: {timing}")
         else:
             lines.append("- Not Available")
 
@@ -420,10 +605,9 @@ class PrescriptionAIService:
         lines.append("# Before/After Food")
         if matched_medicines:
             for item in matched_medicines:
-                metadata = item.get("metadata") or {}
-                lines.append(
-                    f"- {item.get('detected_name', 'Not Available')}: {metadata.get('food_interactions', 'Not Available')}"
-                )
+                name = item.get("detected_name", "Not Available")
+                instructions = item.get("detected_instructions") or "Not specified in the prescription"
+                lines.append(f"- {name}: {instructions}")
         else:
             lines.append("- Not Available")
 
@@ -503,6 +687,14 @@ class PrescriptionAIService:
         else:
             used_fallback = True
             report_text = self._build_fallback_report(ocr_text, detected_medicines, matched_medicines, confidence)
+
+        # Gemini is not the source of truth for prescription-specific fields.
+        # Re-apply the exact extracted frequency/timing/duration after generation
+        # so a model response can never replace them with database defaults or
+        # an inferred schedule. This also protects the fallback/report contract.
+        report_text = self._enforce_prescription_specific_sections(
+            report_text, matched_medicines, confidence
+        )
 
         return {
             "success": True,

@@ -27,7 +27,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from modules.document_loader import DocumentLoader
 
 
-def test_parser(name: str, parser):
+def validate_parser(name: str, parser):
     """Validate a single parser."""
 
     print("\n" + "=" * 80)
@@ -72,47 +72,47 @@ def main():
     # Structured Datasets
     # ------------------------------------------------------------------
 
-    total += test_parser(
+    total += validate_parser(
         "Doctor Dataset",
         loader._parse_doctor_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Department Dataset",
         loader._parse_department_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Symptom Dataset",
         loader._parse_symptom_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Disease Dataset",
         loader._parse_disease_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Medicine Dataset",
         loader._parse_medicine_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Navigation Dataset",
         loader._parse_navigation_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Appointment Dataset",
         loader._parse_appointment_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Insurance Dataset",
         loader._parse_insurance_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Emergency Dataset",
         loader._parse_emergency_dataset,
     )
@@ -121,22 +121,22 @@ def main():
     # Unstructured Datasets
     # ------------------------------------------------------------------
 
-    total += test_parser(
+    total += validate_parser(
         "Hospital Information Dataset",
         loader._parse_hospital_information_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "FAQ Dataset",
         loader._parse_faq_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Patient Guideline Dataset",
         loader._parse_patient_guideline_dataset,
     )
 
-    total += test_parser(
+    total += validate_parser(
         "Billing Information Dataset",
         loader._parse_billing_information_dataset,
     )
