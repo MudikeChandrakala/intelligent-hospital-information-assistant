@@ -18,6 +18,8 @@ This module DOES NOT:
 
 from __future__ import annotations
 
+
+from pathlib import Path
 import logging
 import time
 from dataclasses import dataclass, field
@@ -28,6 +30,8 @@ from langchain_core import documents
 from modules import retriever
 from modules.embedding_generator import EmbeddingGenerator
 from modules.chroma_vector_store import ChromaVectorStore
+from modules.document_loader import DocumentLoader
+from modules.text_chunker import TextChunker
 from modules.retriever import Retriever
 from modules.prompt_builder import PromptBuilder
 from modules.gemini_client import GeminiClient
@@ -190,24 +194,63 @@ class RAGPipeline:
         """
         Initialize the vector store component.
 
+        If a persisted vector store already exists, load it normally.
+        If it does not exist, build it automatically from the hospital
+        knowledge base.
+
         Returns:
-            The loaded vector store instance.
+            The initialized vector store instance.
 
         Raises:
             RuntimeError: If the vector store cannot be initialized.
         """
-
         try:
-            vector_store = ChromaVectorStore(embedding_model=self._embedding_model)
-            vector_store.load_vector_store()
+            vector_store = ChromaVectorStore(
+                embedding_model=self._embedding_model
+            )
+
+            if vector_store.persist_directory.exists():
+                logger.info(
+                    "Existing vector store found. Loading persisted vector store."
+                )
+                vector_store.load_vector_store()
+            else:
+                logger.info(
+                    "Vector store not found. Building it from the hospital "
+                    "knowledge base."
+                )
+
+                project_root = Path(__file__).resolve().parent.parent
+
+                document_loader = DocumentLoader(
+                    project_root=project_root
+                )
+                documents = document_loader.load_all_documents()
+
+                text_chunker = TextChunker()
+                chunks = text_chunker.split_documents(documents)
+
+                logger.info(
+                    "Loaded %d documents and created %d chunks.",
+                    len(documents),
+                    len(chunks),
+                )
+
+                vector_store.build_vector_store(
+                    chunks,
+                    overwrite=False,
+                )
+
             loaded_vector_store = vector_store.get_vector_store()
+
         except Exception as exc:
             logger.exception("Failed to initialize the vector store.")
-            raise RuntimeError(f"Failed to initialize vector store: {exc}") from exc
+            raise RuntimeError(
+                f"Failed to initialize vector store: {exc}"
+            ) from exc
 
         logger.info("Vector store initialized successfully.")
         return loaded_vector_store
-
     def _initialize_retriever(self) -> Any:
         """
         Initialize the retriever component.
