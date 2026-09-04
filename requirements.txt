@@ -46,3 +46,14 @@ streamlit==1.53.0
 # Prescription Report Downloads
 # -----------------------------
 reportlab==4.5.1
+
+# -----------------------------
+# Medical Report OCR
+# -----------------------------
+easyocr==1.7.2
+
+# -----------------------------
+# Voice Assistant
+# -----------------------------
+SpeechRecognition==3.14.3
+gTTS==2.5.4
