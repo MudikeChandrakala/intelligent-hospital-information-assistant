@@ -1467,72 +1467,113 @@ _VOICE_BUTTON_KEY: str = "voice_input_microphone_button"
 
 def _render_voice_input_control(target: Literal["ai", "voice"] = "voice") -> None:
     """
-    Render the microphone control and handle a click, if one occurred.
+    Render the browser microphone control and process recorded speech.
 
-    Shows a two-stage status ("Listening...", then "Processing
-    speech...") for the duration of the blocking record/transcribe
-    calls. On success, submits the recognized text through the existing
-    `_handle_user_prompt()` Phase 7A flow — routed to whichever
-    conversation `target` selects — and reruns, exactly as a typed
-    "Ask" click already does. On failure, shows a friendly inline
-    message and leaves both conversations untouched.
-
-    This function does not call `RAGPipeline.ask()`, retrieve
-    documents, or call Gemini itself — submitting the recognized text
-    only marks it pending, exactly like Phase 7A; the existing
-    `_process_pending_generation()` call at the end of `_render_layout()`
-    is what actually answers it.
-
-    Args:
-        target: Which conversation a recognized prompt should be
-            recorded into — "ai" when this control is rendered on the
-            AI Assistant page, or "voice" when rendered on the Voice
-            Assistant page. Defaults to "voice" to preserve the
-            behavior of the original Voice Assistant page mic button.
-
-    Returns:
-        None.
+    Each browser recording is processed only once. Streamlit can retain the
+    current audio_input value across reruns, so a SHA-256 fingerprint is used
+    to prevent the same recording from being submitted repeatedly.
     """
     if not _voice_assistant.is_available():
-        st.caption("\U0001F3A4 Voice input unavailable: the 'SpeechRecognition' package is not installed.")
+        st.caption(
+            "🎤 Voice input unavailable: the 'SpeechRecognition' "
+            "package is not installed."
+        )
         return
 
-    clicked = st.button(
-        "\U0001F3A4 Ask by voice",
-        key=f"{_VOICE_BUTTON_KEY}_{target}",
-        disabled=st.session_state.is_generating or not st.session_state.voice_input_enabled,
-        use_container_width=False,
+    audio_value = st.audio_input(
+        "🎤 Record your question",
+        sample_rate=16000,
+        key=f"{_VOICE_BUTTON_KEY}_audio_{target}",
+        disabled=(
+            st.session_state.is_generating
+            or not st.session_state.voice_input_enabled
+        ),
     )
-    if not clicked:
+
+    if audio_value is None:
         return
 
-    st.session_state.voice_speech_status = "Listening"
-    with st.status("\U0001F3A4 Listening...", expanded=False) as status_box:
-        capture_result = _voice_assistant.record_audio()
+    try:
+        audio_bytes = audio_value.getvalue()
 
-        if not capture_result.success:
-            status_box.update(label=capture_result.status_message, state="error")
-            logger.info("Voice capture failed: %s", capture_result.status_message)
-            st.session_state.voice_speech_status = "Idle"
+        if not audio_bytes:
             return
 
-        status_box.update(label="Processing speech...")
-        recognition_result: VoiceRecognitionResult = _voice_assistant.transcribe_audio(capture_result.audio)
+        # Streamlit may return the same recorded audio again after st.rerun().
+        # Create a fingerprint so each unique recording is processed only once.
+        audio_hash = hashlib.sha256(audio_bytes).hexdigest()
 
-        if not recognition_result.success or not recognition_result.text:
-            status_box.update(label=recognition_result.status_message, state="error")
-            logger.info("Voice recognition failed: %s", recognition_result.status_message)
-            st.session_state.voice_speech_status = "Idle"
+        last_audio_hash = st.session_state.get(
+            "last_voice_audio_hash",
+            "",
+        )
+
+        if audio_hash == last_audio_hash:
+            logger.debug(
+                "Ignoring already-processed browser audio recording."
+            )
             return
 
-        status_box.update(label=recognition_result.status_message, state="complete")
+        st.session_state.voice_speech_status = "Processing speech..."
 
-    logger.info("Voice input captured a prompt for %s conversation (conversation_count will be incremented).", target)
-    st.session_state.last_voice_command = recognition_result.text
-    st.session_state.voice_speech_status = "Idle"
-    _handle_user_prompt(recognition_result.text, target=target)
-    st.rerun()
+        with st.status(
+            "🎤 Processing speech...",
+            expanded=False,
+        ) as status_box:
 
+            recognition_result: VoiceRecognitionResult = (
+                _voice_assistant.transcribe_audio_bytes(audio_bytes)
+            )
+
+            if not recognition_result.success or not recognition_result.text:
+                status_box.update(
+                    label=recognition_result.status_message,
+                    state="error",
+                )
+
+                logger.info(
+                    "Voice recognition failed: %s",
+                    recognition_result.status_message,
+                )
+
+                st.session_state.voice_speech_status = "Idle"
+                return
+
+            status_box.update(
+                label=recognition_result.status_message,
+                state="complete",
+            )
+
+        # Mark this exact recording as processed only after successful
+        # transcription. This allows the user to retry if recognition fails.
+        st.session_state.last_voice_audio_hash = audio_hash
+
+        logger.info(
+            "Voice input captured a prompt for %s conversation "
+            "(conversation_count will be incremented).",
+            target,
+        )
+
+        st.session_state.last_voice_command = recognition_result.text
+        st.session_state.voice_speech_status = "Idle"
+
+        _handle_user_prompt(
+            recognition_result.text,
+            target=target,
+        )
+
+        st.rerun()
+
+    except Exception as exc:  # noqa: BLE001
+        logger.error(
+            "Unexpected error while processing browser audio: %s",
+            exc,
+        )
+
+        st.session_state.voice_speech_status = "Idle"
+
+        st.error("Unable to process the recorded audio.")
+        return
 
 def _render_voice_response_audio() -> None:
     """

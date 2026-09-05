@@ -250,7 +250,50 @@ class VoiceAssistant:
 
         logger.debug("Audio captured successfully.")
         return AudioCaptureResult(success=True, audio=audio, status_message="Audio captured.")
+    def transcribe_audio_bytes(
+        self, audio_bytes: bytes
+    ) -> VoiceRecognitionResult:
+        """
+        Convert browser-recorded WAV bytes into SpeechRecognition AudioData
+        and reuse the existing transcription method.
+        """
+        if not self.is_available():
+            logger.warning(
+                "transcribe_audio_bytes() called but "
+                "'speech_recognition' is not installed."
+            )
+            return VoiceRecognitionResult(
+                success=False,
+                text=None,
+                status_message=_MESSAGE_UNAVAILABLE_PACKAGE,
+            )
 
+        if not audio_bytes:
+            logger.warning("No audio bytes were received.")
+            return VoiceRecognitionResult(
+                success=False,
+                text=None,
+                status_message=_MESSAGE_EMPTY_RECORDING,
+            )
+
+        try:
+            audio_buffer = BytesIO(audio_bytes)
+
+            with sr.AudioFile(audio_buffer) as source:
+                audio = self._recognizer.record(source)
+
+            return self.transcribe_audio(audio)
+
+        except Exception as exc:
+            logger.error(
+                "Failed to process browser-recorded audio: %s",
+                exc,
+            )
+            return VoiceRecognitionResult(
+                success=False,
+                text=None,
+                status_message=_MESSAGE_RECOGNITION_FAILED,
+            )    
     def transcribe_audio(self, audio: object) -> VoiceRecognitionResult:
         """
         Convert previously captured audio into text via Google's speech
