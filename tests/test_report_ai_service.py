@@ -261,10 +261,14 @@ def test_analyze_report_findings_gemini_failure_path():
     result = analyze_report_findings(
         _sample_tests(), client=_FakeGeminiClient(raise_error=True)
     )
-    assert result["success"] is False
-    assert result["explanation"] == ""
-    assert "unavailable" in result["warning"].lower()
-    assert "error" in result
+
+    assert result["success"] is True
+    assert result["explanation"]
+    assert "Overall Summary" in result["explanation"]
+    assert "Important Findings" in result["explanation"]
+    assert "Informational Disclaimer" in result["explanation"]
+    assert "temporarily unavailable" in result["warning"]
+    assert "simulated Gemini failure" in result["error"]
 
 
 def test_analyze_report_findings_empty_tests():

@@ -277,7 +277,122 @@ State clearly that this explanation is for informational purposes only,
 does not provide a diagnosis, and should not replace interpretation by a
 qualified healthcare professional.
 """.strip()
+def _build_fallback_explanation(
+    validated_tests: List[Dict[str, Any]]
+) -> str:
+    """
+    Build a deterministic patient-facing explanation when Gemini is unavailable.
 
+    This fallback uses only the already-validated laboratory results.
+    It does not diagnose, infer conditions, or modify any result/status.
+    """
+    normal_results = [
+        test for test in validated_tests
+        if test["status"] == "Normal"
+    ]
+    abnormal_results = [
+        test for test in validated_tests
+        if test["status"] in {"High", "Low"}
+    ]
+    unknown_results = [
+        test for test in validated_tests
+        if test["status"] == "Unknown"
+    ]
+
+    lines: List[str] = []
+
+    lines.append("## Overall Summary")
+    lines.append(
+        f"{len(validated_tests)} laboratory result(s) were detected. "
+        f"{len(normal_results)} are within the supplied range, "
+        f"{len(abnormal_results)} are above or below the supplied range, "
+        f"and {len(unknown_results)} could not be reliably interpreted."
+    )
+
+    lines.append("")
+    lines.append("## Important Findings")
+
+    if abnormal_results:
+        for test in abnormal_results:
+            test_name = test["test_name"]
+            value = test["value"]
+            reference_range = test["reference_range"]
+            status = test["status"]
+            display_unit = _clean_unit_for_patient_display(test["unit"])
+
+            value_text = str(value)
+            if display_unit:
+                value_text = f"{value_text} {display_unit}"
+
+            if status == "High":
+                direction = "above"
+            else:
+                direction = "below"
+
+            lines.append(
+                f"- **{test_name}:** The reported value is {value_text}, "
+                f"which is {direction} the supplied range "
+                f"({reference_range}). This means the result is outside "
+                f"the laboratory range provided in the report. The finding "
+                f"should be interpreted by a qualified healthcare professional "
+                f"in the context of the person's medical history."
+            )
+    else:
+        lines.append(
+            "No High or Low results were identified from the supplied "
+            "laboratory statuses."
+        )
+
+    lines.append("")
+    lines.append("## Results Within Range")
+
+    if normal_results:
+        normal_names = ", ".join(
+            test["test_name"] for test in normal_results
+        )
+        lines.append(
+            f"The following result(s) are within their supplied laboratory "
+            f"ranges: {normal_names}. This is reassuring relative to those "
+            f"specific laboratory ranges, but does not by itself establish "
+            f"overall health."
+        )
+    else:
+        lines.append("No Normal results were identified.")
+
+    lines.append("")
+    lines.append("## Results Requiring Manual Verification")
+
+    if unknown_results:
+        for test in unknown_results:
+            lines.append(
+                f"- **{test['test_name']}:** A value was detected, but the "
+                f"required unit or reference range could not be reliably "
+                f"determined. This result should be verified manually before "
+                f"interpretation."
+            )
+    else:
+        lines.append(
+            "No results were marked as requiring manual verification."
+        )
+
+    lines.append("")
+    lines.append("## General Guidance")
+    lines.append(
+        "Results that are above or below the supplied laboratory range "
+        "should be discussed with a qualified healthcare professional, "
+        "who can interpret them together with the person's medical history "
+        "and other relevant information."
+    )
+
+    lines.append("")
+    lines.append("## Informational Disclaimer")
+    lines.append(
+        "This explanation is for informational purposes only. It does not "
+        "provide a diagnosis and should not replace interpretation by a "
+        "qualified healthcare professional."
+    )
+
+    return "\n".join(lines)
 
 def analyze_report_findings(
     tests: List[Dict[str, Any]],
@@ -312,12 +427,18 @@ def analyze_report_findings(
 
     except Exception as exc:
         logger.exception("Medical report AI explanation failed.")
+
+        fallback_explanation = _build_fallback_explanation(
+            validated_tests
+        )
+
         return {
-            "success": False,
-            "explanation": "",
+            "success": True,
+            "explanation": fallback_explanation,
             "warning": (
-                "AI explanation is currently unavailable. "
-                "The deterministic laboratory results above remain unchanged."
+                "Gemini was temporarily unavailable, so a "
+                "deterministic explanation based on the extracted "
+                "laboratory results is being shown instead."
             ),
             "error": str(exc),
         }
