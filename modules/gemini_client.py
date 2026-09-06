@@ -26,6 +26,7 @@ from pathlib import Path
 from typing import Any
 
 from google import genai
+from google.genai import errors as genai_errors
 from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------
@@ -42,6 +43,21 @@ MODEL_NAME = "gemini-2.5-flash"
 API_KEY_ENV_VAR = "GOOGLE_API_KEY"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE_PATH = PROJECT_ROOT / ".env"
+
+
+class GeminiUnavailableError(RuntimeError):
+    """
+    Raised by ``generate_response()`` only when Gemini's service itself
+    was temporarily unavailable (e.g. HTTP 503 / ``google.genai.errors.
+    ServerError``) and every bounded retry attempt was exhausted.
+
+    This is a ``RuntimeError`` subclass, so any existing code that
+    already catches ``RuntimeError`` continues to work unchanged.  It
+    exists only so a caller such as ``RAGPipeline`` can distinguish "the
+    service is temporarily down, a deterministic fallback may be
+    reasonable" from every other failure (invalid prompt, invalid API
+    key, or any other error), which must continue to fail immediately.
+    """
 
 
 class GeminiClient:
@@ -214,11 +230,22 @@ class GeminiClient:
         """
         Generate a response from Gemini for the given prompt.
 
-        Automatically retries on transient network failures where the
-        connection to Gemini drops before a response is received
-        (``httpx.RemoteProtocolError``). Up to ``max_attempts`` calls
-        are made, waiting ``retry_delay_seconds`` between attempts. Any
-        other exception is raised immediately, unchanged from before.
+        Automatically retries on transient failures that indicate a
+        temporary problem reaching or receiving a response from Gemini,
+        rather than a problem with the request itself:
+          - ``httpx.RemoteProtocolError`` (connection dropped before a
+            response was received), and
+          - ``google.genai.errors.ServerError`` (Gemini's own 5xx
+            responses, e.g. HTTP 503 "model is currently experiencing
+            high demand").
+
+        Up to ``max_attempts`` calls are made, waiting
+        ``retry_delay_seconds`` between attempts. If every attempt is
+        exhausted, ``GeminiUnavailableError`` is raised so a caller can
+        choose to fall back instead of failing outright. Any other
+        exception (e.g. an invalid API key or invalid prompt, both of
+        which are permanent, not transient) is raised immediately,
+        unchanged from before.
 
         Args:
             prompt: The fully constructed prompt to send to Gemini.
@@ -228,9 +255,10 @@ class GeminiClient:
 
         Raises:
             ValueError: If ``prompt`` fails validation.
-            RuntimeError: If response generation fails, including when
-                every retry attempt for a transient network failure is
-                exhausted.
+            GeminiUnavailableError: If every retry attempt for a
+                transient failure is exhausted.
+            RuntimeError: If response generation fails for any other
+                reason.
         """
 
         self._validate_prompt(prompt)
@@ -249,31 +277,32 @@ class GeminiClient:
                     contents=cleaned_prompt,
                 )
                 break
-            except httpx.RemoteProtocolError as exc:
+            except (httpx.RemoteProtocolError, genai_errors.ServerError) as exc:
                 last_error = exc
                 if attempt < max_attempts:
                     logger.warning(
-                        "Transient network error on attempt %d/%d while calling "
-                        "Gemini (server disconnected without sending a response). "
-                        "Retrying in %d second(s)...",
+                        "Transient error on attempt %d/%d while calling "
+                        "Gemini (%s). Retrying in %d second(s)...",
                         attempt,
                         max_attempts,
+                        exc,
                         retry_delay_seconds,
                     )
                     time.sleep(retry_delay_seconds)
                 else:
                     logger.error(
-                        "All %d attempt(s) to call Gemini failed due to a transient "
-                        "network error.",
+                        "All %d attempt(s) to call Gemini failed due to a "
+                        "transient error: %s",
                         max_attempts,
+                        exc,
                     )
             except Exception as exc:
                 logger.exception("Failed to generate response from Gemini.")
                 raise RuntimeError(f"Failed to generate response: {exc}") from exc
         else:
-            raise RuntimeError(
-                f"Failed to generate response after {max_attempts} attempts due to "
-                f"a transient network error: {last_error}"
+            raise GeminiUnavailableError(
+                f"Gemini was still unavailable after {max_attempts} attempts "
+                f"due to a transient error: {last_error}"
             ) from last_error
 
         response_text = self._extract_response_text(response)

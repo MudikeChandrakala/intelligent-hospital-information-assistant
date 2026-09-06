@@ -34,7 +34,7 @@ from modules.document_loader import DocumentLoader
 from modules.text_chunker import TextChunker
 from modules.retriever import Retriever
 from modules.prompt_builder import PromptBuilder
-from modules.gemini_client import GeminiClient
+from modules.gemini_client import GeminiClient, GeminiUnavailableError
 
 # ---------------------------------------------------------------------
 # Logger
@@ -487,6 +487,18 @@ class RAGPipeline:
 
         try:
             response: str = self._gemini_client.generate_response(prompt)
+        except GeminiUnavailableError as exc:
+            logger.warning(
+                "Gemini generation failed because the service is "
+                "temporarily unavailable (%s). Using a deterministic "
+                "answer built from the already-retrieved hospital "
+                "documents instead of failing the request. Gemini will "
+                "not be called again for this request.",
+                exc,
+            )
+            response = self._build_retrieval_fallback_response(
+                documents, cleaned_question
+            )
         except Exception as exc:
             logger.exception("Failed to generate response.")
             raise RuntimeError(f"Failed to generate response: {exc}") from exc
@@ -558,3 +570,97 @@ class RAGPipeline:
             source_documents.append(lightweight_metadata)
 
         return source_documents
+
+    def _build_retrieval_fallback_response(
+        self, documents: List[Any], question: str
+    ) -> str:
+        """
+        Build a deterministic answer directly from already-retrieved
+        documents, used ONLY when Gemini itself is temporarily
+        unavailable after `GeminiClient.generate_response()`'s bounded
+        retries are exhausted (`GeminiUnavailableError`). Gemini is not
+        called again to produce this answer.
+
+        Reads only the existing metadata fields
+        `_enrich_with_department_doctors` already relies on -
+        `department_name`, `recommended_department`, `record_type`, and
+        the `page_content` of any retrieved doctor record - so no
+        department, doctor, or symptom is invented or hardcoded here.
+        If the retrieved documents contain none of this information,
+        a safe, generic message is returned instead.
+
+        Args:
+            documents: The (already retrieved and enriched) `Document`
+                objects for this question.
+            question: The user's cleaned question. Unused for now -
+                accepted for a stable signature and to keep this
+                clearly scoped to what was actually retrieved, not to
+                re-interpret the question itself.
+
+        Returns:
+            A concise, deterministic answer built only from
+            `documents`, or a safe "limited information" message if
+            nothing usable was retrieved.
+        """
+
+        department_names: List[str] = []
+        doctor_descriptions: List[str] = []
+
+        for document in documents:
+            metadata = getattr(document, "metadata", None) or {}
+
+            for field_name in ("department_name", "recommended_department"):
+                department_name = metadata.get(field_name)
+                if department_name and str(department_name) not in department_names:
+                    department_names.append(str(department_name))
+
+            if metadata.get("record_type") == "doctor":
+                content = (getattr(document, "page_content", "") or "").strip()
+                if content and content not in doctor_descriptions:
+                    doctor_descriptions.append(content)
+
+        if not department_names and not doctor_descriptions:
+            logger.info(
+                "Deterministic retrieval fallback: no department or doctor "
+                "information was identifiable in the retrieved documents."
+            )
+            return (
+                "The hospital information retrieved for this question is "
+                "limited. Please contact the hospital information desk "
+                "for assistance."
+            )
+
+        response_sections: List[str] = []
+
+        if department_names:
+            if len(department_names) == 1:
+                response_sections.append(
+                    f"Based on the hospital information available, "
+                    f"{department_names[0]} is the recommended department "
+                    f"for this concern. Please consult a doctor in that "
+                    f"department for an appropriate evaluation."
+                )
+            else:
+                joined_departments = ", ".join(department_names)
+                response_sections.append(
+                    f"Based on the hospital information available, the "
+                    f"following departments may be relevant to this "
+                    f"concern: {joined_departments}. Please consult a "
+                    f"doctor in the most appropriate department for an "
+                    f"evaluation."
+                )
+
+        if doctor_descriptions:
+            response_sections.append(
+                "The following doctor information from the hospital "
+                "knowledge base may help:\n"
+                + "\n".join(f"- {description}" for description in doctor_descriptions)
+            )
+
+        response_sections.append(
+            "This information is based on the hospital knowledge base "
+            "only. If your concern is severe or urgent, please seek "
+            "emergency care immediately."
+        )
+
+        return "\n\n".join(response_sections)
