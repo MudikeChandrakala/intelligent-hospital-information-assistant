@@ -277,7 +277,11 @@ class GeminiClient:
                     contents=cleaned_prompt,
                 )
                 break
-            except (httpx.RemoteProtocolError, genai_errors.ServerError) as exc:
+            except (
+                httpx.RemoteProtocolError,
+                httpx.ConnectError,
+                genai_errors.ServerError,
+            ) as exc:
                 last_error = exc
                 if attempt < max_attempts:
                     logger.warning(

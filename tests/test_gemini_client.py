@@ -165,6 +165,40 @@ def test_remote_protocol_error_exhaustion_now_raises_gemini_unavailable_error():
         client.generate_response("A question.")
 
 
+def test_retries_on_connect_error_then_succeeds():
+    client = _make_client_without_init()
+    calls = {"count": 0}
+
+    def _generate_content(model, contents):
+        calls["count"] += 1
+        if calls["count"] < 3:
+            raise httpx.ConnectError("DNS resolution failed")
+        return _FakeGeminiResponse("Recovered after connection failure.")
+
+    client._client.models.generate_content = _generate_content
+
+    result = client.generate_response("A question.")
+
+    assert result == "Recovered after connection failure."
+    assert calls["count"] == 3
+
+
+def test_connect_error_exhaustion_raises_gemini_unavailable_error():
+    client = _make_client_without_init()
+    calls = {"count": 0}
+
+    def _generate_content(model, contents):
+        calls["count"] += 1
+        raise httpx.ConnectError("DNS resolution failed")
+
+    client._client.models.generate_content = _generate_content
+
+    with pytest.raises(GeminiUnavailableError):
+        client.generate_response("A question.")
+
+    assert calls["count"] == 3
+
+
 # =============================================================================
 # Permanent errors are NOT retried and NOT treated as "unavailable"
 # =============================================================================
